@@ -4,7 +4,6 @@ import Introduction from "@/components/home/Introduction";
 import ExpertiseSection from "@/components/home/ExpertiseSection";
 import ConnectionSection from "@/components/home/ConnectionSection";
 import ProjectsSection from "@/components/home/ProjectsSection";
-import ImpactStrip from "@/components/home/ImpactStrip";
 import ReferralSection from "@/components/home/ReferralSection";
 import InsightsSection from "@/components/home/InsightsSection";
 import FinalCta from "@/components/home/FinalCta";
@@ -23,7 +22,6 @@ export default function Home() {
       <ExpertiseSection />
       <ConnectionSection />
       <ProjectsSection />
-      <ImpactStrip />
       <ReferralSection />
       <InsightsSection />
       <FinalCta />

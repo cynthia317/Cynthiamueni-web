@@ -1,255 +1,324 @@
-import { ArrowDown, BadgeCheck } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Check, HardHat, Megaphone, Workflow, type LucideIcon } from "lucide-react";
 import Container from "@/components/layout/Container";
-import SectionHeading from "@/components/layout/SectionHeading";
 import Reveal from "@/components/layout/Reveal";
-import ArrowLink from "@/components/ui/ArrowLink";
-import { EXPERTISE_AREAS } from "@/lib/data/expertise";
-import type { ExpertiseArea, PillarId } from "@/types";
 
-const ROLE_LABEL: Record<PillarId, string> = {
-  osh: "Identifies risks, needs & improvement opportunities",
-  software: "Builds systems, tools & digital solutions",
-  digital: "Translates expertise into clear communication",
-};
-
-function Chip({ children }: { children: string }) {
-  return (
-    <li className="rounded-full border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600 dark:border-slate-700 dark:text-slate-400">
-      {children}
-    </li>
-  );
+interface SupportingCard {
+  id: "systems" | "communication";
+  title: string;
+  description: string;
+  focusAreas: string[];
+  icon: LucideIcon;
+  image: string;
+  imageAlt: string;
+  objectPosition: string;
+  number: string;
+  accent: "sky" | "amber";
 }
 
-function PillarCard({
-  area,
-  primary,
-  roleColor,
-  iconBoxColor,
-  iconSize,
-  titleSize,
-  badgeColor,
-  cardAccent,
-  proofAccent,
-  peerRowClasses,
-  delay,
+const SUPPORTING_CARDS: SupportingCard[] = [
+  {
+    id: "systems",
+    title: "EHS Systems & Digital Tools",
+    description:
+      "Using practical digital tools to improve safety reporting, inspections, records and corrective-action follow-up.",
+    focusAreas: [
+      "Digital Safety Reporting",
+      "Inspection Workflows",
+      "Corrective-Action Tracking",
+      "Structured EHS Records",
+    ],
+    icon: Workflow,
+    image: "/images/home/expertise-ehs-systems-dashboard.png",
+    imageAlt:
+      "Rugged tablet mounted on industrial equipment displaying an EHS monitoring dashboard with safety checklist and status indicators",
+    objectPosition: "object-center",
+    number: "02",
+    accent: "sky",
+  },
+  {
+    id: "communication",
+    title: "Digital Communication",
+    description:
+      "Turning safety and professional information into clear content that organisations and audiences can understand and act on.",
+    focusAreas: ["Safety Content Strategy", "Social Media & GBP", "Website Content", "Performance Reporting"],
+    icon: Megaphone,
+    image: "/images/home/expertise-digital-communication-workspace.webp",
+    imageAlt:
+      "Laptop and tablet displaying safety content and performance analytics dashboards on a desk beside a hard hat and notebook",
+    objectPosition: "object-[60%_35%]",
+    number: "03",
+    accent: "amber",
+  },
+];
+
+function FocusList({
+  items,
+  layout,
+  checkClasses,
+  textHoverClasses,
+  rowHoverClasses,
 }: {
-  area: ExpertiseArea;
-  primary?: boolean;
-  roleColor: string;
-  iconBoxColor: string;
-  iconSize: string;
-  titleSize: string;
-  badgeColor: string;
-  cardAccent: string;
-  proofAccent?: string;
-  peerRowClasses: string;
-  delay: number;
-}) {
-  const Icon = area.icon;
-
-  return (
-    <Reveal
-      delay={delay}
-      className={`flex flex-col gap-5 rounded-3xl border p-6 transition-colors duration-300 sm:flex-row sm:gap-6 sm:p-8 ${cardAccent} ${peerRowClasses}`}
-    >
-      <div className={`flex shrink-0 items-center justify-center rounded-2xl ${iconBoxColor} ${iconSize}`}>
-        <Icon className={primary ? "h-7 w-7" : "h-6 w-6"} aria-hidden />
-      </div>
-
-      <div className="flex flex-1 flex-col gap-3">
-        <span className={`text-xs font-semibold uppercase tracking-[0.15em] ${roleColor}`}>
-          {ROLE_LABEL[area.id]}
-        </span>
-
-        <div className="flex flex-wrap items-center gap-3">
-          <h3 className={`font-semibold text-slate-900 dark:text-slate-50 ${titleSize}`}>{area.title}</h3>
-          {area.badge ? (
-            <span
-              className={`rounded-full px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-white ${badgeColor}`}
-            >
-              {area.badge}
-            </span>
-          ) : null}
-        </div>
-
-        <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
-          {area.summary}
-        </p>
-
-        <ul className="flex flex-wrap gap-2">
-          {area.capabilities.map((capability) => (
-            <Chip key={capability}>{capability}</Chip>
-          ))}
-        </ul>
-
-        {area.proof ? (
-          <div className={`flex items-start gap-2.5 rounded-xl border px-3.5 py-3 ${proofAccent}`}>
-            <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-            <div className="flex flex-col gap-1.5">
-              <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
-                <span className="font-semibold">{area.proof.label}: </span>
-                {area.proof.text}
-              </p>
-              {area.proof.flow ? (
-                <p className="text-[0.7rem] leading-relaxed text-slate-400 dark:text-slate-500">
-                  {area.proof.flow.join(" → ")}
-                </p>
-              ) : null}
-            </div>
-          </div>
-        ) : null}
-
-        {area.footnote ? (
-          <div className="mt-1 border-t border-slate-100 pt-3 dark:border-slate-800">
-            <ArrowLink
-              href={area.footnote.href}
-              external={area.footnote.external}
-              className="text-xs text-slate-500 dark:text-slate-500"
-            >
-              {area.footnote.text}
-            </ArrowLink>
-          </div>
-        ) : null}
-      </div>
-    </Reveal>
-  );
-}
-
-function FlowConnector({
-  rowClasses,
-  label,
-  delay,
-}: {
-  rowClasses: string;
-  label: string;
-  delay: number;
+  items: string[];
+  layout: "grid" | "list";
+  checkClasses: string;
+  textHoverClasses: string;
+  rowHoverClasses: string;
 }) {
   return (
-    <Reveal
-      ariaHidden
-      delay={delay}
-      className={`flex flex-col items-center gap-1.5 text-slate-300 transition-colors duration-500 dark:text-slate-700 ${rowClasses}`}
-    >
-      <span className="h-6 w-px bg-current sm:h-8" />
-      <ArrowDown className="h-4 w-4" />
-      <span className="text-center text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-600">
-        {label}
-      </span>
-    </Reveal>
+    <ul className={layout === "grid" ? "grid grid-cols-1 gap-x-4 gap-y-1 sm:grid-cols-2" : "flex flex-col gap-1"}>
+      {items.map((item) => (
+        <li key={item}>
+          <span
+            className={`group/item -mx-1.5 flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-xs text-slate-600 transition-colors duration-300 dark:text-slate-400 ${rowHoverClasses}`}
+          >
+            <Check
+              className={`h-3 w-3 shrink-0 transition-transform duration-300 [@media(hover:hover)]:group-hover/item:translate-x-0.5 motion-reduce:[@media(hover:hover)]:group-hover/item:translate-x-0 ${checkClasses}`}
+              aria-hidden
+            />
+            <span className={`transition-colors duration-300 ${textHoverClasses}`}>{item}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
 export default function ExpertiseSection() {
-  const osh = EXPERTISE_AREAS.find((area) => area.id === "osh")!;
-  const software = EXPERTISE_AREAS.find((area) => area.id === "software")!;
-  const digital = EXPERTISE_AREAS.find((area) => area.id === "digital")!;
-
   return (
     <section
       id="expertise"
       aria-labelledby="expertise-heading"
-      className="border-t border-slate-200 py-20 sm:py-24 dark:border-slate-800"
+      className="relative overflow-hidden border-t border-slate-200 bg-slate-50/60 pt-16 pb-12 sm:pt-20 sm:pb-14 lg:pt-20 lg:pb-14 dark:border-slate-800 dark:bg-slate-900"
     >
-      <Container className="flex flex-col items-center gap-12">
-        <Reveal>
-          <SectionHeading
-            align="center"
-            eyebrow="Core Expertise"
-            title="Where Safety, Technology & Communication Connect"
-            description="My work connects workplace safety, technology, and digital communication — identifying real problems, building practical systems, and helping organisations communicate and improve effectively."
-            id="expertise-heading"
-          />
-        </Reveal>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.4] [background-image:linear-gradient(to_right,var(--color-slate-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-slate-200)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_70%_60%_at_100%_0%,black_30%,transparent_100%)] dark:opacity-[0.12] dark:[background-image:linear-gradient(to_right,var(--color-slate-700)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-slate-700)_1px,transparent_1px)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-amber-400/20 blur-3xl dark:bg-amber-500/10"
+      />
 
-        <div className="grid w-full max-w-3xl grid-cols-1">
-          {/*
-            Cards are placed before connectors in DOM order (independent of their
-            visual row-start position) so every connector — which trails both of
-            its endpoint cards in the DOM — can react to peer-hover from either one.
-            peer-hover only matches *later* siblings, so this ordering is required.
-          */}
-          <PillarCard
-            area={osh}
-            primary
-            roleColor="text-amber-700 dark:text-amber-400"
-            iconBoxColor="bg-amber-600 text-white dark:bg-amber-500"
-            iconSize="h-14 w-14"
-            titleSize="text-2xl sm:text-3xl"
-            badgeColor="bg-amber-600 dark:bg-amber-500"
-            cardAccent="border-2 border-amber-300/80 bg-gradient-to-br from-amber-50 to-white hover:border-amber-400 dark:border-amber-500/40 dark:from-amber-500/10 dark:to-slate-900 dark:hover:border-amber-400/70"
-            peerRowClasses="peer/osh row-start-1"
-            delay={60}
-          />
-
-          <PillarCard
-            area={software}
-            roleColor="text-sky-700 dark:text-sky-400"
-            iconBoxColor="bg-sky-600 text-white dark:bg-sky-500"
-            iconSize="h-12 w-12"
-            titleSize="text-xl sm:text-2xl"
-            badgeColor="bg-sky-600 dark:bg-sky-500"
-            cardAccent="border border-slate-200 bg-white hover:border-sky-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-sky-500/50"
-            peerRowClasses="peer/software row-start-3"
-            delay={180}
-          />
-
-          <PillarCard
-            area={digital}
-            roleColor="text-violet-700 dark:text-violet-400"
-            iconBoxColor="bg-violet-600 text-white dark:bg-violet-500"
-            iconSize="h-12 w-12"
-            titleSize="text-xl sm:text-2xl"
-            badgeColor="bg-violet-600 dark:bg-violet-500"
-            cardAccent="border border-slate-200 bg-white hover:border-violet-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-violet-500/50"
-            proofAccent="border-violet-200 bg-violet-50/70 text-violet-700 dark:border-violet-500/25 dark:bg-violet-500/10 dark:text-violet-400"
-            peerRowClasses="peer/digital row-start-5"
-            delay={280}
-          />
-
-          <FlowConnector
-            rowClasses="row-start-2 peer-hover/osh:text-amber-500 peer-hover/software:text-amber-500"
-            label="Identify → Systemise"
-            delay={130}
-          />
-
-          <FlowConnector
-            rowClasses="row-start-4 peer-hover/software:text-sky-500 peer-hover/digital:text-sky-500"
-            label="Build → Communicate"
-            delay={230}
-          />
-
-          <FlowConnector
-            rowClasses="row-start-6 peer-hover/digital:text-violet-500"
-            label="Measure → Improve"
-            delay={320}
-          />
-
-          <Reveal
-            delay={360}
-            className="row-start-7 mt-2 flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center transition-colors duration-500 dark:border-slate-800 dark:bg-slate-900/40 sm:flex-row sm:justify-center sm:gap-3 peer-hover/osh:border-amber-300 peer-hover/software:border-sky-300 peer-hover/digital:border-violet-300 dark:peer-hover/osh:border-amber-500/50 dark:peer-hover/software:border-sky-500/50 dark:peer-hover/digital:border-violet-500/50"
-          >
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-              Together
+      <Container className="relative flex flex-col gap-9">
+        <div className="flex flex-col gap-4">
+          <Reveal className="flex items-center gap-3">
+            <span className="text-sm font-bold text-amber-600 dark:text-amber-400">02</span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.13em] text-amber-700 dark:text-amber-400">
+              Core Expertise
             </span>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-400">
-                Safer Workplaces
-              </span>
-              <span className="text-slate-300 dark:text-slate-700" aria-hidden="true">
-                •
-              </span>
-              <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-800 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-400">
-                Smarter Systems
-              </span>
-              <span className="text-slate-300 dark:text-slate-700" aria-hidden="true">
-                •
-              </span>
-              <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-800 dark:border-violet-500/30 dark:bg-violet-500/10 dark:text-violet-400">
-                Stronger Communication
-              </span>
+          </Reveal>
+
+          <Reveal delay={40} ariaHidden className="h-px w-full bg-slate-200 dark:bg-slate-800" />
+
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-8">
+            <Reveal delay={80} className="lg:col-span-7">
+              <h2
+                id="expertise-heading"
+                className="text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-50"
+              >
+                EHS Expertise Supported by Practical Digital Capability
+              </h2>
+            </Reveal>
+            <Reveal delay={120} className="lg:col-span-5 lg:self-end">
+              <p className="text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-400">
+                My work is grounded in occupational safety and health, supported by digital
+                systems that improve reporting and follow-up, and communication that helps
+                important information reach the right people.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-12 lg:items-start lg:gap-6">
+          {/* Primary: Occupational Safety & Health */}
+          <Reveal
+            delay={160}
+            className="sm:col-span-2 lg:col-span-7 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:self-start"
+          >
+            <div className="group relative flex flex-col overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-sm transition-[transform,border-color,box-shadow] duration-[600ms] ease-out motion-reduce:[@media(hover:hover)]:hover:translate-y-0 [@media(hover:hover)]:hover:-translate-y-1 [@media(hover:hover)]:hover:border-amber-300 [@media(hover:hover)]:hover:shadow-lg dark:border-slate-700 dark:bg-slate-800 dark:[@media(hover:hover)]:hover:border-amber-500/50">
+              <div className="relative aspect-[5/2] w-full shrink-0 overflow-hidden">
+                <Reveal variant="image" duration={700} className="absolute inset-0 z-0">
+                  <Image
+                    src="/images/home/expertise-osh-safety-inspection.webp"
+                    alt="Safety inspector in a hard hat and hi-vis coveralls reviewing a tablet while walking an industrial facility floor"
+                    fill
+                    sizes="(min-width: 1024px) 640px, 100vw"
+                    className="object-cover object-center transition-transform duration-[600ms] ease-out motion-reduce:[@media(hover:hover)]:group-hover:scale-100 [@media(hover:hover)]:group-hover:scale-[1.04]"
+                  />
+                </Reveal>
+                <div
+                  aria-hidden
+                  className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent transition-[background] duration-[600ms] [@media(hover:hover)]:group-hover:via-slate-950/25"
+                />
+
+                <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col gap-1.5 p-4 sm:p-5">
+                  <div className="flex items-center gap-2 transition-transform duration-[600ms] motion-reduce:[@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:-translate-y-[3px]">
+                    <HardHat className="h-4 w-4 text-amber-400" aria-hidden />
+                    <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-amber-400">
+                      Primary Expertise
+                    </span>
+                  </div>
+                  <span
+                    aria-hidden
+                    className="h-[2px] w-8 rounded-full bg-amber-400 transition-[width] duration-[600ms] motion-reduce:[@media(hover:hover)]:group-hover:w-8 [@media(hover:hover)]:group-hover:w-12"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2.5 p-6 sm:p-7">
+                <span className="text-xs font-semibold tracking-wide text-slate-300 dark:text-slate-600">01</span>
+                <h3 className="text-xl font-semibold text-slate-900 sm:text-2xl dark:text-slate-50">
+                  Occupational Safety &amp; Health
+                </h3>
+                <p className="max-w-xl text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  Identifying workplace hazards, assessing risk and helping organisations
+                  establish practical safety measures that respond to real working conditions.
+                </p>
+
+                <FocusList
+                  layout="grid"
+                  items={[
+                    "Risk Assessment",
+                    "OSH & Fire Safety Audits",
+                    "Hazard Identification",
+                    "Safety Documentation",
+                  ]}
+                  checkClasses="text-amber-600 [@media(hover:hover)]:group-hover:text-amber-500 dark:text-amber-400 dark:[@media(hover:hover)]:group-hover:text-amber-300"
+                  textHoverClasses="[@media(hover:hover)]:group-hover/item:text-amber-700 dark:[@media(hover:hover)]:group-hover/item:text-amber-300"
+                  rowHoverClasses="[@media(hover:hover)]:hover:bg-amber-50 dark:[@media(hover:hover)]:hover:bg-amber-500/10"
+                />
+
+                <p className="mt-6 flex flex-wrap items-center gap-1 text-xs font-medium text-slate-400 dark:text-slate-500">
+                  Risk awareness
+                  <span
+                    aria-hidden
+                    className="inline-block transition-transform duration-[600ms] motion-reduce:[@media(hover:hover)]:group-hover:translate-x-0 [@media(hover:hover)]:group-hover:translate-x-0.5"
+                  >
+                    →
+                  </span>
+                  Practical controls
+                  <span
+                    aria-hidden
+                    className="inline-block transition-transform duration-[600ms] motion-reduce:[@media(hover:hover)]:group-hover:translate-x-0 [@media(hover:hover)]:group-hover:translate-x-0.5"
+                  >
+                    →
+                  </span>
+                  Safer work
+                </p>
+              </div>
             </div>
           </Reveal>
+
+          {SUPPORTING_CARDS.map((card, index) => {
+            const CardIcon = card.icon;
+            const isSky = card.accent === "sky";
+
+            return (
+              <Reveal
+                key={card.id}
+                delay={220 + index * 60}
+                className={`lg:col-span-5 lg:col-start-8 ${index === 0 ? "lg:row-start-1" : "lg:row-start-2"}`}
+              >
+                <div
+                  className={`group relative flex h-full overflow-hidden rounded-[22px] border bg-white shadow-sm transition-[transform,border-color,box-shadow] duration-500 ease-out motion-reduce:[@media(hover:hover)]:hover:translate-y-0 [@media(hover:hover)]:hover:-translate-y-1 [@media(hover:hover)]:hover:shadow-lg dark:bg-slate-800 ${
+                    isSky
+                      ? "border-slate-200 [@media(hover:hover)]:hover:border-sky-300 dark:border-slate-700 dark:[@media(hover:hover)]:hover:border-sky-400/50"
+                      : "border-slate-200 [@media(hover:hover)]:hover:border-amber-300 dark:border-slate-700 dark:[@media(hover:hover)]:hover:border-amber-400/50"
+                  }`}
+                >
+                  <div className="flex w-[64%] flex-col justify-center gap-1.5 p-4 sm:w-[62%]">
+                    <span className="text-[0.65rem] font-semibold tracking-wide text-slate-300 dark:text-slate-600">
+                      {card.number}
+                    </span>
+
+                    <div className="flex items-center gap-1.5">
+                      <CardIcon
+                        className={`h-4 w-4 shrink-0 transition-transform duration-500 motion-reduce:[@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:-translate-y-[3px] ${
+                          isSky ? "text-sky-600 dark:text-sky-400" : "text-amber-600 dark:text-amber-400"
+                        }`}
+                        aria-hidden
+                      />
+                      <span
+                        className={`text-[0.6rem] font-semibold uppercase tracking-[0.12em] ${
+                          isSky ? "text-sky-700 dark:text-sky-400" : "text-amber-700 dark:text-amber-400"
+                        }`}
+                      >
+                        Supporting Capability
+                      </span>
+                    </div>
+
+                    <h3 className="text-base font-semibold text-slate-900 sm:text-lg dark:text-slate-50">
+                      {card.title}
+                    </h3>
+
+                    <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">{card.description}</p>
+
+                    <div
+                      className={`-mx-1.5 rounded-lg px-1.5 py-1 transition-colors duration-500 ${
+                        isSky
+                          ? "[@media(hover:hover)]:group-hover:bg-sky-50 dark:[@media(hover:hover)]:group-hover:bg-sky-500/10"
+                          : "[@media(hover:hover)]:group-hover:bg-amber-50 dark:[@media(hover:hover)]:group-hover:bg-amber-500/10"
+                      }`}
+                    >
+                      <FocusList
+                        layout="list"
+                        items={card.focusAreas}
+                        checkClasses={isSky ? "text-sky-600 dark:text-sky-400" : "text-amber-600 dark:text-amber-400"}
+                        textHoverClasses={
+                          isSky
+                            ? "[@media(hover:hover)]:group-hover/item:text-sky-700 dark:[@media(hover:hover)]:group-hover/item:text-sky-300"
+                            : "[@media(hover:hover)]:group-hover/item:text-amber-700 dark:[@media(hover:hover)]:group-hover/item:text-amber-300"
+                        }
+                        rowHoverClasses={
+                          isSky
+                            ? "[@media(hover:hover)]:hover:bg-sky-100/70 dark:[@media(hover:hover)]:hover:bg-sky-500/15"
+                            : "[@media(hover:hover)]:hover:bg-amber-100/70 dark:[@media(hover:hover)]:hover:bg-amber-500/15"
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div className="relative w-[36%] shrink-0 overflow-hidden sm:w-[38%]">
+                    <Reveal variant="image" duration={700} delay={60} className="absolute inset-0 z-0">
+                      <Image
+                        src={card.image}
+                        alt={card.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 12rem, (min-width: 640px) 10rem, 40vw"
+                        className={`object-cover transition-transform duration-500 ease-out motion-reduce:[@media(hover:hover)]:group-hover:scale-100 [@media(hover:hover)]:group-hover:scale-[1.04] ${card.objectPosition}`}
+                      />
+                    </Reveal>
+                    <div
+                      aria-hidden
+                      className={`absolute inset-0 z-10 transition-opacity duration-500 [@media(hover:hover)]:group-hover:opacity-0 ${
+                        isSky ? "bg-sky-500/10" : "bg-amber-500/10"
+                      }`}
+                    />
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
+
+        <Reveal delay={340} className="flex justify-start lg:justify-end">
+          <Link
+            href="/expertise"
+            className="group/link relative inline-flex w-fit items-center gap-1.5 border-b border-slate-300 pb-1 text-sm font-semibold text-slate-900 transition-colors duration-300 hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 dark:border-slate-600 dark:text-slate-100 dark:hover:text-amber-400"
+          >
+            Explore My Expertise
+            <ArrowRight
+              aria-hidden
+              className="h-4 w-4 shrink-0 text-amber-600 transition-transform duration-300 group-hover/link:translate-x-1 dark:text-amber-400"
+            />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-amber-600 transition-transform duration-[350ms] ease-out group-hover/link:scale-x-100 motion-reduce:transition-none dark:bg-amber-400"
+            />
+          </Link>
+        </Reveal>
       </Container>
     </section>
   );

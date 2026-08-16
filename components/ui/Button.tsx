@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type ButtonVariant = "primary" | "secondary";
+type ButtonVariant = "primary" | "secondary" | "accent" | "navyOutline";
 type ButtonSize = "md" | "sm";
 
 interface ButtonProps {
@@ -20,6 +20,10 @@ const VARIANT_STYLES: Record<ButtonVariant, string> = {
     "bg-slate-900 text-white hover:bg-slate-700 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200",
   secondary:
     "border border-slate-300 text-slate-800 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900",
+  accent:
+    "bg-amber-600 text-white hover:bg-amber-700 dark:bg-amber-500 dark:text-slate-950 dark:hover:bg-amber-400",
+  navyOutline:
+    "border border-slate-300 text-slate-800 hover:border-slate-900 hover:bg-slate-900 hover:text-white dark:border-slate-700 dark:text-slate-200 dark:hover:border-slate-100 dark:hover:bg-slate-100 dark:hover:text-slate-900",
 };
 
 const SIZE_STYLES: Record<ButtonSize, string> = {
@@ -28,10 +32,10 @@ const SIZE_STYLES: Record<ButtonSize, string> = {
 };
 
 const BASE =
-  "group inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600";
+  "group inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-[transform,background-color,border-color,box-shadow,color] duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600";
 
 const ICON_WRAP =
-  "inline-flex transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0";
+  "inline-flex transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0";
 
 export default function Button({
   href,

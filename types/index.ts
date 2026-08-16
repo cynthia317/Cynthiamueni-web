@@ -65,13 +65,6 @@ export interface Project {
   featured?: boolean;
 }
 
-export interface ImpactItem {
-  id: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}
-
 export interface Insight {
   id: string;
   title: string;
