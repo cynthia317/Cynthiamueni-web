@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/*
+ * next-themes toggles a "dark" class on <html> (for light/dark/system, with
+ * system resolved to the OS preference in JS). Redefine Tailwind's `dark:`
+ * variant to key off that class instead of the `prefers-color-scheme` media
+ * query, so every existing `dark:` utility across the site responds to the
+ * user's explicit selection rather than only the OS setting.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes text-sweep {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
