@@ -49,6 +49,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body suppressHydrationWarning className="flex min-h-full flex-col font-sans">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {/* Non-sticky anchor target for "Back to top" links — the sticky
+              Header can't be the target itself, since its bounding rect is
+              pinned at the viewport top once scrolled, which makes browsers
+              treat it as already in view and skip the scroll. */}
+          <div id="top" aria-hidden className="sr-only" />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

@@ -21,10 +21,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      id="top"
-      className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/85"
-    >
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/85">
       <Container>
         <div className="flex h-16 items-center justify-between sm:h-20">
           <Link

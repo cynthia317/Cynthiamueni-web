@@ -11,12 +11,20 @@ interface RevealProps {
   distance?: 16 | 24;
   duration?: 700 | 850 | 1400;
   variant?: RevealVariant;
+  /** Hidden-state opacity for the "fade" variant only. Defaults to 0 (existing behaviour). */
+  startOpacity?: 0 | 0.2 | 0.3;
   ariaHidden?: boolean;
 }
 
 const DISTANCE_CLASSES: Record<16 | 24, string> = {
   16: "translate-y-4",
   24: "translate-y-6",
+};
+
+const START_OPACITY_CLASSES: Record<0 | 0.2 | 0.3, string> = {
+  0: "opacity-0",
+  0.2: "opacity-[0.2]",
+  0.3: "opacity-[0.3]",
 };
 
 const DURATION_CLASSES: Record<700 | 850 | 1400, string> = {
@@ -56,6 +64,7 @@ export default function Reveal({
   distance = 24,
   duration = 850,
   variant = "fade",
+  startOpacity = 0,
   ariaHidden,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -72,7 +81,9 @@ export default function Reveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      // Expand the trigger zone below the viewport so the reveal finishes
+      // by the time a fast scroll actually brings the element into view.
+      { threshold: 0.15, rootMargin: "0px 0px 200px 0px" }
     );
 
     observer.observe(node);
@@ -84,7 +95,7 @@ export default function Reveal({
   const stateClasses = isVisible
     ? VISIBLE_CLASSES[variant]
     : variant === "fade"
-      ? `${DISTANCE_CLASSES[distance]} opacity-0`
+      ? `${DISTANCE_CLASSES[distance]} ${START_OPACITY_CLASSES[startOpacity]}`
       : HIDDEN_CLASSES[variant];
 
   return (

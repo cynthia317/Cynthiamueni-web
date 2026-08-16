@@ -8,6 +8,8 @@ export const CONTACT_EMAIL = "hello@cynthiamueni.com";
 
 export const HARUNLUCAS_DEV_URL = "https://harunlucasdev.site/";
 
+export const LINKEDIN_URL = "https://www.linkedin.com/in/cynthia-mueni-6b621b359/";
+
 // TODO: replace with real profile URLs, or remove any that don't apply.
 export const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/" },
