@@ -21,7 +21,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "software",
-    title: "EHS Digital Systems Development",
+    title: "EHS Systems & Digital Solutions",
     icon: Code2,
     summary:
       "Web applications and internal tools built specifically to replace manual, error-prone EHS processes, hazard reporting, inspections, audits and corrective-action tracking, with reliable digital systems.",

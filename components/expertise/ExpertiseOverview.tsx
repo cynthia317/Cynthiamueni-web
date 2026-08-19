@@ -6,8 +6,8 @@ import Reveal from "@/components/layout/Reveal";
 const SATELLITES = [
   {
     id: "software",
-    title: "Software Development & Digital Systems",
-    summary: "Turning organisational needs into practical, reliable digital tools.",
+    title: "EHS Systems & Digital Solutions",
+    summary: "Turning EHS needs into practical, reliable digital tools.",
     icon: Code2,
     border: "border-slate-200 hover:border-sky-300 dark:border-slate-800 dark:hover:border-sky-500/50",
     iconBg: "bg-sky-600 text-white dark:bg-sky-500",

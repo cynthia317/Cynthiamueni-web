@@ -53,10 +53,10 @@ export const WORK_AREAS: WorkArea[] = [
   },
   {
     id: "software",
-    title: "Software Development & Digital Systems",
+    title: "EHS Systems & Digital Solutions",
     icon: Code2,
     accent: "sky",
-    items: ["Web Applications", "Business Systems", "Automation", "Digital Workflows", "Technology Solutions"],
+    items: ["EHS Reporting Systems", "Inspection & Audit Tools", "Hazard Tracking Workflows", "Safety Dashboards"],
   },
   {
     id: "communication",

@@ -5,14 +5,12 @@ import Reveal from "@/components/layout/Reveal";
 import { HARUNLUCAS_DEV_URL } from "@/lib/constants";
 
 const CAPABILITIES = [
-  "Web applications",
-  "Business systems",
-  "Frontend development",
-  "Digital workflows",
-  "Automation",
-  "Dashboards",
-  "Data-driven interfaces",
-  "Technology-enabled problem solving",
+  "EHS reporting systems",
+  "Inspection & audit tools",
+  "Hazard tracking workflows",
+  "Corrective-action systems",
+  "Safety dashboards",
+  "Digital record-keeping",
 ];
 
 const TECHNOLOGIES = ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Git", "GitHub", "VS Code"];
@@ -28,8 +26,8 @@ export default function SoftwareSection() {
         <Reveal>
           <SectionHeading
             eyebrow="Complementary Capability"
-            title="Software Development & Digital Systems"
-            description="The ability to transform organisational needs into practical digital tools, turning manual, fragmented processes into systems that are reliable and easy to use."
+            title="EHS Systems & Digital Solutions"
+            description="The ability to turn EHS needs, hazard reporting, inspections, audits and corrective actions, into practical digital systems that are reliable and easy to use."
             id="software-heading"
           />
         </Reveal>
@@ -74,7 +72,7 @@ export default function SoftwareSection() {
 
               <div className="mt-auto flex flex-col gap-2 rounded-xl border border-slate-100 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/60">
                 <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                  Looking for a dedicated software, website or business-system solution?{" "}
+                  Looking for a general website, web application or non-EHS software solution?{" "}
                   <a
                     href={HARUNLUCAS_DEV_URL}
                     target="_blank"
