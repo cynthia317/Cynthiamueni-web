@@ -1,91 +1,64 @@
-"use client";
-
-import { useMemo, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/layout/Container";
-import ProjectTile from "@/components/projects/ProjectTile";
+import Reveal from "@/components/layout/Reveal";
 import type { Project } from "@/types";
 
-type BucketId = "all" | "osh" | "software" | "communication";
-
-const FILTERS: { id: BucketId; label: string }[] = [
-  { id: "all", label: "All" },
-  { id: "osh", label: "Occupational Safety & Health" },
-  { id: "software", label: "Software & Digital Systems" },
-  { id: "communication", label: "Digital Communication" },
-];
-
-// Presentation-layer categorisation for filtering only — not part of the shared data model.
-const PROJECT_BUCKETS: Record<string, BucketId[]> = {
-  "workplace-risk-assessment": ["osh"],
-  "safety-audit-toolkit": ["osh"],
-  "internal-systems-dashboard": ["software"],
-  "safety-reporting-tool": ["software"],
-  "safetec-digital-presence": ["osh", "communication"],
-  "brand-content-strategy": ["communication"],
-  "osh-research-brief": ["osh"],
-};
-
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
-  const [activeFilter, setActiveFilter] = useState<BucketId>("all");
-
-  const filtered = useMemo(() => {
-    if (activeFilter === "all") return projects;
-    return projects.filter((project) => PROJECT_BUCKETS[project.id]?.includes(activeFilter));
-  }, [projects, activeFilter]);
-
-  // Keyed to the unfiltered list so a project's number stays fixed as filters change.
-  const projectNumbers = useMemo(() => {
-    const numbers = new Map<string, string>();
-    projects.forEach((project, index) => numbers.set(project.id, String(index + 2).padStart(2, "0")));
-    return numbers;
-  }, [projects]);
+  if (projects.length === 0) return null;
 
   return (
-    <section aria-labelledby="project-index-heading" className="py-16 sm:py-20">
-      <Container className="flex flex-col gap-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <h2 id="project-index-heading" className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            Project Index
-          </h2>
-          <div role="group" aria-label="Filter projects by discipline" className="flex flex-wrap gap-2">
-            {FILTERS.map((filter) => {
-              const isActive = filter.id === activeFilter;
-              return (
-                <button
-                  key={filter.id}
-                  type="button"
-                  aria-pressed={isActive}
-                  onClick={() => setActiveFilter(filter.id)}
-                  className={`rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 ${
-                    isActive
-                      ? "border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900"
-                      : "border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:text-white"
-                  }`}
-                >
-                  {filter.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+    <section aria-labelledby="supporting-work-heading" className="py-12 sm:py-16">
+      <Container className="flex flex-col gap-8">
+        <h2
+          id="supporting-work-heading"
+          className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          Also Explored
+        </h2>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-flow-row lg:grid-cols-6 lg:gap-6">
-          {filtered.map((project, index) => (
-            <ProjectTile
-              key={project.id}
-              project={project}
-              index={index}
-              number={projectNumbers.get(project.id) ?? ""}
-              delay={(index % 4) * 60}
-            />
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {projects.map((project, index) => (
+            <Reveal key={project.id} delay={index * 80} className="h-full">
+              <Link
+                href={project.href}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/60 motion-reduce:transition-colors motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700 dark:hover:shadow-none"
+              >
+                {project.image ? (
+                  <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt ?? project.title}
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    />
+                  </div>
+                ) : null}
+
+                <div className="flex flex-1 flex-col gap-2.5 p-5 sm:p-6">
+                  <span className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    {project.category}
+                  </span>
+                  <h3 className="text-lg font-semibold text-slate-900 transition-colors duration-300 group-hover:text-amber-700 dark:text-slate-50 dark:group-hover:text-amber-400">
+                    {project.title}
+                  </h3>
+                  <p className="line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    {project.description}
+                  </p>
+                  <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-1 text-sm font-semibold text-slate-900 dark:text-slate-100">
+                    View Project
+                    <ArrowUpRight
+                      className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
+                      aria-hidden
+                    />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
           ))}
         </div>
-
-        {filtered.length === 0 ? (
-          <p className="text-center text-sm text-slate-500 dark:text-slate-400">
-            No projects in this category yet.
-          </p>
-        ) : null}
       </Container>
     </section>
   );

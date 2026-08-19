@@ -38,16 +38,16 @@ export default function Introduction() {
                 id="about-heading"
                 className="text-balance text-[clamp(1.75rem,1.3rem+2vw,2.25rem)] font-semibold leading-[1.2] tracking-tight text-slate-900 dark:text-slate-50"
               >
-                Practical Safety Thinking, Strengthened by Digital Tools
+                Safety Practice That Starts With the Workplace
               </h2>
             </Reveal>
 
             <Reveal delay={100} startOpacity={0.2} className="flex flex-col gap-4 lg:pt-10">
               <p className="max-w-[600px] text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
                 My work begins with real workplace conditions—identifying hazards, understanding
-                operational gaps and helping organisations establish practical safety measures.
-                Where technology can improve reporting, organisation or communication, I use
-                digital tools to make those processes clearer and more reliable.
+                operational gaps, and helping organisations put practical safety measures in
+                place. Where digital tools can make that process clearer or more reliable, I use
+                them—but the starting point is always the workplace itself, not the software.
               </p>
 
               <Link
@@ -70,24 +70,14 @@ export default function Introduction() {
 
         {/* Tier 2 — Full-width working-principle banner */}
         <Reveal delay={220} startOpacity={0.2} className="mt-12 lg:mt-14">
-          <div className="group relative overflow-hidden rounded-[26px] border border-slate-700/70 bg-slate-900 shadow-lg transition-[transform,border-color,box-shadow] duration-500 ease-out motion-reduce:[@media(hover:hover)]:hover:translate-y-0 [@media(hover:hover)]:hover:-translate-y-[3px] [@media(hover:hover)]:hover:border-amber-500/40 [@media(hover:hover)]:hover:shadow-xl">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,var(--color-slate-600)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-slate-600)_1px,transparent_1px)] [background-size:40px_40px]"
-            />
+          <div className="group relative overflow-hidden rounded-[26px] border border-slate-700/70 bg-slate-900 shadow-lg transition-[border-color,box-shadow] duration-500 ease-out [@media(hover:hover)]:hover:border-amber-500/40 [@media(hover:hover)]:hover:shadow-xl">
             <div
               aria-hidden
               className="pointer-events-none absolute -left-10 -top-10 h-48 w-48 rounded-full bg-amber-500/10 blur-3xl transition-opacity duration-500 [@media(hover:hover)]:group-hover:opacity-80"
             />
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -top-6 left-[26%] select-none font-serif text-[7rem] leading-none text-slate-100/[0.05] transition-colors duration-500 [@media(hover:hover)]:group-hover:text-slate-100/[0.09] sm:text-[9rem]"
-            >
-              &rdquo;
-            </span>
 
             <div className="relative grid grid-cols-1 gap-8 px-7 py-10 sm:px-9 sm:py-12 lg:grid-cols-[1fr_2fr_1fr] lg:items-center lg:gap-10 lg:px-10 lg:py-16">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <Reveal
                   variant="line-x"
                   duration={700}
@@ -98,20 +88,20 @@ export default function Introduction() {
                 <span className="text-[11px] font-semibold uppercase tracking-[0.13em] text-slate-400">
                   Working Principle
                 </span>
-                <span className="text-[0.65rem] font-medium tracking-wide text-slate-500">01 / Practice</span>
               </div>
 
               <p className="relative max-w-xl text-[26px] font-medium leading-[1.35] text-slate-100 transition-colors duration-500 sm:text-[30px] lg:text-[32px] [@media(hover:hover)]:group-hover:text-white">
-                Start with the workplace. Build around the people. Use technology where it{" "}
+                I start with the workplace, build around the people, and bring in technology only
+                where it{" "}
                 <span className="transition-colors duration-500 [@media(hover:hover)]:group-hover:text-amber-400">
-                  improves action
+                  genuinely helps
                 </span>
                 .
               </p>
 
               <div className="flex flex-col gap-1.5 lg:items-end lg:text-right">
                 <p className="text-sm leading-relaxed text-slate-400">
-                  Grounded in real conditions. Designed for practical use.
+                  This is how I approach every safety engagement.
                 </p>
               </div>
             </div>

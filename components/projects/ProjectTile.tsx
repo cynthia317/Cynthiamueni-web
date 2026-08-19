@@ -1,15 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, BookOpen, ClipboardCheck, Code2, HardHat, Megaphone, Share2 } from "lucide-react";
+import { ArrowUpRight, BookOpen, Code2, HardHat, Megaphone, Share2 } from "lucide-react";
 import Reveal from "@/components/layout/Reveal";
 import SafetyDashboardMockup from "@/components/ui/SafetyDashboardMockup";
 import SocialPresenceMockup from "@/components/ui/SocialPresenceMockup";
 import type { Project, ProjectCategory } from "@/types";
 
 const CATEGORY_ICON: Record<ProjectCategory, typeof HardHat> = {
-  "Occupational Safety & Health": HardHat,
-  "Occupational Safety & Health × Digital Systems": ClipboardCheck,
-  "Occupational Safety & Health × Digital Communication": Share2,
+  "EHS Systems": HardHat,
+  "EHS Systems × Digital Communication": Share2,
   "Software / Systems": Code2,
   "Digital Marketing": Megaphone,
   "Research / Professional Work": BookOpen,

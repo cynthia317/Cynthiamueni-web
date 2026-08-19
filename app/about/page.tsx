@@ -10,9 +10,9 @@ import ToolsSection from "@/components/about/ToolsSection";
 import FinalCta from "@/components/home/FinalCta";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: { absolute: "About Cynthia Mueni | Occupational Safety & Health" },
   description:
-    "Cynthia Mueni is an Occupational Safety & Health professional who also builds software and manages digital communication — learn how these disciplines connect.",
+    "Learn about Cynthia Mueni's Occupational Safety & Health work, practical EHS systems approach and experience in professional digital communication.",
 };
 
 export default function AboutPage() {

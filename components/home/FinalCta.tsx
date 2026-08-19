@@ -10,6 +10,8 @@ interface FinalCtaProps {
   description?: ReactNode;
   secondaryHref?: string;
   secondaryLabel?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
 }
 
 export default function FinalCta({
@@ -29,6 +31,8 @@ export default function FinalCta({
   ),
   secondaryHref = "#work",
   secondaryLabel = "View My Work",
+  primaryHref = `mailto:${CONTACT_EMAIL}`,
+  primaryLabel = "Contact Me",
 }: FinalCtaProps) {
   return (
     <section id="contact" aria-labelledby="cta-heading" className="py-20 sm:py-28">
@@ -45,11 +49,8 @@ export default function FinalCta({
               {description}
             </p>
             <div className="mt-2 flex flex-col gap-4 sm:flex-row">
-              <Button
-                href={`mailto:${CONTACT_EMAIL}`}
-                icon={<ArrowRight className="h-4 w-4" aria-hidden />}
-              >
-                Contact Me
+              <Button href={primaryHref} icon={<ArrowRight className="h-4 w-4" aria-hidden />}>
+                {primaryLabel}
               </Button>
               <Button href={secondaryHref} variant="secondary">
                 {secondaryLabel}

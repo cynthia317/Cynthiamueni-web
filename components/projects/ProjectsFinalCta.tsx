@@ -24,7 +24,7 @@ export default function ProjectsFinalCta() {
               Contact Me
             </Button>
             <p className="text-xs text-slate-500 dark:text-slate-500">
-              Looking for a dedicated software or digital solution?{" "}
+              Looking for a general website, web application or other software solution?{" "}
               <a
                 href={HARUNLUCAS_DEV_URL}
                 target="_blank"

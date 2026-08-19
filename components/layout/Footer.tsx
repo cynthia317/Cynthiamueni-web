@@ -141,11 +141,10 @@ export default function Footer() {
         <div aria-hidden className="h-px w-full bg-slate-200 dark:bg-slate-800" />
 
         {/* Legal bar */}
-        <div className="flex flex-col gap-2 py-6 text-xs text-slate-500 dark:text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="py-6 text-xs text-slate-500 dark:text-slate-500">
           <p>
             &copy; {year} {SITE_NAME}. All rights reserved.
           </p>
-          <p>Built thoughtfully with Next.js.</p>
         </div>
       </Container>
     </footer>

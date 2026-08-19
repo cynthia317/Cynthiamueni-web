@@ -3,80 +3,22 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
 import Reveal from "@/components/layout/Reveal";
+import { INSIGHTS } from "@/lib/data/insights";
+import type { Insight } from "@/types";
 
-type InsightAccent = "amber" | "sky";
+const FEATURED_INSIGHT = INSIGHTS.find((insight) => insight.featured) ?? INSIGHTS[0];
+const SUPPORTING_INSIGHTS = INSIGHTS.filter((insight) => insight.id !== FEATURED_INSIGHT.id).slice(0, 2);
 
-interface BaseInsight {
-  id: string;
-  title: string;
-  category: string;
-  excerpt: string;
-  image: string;
-  imageAlt: string;
-  accent: InsightAccent;
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
-type HomeInsight =
-  | (BaseInsight & { status: "published"; date: string; readTime: string; href: string })
-  | (BaseInsight & { status: "in-preparation" });
-
-// None of these three articles have a published route yet (no /insights/[slug]
-// route exists in the app), so all three are accurately marked "in-preparation"
-// rather than carrying the placeholder past dates the old card used to show.
-const FEATURED_INSIGHT: HomeInsight = {
-  id: "risk-assessment-basics",
-  title: "Getting Risk Assessments Right in Small Teams",
-  category: "Occupational Safety & Health",
-  excerpt:
-    "Why lightweight, consistently applied risk assessments often protect people better than a thick policy document nobody uses in practice.",
-  image: "/images/home/expertise-osh-safety-inspection.webp",
-  imageAlt: "Safety professional in a hard hat reviewing a tablet while walking an industrial facility floor",
-  accent: "amber",
-  status: "in-preparation",
-};
-
-const SUPPORTING_INSIGHTS: HomeInsight[] = [
-  {
-    id: "digital-tools-for-safety-teams",
-    title: "Where Digital Tools Actually Help Safety Teams",
-    category: "EHS Systems",
-    excerpt:
-      "A practical look at which parts of workplace safety benefit from digitisation — and where technology can create unnecessary complexity.",
-    image: "/images/projects/software-dashboard-review.webp",
-    imageAlt: "Dark-themed analytics dashboard displaying monitoring charts, representing a digital EHS interface",
-    accent: "sky",
-    status: "in-preparation",
-  },
-  {
-    id: "communicating-safety-online",
-    title: "Communicating Safety Culture Beyond the Noticeboard",
-    category: "EHS Communication",
-    excerpt:
-      "How organisations can use clear, consistent digital communication to reinforce safety habits rather than simply announce policy.",
-    image: "/images/projects/marketing-strategy-flatlay.webp",
-    imageAlt: "Smartphone screen showing a folder of social media apps, representing safety content planning",
-    accent: "amber",
-    status: "in-preparation",
-  },
-];
-
-const ACCENT_CATEGORY: Record<InsightAccent, string> = {
-  amber: "text-amber-700 dark:text-amber-400",
-  sky: "text-sky-700 dark:text-sky-400",
-};
-
-const ACCENT_CATEGORY_HOVER: Record<InsightAccent, string> = {
-  amber: "[@media(hover:hover)]:group-hover:text-amber-500 dark:[@media(hover:hover)]:group-hover:text-amber-300",
-  sky: "[@media(hover:hover)]:group-hover:text-sky-500 dark:[@media(hover:hover)]:group-hover:text-sky-300",
-};
-
-const ACCENT_BORDER_HOVER: Record<InsightAccent, string> = {
-  amber: "[@media(hover:hover)]:hover:border-amber-300 dark:[@media(hover:hover)]:hover:border-amber-500/50",
-  sky: "[@media(hover:hover)]:hover:border-sky-300 dark:[@media(hover:hover)]:hover:border-sky-500/50",
-};
-
-function StatusBadge({ status }: { status: HomeInsight["status"] }) {
-  if (status === "published") return null;
+function StatusBadge({ isPublished }: { isPublished: boolean }) {
+  if (isPublished) return null;
   return (
     <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-slate-500 dark:bg-slate-700 dark:text-slate-300">
       In Preparation
@@ -84,8 +26,8 @@ function StatusBadge({ status }: { status: HomeInsight["status"] }) {
   );
 }
 
-function FeaturedInsightCard({ insight }: { insight: HomeInsight }) {
-  const isPublished = insight.status === "published";
+function FeaturedInsightCard({ insight }: { insight: Insight }) {
+  const isPublished = insight.href !== "#";
 
   return (
     <article
@@ -115,18 +57,15 @@ function FeaturedInsightCard({ insight }: { insight: HomeInsight }) {
 
       <div className="flex flex-col gap-2.5 p-6 sm:p-7">
         <div className="flex flex-wrap items-center gap-2">
-          <span
-            className={`text-[0.65rem] font-semibold uppercase tracking-[0.1em] transition-colors duration-300 ${ACCENT_CATEGORY[insight.accent]} ${ACCENT_CATEGORY_HOVER[insight.accent]}`}
-          >
+          <span className="text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-amber-700 transition-colors duration-300 [@media(hover:hover)]:group-hover:text-amber-500 dark:text-amber-400 dark:[@media(hover:hover)]:group-hover:text-amber-300">
             {insight.category}
           </span>
           {isPublished ? (
             <span className="text-[0.65rem] text-slate-400 dark:text-slate-500">
-              {(insight as Extract<HomeInsight, { status: "published" }>).date} ·{" "}
-              {(insight as Extract<HomeInsight, { status: "published" }>).readTime}
+              {formatDate(insight.date)} · {insight.readTime}
             </span>
           ) : (
-            <StatusBadge status={insight.status} />
+            <StatusBadge isPublished={isPublished} />
           )}
         </div>
 
@@ -142,7 +81,7 @@ function FeaturedInsightCard({ insight }: { insight: HomeInsight }) {
 
         {isPublished ? (
           <Link
-            href={(insight as Extract<HomeInsight, { status: "published" }>).href}
+            href={insight.href}
             className="relative mt-1 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-amber-700 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-amber-400"
           >
             Read Article
@@ -157,8 +96,8 @@ function FeaturedInsightCard({ insight }: { insight: HomeInsight }) {
   );
 }
 
-function SupportingInsightRow({ insight }: { insight: HomeInsight }) {
-  const isPublished = insight.status === "published";
+function SupportingInsightRow({ insight }: { insight: Insight }) {
+  const isPublished = insight.href !== "#";
 
   return (
     <article className={`group relative flex flex-col gap-4 p-5 sm:flex-row sm:items-stretch ${isPublished ? "" : "cursor-default"}`}>
@@ -182,17 +121,13 @@ function SupportingInsightRow({ insight }: { insight: HomeInsight }) {
 
       <div className="flex flex-1 flex-col justify-center gap-1.5 transition-transform duration-300 [@media(hover:hover)]:group-hover:-translate-y-0.5">
         <div className="flex flex-wrap items-center gap-2">
-          <span
-            className={`text-[0.62rem] font-semibold uppercase tracking-[0.1em] transition-colors duration-300 ${ACCENT_CATEGORY[insight.accent]} ${ACCENT_CATEGORY_HOVER[insight.accent]}`}
-          >
+          <span className="text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-amber-700 transition-colors duration-300 [@media(hover:hover)]:group-hover:text-amber-500 dark:text-amber-400 dark:[@media(hover:hover)]:group-hover:text-amber-300">
             {insight.category}
           </span>
           {isPublished ? (
-            <span className="text-[0.62rem] text-slate-400 dark:text-slate-500">
-              {(insight as Extract<HomeInsight, { status: "published" }>).date}
-            </span>
+            <span className="text-[0.62rem] text-slate-400 dark:text-slate-500">{formatDate(insight.date)}</span>
           ) : (
-            <StatusBadge status={insight.status} />
+            <StatusBadge isPublished={isPublished} />
           )}
         </div>
 
@@ -202,7 +137,7 @@ function SupportingInsightRow({ insight }: { insight: HomeInsight }) {
 
         {isPublished ? (
           <Link
-            href={(insight as Extract<HomeInsight, { status: "published" }>).href}
+            href={insight.href}
             className="relative mt-1 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-amber-700 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-amber-400"
           >
             Read Article
@@ -286,7 +221,7 @@ export default function InsightsSection() {
                 duration={700}
                 distance={24}
                 startOpacity={0.2}
-                className={`rounded-xl border border-transparent transition-colors duration-300 ${ACCENT_BORDER_HOVER[insight.accent]}`}
+                className="rounded-xl border border-transparent transition-colors duration-300 [@media(hover:hover)]:hover:border-amber-300 dark:[@media(hover:hover)]:hover:border-amber-500/50"
               >
                 <SupportingInsightRow insight={insight} />
               </Reveal>

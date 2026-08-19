@@ -9,15 +9,15 @@ const FEATURED_IDS = [
   "safety-management-system",
   "workplace-risk-assessment",
   "safetec-digital-presence",
-  "internal-systems-dashboard",
+  "safety-audit-toolkit",
 ];
 
 export default function FeaturedExpertiseProjects() {
   const projects = FEATURED_IDS.map((id) => PROJECTS.find((project) => project.id === id)).filter(
     (project): project is (typeof PROJECTS)[number] => Boolean(project)
   );
-  const featuredProject = projects.find((project) => project.featured);
-  const otherProjects = projects.filter((project) => !project.featured);
+  const featuredProject = projects.find((project) => project.tier === "flagship");
+  const otherProjects = projects.filter((project) => project.tier !== "flagship");
 
   return (
     <section

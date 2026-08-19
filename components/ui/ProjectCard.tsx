@@ -1,14 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, HardHat, Code2, Megaphone, BookOpen, ClipboardCheck, Share2 } from "lucide-react";
+import { ArrowUpRight, HardHat, Code2, Megaphone, BookOpen, Share2 } from "lucide-react";
 import SafetyDashboardMockup from "@/components/ui/SafetyDashboardMockup";
 import SocialPresenceMockup from "@/components/ui/SocialPresenceMockup";
 import type { Project, ProjectCategory } from "@/types";
 
 const CATEGORY_ICON: Record<ProjectCategory, typeof HardHat> = {
-  "Occupational Safety & Health": HardHat,
-  "Occupational Safety & Health × Digital Systems": ClipboardCheck,
-  "Occupational Safety & Health × Digital Communication": Share2,
+  "EHS Systems": HardHat,
+  "EHS Systems × Digital Communication": Share2,
   "Software / Systems": Code2,
   "Digital Marketing": Megaphone,
   "Research / Professional Work": BookOpen,
@@ -20,7 +19,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const Icon = CATEGORY_ICON[project.category];
-  const featured = Boolean(project.featured);
+  const featured = project.tier === "flagship";
 
   return (
     <article
