@@ -4,8 +4,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUp, ExternalLink, Mail } from "lucide-react";
 import Container from "@/components/layout/Container";
+import { FacebookIcon, GitHubIcon, LinkedInIcon, WhatsAppIcon } from "@/components/icons/SocialIcons";
 import { NAV_ITEMS } from "@/lib/navigation";
-import { CONTACT_EMAIL, HARUNLUCAS_DEV_URL, LINKEDIN_URL, SITE_NAME } from "@/lib/constants";
+import {
+  CONTACT_EMAIL,
+  FACEBOOK_URL,
+  GITHUB_URL,
+  HARUNLUCAS_DEV_URL,
+  LINKEDIN_URL,
+  SITE_NAME,
+  WHATSAPP_URL,
+} from "@/lib/constants";
+
+const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: LINKEDIN_URL, Icon: LinkedInIcon },
+  { label: "WhatsApp", href: WHATSAPP_URL, Icon: WhatsAppIcon },
+  { label: "Facebook", href: FACEBOOK_URL, Icon: FacebookIcon },
+  { label: "GitHub", href: GITHUB_URL, Icon: GitHubIcon },
+];
 
 export default function Footer() {
   const pathname = usePathname();
@@ -96,21 +112,24 @@ export default function Footer() {
               Connect
             </h3>
             <ul className="mt-4 flex flex-col gap-3">
-              <li>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Cynthia Mueni on LinkedIn (opens in a new tab)"
-                  className="group/ext inline-flex w-fit items-center gap-1.5 text-sm text-slate-600 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-400 dark:focus-visible:ring-amber-400 dark:focus-visible:ring-offset-slate-950 [@media(hover:hover)]:hover:text-amber-600 dark:[@media(hover:hover)]:hover:text-amber-400"
-                >
-                  LinkedIn
-                  <ExternalLink
-                    aria-hidden
-                    className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 [@media(hover:hover)]:group-hover/ext:translate-x-0.5 [@media(hover:hover)]:group-hover/ext:-translate-y-0.5"
-                  />
-                </a>
-              </li>
+              {SOCIAL_LINKS.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${social.label === "WhatsApp" ? "Chat with Cynthia Mueni on" : "Cynthia Mueni on"} ${social.label} (opens in a new tab)`}
+                    className="group/ext inline-flex w-fit items-center gap-1.5 text-sm text-slate-600 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:text-slate-400 dark:focus-visible:ring-amber-400 dark:focus-visible:ring-offset-slate-950 [@media(hover:hover)]:hover:text-amber-600 dark:[@media(hover:hover)]:hover:text-amber-400"
+                  >
+                    <social.Icon className="h-3.5 w-3.5 shrink-0" />
+                    {social.label}
+                    <ExternalLink
+                      aria-hidden
+                      className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 [@media(hover:hover)]:group-hover/ext:translate-x-0.5 [@media(hover:hover)]:group-hover/ext:-translate-y-0.5"
+                    />
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={HARUNLUCAS_DEV_URL}

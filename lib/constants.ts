@@ -18,3 +18,10 @@ export const BUSINESS_HOURS = [
 export const HARUNLUCAS_DEV_URL = "https://harunlucasdev.site/";
 
 export const LINKEDIN_URL = "https://www.linkedin.com/in/cynthia-mueni-6b621b359/";
+export const FACEBOOK_URL = "https://www.facebook.com/Cynthia%20Mueni";
+export const GITHUB_URL = "https://github.com/cynthia317/";
+
+export const WHATSAPP_NUMBER = "254748810670";
+export const WHATSAPP_DEFAULT_MESSAGE =
+  "Hi Cynthia, I found your website and would like to get in touch.";
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`;
