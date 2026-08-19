@@ -29,7 +29,7 @@ export default function SoftwareSection() {
           <SectionHeading
             eyebrow="Complementary Capability"
             title="Software Development & Digital Systems"
-            description="The ability to transform organisational needs into practical digital tools — turning manual, fragmented processes into systems that are reliable and easy to use."
+            description="The ability to transform organisational needs into practical digital tools, turning manual, fragmented processes into systems that are reliable and easy to use."
             id="software-heading"
           />
         </Reveal>

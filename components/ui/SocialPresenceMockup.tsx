@@ -7,7 +7,7 @@ const STAT_TILES = [
 ];
 
 const POSTS = [
-  { label: "Safety Culture Series — LinkedIn", stat: "48", icon: ThumbsUp },
+  { label: "Safety Culture Series (LinkedIn)", stat: "48", icon: ThumbsUp },
   { label: "Google Business Profile Update", stat: "12", icon: MessageCircle },
   { label: "Monthly Content Calendar", stat: "Live", icon: TrendingUp },
 ];

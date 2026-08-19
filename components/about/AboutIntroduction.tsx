@@ -14,7 +14,7 @@ export default function AboutIntroduction() {
               One Problem-Solving Mindset, Three Disciplines
             </h2>
             <p className="text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
-              My core professional foundation is Occupational Safety &amp; Health — understanding
+              My core professional foundation is Occupational Safety &amp; Health: understanding
               how people, processes and environments interact, and where that interaction breaks
               down into risk. Software development and digital communication grew out of that same
               foundation. They are practical extensions of the same problem-solving mindset, not

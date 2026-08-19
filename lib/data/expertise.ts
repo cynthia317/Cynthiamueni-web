@@ -38,7 +38,7 @@ export const EXPERTISE_AREAS: ExpertiseArea[] = [
     image: "/images/home/expertise-software-dashboard.webp",
     imageAlt: "Laptop screen displaying a data dashboard with charts and metrics on a wooden desk",
     footnote: {
-      text: "For commercial software, web & digital solutions — HarunLucas Dev",
+      text: "For commercial software, web & digital solutions, visit HarunLucas Dev",
       href: HARUNLUCAS_DEV_URL,
       external: true,
     },
@@ -61,7 +61,7 @@ export const EXPERTISE_AREAS: ExpertiseArea[] = [
     imageAlt: "Handwritten marketing strategy note on a desk beside a notebook, pens, and a small plant",
     proof: {
       label: "Applied in Practice",
-      text: "Managing social media, website content and digital platform presence for Safetec Solutions Ltd — an occupational safety and health organisation.",
+      text: "Managing social media, website content and digital platform presence for Safetec Solutions Ltd, an occupational safety and health organisation.",
       flow: [
         "Safety expertise",
         "Content planning",

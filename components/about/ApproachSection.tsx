@@ -14,7 +14,7 @@ export default function ApproachSection() {
           <SectionHeading
             eyebrow="My Approach"
             title="A Consistent Way of Solving Problems"
-            description="Whatever the discipline, the underlying method stays the same — a working methodology I apply across safety practice, systems and communication."
+            description="Whatever the discipline, the underlying method stays the same: a working methodology I apply across safety practice, systems and communication."
             id="approach-heading"
           />
         </Reveal>

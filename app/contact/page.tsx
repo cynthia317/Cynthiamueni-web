@@ -18,7 +18,7 @@ export default function ContactPage() {
       <ContactFaq />
       <FinalCta
         heading="Start a Conversation That Leads to Better Workplaces."
-        description="Whether it's workplace safety, an EHS system idea, digital communication work, or professional collaboration — I'd like to hear about it."
+        description="Whether it's workplace safety, an EHS system idea, digital communication work, or professional collaboration, I'd like to hear about it."
         primaryHref="#contact-form"
         primaryLabel="Send a Message"
         secondaryHref="/projects"

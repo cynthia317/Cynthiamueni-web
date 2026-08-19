@@ -46,7 +46,7 @@ export default function ProfessionalJourney() {
           <SectionHeading
             eyebrow="My Journey"
             title="How My Disciplines Connect"
-            description="Occupational Safety & Health identifies risks, operational challenges and opportunities. Technology creates the systems and tools that solve them. Communication makes sure people understand and adopt those solutions — and the results feed back into how the work keeps improving."
+            description="Occupational Safety & Health identifies risks, operational challenges and opportunities. Technology creates the systems and tools that solve them. Communication makes sure people understand and adopt those solutions, and the results feed back into how the work keeps improving."
             id="journey-heading"
           />
         </Reveal>

@@ -57,7 +57,7 @@ export default function ExpertiseOverview() {
                   </span>
                 </div>
                 <p className="max-w-xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
-                  The strongest professional foundation — identifying hazards, assessing risk and
+                  The strongest professional foundation: identifying hazards, assessing risk and
                   building the safety systems everything else connects back to.
                 </p>
               </div>

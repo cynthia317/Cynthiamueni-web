@@ -116,7 +116,7 @@ export default function ContactHero() {
             >
               <Clock className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" aria-hidden />
               <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                <span className="font-semibold text-slate-900 dark:text-slate-50">Typical Response —</span>{" "}
+                <span className="font-semibold text-slate-900 dark:text-slate-50">Typical response:</span>{" "}
                 I aim to respond to professional enquiries within 24 hours.
               </p>
             </Reveal>

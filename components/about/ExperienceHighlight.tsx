@@ -22,7 +22,7 @@ export default function ExperienceHighlight() {
           <SectionHeading
             eyebrow="Professional Experience"
             title="Currently Applied in Practice"
-            description="This connection between disciplines isn't only theoretical — it's active today, through ongoing digital communication work for an occupational safety and health organisation."
+            description="This connection between disciplines isn't only theoretical. It's active today, through ongoing digital communication work for an occupational safety and health organisation."
             id="experience-heading"
           />
         </Reveal>
@@ -50,7 +50,7 @@ export default function ExperienceHighlight() {
 
             <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
               Managing social media, website content and digital platform presence for Safetec
-              Solutions Ltd — putting the same OSH-plus-digital-communication combination described
+              Solutions Ltd, putting the same OSH-plus-digital-communication combination described
               on this page to work for a real organisation.
             </p>
 

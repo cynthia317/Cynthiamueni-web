@@ -43,7 +43,7 @@ export default function Hero() {
 
             <p className="max-w-md text-lg leading-relaxed text-slate-600 dark:text-slate-400">
               I help organisations identify workplace risks, strengthen safety practices and
-              communicate more effectively—combining occupational safety experience with
+              communicate more effectively, combining occupational safety experience with
               practical digital tools and clear professional communication.
             </p>
 

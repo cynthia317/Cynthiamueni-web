@@ -16,17 +16,17 @@ export const INSIGHTS: Insight[] = [
     content: [
       {
         type: "paragraph",
-        text: "Most risk assessment templates are built for organisations with dedicated safety departments, multiple sign-off layers and time to run a full review cycle. Small teams rarely have any of that — and when a heavy template lands on a supervisor who is also running the shift, it usually gets filled in once, filed away, and never looked at again.",
+        text: "Most risk assessment templates are built for organisations with dedicated safety departments, multiple sign-off layers and time to run a full review cycle. Small teams rarely have any of that, and when a heavy template lands on a supervisor who is also running the shift, it usually gets filled in once, filed away, and never looked at again.",
       },
       { type: "heading", text: "The Real Cost of a Risk Assessment Nobody Uses" },
       {
         type: "paragraph",
-        text: "When a risk assessment exists only to satisfy an audit, the real cost isn't the paperwork — it's the false sense of security it creates. A binder full of documented hazards can make an organisation feel covered while the actual conditions on site have moved on. The document says one thing; the workplace says another. That gap is where incidents happen, and it's rarely visible until something goes wrong and someone asks why the paperwork didn't match reality.",
+        text: "When a risk assessment exists only to satisfy an audit, the real cost is the false sense of security it creates. A binder full of documented hazards can make an organisation feel covered while the actual conditions on site have moved on. The document says one thing, and the workplace says another. That gap is where incidents happen, and it's rarely visible until something goes wrong and someone asks why the paperwork didn't match reality.",
       },
       { type: "heading", text: "Why Comprehensive Isn't the Same as Effective" },
       {
         type: "paragraph",
-        text: "A thorough risk assessment on paper means nothing if it doesn't change what happens on the floor. Well-written documents can accurately describe every hazard in a workspace and still sit in a folder nobody has opened since the audit that required them. The gap usually isn't knowledge — it's whether the assessment is actually usable by the people doing the work.",
+        text: "A thorough risk assessment on paper means nothing if it doesn't change what happens on the floor. Well-written documents can accurately describe every hazard in a workspace and still sit in a folder nobody has opened since the audit that required them. The real gap is usually whether the assessment is actually usable by the people doing the work, not how much it knows.",
       },
       { type: "heading", text: "What a Lightweight Risk Assessment Actually Needs" },
       {
@@ -39,13 +39,13 @@ export const INSIGHTS: Insight[] = [
           "What could go wrong, described in plain terms rather than technical hazard categories",
           "How likely it is and how serious the outcome would be, using a simple scale the team already understands",
           "What control reduces that risk, and who is responsible for putting it in place",
-          "When it gets checked again — tied to a real trigger, not just an annual date",
+          "When it gets checked again, tied to a real trigger and not just an annual date",
         ],
       },
       { type: "heading", text: "A Simple Likelihood and Severity Scale That Works" },
       {
         type: "paragraph",
-        text: "Most small teams don't need a five-point risk matrix with weighted scoring — they need something fast enough to use in the moment. A basic three-level scale for likelihood (rare, possible, likely) crossed with a three-level scale for severity (minor, serious, severe) is usually enough to sort hazards into 'deal with now', 'plan a fix', and 'monitor'. The value of a scale isn't precision — it's giving everyone on the team the same shorthand for talking about risk, so a conversation about a loose guardrail and a conversation about a chemical spill both land in the same, understood framework.",
+        text: "Most small teams don't need a five-point risk matrix with weighted scoring. They need something fast enough to use in the moment. A basic three-level scale for likelihood (rare, possible, likely) crossed with a three-level scale for severity (minor, serious, severe) is usually enough to sort hazards into 'deal with now', 'plan a fix', and 'monitor'. What matters isn't precision so much as giving everyone on the team the same shorthand for talking about risk, so a conversation about a loose guardrail and a conversation about a chemical spill both land in the same, understood framework.",
       },
       { type: "heading", text: "Making It a Habit, Not a Document" },
       {
@@ -63,7 +63,7 @@ export const INSIGHTS: Insight[] = [
           "Borrowing a template built for a different industry or a much larger operation, then never adapting it to how the team actually works",
           "Writing the assessment only after an incident, rather than before the task that caused it",
           "Leaving the 'responsible person' field blank, or filling it with a job title instead of a name",
-          "Setting a review date a year out instead of tying the review to a real trigger — new equipment, a layout change, a near-miss",
+          "Setting a review date a year out instead of tying the review to a real trigger, such as new equipment, a layout change or a near-miss",
           "Treating sign-off as the finish line, when sign-off should really be the start of the control being put into practice",
         ],
       },
@@ -75,17 +75,17 @@ export const INSIGHTS: Insight[] = [
       { type: "heading", text: "How Often Should a Risk Assessment Be Reviewed?" },
       {
         type: "paragraph",
-        text: "Calendar-based reviews — once a year, regardless of what's changed — are the most common reason risk assessments quietly go out of date. A better approach is trigger-based review: revisit the assessment when the task, the equipment, the people, or the environment changes, or after any near-miss connected to it. A small operation might genuinely go eight months without a meaningful change to a task, or it might change three times in a month during a busy season. The review schedule should follow the work, not the calendar.",
+        text: "Calendar-based reviews, done once a year regardless of what's changed, are the most common reason risk assessments quietly go out of date. A better approach is trigger-based review: revisit the assessment when the task, the equipment, the people, or the environment changes, or after any near-miss connected to it. A small operation might genuinely go eight months without a meaningful change to a task, or it might change three times in a month during a busy season. The review schedule should follow the work, not the calendar.",
       },
       { type: "heading", text: "Getting the Team to Actually Use It" },
       {
         type: "paragraph",
-        text: "Even a well-designed assessment fails if it feels like it was handed down rather than built with the people who use it. Involving the team in identifying hazards — rather than presenting them with a finished document — tends to produce assessments that are both more accurate and more likely to be followed, because the people who flagged the hazard have a stake in the control actually working.",
+        text: "Even a well-designed assessment fails if it feels like it was handed down rather than built with the people who use it. Involving the team in identifying hazards, rather than presenting them with a finished document, tends to produce assessments that are both more accurate and more likely to be followed, because the people who flagged the hazard have a stake in the control actually working.",
       },
       { type: "heading", text: "A Structure That Holds Up Under Real Conditions" },
       {
         type: "paragraph",
-        text: "The best test of a risk assessment isn't whether it satisfies an auditor — it's whether the person doing the work could explain it back to you in their own words. If they can't, the document has failed regardless of how thorough it looks. Building assessments around that standard, rather than around template completeness, is what actually keeps small teams safer.",
+        text: "The best test of a risk assessment is whether the person doing the work could explain it back to you in their own words, not whether it satisfies an auditor. If they can't, the document has failed regardless of how thorough it looks. Building assessments around that standard, rather than around template completeness, is what actually keeps small teams safer.",
       },
       { type: "heading", text: "Key Takeaways" },
       {
@@ -109,8 +109,7 @@ export const INSIGHTS: Insight[] = [
     id: "digital-tools-for-safety-teams",
     title: "Where Digital Tools Actually Help Safety Teams",
     category: "EHS Systems",
-    excerpt:
-      "A practical look at which parts of workplace safety benefit from digitisation — and which don't.",
+    excerpt: "A practical look at which parts of workplace safety benefit from digitisation, and which don't.",
     date: "2026-05-28",
     readTime: "9 min read",
     href: "/insights/digital-tools-for-safety-teams",
@@ -119,7 +118,7 @@ export const INSIGHTS: Insight[] = [
     content: [
       {
         type: "paragraph",
-        text: "There's a pattern that shows up often in organisations moving safety processes online: they digitise everything at once, hoping the software fixes problems that were never really about paper in the first place. Some parts of safety work genuinely benefit from digital tools. Others don't — and pretending otherwise just adds friction to work that used to be simple.",
+        text: "There's a pattern that shows up often in organisations moving safety processes online: they digitise everything at once, hoping the software fixes problems that were never really about paper in the first place. Some parts of safety work genuinely benefit from digital tools. Others don't, and pretending otherwise just adds friction to work that used to be simple.",
       },
       { type: "heading", text: "Where Digital Tools Genuinely Help" },
       {
@@ -135,10 +134,10 @@ export const INSIGHTS: Insight[] = [
           "Audit readiness, because records that already exist in one place are far easier to produce than reconstructing a history from scattered paperwork",
         ],
       },
-      { type: "heading", text: "Where Paper — or Simplicity — Still Wins" },
+      { type: "heading", text: "Where Paper, or Simplicity, Still Wins" },
       {
         type: "paragraph",
-        text: "Not every part of a safety process improves by moving online. A quick pre-task check on a noisy shop floor is often faster with a laminated card and a pen than with an app that needs a login, a signal, and a few taps to open. When a digital tool adds friction to something that used to take ten seconds, people stop using it properly — and a system nobody uses honestly is worse than the paper it replaced.",
+        text: "Not every part of a safety process improves by moving online. A quick pre-task check on a noisy shop floor is often faster with a laminated card and a pen than with an app that needs a login, a signal, and a few taps to open. When a digital tool adds friction to something that used to take ten seconds, people stop using it properly, and a system nobody uses honestly is worse than the paper it replaced.",
       },
       { type: "heading", text: "Signs Your Team Is Ready for a Digital System" },
       {
@@ -190,7 +189,7 @@ export const INSIGHTS: Insight[] = [
       { type: "heading", text: "A Practical Way to Decide" },
       {
         type: "paragraph",
-        text: "Before introducing a new tool, it's worth asking whether the underlying problem is really about information, or about behaviour. Reporting delays, lost paperwork and invisible trends are information problems that technology solves well. A team that doesn't report hazards because they don't trust what happens next needs a change in culture first — no dashboard will fix that on its own.",
+        text: "Before introducing a new tool, it's worth asking whether the underlying problem is really about information, or about behaviour. Reporting delays, lost paperwork and invisible trends are information problems that technology solves well. A team that doesn't report hazards because they don't trust what happens next needs a change in culture first. No dashboard will fix that on its own.",
       },
       { type: "heading", text: "What a Good Rollout Actually Looks Like" },
       {
@@ -200,7 +199,7 @@ export const INSIGHTS: Insight[] = [
       { type: "heading", text: "Starting Small on Purpose" },
       {
         type: "paragraph",
-        text: "The most successful digital EHS rollouts start with one process — usually hazard or incident reporting — done well, before anything else moves online. Getting that single workflow trusted and genuinely used builds the habit and the credibility a wider system will eventually depend on.",
+        text: "The most successful digital EHS rollouts start with one process, usually hazard or incident reporting, done well before anything else moves online. Getting that single workflow trusted and genuinely used builds the habit and the credibility a wider system will eventually depend on.",
       },
       { type: "heading", text: "Key Takeaways" },
       {
@@ -209,7 +208,7 @@ export const INSIGHTS: Insight[] = [
           "Digitise the parts of safety work that involve tracking information over time, not every step by default",
           "A system that adds friction to a ten-second task will quietly get abandoned",
           "Readiness is about the process and the team, not just the size of the budget",
-          "Start with one trusted workflow — usually reporting — before expanding further",
+          "Start with one trusted workflow, usually reporting, before expanding further",
         ],
       },
       {
@@ -234,7 +233,7 @@ export const INSIGHTS: Insight[] = [
     content: [
       {
         type: "paragraph",
-        text: "A noticeboard is a one-way, one-time message. Someone posts a notice, a handful of people read it in the first week, and after that it becomes part of the wallpaper. If the goal is genuine safety culture — habits people carry into daily decisions — a static notice was never going to be enough on its own.",
+        text: "A noticeboard is a one-way, one-time message. Someone posts a notice, a handful of people read it in the first week, and after that it becomes part of the wallpaper. If the goal is genuine safety culture, meaning habits people carry into daily decisions, a static notice was never going to be enough on its own.",
       },
       { type: "heading", text: "The Problem With Announce-Only Communication" },
       {
@@ -258,27 +257,27 @@ export const INSIGHTS: Insight[] = [
       { type: "heading", text: "Choosing the Right Channel for Your Team" },
       {
         type: "paragraph",
-        text: "Not every organisation needs a polished content calendar or a dedicated social media presence. The right channel depends entirely on where the team already pays attention. A closed messaging group works well for fast-moving field teams who check their phones constantly. An internal noticeboard paired with a simple digital screen suits a fixed site with shared spaces. A public-facing page or social profile makes more sense when the audience extends beyond the immediate team — clients, regulators, or the wider industry watching how an organisation talks about safety.",
+        text: "Not every organisation needs a polished content calendar or a dedicated social media presence. The right channel depends entirely on where the team already pays attention. A closed messaging group works well for fast-moving field teams who check their phones constantly. An internal noticeboard paired with a simple digital screen suits a fixed site with shared spaces. A public-facing page or social profile makes more sense when the audience extends beyond the immediate team: clients, regulators, or the wider industry watching how an organisation talks about safety.",
       },
       { type: "heading", text: "Keeping the Message Practical, Not Just Compliant" },
       {
         type: "paragraph",
-        text: "The content that actually changes behaviour tends to be specific and relevant rather than generic. A reminder about a hazard that appeared on-site last week lands differently than a stock safety slogan. Writing for the people actually doing the work — in their language, about their conditions — does more for safety culture than restating the policy manual in shorter sentences.",
+        text: "The content that actually changes behaviour tends to be specific and relevant rather than generic. A reminder about a hazard that appeared on-site last week lands differently than a stock safety slogan. Writing for the people actually doing the work, in their language and about their conditions, does more for safety culture than restating the policy manual in shorter sentences.",
       },
       { type: "heading", text: "Measuring Whether It's Actually Working" },
       {
         type: "paragraph",
-        text: "The clearest signal that safety communication is landing isn't a vanity number — it's whether people start bringing things up on their own. More questions being asked, more hazards being flagged before they're prompted, and fewer 'I didn't know that' moments after an incident all suggest the message is reaching people. A channel that only ever sees management posting, with no response from the team, usually means the communication is being broadcast rather than absorbed.",
+        text: "The clearest signal that safety communication is landing is whether people start bringing things up on their own, not a vanity number. More questions being asked, more hazards being flagged before they're prompted, and fewer 'I didn't know that' moments after an incident all suggest the message is reaching people. A channel that only ever sees management posting, with no response from the team, usually means the communication is being broadcast rather than absorbed.",
       },
       { type: "heading", text: "A Simple Weekly Rhythm That Works" },
       {
         type: "paragraph",
-        text: "Consistency tends to matter more than volume. A short, predictable weekly post — a real photo from the site, a quick reminder tied to whatever work is happening that week, or a two-line recap of something the team handled well — builds a habit of attention that a large, infrequent campaign rarely achieves. The goal isn't to produce more content; it's to make safety a small, expected part of a channel people already check.",
+        text: "Consistency tends to matter more than volume. A short, predictable weekly post (a real photo from the site, a quick reminder tied to whatever work is happening that week, or a two-line recap of something the team handled well) builds a habit of attention that a large, infrequent campaign rarely achieves. The goal isn't to produce more content. It's to make safety a small, expected part of a channel people already check.",
       },
       { type: "heading", text: "Where This Fits Alongside Formal Communication" },
       {
         type: "paragraph",
-        text: "None of this replaces formal safety documentation or required notices — it sits alongside them. The noticeboard and the official procedure still need to exist. What digital communication adds is the reinforcement layer in between: the steady, low-effort presence that keeps safety top of mind on the days nothing has gone wrong yet.",
+        text: "None of this replaces formal safety documentation or required notices. It sits alongside them. The noticeboard and the official procedure still need to exist. What digital communication adds is the reinforcement layer in between: the steady, low-effort presence that keeps safety top of mind on the days nothing has gone wrong yet.",
       },
       { type: "heading", text: "Key Takeaways" },
       {
@@ -286,7 +285,7 @@ export const INSIGHTS: Insight[] = [
         items: [
           "A noticeboard announces once; digital channels can reinforce continuously",
           "The right channel is the one your team already checks, not the most sophisticated option available",
-          "Engagement — questions, flagged hazards, replies — is a better signal than reach",
+          "Engagement, meaning questions, flagged hazards and replies, is a better signal than reach",
           "A short, consistent weekly rhythm beats an occasional large campaign",
         ],
       },

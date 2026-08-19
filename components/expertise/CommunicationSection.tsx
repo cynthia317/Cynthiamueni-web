@@ -30,7 +30,7 @@ export default function CommunicationSection() {
           <SectionHeading
             eyebrow="Complementary Capability"
             title="Digital Communication & Social Media"
-            description="More than posting on social media — this is about translating technical and professional information into content that reaches the right audience and can be measured over time."
+            description="More than posting on social media, this is about translating technical and professional information into content that reaches the right audience and can be measured over time."
             id="communication-heading"
           />
         </Reveal>

@@ -44,10 +44,10 @@ export default function Introduction() {
 
             <Reveal delay={100} startOpacity={0.2} className="flex flex-col gap-4 lg:pt-10">
               <p className="max-w-[600px] text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
-                My work begins with real workplace conditions—identifying hazards, understanding
+                My work begins with real workplace conditions: identifying hazards, understanding
                 operational gaps, and helping organisations put practical safety measures in
                 place. Where digital tools can make that process clearer or more reliable, I use
-                them—but the starting point is always the workplace itself, not the software.
+                them, but the starting point is always the workplace itself, not the software.
               </p>
 
               <Link

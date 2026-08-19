@@ -188,7 +188,7 @@ export default function InsightsSection() {
             <Reveal startOpacity={0.2} className="flex flex-col gap-4 lg:col-span-5 lg:self-end">
               <p className="text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-400">
                 Practical observations on workplace safety, EHS systems and digital
-                communication—written to turn professional ideas into clearer, more useful action.
+                communication, written to turn professional ideas into clearer, more useful action.
               </p>
               <Link
                 href="/insights"

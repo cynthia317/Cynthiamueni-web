@@ -26,9 +26,20 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between sm:h-20">
           <Link
             href="/"
-            className="rounded-sm text-base font-semibold tracking-tight text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 sm:text-lg dark:text-slate-50"
+            className="flex items-center gap-2.5 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
           >
-            {SITE_NAME}
+            <span
+              aria-hidden
+              className="flex h-8 w-8 shrink-0 flex-col items-center justify-center gap-0.5 rounded-full bg-slate-900 dark:bg-white"
+            >
+              <span className="text-[10px] font-bold leading-none tracking-tight text-white dark:text-slate-900">
+                CM
+              </span>
+              <span className="h-[2px] w-3 rounded-full bg-amber-500" />
+            </span>
+            <span className="text-base font-semibold tracking-tight text-slate-900 sm:text-lg dark:text-slate-50">
+              {SITE_NAME}
+            </span>
           </Link>
 
           <nav aria-label="Primary" className="hidden md:block">

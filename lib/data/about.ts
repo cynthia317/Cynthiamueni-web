@@ -8,7 +8,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
     icon: HardHat,
     accent: "amber",
     description:
-      "Grounds everything in real workplace conditions — identifying hazards, operational challenges and opportunities for improvement.",
+      "Grounds everything in real workplace conditions, identifying hazards, operational challenges and opportunities for improvement.",
   },
   {
     id: "technology",

@@ -21,9 +21,12 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span
                 aria-hidden
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-900 text-sm font-bold tracking-tight text-white dark:bg-white dark:text-slate-900"
+                className="flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-1 rounded-full bg-slate-900 dark:bg-white"
               >
-                CM
+                <span className="text-xs font-bold leading-none tracking-tight text-white dark:text-slate-900">
+                  CM
+                </span>
+                <span className="h-[2px] w-3.5 rounded-full bg-amber-500" />
               </span>
               <div>
                 <p className="text-lg font-semibold tracking-tight text-slate-900 dark:text-white">{SITE_NAME}</p>

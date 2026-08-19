@@ -9,7 +9,7 @@ import { PROJECTS } from "@/lib/data/projects";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Practical EHS problems and the digital systems being developed to address them — hazard reporting, inspections, risk assessment, corrective actions and EHS digital communication.",
+    "Practical EHS problems and the digital systems being developed to address them, including hazard reporting, inspections, risk assessment, corrective actions and EHS digital communication.",
 };
 
 export default function ProjectsPage() {

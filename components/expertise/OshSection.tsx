@@ -42,7 +42,7 @@ export default function OshSection() {
           <SectionHeading
             eyebrow="Primary Discipline"
             title="Occupational Safety & Health"
-            description="My core professional foundation. I focus on identifying hazards, assessing risk and supporting the safety systems and documentation that keep organisations compliant and their people safer — grounded in real working conditions, not paperwork for its own sake."
+            description="My core professional foundation. I focus on identifying hazards, assessing risk and supporting the safety systems and documentation that keep organisations compliant and their people safer, grounded in real working conditions rather than paperwork for its own sake."
             id="osh-heading"
           />
         </Reveal>

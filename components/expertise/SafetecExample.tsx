@@ -15,7 +15,7 @@ const RESPONSIBILITIES = [
 
 export default function SafetecExample() {
   return (
-    <section aria-label="Digital communication in practice — Safetec Solutions Ltd" className="py-14 sm:py-16">
+    <section aria-label="Digital communication in practice: Safetec Solutions Ltd" className="py-14 sm:py-16">
       <Container>
         <Reveal className="group">
           <div className="flex flex-col gap-6 rounded-3xl border border-violet-200 bg-white p-8 transition-[box-shadow,border-color] duration-300 hover:border-violet-300 hover:shadow-lg dark:border-violet-500/25 dark:bg-slate-900 dark:hover:border-violet-400/50 sm:p-10">
@@ -39,7 +39,7 @@ export default function SafetecExample() {
             </div>
 
             <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
-              Safetec Solutions Ltd is a real, current example of this expertise in practice — not
+              Safetec Solutions Ltd is a real, current example of this expertise in practice. It&apos;s not
               a company I own, but an occupational safety and health organisation whose digital
               communication I actively manage and support. It demonstrates that the connection
               between OSH expertise and digital communication capability described on this page is

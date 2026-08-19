@@ -29,9 +29,9 @@ export default function ProjectsHero() {
 
           <Reveal delay={120}>
             <p className="max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-              Each project below tackles a real workplace safety problem — how hazards get
-              reported, how inspections get tracked, how risk gets assessed — and explores how
-              that process can be organised into a working digital system.
+              Each project below tackles a real workplace safety problem, whether that&apos;s how
+              hazards get reported, how inspections get tracked, or how risk gets assessed, and
+              explores how that process can be organised into a working digital system.
             </p>
           </Reveal>
         </div>

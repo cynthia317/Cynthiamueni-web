@@ -64,7 +64,7 @@ export default function ExpertiseHero() {
             <Reveal delay={120}>
               <p className="max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                 My expertise combines technical safety knowledge, digital systems capability and
-                clear communication to solve practical organisational problems — from identifying
+                clear communication to solve practical organisational problems, from identifying
                 a workplace risk, to building the tool that manages it, to the content that
                 explains it.
               </p>

@@ -19,7 +19,7 @@ const CONTACT_FAQS: ContactFaqItem[] = [
     id: "opportunity-types",
     question: "What types of opportunities can I contact you about?",
     answer:
-      "Occupational Safety & Health, EHS Systems, Digital Communication, professional opportunities and collaboration — feel free to reach out about any of these.",
+      "Occupational Safety & Health, EHS Systems, Digital Communication, professional opportunities and collaboration. Feel free to reach out about any of these.",
   },
   {
     id: "outside-nairobi",
@@ -36,7 +36,7 @@ const CONTACT_FAQS: ContactFaqItem[] = [
     id: "ehs-system-idea",
     question: "Can I discuss an EHS system idea with you?",
     answer:
-      "Yes — I'm glad to discuss ideas around workplace inspections, hazard reporting, corrective actions, risk management and related EHS processes. Some of these systems are still in development, so we'd be discussing direction and fit rather than a finished product.",
+      "Yes, I'm glad to discuss ideas around workplace inspections, hazard reporting, corrective actions, risk management and related EHS processes. Some of these systems are still in development, so we'd be discussing direction and fit rather than a finished product.",
   },
   {
     id: "general-software",

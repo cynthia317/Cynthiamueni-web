@@ -301,7 +301,7 @@ export default function ProjectsSection() {
               href={SAFETEC.href}
               category="EHS × Digital Communication"
               status="Ongoing"
-              title="Safetec Solutions — Digital Presence & Social Media Management"
+              title="Safetec Solutions: Digital Presence & Social Media Management"
               description="Ongoing management of safety-focused content and digital presence across LinkedIn, website content and Google Business Profile."
               focusAreas={["LinkedIn Management", "Website & GBP Content", "Performance Monitoring"]}
               warmTint

@@ -11,7 +11,7 @@ export const PROJECTS: Project[] = [
     status: "In Development",
     tier: "flagship",
     description:
-      "Most workplace safety information — hazard reports, inspection results, corrective actions — still lives across paper forms, spreadsheets and someone's memory, with no way to trace a hazard through to its fix. This project brings hazard reporting, inspections, risk records and corrective actions into one structured digital system, with visibility into safety status over time.",
+      "Most workplace safety information (hazard reports, inspection results, corrective actions) still lives across paper forms, spreadsheets and someone's memory, with no way to trace a hazard through to its fix. This project brings hazard reporting, inspections, risk records and corrective actions into one structured digital system, with visibility into safety status over time.",
     workflow: ["Hazard Reported", "Assessed", "Action Assigned", "Corrective Action", "Verified", "Closed"],
     capabilities: [
       { label: "Hazard Reporting" },
@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     status: "In Development",
     tier: "core",
     description:
-      "A paper inspection form answers the question in the moment, then usually goes quiet — findings get transcribed later, if at all, and nobody can see which issues keep recurring across sites. What started as a standardised fire safety and compliance audit toolkit is being extended into a full digital inspection system, where every failed item turns into a tracked corrective action instead of a note that has to be followed up manually.",
+      "A paper inspection form answers the question in the moment, then usually goes quiet. Findings get transcribed later, if at all, and nobody can see which issues keep recurring across sites. What started as a standardised fire safety and compliance audit toolkit is being extended into a full digital inspection system, where every failed item turns into a tracked corrective action instead of a note that has to be followed up manually.",
     workflow: ["Inspect", "Record Finding", "Attach Evidence", "Assign Action", "Follow Up", "Close"],
     capabilities: [
       { label: "Digital Inspection Checklists" },
@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
     status: "Prototype",
     tier: "core",
     description:
-      "Most incidents are preceded by observations or near-misses that were noticed but never formally tracked to a fix — the gap usually isn't awareness, it's that nothing kept the item visibly open until someone closed it. This simple web tool lets field teams log hazards and safety observations digitally, replacing a paper-based reporting process, built around a working prototype that prioritises each item by risk and keeps it visible until verified closed.",
+      "Most incidents are preceded by observations or near-misses that were noticed but never formally tracked to a fix, often because nothing kept the item visibly open until someone closed it. This simple web tool lets field teams log hazards and safety observations digitally, replacing a paper-based reporting process, built around a working prototype that prioritises each item by risk and keeps it visible until verified closed.",
     workflow: ["Hazard / Observation", "Risk Priority", "Assign Action", "Deadline", "Verify", "Closed"],
     capabilities: [
       { label: "Hazard & Observation Logging" },
@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
     status: "Concept",
     tier: "core",
     description:
-      "A risk assessment that only exists to satisfy an audit creates a false sense of security — the document says one thing, the workplace says another, and that gap is where incidents happen. This structured hazard identification and risk assessment framework was built and is practiced for a small operations team; the framework itself is real and in use, while a digital version — moving it from documents into a tracked system — is currently a concept.",
+      "A risk assessment that only exists to satisfy an audit creates a false sense of security. The document says one thing and the workplace says another, and that gap is where incidents happen. This structured hazard identification and risk assessment framework was built and is practiced for a small operations team. The framework itself is real and in use, while a digital version, moving it from documents into a tracked system, is currently a concept.",
     workflow: ["Identify Hazard", "Evaluate Risk", "Assign Controls", "Record Residual Risk", "Review"],
     capabilities: [
       { label: "Hazard Identification" },
@@ -107,12 +107,12 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "safetec-digital-presence",
-    title: "Safetec Solutions — EHS Digital Communication & Online Presence",
+    title: "Safetec Solutions: EHS Digital Communication & Online Presence",
     category: "EHS Systems × Digital Communication",
     status: "Live",
     tier: "core",
     description:
-      "Safety expertise doesn't speak for itself online — without consistent digital communication, an organisation's real safety work stays invisible to the clients, partners and talent who'd otherwise recognise it. This is ongoing digital communication and social media management for Safetec Solutions Ltd, an occupational safety and health organisation, connecting OSH expertise with a clear, consistent digital presence across social platforms, website content and Google Business Profile.",
+      "Safety expertise doesn't speak for itself online. Without consistent digital communication, an organisation's real safety work stays invisible to the clients, partners and talent who would otherwise recognise it. This is ongoing digital communication and social media management for Safetec Solutions Ltd, an occupational safety and health organisation, connecting OSH expertise with a clear, consistent digital presence across social platforms, website content and Google Business Profile.",
     workflow: ["Plan Content", "Publish", "Monitor", "Report"],
     capabilities: [
       { label: "LinkedIn Management" },

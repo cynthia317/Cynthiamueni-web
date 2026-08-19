@@ -6,8 +6,8 @@ export const FAQS: Faq[] = [
     question: "What is a digital safety management system?",
     category: "EHS Systems",
     answer: [
-      "A digital safety management system is software that replaces paper-based safety processes — hazard reporting, inspections, risk records and corrective actions — with a structured digital workflow. Instead of forms living in filing cabinets, information is captured once, stored centrally, and visible to the people who need to act on it.",
-      "At its core, it usually covers four things: logging hazards or incidents as they happen, running scheduled or ad-hoc inspections, tracking the risk level of identified issues, and assigning corrective actions to a named owner with a deadline. The value isn't the software itself — it's that nothing gets lost between the moment a hazard is spotted and the moment it's actually fixed.",
+      "A digital safety management system is software that replaces paper-based safety processes, such as hazard reporting, inspections, risk records and corrective actions, with a structured digital workflow. Instead of forms living in filing cabinets, information is captured once, stored centrally, and visible to the people who need to act on it.",
+      "At its core, it usually covers four things: logging hazards or incidents as they happen, running scheduled or ad-hoc inspections, tracking the risk level of identified issues, and assigning corrective actions to a named owner with a deadline. The real value isn't the software itself. It's that nothing gets lost between the moment a hazard is spotted and the moment it's actually fixed.",
     ],
     relatedLabel: "Where Digital Tools Actually Help Safety Teams",
     relatedHref: "/insights/digital-tools-for-safety-teams",
@@ -37,7 +37,7 @@ export const FAQS: Faq[] = [
     question: "What are digital safety solutions for businesses?",
     category: "Digital Safety",
     answer: [
-      "Digital safety solutions cover the range of software tools businesses use to manage occupational health and safety electronically — from simple hazard-reporting apps to full safety management platforms. They typically replace paper forms, spreadsheets and email-based tracking with a single system that records safety activity as it happens.",
+      "Digital safety solutions cover the range of software tools businesses use to manage occupational health and safety electronically, from simple hazard-reporting apps to full safety management platforms. They typically replace paper forms, spreadsheets and email-based tracking with a single system that records safety activity as it happens.",
       "The right solution for a given business depends heavily on its size and the complexity of its operations. A five-person site usually needs something closer to a well-structured reporting form than a full enterprise platform, while a multi-site operation benefits from a system built to aggregate data and track trends across locations.",
     ],
   },
@@ -46,7 +46,7 @@ export const FAQS: Faq[] = [
     question: "What are Health, Safety & Environment (HSE) digital solutions?",
     category: "EHS Systems",
     answer: [
-      "HSE digital solutions extend safety management systems to also cover environmental compliance — things like waste tracking, emissions monitoring and environmental incident reporting — alongside the occupational safety and health functions of hazard reporting, inspections and corrective actions.",
+      "HSE digital solutions extend safety management systems to also cover environmental compliance, things like waste tracking, emissions monitoring and environmental incident reporting, alongside the occupational safety and health functions of hazard reporting, inspections and corrective actions.",
       "In practice, many organisations start with the safety and health side of HSE, since that's usually where the most immediate operational risk sits, and add environmental tracking once the core safety workflow is established and genuinely used by the team.",
     ],
   },
@@ -68,7 +68,7 @@ export const FAQS: Faq[] = [
     category: "Inspections",
     answer: [
       "A digital safety inspection is a workplace inspection carried out using a structured digital checklist, typically on a phone or tablet, rather than a paper form. Findings, photos and notes are captured directly during the walk-through, and any failed item can be turned straight into a tracked corrective action instead of a separate follow-up step.",
-      "The main practical advantage over paper is timing: the record exists the moment the inspection happens, rather than being transcribed later — which is usually when detail gets lost or delayed.",
+      "The main practical advantage over paper is timing: the record exists the moment the inspection happens, rather than being transcribed later, which is usually when detail gets lost or delayed.",
     ],
     relatedLabel: "the Digital Inspection & Audit System project",
     relatedHref: "/projects/safety-audit-toolkit",
@@ -79,7 +79,7 @@ export const FAQS: Faq[] = [
     category: "Audits",
     answer: [
       "At an enterprise level, this usually means a structured audit programme built into the same system used for day-to-day inspections: scheduled audits against a defined checklist, findings scored by severity, and each finding assigned a corrective action with an owner and a due date.",
-      "The tracking side is what separates a genuine audit programme from a one-off exercise — a dashboard or report that shows open findings, overdue actions and repeat issues across sites, so patterns are visible to whoever owns the overall safety programme rather than staying buried in individual audit reports.",
+      "The tracking side is what separates a genuine audit programme from a one-off exercise: a dashboard or report that shows open findings, overdue actions and repeat issues across sites, so patterns are visible to whoever owns the overall safety programme rather than staying buried in individual audit reports.",
     ],
     relatedLabel: "the Digital Inspection & Audit System project",
     relatedHref: "/projects/safety-audit-toolkit",

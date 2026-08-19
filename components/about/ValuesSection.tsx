@@ -61,7 +61,7 @@ const VALUES: { id: string; label: string; icon: typeof Award; accent: AccentCol
     label: "Systems Thinking",
     icon: Network,
     accent: "amber",
-    description: "Looking at how people, processes and technology interact — not just isolated parts.",
+    description: "Looking at how people, processes and technology interact, not just isolated parts.",
   },
   {
     id: "collaboration",

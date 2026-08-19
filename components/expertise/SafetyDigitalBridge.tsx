@@ -29,7 +29,7 @@ export default function SafetyDigitalBridge() {
             </div>
 
             <p className="max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
-              A workplace safety problem becomes valuable once it&apos;s structured — turned into
+              A workplace safety problem becomes valuable once it&apos;s structured and turned into
               data a digital system can hold, track and surface over time. The{" "}
               <span className="font-semibold text-slate-900 dark:text-slate-100">
                 Safety Management System
