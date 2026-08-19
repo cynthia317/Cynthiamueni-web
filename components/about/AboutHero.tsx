@@ -46,7 +46,7 @@ export default function AboutHero() {
             </Reveal>
 
             <Reveal delay={60} startOpacity={0.3} distance={24} duration={700}>
-              <h1 className="max-w-[720px] text-[clamp(2.625rem,1.5rem+4vw,4.75rem)] font-semibold leading-[1.1] tracking-tight text-white">
+              <h1 className="max-w-[720px] text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
                 Grounded in Safety. Focused on <span className="text-amber-500">Practical Change.</span>
               </h1>
             </Reveal>

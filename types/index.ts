@@ -151,3 +151,13 @@ export interface WorkArea {
   accent: AccentColor;
   items: string[];
 }
+
+export interface Service {
+  id: string;
+  title: string;
+  icon: LucideIcon;
+  summary: string;
+  deliverables: string[];
+  idealFor: string;
+  footnote?: ExpertiseFootnote;
+}

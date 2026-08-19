@@ -4,7 +4,15 @@ import { INSIGHTS } from "@/lib/data/insights";
 import { SITE_URL } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = ["", "/about", "/expertise", "/projects", "/insights", "/contact"].map(
+  const staticRoutes: MetadataRoute.Sitemap = [
+    "",
+    "/about",
+    "/expertise",
+    "/services",
+    "/projects",
+    "/insights",
+    "/contact",
+  ].map(
     (path) => ({
       url: `${SITE_URL}${path}`,
       lastModified: new Date(),
