@@ -224,7 +224,7 @@ export default function ProjectsSection() {
                     EHS Systems
                   </span>
                   <span className="rounded-full bg-amber-500/15 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-amber-400">
-                    Concept UI
+                    {SAFETY_SYSTEM.status}
                   </span>
                 </div>
 
@@ -272,7 +272,7 @@ export default function ProjectsSection() {
             <SupportingCard
               href={RISK_ASSESSMENT.href}
               category="Occupational Safety & Health"
-              status="Professional Practice"
+              status={RISK_ASSESSMENT.status}
               title="Workplace Risk Assessment Framework"
               description="A structured approach for identifying hazards, assessing workplace risk and organising practical control actions and follow-up."
               focusAreas={["Hazard Identification", "Risk Evaluation", "Control Actions"]}
@@ -300,7 +300,7 @@ export default function ProjectsSection() {
             <SupportingCard
               href={SAFETEC.href}
               category="EHS × Digital Communication"
-              status="Ongoing"
+              status={SAFETEC.status}
               title="Safetec Solutions: Digital Presence & Social Media Management"
               description="Ongoing management of safety-focused content and digital presence across LinkedIn, website content and Google Business Profile."
               focusAreas={["LinkedIn Management", "Website & GBP Content", "Performance Monitoring"]}

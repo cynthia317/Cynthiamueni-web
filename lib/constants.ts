@@ -1,9 +1,9 @@
 export const SITE_URL = "https://cynthiamueni.com";
 
 export const SITE_NAME = "Cynthia Mueni";
-export const SITE_TITLE = "Cynthia Mueni: Occupational Safety, Software & Digital Systems";
+export const SITE_TITLE = "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication";
 export const SITE_DESCRIPTION =
-  "Cynthia Mueni is an Occupational Safety & Health professional who also builds software and manages digital communication, helping organisations work more safely, efficiently and visibly.";
+  "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly.";
 
 export const CONTACT_EMAIL = "ndukucynthia02@gmail.com";
 export const CONTACT_PHONE = "+254 748 810 670";

@@ -6,7 +6,7 @@ import FinalCta from "@/components/home/FinalCta";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Occupational Safety & Health consulting, software development and digital communication services from Cynthia Mueni, for organisations that need practical safety, systems or communication support.",
+    "Occupational Safety & Health consulting, EHS systems design and digital communication services from Cynthia Mueni, for organisations that need practical safety, systems or communication support.",
 };
 
 export default function ServicesPage() {

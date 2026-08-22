@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { ArrowRight, CheckCircle2, ExternalLink, Loader2 } from "lucide-react";
+import { AlertTriangle, ArrowRight, CheckCircle2, ExternalLink, Loader2 } from "lucide-react";
 import { CONTACT_EMAIL, HARUNLUCAS_DEV_URL } from "@/lib/constants";
 
 type EnquiryType =
@@ -84,14 +84,15 @@ const LABEL_CLASSES = "text-sm font-medium text-slate-700 dark:text-slate-300";
 export default function ContactForm() {
   const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [honeypot, setHoneypot] = useState("");
 
   function updateField<K extends keyof FormValues>(field: K, value: FormValues[K]) {
     setValues((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (status === "submitting") return;
 
@@ -100,9 +101,55 @@ export default function ContactForm() {
     if (Object.keys(validationErrors).length > 0) return;
 
     setStatus("submitting");
-    const mailtoUrl = buildMailto(values);
-    window.location.href = mailtoUrl;
-    window.setTimeout(() => setStatus("success"), 500);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, company: honeypot }),
+      });
+
+      if (!response.ok) throw new Error("Request failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "error") {
+    return (
+      <div
+        role="alert"
+        className="flex flex-col items-start gap-4 rounded-2xl border border-red-200 bg-red-50/60 p-6 dark:border-red-500/25 dark:bg-red-500/[0.06] sm:p-8"
+      >
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-400">
+          <AlertTriangle className="h-5 w-5" aria-hidden />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <p className="text-base font-semibold text-slate-900 dark:text-slate-50">
+            Something went wrong sending your message
+          </p>
+          <p className="max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            Please try again, or email me directly and I&apos;ll get back to you as soon as I can.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href={buildMailto(values)}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 hover:decoration-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-amber-400 dark:decoration-amber-500/40"
+          >
+            {CONTACT_EMAIL}
+          </a>
+          <button
+            type="button"
+            onClick={() => setStatus("idle")}
+            className="text-sm font-semibold text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-slate-400 dark:decoration-slate-700 dark:hover:text-white"
+          >
+            Try again
+          </button>
+        </div>
+      </div>
+    );
   }
 
   if (status === "success") {
@@ -115,10 +162,9 @@ export default function ContactForm() {
           <CheckCircle2 className="h-5 w-5" aria-hidden />
         </div>
         <div className="flex flex-col gap-1.5">
-          <p className="text-base font-semibold text-slate-900 dark:text-slate-50">Your email app should now be open</p>
+          <p className="text-base font-semibold text-slate-900 dark:text-slate-50">Your message has been sent</p>
           <p className="max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            Your message has been prepared and ready to send from your own email address. If nothing
-            opened, you can email me directly instead.
+            Thanks for reaching out — I aim to respond to professional enquiries within 24 hours.
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
@@ -150,6 +196,19 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8"
     >
+      <div aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="contact-company">Company</label>
+        <input
+          id="contact-company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+        />
+      </div>
+
       <div className="flex flex-col gap-5">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">

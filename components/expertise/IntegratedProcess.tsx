@@ -83,7 +83,7 @@ export default function IntegratedProcess() {
           <SectionHeading
             eyebrow="How My Expertise Connects"
             title="One Pathway Across All Three Disciplines"
-            description="This is the methodology underneath everything on this page: the reason Occupational Safety & Health, software and communication belong together rather than standing as separate, unrelated skills."
+            description="This is the methodology underneath everything on this page: the reason Occupational Safety & Health, EHS systems and communication belong together rather than standing as separate, unrelated skills."
             id="process-heading"
           />
         </Reveal>

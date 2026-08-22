@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   keywords: [
     "Occupational Safety and Health",
     "OSH professional",
-    "Software Developer",
-    "Digital Systems",
+    "EHS Systems",
+    "EHS Management Systems",
+    "Digital Communication",
     "Social Media Management",
-    "Digital Marketing",
     "Risk Assessment",
     "Workplace Safety",
   ],

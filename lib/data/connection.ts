@@ -18,7 +18,7 @@ export const CONNECTION_STEPS: ConnectionStep[] = [
     id: "implement",
     label: "Implement",
     icon: Wrench,
-    description: "Software and digital tools bring the plan to life as something people can actually use.",
+    description: "EHS systems and digital tools bring the plan to life as something people can actually use.",
   },
   {
     id: "communicate",

@@ -22,9 +22,9 @@ export default function ReferralSection() {
                 Need a digital solution for your business?
               </h2>
               <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
-                This portfolio reflects my personal, multidisciplinary work. For dedicated software
-                development, websites, business systems, and automation, that work is handled
-                separately through HarunLucas Dev.
+                This portfolio focuses on Occupational Safety &amp; Health, EHS systems and digital
+                communication. For general websites, web applications, business systems or
+                software development, that work is handled separately through HarunLucas Dev.
               </p>
             </div>
 

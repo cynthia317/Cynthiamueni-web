@@ -18,8 +18,8 @@ export default function FinalCta({
   heading = "Let's Work on Something Meaningful",
   description = (
     <>
-      Open to occupational safety and health opportunities, digital and social media projects,
-      research collaboration, and professional networking. Reach out at{" "}
+      Open to Occupational Safety &amp; Health opportunities, EHS systems projects, digital
+      communication work, and professional collaboration. Reach out at{" "}
       <a
         href={`mailto:${CONTACT_EMAIL}`}
         className="rounded-sm font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-slate-100 dark:decoration-slate-700 dark:hover:decoration-slate-100"

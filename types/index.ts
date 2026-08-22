@@ -47,7 +47,7 @@ export type ProjectCategory =
   | "Research / Professional Work";
 
 /** Honest build state — never implied as more finished than it is. */
-export type ProjectStatus = "Live" | "In Development" | "Prototype" | "Concept";
+export type ProjectStatus = "Live" | "In Development" | "Planned" | "Active Professional Work";
 
 /**
  * Where a project sits in the portfolio's storytelling structure:

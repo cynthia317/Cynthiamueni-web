@@ -15,7 +15,7 @@ import FinalCta from "@/components/home/FinalCta";
 export const metadata: Metadata = {
   title: "Expertise",
   description:
-    "In-depth look at Cynthia Mueni's expertise across Occupational Safety & Health, software development and digital communication, and how they connect.",
+    "In-depth look at Cynthia Mueni's expertise across Occupational Safety & Health, EHS systems and digital communication, and how they connect.",
 };
 
 export default function ExpertisePage() {

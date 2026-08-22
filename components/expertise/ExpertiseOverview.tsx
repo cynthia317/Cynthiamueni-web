@@ -33,7 +33,7 @@ export default function ExpertiseOverview() {
           <SectionHeading
             eyebrow="Overview"
             title="Three Connected Areas, One Foundation"
-            description="Occupational Safety & Health remains the strongest professional pillar. Software development and digital communication extend that same foundation into practical systems and clear visibility."
+            description="Occupational Safety & Health remains the strongest professional pillar. EHS systems and digital communication extend that same foundation into practical systems and clear visibility."
             id="overview-heading"
           />
         </Reveal>

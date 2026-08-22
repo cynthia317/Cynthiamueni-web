@@ -16,7 +16,7 @@ export default function AboutIntroduction() {
             <p className="text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
               My core professional foundation is Occupational Safety &amp; Health: understanding
               how people, processes and environments interact, and where that interaction breaks
-              down into risk. Software development and digital communication grew out of that same
+              down into risk. EHS systems and digital communication grew out of that same
               foundation. They are practical extensions of the same problem-solving mindset, not
               separate careers running in parallel.
             </p>
