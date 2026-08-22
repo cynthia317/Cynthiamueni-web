@@ -1,10 +1,20 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { CONTACT_EMAIL } from "@/lib/constants";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_FIELD_LENGTH = 200;
 const MAX_MESSAGE_LENGTH = 5000;
+
+// Sender identity vs. delivery inbox are deliberately separate:
+// - EMAIL_FROM is the professional address visitors see ("From"). Gmail's SMTP relay only
+//   honors a From address other than the authenticated login once it's added as a verified
+//   "Send mail as" alias on that Gmail account (Settings > Accounts and Import > Send mail
+//   as). Until that's configured, Gmail silently rewrites this back to CONTACT_EMAIL_USER —
+//   delivery still succeeds, only the visible From falls back.
+// - EMAIL_TO is where enquiries actually land.
+const DEFAULT_FROM_NAME = "Cynthia Mueni Website";
+const DEFAULT_FROM_EMAIL = "hello@cynthiamueni.com";
+const DEFAULT_TO_EMAIL = "ndukucynthia02@gmail.com";
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
@@ -88,21 +98,30 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Missing or invalid required fields." }, { status: 400 });
   }
 
+  const fromEmail = process.env.EMAIL_FROM || DEFAULT_FROM_EMAIL;
+  const toEmail = process.env.EMAIL_TO || process.env.CONTACT_EMAIL_TO || DEFAULT_TO_EMAIL;
+
   try {
     const transporter = buildTransporter();
     await transporter.sendMail({
-      from: `"${name} via cynthiamueni.com" <${process.env.CONTACT_EMAIL_USER}>`,
-      to: process.env.CONTACT_EMAIL_TO || CONTACT_EMAIL,
+      from: `"${DEFAULT_FROM_NAME}" <${fromEmail}>`,
+      to: toEmail,
       replyTo: email,
       subject: `[${enquiryType}] ${subject}`,
       text: [
+        "New Portfolio Enquiry",
+        "",
         `Name: ${name}`,
         `Email: ${email}`,
         organisation ? `Organisation: ${organisation}` : null,
         phone ? `Phone: ${phone}` : null,
-        `Enquiry type: ${enquiryType}`,
+        `Enquiry Type: ${enquiryType}`,
+        `Subject: ${subject}`,
         "",
+        "Message:",
         message,
+        "",
+        "Source: cynthiamueni.com contact form",
       ]
         .filter((line): line is string => Boolean(line))
         .join("\n"),
