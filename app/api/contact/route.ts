@@ -98,7 +98,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Missing or invalid required fields." }, { status: 400 });
   }
 
-  const fromEmail = process.env.EMAIL_FROM || DEFAULT_FROM_EMAIL;
+  // CONTACT_EMAIL_USER (the authenticated mailbox) is the safe default From — Gmail's SMTP
+  // relay rejects or silently rewrites a From address it hasn't verified as a "Send mail as"
+  // alias, which would otherwise make the send fail outright. Only use EMAIL_FROM once that
+  // alias is actually verified.
+  const fromEmail = process.env.EMAIL_FROM || process.env.CONTACT_EMAIL_USER || DEFAULT_FROM_EMAIL;
   const toEmail = process.env.EMAIL_TO || process.env.CONTACT_EMAIL_TO || DEFAULT_TO_EMAIL;
 
   try {
