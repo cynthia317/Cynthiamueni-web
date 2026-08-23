@@ -45,6 +45,11 @@ const INITIAL_VALUES: FormValues = {
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// FormSubmit delivers to this inbox directly — no server route, no API key. The /ajax/
+// variant returns a JSON response instead of redirecting, so the existing custom
+// success/error UI below can stay exactly as it was with the old /api/contact route.
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/ndukucynthia02@gmail.com";
+
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {};
   if (!values.name.trim()) errors.name = "Please enter your name.";
@@ -96,20 +101,46 @@ export default function ContactForm() {
     event.preventDefault();
     if (status === "submitting") return;
 
+    // Honeypot: a filled hidden field means a bot filled every input, name included.
+    // Mirror FormSubmit's own "silently ignore" behaviour instead of hitting the network.
+    if (honeypot) {
+      setStatus("success");
+      return;
+    }
+
     const validationErrors = validate(values);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
 
     setStatus("submitting");
 
+    const enquiryLabel = ENQUIRY_OPTIONS.find((option) => option.value === values.enquiryType)?.label ?? "General";
+
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, company: honeypot }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          Name: values.name,
+          Email: values.email,
+          Organisation: values.organisation || "Not provided",
+          Phone: values.phone || "Not provided",
+          "Enquiry Type": enquiryLabel,
+          Subject: values.subject,
+          Message: values.message,
+          _subject: "New enquiry from CynthiaMueni.com",
+          _template: "table",
+          _captcha: "false",
+          _honey: "",
+          _replyto: values.email,
+        }),
       });
 
-      if (!response.ok) throw new Error("Request failed");
+      // FormSubmit can return HTTP 200 even when it didn't actually deliver the message
+      // (e.g. "This form needs Activation" on an unconfirmed recipient) — the real result
+      // is in the JSON body's `success` field, not the HTTP status alone.
+      const data: { success?: string } | null = await response.json().catch(() => null);
+      if (!response.ok || data?.success === "false") throw new Error("Request failed");
       setStatus("success");
     } catch {
       setStatus("error");

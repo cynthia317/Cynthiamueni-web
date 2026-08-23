@@ -6,7 +6,7 @@ export const SITE_DESCRIPTION =
   "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly.";
 
 // Public-facing professional identity — shown on the site and used as the mailto: fallback.
-// The contact form's actual delivery inbox is configured separately (see app/api/contact/route.ts).
+// The contact form itself delivers to a separate inbox via FormSubmit (see ContactForm.tsx).
 export const CONTACT_EMAIL = "hello@cynthiamueni.com";
 export const CONTACT_PHONE = "+254 748 810 670";
 export const CONTACT_PHONE_HREF = "+254748810670";
