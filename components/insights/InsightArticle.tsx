@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Container from "@/components/layout/Container";
+import InsightCard from "@/components/ui/InsightCard";
+import { INSIGHTS } from "@/lib/data/insights";
 import type { Insight } from "@/types";
 
 function formatDate(dateString: string) {
@@ -12,17 +14,54 @@ function formatDate(dateString: string) {
   });
 }
 
+function getRelatedInsights(current: Insight, max = 3) {
+  const published = INSIGHTS.filter((item) => item.id !== current.id && item.href !== "#");
+  const sameCategory = published.filter((item) => item.category === current.category);
+  const rest = published.filter((item) => item.category !== current.category);
+  return [...sameCategory, ...rest].slice(0, max);
+}
+
 export default function InsightArticle({ insight }: { insight: Insight }) {
+  const relatedInsights = getRelatedInsights(insight);
+
   return (
     <article className="py-16 sm:py-20">
       <Container className="flex flex-col gap-10">
-        <Link
-          href="/insights"
-          className="inline-flex w-fit items-center gap-1.5 rounded-sm text-sm font-medium text-slate-500 transition-colors hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-slate-400 dark:hover:text-white"
-        >
-          <ArrowLeft className="h-4 w-4" aria-hidden />
-          All Insights
-        </Link>
+        <div className="flex flex-col gap-4">
+          <nav aria-label="Breadcrumb" className="text-xs text-slate-500 dark:text-slate-500">
+            <ol className="flex flex-wrap items-center gap-1.5">
+              <li className="flex items-center gap-1.5">
+                <Link
+                  href="/"
+                  className="rounded-sm transition-colors hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:hover:text-white"
+                >
+                  Home
+                </Link>
+                <span aria-hidden>/</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <Link
+                  href="/insights"
+                  className="rounded-sm transition-colors hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:hover:text-white"
+                >
+                  Insights
+                </Link>
+                <span aria-hidden>/</span>
+              </li>
+              <li aria-current="page" className="max-w-[16rem] truncate text-slate-700 dark:text-slate-300 sm:max-w-sm">
+                {insight.title}
+              </li>
+            </ol>
+          </nav>
+
+          <Link
+            href="/insights"
+            className="inline-flex w-fit items-center gap-1.5 rounded-sm text-sm font-medium text-slate-500 transition-colors hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-slate-400 dark:hover:text-white"
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden />
+            All Insights
+          </Link>
+        </div>
 
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-3">
@@ -106,6 +145,19 @@ export default function InsightArticle({ insight }: { insight: Insight }) {
             );
           })}
         </div>
+
+        {relatedInsights.length > 0 ? (
+          <div className="flex flex-col gap-6 border-t border-slate-200 pt-10 dark:border-slate-800">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+              More Insights
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              {relatedInsights.map((related, index) => (
+                <InsightCard key={related.id} insight={related} size="compact" delay={index * 80} />
+              ))}
+            </div>
+          </div>
+        ) : null}
       </Container>
     </article>
   );

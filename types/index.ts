@@ -110,6 +110,8 @@ export interface InsightContentBlock {
 export interface Insight {
   id: string;
   title: string;
+  /** Distinct <title>/meta title for SERPs when it should differ from the on-page H1 (`title`). */
+  seoTitle?: string;
   category: string;
   excerpt: string;
   date: string;
@@ -121,6 +123,8 @@ export interface Insight {
   featured?: boolean;
   /** Full article body for /insights/[slug]. Omitted while an article is still "Coming Soon". */
   content?: InsightContentBlock[];
+  /** Overrides the generic per-article <meta name="keywords"> list when set. */
+  keywords?: string[];
 }
 
 export interface Faq {

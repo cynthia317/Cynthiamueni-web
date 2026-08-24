@@ -84,4 +84,64 @@ export const FAQS: Faq[] = [
     relatedLabel: "the Digital Inspection & Audit System project",
     relatedHref: "/projects/safety-audit-toolkit",
   },
+  {
+    id: "what-is-a-safety-management-system",
+    question: "What is a safety management system?",
+    category: "EHS Systems",
+    answer: [
+      "A safety management system is a structured set of interconnected processes used to establish safety objectives, identify and control workplace risks, assign responsibilities, evaluate performance and continually improve occupational safety and health.",
+    ],
+    relatedLabel: "What Is a Safety Management System? How Digital EHS Systems Work",
+    relatedHref: "/insights/what-is-a-safety-management-system",
+  },
+  {
+    id: "safety-management-system-vs-ehs-software",
+    question: "Is a safety management system the same as EHS software?",
+    category: "EHS Systems",
+    answer: [
+      "No. The management system is the organisation's overall approach to managing safety. EHS software is a digital tool that can support processes within that system.",
+    ],
+    relatedLabel: "What Is a Safety Management System? How Digital EHS Systems Work",
+    relatedHref: "/insights/what-is-a-safety-management-system",
+  },
+  {
+    id: "what-can-a-digital-ehs-system-manage",
+    question: "What can a digital EHS system manage?",
+    category: "EHS Systems",
+    answer: [
+      "Depending on its design, it may support hazard reporting, inspections, risk assessments, incidents, audits, corrective actions, evidence, notifications, dashboards and reporting.",
+    ],
+    relatedLabel: "What Is a Safety Management System? How Digital EHS Systems Work",
+    relatedHref: "/insights/what-is-a-safety-management-system",
+  },
+  {
+    id: "why-are-corrective-actions-important",
+    question: "Why are corrective actions important?",
+    category: "Hazard Management",
+    answer: [
+      "Finding a problem does not control it. Corrective-action management creates a way to define what must be done, assign responsibility, track progress and verify whether the control was effective.",
+    ],
+    relatedLabel: "What Is a Safety Management System? How Digital EHS Systems Work",
+    relatedHref: "/insights/what-is-a-safety-management-system",
+  },
+  {
+    id: "can-ehs-software-replace-a-safety-professional",
+    question: "Can EHS software replace a safety professional?",
+    category: "EHS Systems",
+    answer: [
+      "No. Digital systems can organise information, automate workflows and improve visibility, but competent judgement, workplace observation, worker involvement, leadership and verification remain essential.",
+    ],
+    relatedLabel: "What Is a Safety Management System? How Digital EHS Systems Work",
+    relatedHref: "/insights/what-is-a-safety-management-system",
+  },
+  {
+    id: "should-every-organisation-use-the-same-safety-management-system",
+    question: "Should every organisation use the same safety management system?",
+    category: "EHS Systems",
+    answer: [
+      "No. The International Labour Organization notes that there is no one-size-fits-all approach — organisations should tailor their OSH management system to their own circumstances and needs.",
+    ],
+    relatedLabel: "What Is a Safety Management System? How Digital EHS Systems Work",
+    relatedHref: "/insights/what-is-a-safety-management-system",
+  },
 ];

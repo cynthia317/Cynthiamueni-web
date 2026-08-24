@@ -2,6 +2,335 @@ import type { Insight } from "@/types";
 
 export const INSIGHTS: Insight[] = [
   {
+    id: "what-is-a-safety-management-system",
+    title: "What Is a Safety Management System? How Digital EHS Systems Work",
+    seoTitle: "What Is a Safety Management System? Digital EHS Explained",
+    category: "EHS Systems",
+    excerpt:
+      "Learn how a safety management system connects hazard reporting, risk assessment, inspections, corrective actions and continual improvement, and where digital EHS tools fit.",
+    date: "2026-08-24",
+    readTime: "12 min read",
+    href: "/insights/what-is-a-safety-management-system",
+    image: "/images/home/ehs-digital-safety-inspection.webp",
+    imageAlt:
+      "Safety officer wearing a hi-vis vest and hard hat reviewing a digital inspection checklist on a tablet while walking a factory floor",
+    featured: true,
+    keywords: [
+      "safety management system",
+      "EHS management system",
+      "digital EHS system",
+      "occupational health and safety management system",
+      "workplace safety management",
+      "corrective action management",
+      "hazard reporting system",
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "Workplace safety can become surprisingly fragmented.",
+      },
+      {
+        type: "paragraph",
+        text: "A hazard may be reported during an inspection, recorded on a checklist and discussed with the person responsible for the area. A risk assessment may then be completed and recommendations made. Weeks later, however, a simple question can become difficult to answer: was the problem actually corrected?",
+      },
+      {
+        type: "paragraph",
+        text: "The inspection report may be in one file, the risk assessment in another, photographs somewhere else, and follow-up communication buried in email or messages. The organisation may be doing many safety activities, but those activities are not necessarily working together.",
+      },
+      {
+        type: "paragraph",
+        text: "This is where the idea of a safety management system becomes important.",
+      },
+      {
+        type: "paragraph",
+        text: "A safety management system provides a structured way of managing workplace safety rather than treating hazard reports, inspections, incidents, risk assessments and corrective actions as separate activities. When supported by the right digital tools, these processes can also become easier to connect, track and review.",
+      },
+      {
+        type: "paragraph",
+        text: "But a digital EHS system should not be confused with the safety management system itself. Understanding that difference is a good place to start.",
+      },
+      { type: "heading", text: "What Is a Safety Management System?" },
+      {
+        type: "paragraph",
+        text: "A safety management system is a structured approach to managing occupational safety and health within an organisation.",
+      },
+      {
+        type: "paragraph",
+        text: "The International Labour Organization (ILO) describes an occupational safety and health management system as a set of interrelated or interacting elements used to establish OSH policy and objectives and achieve those objectives. Its framework includes policy, organising, planning and implementation, evaluation, and action for improvement.",
+      },
+      {
+        type: "paragraph",
+        text: "The important word here is interrelated. Safety activities should not exist in isolation.",
+      },
+      {
+        type: "paragraph",
+        text: "Consider a workplace inspection that identifies an unguarded moving part on a machine. Finding and recording the hazard is important, but that alone does not control the risk. The hazard needs to be assessed, appropriate controls need to be determined, someone needs responsibility for implementing those controls, a completion date may be necessary, and once the work is completed, someone should establish whether the control has actually addressed the problem.",
+      },
+      {
+        type: "paragraph",
+        text: "That finding therefore moves through a process: identification → assessment → control → action → verification → review. That relationship between activities is what makes the system more valuable than a collection of individual safety documents.",
+      },
+      {
+        type: "paragraph",
+        text: "ISO 45001 takes a similar systematic approach to occupational health and safety management, covering areas such as leadership, worker participation, hazard identification, risk assessment, legal requirements, emergency planning, incident investigation and continual improvement.",
+      },
+      { type: "heading", text: "Safety Management System Does Not Mean Software" },
+      {
+        type: "paragraph",
+        text: "This distinction is especially important today. A safety management system can exist without a computer application. An organisation may manage its system using procedures, registers, paper forms, spreadsheets, meetings, inspections and other records.",
+      },
+      {
+        type: "paragraph",
+        text: "The management system is the way safety is organised and managed. A digital EHS platform is a tool that can support that system.",
+      },
+      {
+        type: "paragraph",
+        text: "Installing software does not automatically create an effective safety management system. If responsibilities are unclear, hazards are poorly assessed or corrective actions are never verified, digitising those processes will not solve the underlying management problem. Technology becomes useful when it supports a sound safety process.",
+      },
+      { type: "heading", text: "Why Workplace Safety Needs a System" },
+      {
+        type: "paragraph",
+        text: "Workplace hazards rarely disappear because they have been written in a report.",
+      },
+      {
+        type: "paragraph",
+        text: "Imagine that an inspection identifies materials blocking an emergency exit. The finding is recorded, signed and filed. Has the risk been controlled? Not necessarily. Someone still needs to remove the obstruction, responsibility may need to be assigned, and the organisation may also need to understand why materials were being stored there in the first place so the problem does not simply return a week later.",
+      },
+      {
+        type: "paragraph",
+        text: "This is one of the weaknesses of treating safety primarily as documentation. A completed inspection form proves that an inspection took place. It does not necessarily prove that the findings were addressed.",
+      },
+      {
+        type: "paragraph",
+        text: "OSHA's recommended safety-management practices treat hazard identification as an ongoing process. They recommend regular workplace inspections, investigation of incidents and near misses, assessment of the severity and likelihood associated with identified hazards, and prioritisation of corrective actions.",
+      },
+      {
+        type: "paragraph",
+        text: "A systematic approach therefore asks more than what did we find? It also asks: what are we going to do about it, who is responsible, when should it be done, has it been completed, and did the control work? That creates accountability and allows safety information to lead to action.",
+      },
+      { type: "heading", text: "The Core Parts of a Safety Management System" },
+      {
+        type: "paragraph",
+        text: "Different organisations will structure their systems differently. A construction company, hospital, manufacturing plant and office environment do not have identical risks or operational needs.",
+      },
+      {
+        type: "paragraph",
+        text: "The ILO specifically notes that there is no single system that fits every organisation; businesses need to consider their circumstances and tailor their OSH management arrangements accordingly. Even so, several elements repeatedly appear in effective systems.",
+      },
+      { type: "heading", text: "1. Leadership, Policy and Responsibility" },
+      {
+        type: "paragraph",
+        text: "A safety system needs direction. Management establishes the organisation's safety commitments, responsibilities and objectives, and people need to understand who is responsible for particular safety functions. Without ownership, even a well-written procedure can become something that exists on paper but has little influence on daily work. The ILO places employer leadership and commitment at the centre of establishing an OSH management system.",
+      },
+      { type: "heading", text: "2. Worker Participation" },
+      {
+        type: "paragraph",
+        text: "Workers are not simply recipients of safety instructions. They often understand the practical conditions of their work better than anyone else: how equipment behaves during normal operation, where shortcuts occur, which controls are difficult to use and which hazards may not be obvious during a scheduled inspection.",
+      },
+      {
+        type: "paragraph",
+        text: "The ILO describes worker participation as an essential element of an OSH management system and calls for workers and their representatives to be consulted, informed and trained on relevant OSH matters. A good system therefore creates ways for workers to report hazards, raise concerns and participate in improving controls.",
+      },
+      { type: "heading", text: "3. Hazard Identification" },
+      {
+        type: "paragraph",
+        text: "Before a risk can be controlled, the hazard has to be recognised. Hazards may be identified through routine inspections, worker reports, risk assessments, incident investigations, maintenance activities, audits or observations during normal work.",
+      },
+      {
+        type: "paragraph",
+        text: "Identification should also be ongoing because workplaces change: equipment wears, processes change, new materials arrive, contractors enter the workplace and work areas are reorganised. OSHA specifically recommends regular inspections because changes in equipment, processes, maintenance and housekeeping can introduce new or recurring hazards over time.",
+      },
+      { type: "heading", text: "4. Risk Assessment" },
+      {
+        type: "paragraph",
+        text: "Not every hazard presents the same level of risk. Risk assessment helps the organisation understand what could happen, who may be affected and how significant the risk may be, and that information helps determine priorities and appropriate controls.",
+      },
+      {
+        type: "paragraph",
+        text: "It should not become an exercise in producing colourful risk matrices while leaving the underlying hazards unchanged. The purpose is to support better decisions.",
+      },
+      { type: "heading", text: "5. Hazard Prevention and Control" },
+      {
+        type: "paragraph",
+        text: "Once hazards have been identified and assessed, controls need to follow. Control measures should be selected based on the nature of the hazard and the circumstances of the work. OSHA's guidance recommends evaluating control options using the hierarchy of controls and involving workers when assessing whether controls will be practical and effective.",
+      },
+      {
+        type: "paragraph",
+        text: "The important point is that identifying a hazard is the beginning of the control process, not the end.",
+      },
+      { type: "heading", text: "6. Inspections and Monitoring" },
+      {
+        type: "paragraph",
+        text: "Inspections help organisations look deliberately at workplace conditions and practices before something goes wrong. But the value of an inspection is not measured only by the number of inspections completed. It also depends on whether findings are recorded clearly, acted upon and followed through.",
+      },
+      { type: "heading", text: "7. Incident and Near-Miss Investigation" },
+      {
+        type: "paragraph",
+        text: "When an incident or near miss occurs, the aim should go beyond recording that it happened. Investigation can help identify underlying hazards, contributing factors and weaknesses in existing controls, and that information should then feed back into the safety system.",
+      },
+      { type: "heading", text: "8. Corrective Actions" },
+      {
+        type: "paragraph",
+        text: "This is where findings turn into responsibility. A useful corrective-action process normally needs to answer:",
+      },
+      {
+        type: "list",
+        items: [
+          "What needs to be corrected?",
+          "Who is responsible?",
+          "What priority does it have?",
+          "When should it be completed?",
+          "What evidence shows that it was completed?",
+          "Who verifies the correction?",
+          "Was the action effective?",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "OSHA's hazard-control guidance similarly recommends assigning responsibility, setting target completion dates, tracking progress and planning how control effectiveness will be verified.",
+      },
+      { type: "heading", text: "9. Evaluation and Continual Improvement" },
+      {
+        type: "paragraph",
+        text: "A safety management system should learn. Recurring hazards, overdue actions, incidents, inspection findings and control failures can all reveal where the system itself needs improvement. This is why continual improvement is a central idea in both the ILO management-system framework and ISO 45001.",
+      },
+      { type: "heading", text: "From Separate Safety Records to Connected Information" },
+      {
+        type: "paragraph",
+        text: "This is where digital EHS systems can become particularly useful. Consider an organisation managing safety through several independent tools:",
+      },
+      {
+        type: "list",
+        items: [
+          "Inspections recorded on a paper checklist",
+          "Risk assessments tracked in a spreadsheet",
+          "Hazard photos stored on an employee's phone",
+          "Corrective actions agreed over email or WhatsApp",
+          "Incident reports written up as a Word or PDF form",
+          "Evidence of correction filed as an email attachment",
+          "Monthly statistics compiled in another spreadsheet",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Each tool can work individually. The difficulty appears when someone needs to understand the relationship between the records — for example, which corrective actions came from last month's inspections, which high-risk findings remain open, which hazards keep appearing in the same department, or simply who has an overdue action.",
+      },
+      {
+        type: "paragraph",
+        text: "If information is fragmented, answering those questions may require manually comparing several documents. A digital EHS system can bring those relationships into one structured environment, connecting hazards, inspections, risk assessments, incidents, audits, actions and evidence so they can be monitored and reviewed together rather than reconstructed by hand.",
+      },
+      {
+        type: "linkParagraph",
+        text: "This is close to the problem behind my",
+        linkLabel: "Safety Management System project, a digital EHS platform being developed around exactly this kind of connected, structured workflow",
+        linkHref: "/projects/safety-management-system",
+      },
+      { type: "heading", text: "How Does a Digital EHS System Work?" },
+      {
+        type: "paragraph",
+        text: "At its simplest, a digital EHS system provides a structured place to capture, process and review safety information. The real value is not merely replacing a paper form with an electronic form — it is connecting what happens after the form is submitted.",
+      },
+      {
+        type: "paragraph",
+        text: "Consider a worker who notices oil leaking from a machine onto a workshop floor.",
+      },
+      {
+        type: "list",
+        items: [
+          "Step 1 — Report: the worker records the hazard, location, date, description, a photograph and any immediate action taken.",
+          "Step 2 — Review: an authorised person reviews the report and determines what needs to happen next, whether that's further risk assessment, immediate controls, maintenance or another response.",
+          "Step 3 — Assign: a corrective action is created and assigned to the person responsible, together with a priority and due date.",
+          "Step 4 — Track: instead of disappearing into a report, the action's status stays visible — open, in progress, awaiting verification, closed.",
+          "Step 5 — Evidence: the responsible person provides a photograph, maintenance record or other appropriate evidence of what was done.",
+          "Step 6 — Verify: someone confirms the required action was actually implemented and that the control is effective — completion and verification are not the same thing.",
+          "Step 7 — Monitor: over time, the organisation can look beyond one report and identify patterns, such as recurring hazards, departments with many overdue actions, or findings that repeatedly appear during inspections.",
+        ],
+      },
+      { type: "heading", text: "What Changes When Corrective Actions Are Connected to Their Source" },
+      {
+        type: "paragraph",
+        text: "This relationship is one of the most useful parts of a well-designed EHS system. Instead of a corrective action reading only as \"repair machine leak,\" the system can preserve the context behind it: the originating hazard, the affected asset, the risk assessment, the responsible person, the due date, the evidence and the verification that closed it.",
+      },
+      {
+        type: "paragraph",
+        text: "Someone reviewing the action later can understand why it exists. Someone reviewing the original hazard can see what was done about it. That's what creates traceability.",
+      },
+      { type: "heading", text: "What Should an EHS Dashboard Actually Show?" },
+      {
+        type: "paragraph",
+        text: "A dashboard should help people understand what requires attention rather than simply display attractive charts. Depending on the organisation and the quality of the underlying data, useful indicators might include open corrective actions, overdue actions, actions awaiting verification, hazards by status, inspection findings, recurring categories of hazards, incident or near-miss trends, high-priority outstanding risks and completion trends.",
+      },
+      {
+        type: "paragraph",
+        text: "But dashboards need context. An increase in hazard reports does not automatically mean safety performance has deteriorated — it could also mean workers have become more willing to report concerns. Numbers should support investigation and decision-making, not replace professional interpretation.",
+      },
+      { type: "heading", text: "Digital Does Not Automatically Mean Better" },
+      {
+        type: "paragraph",
+        text: "It is tempting to assume that replacing paper with software automatically improves safety. It does not. A poor process can simply become a poor digital process.",
+      },
+      {
+        type: "paragraph",
+        text: "If a hazard is badly described, putting it into an application does not make the description accurate. If a risk assessment is poorly performed, digitising the risk matrix does not make the assessment competent. If management ignores overdue corrective actions, displaying them on a dashboard does not make them disappear. And if workers are discouraged from reporting problems, a beautifully designed hazard-reporting application may remain empty.",
+      },
+      {
+        type: "paragraph",
+        text: "Digitalisation is most useful when it strengthens an already sensible management process.",
+      },
+      { type: "heading", text: "What Technology Cannot Replace" },
+      {
+        type: "paragraph",
+        text: "Several parts of safety management remain fundamentally human.",
+      },
+      {
+        type: "list",
+        items: [
+          "Professional judgement — software can organise information and apply predefined rules, but workplace conditions still require competent judgement that a risk score alone cannot capture.",
+          "Worker participation — the people doing the work often have knowledge that cannot be captured by simply looking at a dashboard.",
+          "Leadership — a system can send an overdue notification. It cannot make management care about the overdue action.",
+          "Selecting appropriate controls — technology can record available controls, but determining whether elimination, substitution, engineering controls, administrative measures or PPE are appropriate requires understanding the hazard and the workplace.",
+          "Verification — closing an item on a screen should never become a substitute for determining whether the workplace is actually safer. OSHA's guidance specifically calls for follow-up to confirm that controls have been implemented and remain effective.",
+        ],
+      },
+      { type: "heading", text: "A Safety Management System Should Create a Closed Loop" },
+      {
+        type: "paragraph",
+        text: "One useful way to judge a safety process is to ask whether information leads to action, and whether action leads back to learning.",
+      },
+      {
+        type: "paragraph",
+        text: "A weak process may look like: hazard → report → file. A stronger process looks more like: hazard → assessment → control → responsibility → action → verification → monitoring → improvement.",
+      },
+      {
+        type: "paragraph",
+        text: "The purpose of an inspection is not simply to complete an inspection. The purpose of a risk assessment is not simply to produce a risk-assessment document. And the purpose of reporting a hazard is certainly not just to add another record to a database. All of these activities should ultimately contribute to controlling risks and improving working conditions.",
+      },
+      { type: "heading", text: "From Recording Safety to Managing Safety" },
+      {
+        type: "paragraph",
+        text: "Digital EHS systems have the potential to make workplace safety information easier to capture, connect and follow. A hazard reported today can be linked to an assessment, corrective action, responsible person, deadline, evidence and eventual verification. Inspections can feed into action tracking. Repeated findings can become visible. Management can see outstanding issues without manually searching through separate files.",
+      },
+      {
+        type: "paragraph",
+        text: "But the technology is only one part of the picture. An effective safety management system still depends on leadership, worker participation, competent risk assessment, appropriate controls, clear responsibility and continual improvement.",
+      },
+      {
+        type: "paragraph",
+        text: "The question organisations should therefore ask is not simply \"should we digitise our safety forms?\" A more useful question is: how can we make sure that safety information leads to the right action, that the action is followed through, and that we learn from the results?",
+      },
+      {
+        type: "paragraph",
+        text: "When digital tools are designed around that process, they can do much more than replace paperwork. They can help connect the different parts of safety management into a system that is easier to follow, review and improve.",
+      },
+      {
+        type: "linkParagraph",
+        text: "If you're weighing where to start with your own organisation's EHS processes, that's exactly the kind of conversation covered under my",
+        linkLabel: "EHS Systems & Digital Solutions service",
+        linkHref: "/services#software",
+      },
+    ],
+  },
+  {
     id: "risk-assessment-basics",
     title: "Getting Risk Assessments Right in Small Teams",
     category: "Risk Assessment",
@@ -12,7 +341,6 @@ export const INSIGHTS: Insight[] = [
     href: "/insights/risk-assessment-basics",
     image: "/images/home/expertise-osh-safety-inspection.webp",
     imageAlt: "Safety professional in a hard hat reviewing a tablet while walking an industrial facility floor",
-    featured: true,
     content: [
       {
         type: "paragraph",
