@@ -11,9 +11,8 @@ export const INSIGHTS: Insight[] = [
     date: "2026-08-24",
     readTime: "12 min read",
     href: "/insights/what-is-a-safety-management-system",
-    image: "/images/home/ehs-digital-safety-inspection.webp",
-    imageAlt:
-      "Safety officer wearing a hi-vis vest and hard hat reviewing a digital inspection checklist on a tablet while walking a factory floor",
+    image: "/images/insights/digital-ehs-workplace-safety-systems-alt.webp",
+    imageAlt: "Digital safety monitoring dashboard displaying live equipment data beside a guarded industrial robotic workstation",
     featured: true,
     keywords: [
       "safety management system",
