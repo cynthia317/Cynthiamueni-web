@@ -17,7 +17,7 @@ export const BUSINESS_HOURS = [
   { days: "Saturday", hours: "9:00 AM to 1:00 PM" },
 ] as const;
 
-export const HARUNLUCAS_DEV_URL = "https://harunlucasdev.site/";
+export const HARUNLUCAS_DEV_URL = "https://kipeo.harunlucas.com/";
 
 export const LINKEDIN_URL = "https://www.linkedin.com/in/cynthia-mueni-6b621b359/";
 export const FACEBOOK_URL = "https://www.facebook.com/Cynthia%20Mueni";
