@@ -45,10 +45,9 @@ const INITIAL_VALUES: FormValues = {
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// FormSubmit delivers to this inbox directly — no server route, no API key. The /ajax/
-// variant returns a JSON response instead of redirecting, so the existing custom
-// success/error UI below can stay exactly as it was with the old /api/contact route.
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/ndukucynthia02@gmail.com";
+// Same-origin server route — it validates again server-side and sends via Brevo's
+// Transactional Email API. The destination inbox and Brevo API key never reach the browser.
+const CONTACT_API_ENDPOINT = "/api/contact";
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {};
@@ -102,7 +101,10 @@ export default function ContactForm() {
     if (status === "submitting") return;
 
     // Honeypot: a filled hidden field means a bot filled every input, name included.
-    // Mirror FormSubmit's own "silently ignore" behaviour instead of hitting the network.
+    // Skip the network round-trip entirely — the server re-checks this too, since a bot
+    // could bypass this client-side code and POST directly to the API route. Note this
+    // branch never reaches the server at all, so a false positive here (e.g. browser
+    // autofill) is invisible to server-side logs — see the field's own comment above.
     if (honeypot) {
       setStatus("success");
       return;
@@ -114,33 +116,24 @@ export default function ContactForm() {
 
     setStatus("submitting");
 
-    const enquiryLabel = ENQUIRY_OPTIONS.find((option) => option.value === values.enquiryType)?.label ?? "General";
-
     try {
-      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+      const response = await fetch(CONTACT_API_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          Name: values.name,
-          Email: values.email,
-          Organisation: values.organisation || "Not provided",
-          Phone: values.phone || "Not provided",
-          "Enquiry Type": enquiryLabel,
-          Subject: values.subject,
-          Message: values.message,
-          _subject: "New enquiry from CynthiaMueni.com",
-          _template: "table",
-          _captcha: "false",
-          _honey: "",
-          _replyto: values.email,
+          name: values.name,
+          email: values.email,
+          organisation: values.organisation,
+          phone: values.phone,
+          enquiryType: values.enquiryType,
+          subject: values.subject,
+          message: values.message,
+          hp_field: honeypot,
         }),
       });
 
-      // FormSubmit can return HTTP 200 even when it didn't actually deliver the message
-      // (e.g. "This form needs Activation" on an unconfirmed recipient) — the real result
-      // is in the JSON body's `success` field, not the HTTP status alone.
-      const data: { success?: string } | null = await response.json().catch(() => null);
-      if (!response.ok || data?.success === "false") throw new Error("Request failed");
+      const data: { ok?: boolean } | null = await response.json().catch(() => null);
+      if (!response.ok || !data?.ok) throw new Error("Request failed");
       setStatus("success");
     } catch {
       setStatus("error");
@@ -228,10 +221,15 @@ export default function ContactForm() {
       className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8"
     >
       <div aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
-        <label htmlFor="contact-company">Company</label>
+        {/* Deliberately not named/labelled like a real field (e.g. "company", "website") —
+            browsers largely ignore autocomplete="off" and will still silently autofill a
+            hidden field whose name matches a saved address/company profile, especially next
+            to a real "Organisation" field. That false-positive would trip the honeypot for a
+            genuine visitor and make the form falsely report success without sending. */}
+        <label htmlFor="contact-hp-field">Leave this field empty</label>
         <input
-          id="contact-company"
-          name="company"
+          id="contact-hp-field"
+          name="hp_field"
           type="text"
           tabIndex={-1}
           autoComplete="off"

@@ -2,15 +2,15 @@ import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV === "development";
 
-// The site is entirely static content — the contact form posts client-side straight to
-// FormSubmit (formsubmit.co), no server route or API key involved. The policy also
+// The contact form posts to this site's own /api/contact route, which calls Brevo
+// server-to-server (never from the browser), so no third-party origin is needed in
+// connect-src for it — 'self' already covers the same-origin request. The policy also
 // allowlists the marketing/analytics platforms this site is expected to use — Google
 // Analytics/Tag Manager, Meta (Facebook) Pixel, and the LinkedIn Insight Tag — so those can
 // be dropped in later without a CSP change. 'unsafe-inline' on script-src is required for
 // next-themes' inline no-flash script, the two static JSON-LD <script> blocks (Insights
 // pages), and inline config snippets some of these tags require; 'unsafe-eval' is dev-only,
 // needed for Next.js Fast Refresh / HMR and never shipped to production.
-const FORM_DELIVERY_ORIGIN = "https://formsubmit.co";
 const MARKETING_SCRIPT_ORIGINS = [
   "https://www.googletagmanager.com",
   "https://connect.facebook.net",
@@ -40,7 +40,7 @@ const ContentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: ${MARKETING_IMG_ORIGINS.join(" ")}`,
   "font-src 'self' data:",
-  `connect-src 'self' ${FORM_DELIVERY_ORIGIN} ${MARKETING_CONNECT_ORIGINS.join(" ")}${isDev ? " ws:" : ""}`,
+  `connect-src 'self' ${MARKETING_CONNECT_ORIGINS.join(" ")}${isDev ? " ws:" : ""}`,
   "form-action 'self'",
   "frame-ancestors 'none'",
   "base-uri 'self'",

@@ -5,8 +5,9 @@ export const SITE_TITLE = "Cynthia Mueni: Occupational Safety, EHS Systems & Dig
 export const SITE_DESCRIPTION =
   "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly.";
 
-// Public-facing professional identity — shown on the site and used as the mailto: fallback.
-// The contact form itself delivers to a separate inbox via FormSubmit (see ContactForm.tsx).
+// Public-facing professional identity — shown on the site, used as the mailto: fallback,
+// and as the default Brevo sender address (CONTACT_FROM_EMAIL env var can override).
+// The contact form delivers to a private inbox via Brevo — see app/api/contact/route.ts.
 export const CONTACT_EMAIL = "hello@cynthiamueni.com";
 export const CONTACT_PHONE = "+254 748 810 670";
 export const CONTACT_PHONE_HREF = "+254748810670";
