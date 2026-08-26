@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Container from "@/components/layout/Container";
 import InsightCard from "@/components/ui/InsightCard";
+import InsightToc from "@/components/insights/InsightToc";
 import { INSIGHTS } from "@/lib/data/insights";
-import type { Insight } from "@/types";
+import type { Insight, InsightContentBlock } from "@/types";
 
 function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString("en-US", {
@@ -21,8 +23,123 @@ function getRelatedInsights(current: Insight, max = 3) {
   return [...sameCategory, ...rest].slice(0, max);
 }
 
+function renderContentBlock(block: InsightContentBlock, index: number): ReactNode {
+  if (block.type === "heading") {
+    return (
+      <h2
+        key={index}
+        id={block.id}
+        className="mt-4 scroll-mt-28 text-xl font-semibold tracking-tight text-slate-900 first:mt-0 dark:text-slate-50 sm:text-2xl"
+      >
+        {block.text}
+      </h2>
+    );
+  }
+
+  if (block.type === "list") {
+    return (
+      <ul key={index} className="flex flex-col gap-2.5">
+        {block.items?.map((item) => (
+          <li
+            key={item}
+            className="flex items-start gap-2.5 text-base leading-relaxed text-slate-600 dark:text-slate-400"
+          >
+            <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
+            {item}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  if (block.type === "linkParagraph") {
+    return (
+      <p
+        key={index}
+        className="rounded-xl border border-amber-200 bg-amber-50/60 p-4 text-base leading-relaxed text-slate-600 dark:border-amber-500/20 dark:bg-amber-500/[0.06] dark:text-slate-400"
+      >
+        {block.text}{" "}
+        <Link
+          href={block.linkHref ?? "/insights"}
+          className="font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 transition-colors hover:decoration-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-amber-400 dark:decoration-amber-500/40 dark:hover:decoration-amber-400"
+        >
+          {block.linkLabel}
+        </Link>
+        .
+      </p>
+    );
+  }
+
+  if (block.type === "quote") {
+    return (
+      <blockquote
+        key={index}
+        className="rounded-r-xl border-l-4 border-slate-800 bg-slate-50 py-3 pl-5 pr-4 text-base italic leading-relaxed text-slate-700 dark:border-amber-400 dark:bg-slate-900/40 dark:text-slate-300"
+      >
+        {block.text}
+      </blockquote>
+    );
+  }
+
+  if (block.type === "image" && block.imageSrc) {
+    return (
+      <figure key={index} className="flex flex-col gap-2">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800">
+          <Image
+            src={block.imageSrc}
+            alt={block.imageAlt ?? ""}
+            fill
+            sizes="(min-width: 1024px) 768px, 100vw"
+            className="object-cover"
+          />
+        </div>
+        {block.caption ? (
+          <figcaption className="text-center text-sm text-slate-500 dark:text-slate-400">
+            {block.caption}
+          </figcaption>
+        ) : null}
+      </figure>
+    );
+  }
+
+  if (block.type === "references") {
+    return (
+      <div key={index} className="mt-4 flex flex-col gap-3 border-t border-slate-200 pt-8 dark:border-slate-800">
+        {block.text ? (
+          <h2
+            id={block.id}
+            className="scroll-mt-28 text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-2xl"
+          >
+            {block.text}
+          </h2>
+        ) : null}
+        <ul className="flex flex-col gap-2">
+          {block.items?.map((item) => (
+            <li key={item} className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  return (
+    <p key={index} className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+      {block.text}
+    </p>
+  );
+}
+
 export default function InsightArticle({ insight }: { insight: Insight }) {
   const relatedInsights = getRelatedInsights(insight);
+  const tocBlock = insight.content?.find((block) => block.type === "toc");
+  const tocItems = tocBlock?.tocItems ?? [];
+  const bodyBlocks = insight.content?.filter((block) => block.type !== "toc") ?? [];
+
+  const articleBody = (
+    <div className="flex w-full flex-col gap-5">{bodyBlocks.map((block, index) => renderContentBlock(block, index))}</div>
+  );
 
   return (
     <article className="py-16 sm:py-20">
@@ -91,60 +208,16 @@ export default function InsightArticle({ insight }: { insight: Insight }) {
           />
         </div>
 
-        <div className="mx-auto flex w-full max-w-2xl flex-col gap-5">
-          {insight.content?.map((block, index) => {
-            if (block.type === "heading") {
-              return (
-                <h2
-                  key={index}
-                  className="mt-4 text-xl font-semibold tracking-tight text-slate-900 first:mt-0 dark:text-slate-50 sm:text-2xl"
-                >
-                  {block.text}
-                </h2>
-              );
-            }
-
-            if (block.type === "list") {
-              return (
-                <ul key={index} className="flex flex-col gap-2.5">
-                  {block.items?.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2.5 text-base leading-relaxed text-slate-600 dark:text-slate-400"
-                    >
-                      <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              );
-            }
-
-            if (block.type === "linkParagraph") {
-              return (
-                <p
-                  key={index}
-                  className="rounded-xl border border-amber-200 bg-amber-50/60 p-4 text-base leading-relaxed text-slate-600 dark:border-amber-500/20 dark:bg-amber-500/[0.06] dark:text-slate-400"
-                >
-                  {block.text}{" "}
-                  <Link
-                    href={block.linkHref ?? "/insights"}
-                    className="font-semibold text-amber-700 underline decoration-amber-300 underline-offset-4 transition-colors hover:decoration-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:text-amber-400 dark:decoration-amber-500/40 dark:hover:decoration-amber-400"
-                  >
-                    {block.linkLabel}
-                  </Link>
-                  .
-                </p>
-              );
-            }
-
-            return (
-              <p key={index} className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
-                {block.text}
-              </p>
-            );
-          })}
-        </div>
+        {tocItems.length > 0 ? (
+          <div className="mx-auto w-full max-w-5xl lg:grid lg:grid-cols-12 lg:gap-x-12">
+            <div className="mb-8 lg:order-2 lg:col-span-4 lg:mb-0">
+              <InsightToc items={tocItems} />
+            </div>
+            <div className="lg:order-1 lg:col-span-8">{articleBody}</div>
+          </div>
+        ) : (
+          <div className="mx-auto w-full max-w-2xl">{articleBody}</div>
+        )}
 
         {relatedInsights.length > 0 ? (
           <div className="flex flex-col gap-6 border-t border-slate-200 pt-10 dark:border-slate-800">

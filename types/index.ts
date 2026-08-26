@@ -99,12 +99,21 @@ export interface Project {
 }
 
 export interface InsightContentBlock {
-  type: "paragraph" | "heading" | "list" | "linkParagraph";
+  type: "paragraph" | "heading" | "list" | "linkParagraph" | "toc" | "references" | "quote" | "image";
   text?: string;
   items?: string[];
   /** linkParagraph only — rendered as "{text} {linkLabel}." with linkLabel as the anchor. */
   linkLabel?: string;
   linkHref?: string;
+  /** heading/references only — anchor id used as a scroll target (e.g. from a "toc" block). */
+  id?: string;
+  /** toc only — ordered "On This Page" entries linking to heading ids in this same article. */
+  tocItems?: { label: string; id: string }[];
+  /** image only — supporting in-article image, distinct from the article's top featured image. */
+  imageSrc?: string;
+  imageAlt?: string;
+  /** image only — optional caption rendered under the image. */
+  caption?: string;
 }
 
 export interface Insight {
