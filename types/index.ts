@@ -109,6 +109,8 @@ export interface InsightContentBlock {
   id?: string;
   /** toc only — ordered "On This Page" entries linking to heading ids in this same article. */
   tocItems?: { label: string; id: string }[];
+  /** references only — cited sources, optionally linking out to the original source. Falls back to plain `items` when omitted. */
+  referenceItems?: { text: string; href?: string }[];
   /** image only — supporting in-article image, distinct from the article's top featured image. */
   imageSrc?: string;
   imageAlt?: string;

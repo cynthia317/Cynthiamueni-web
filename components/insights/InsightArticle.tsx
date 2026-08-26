@@ -114,11 +114,28 @@ function renderContentBlock(block: InsightContentBlock, index: number): ReactNod
           </h2>
         ) : null}
         <ul className="flex flex-col gap-2">
-          {block.items?.map((item) => (
-            <li key={item} className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-              {item}
-            </li>
-          ))}
+          {block.referenceItems
+            ? block.referenceItems.map((item) => (
+                <li key={item.text} className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-slate-300 underline-offset-4 transition-colors hover:text-slate-900 hover:decoration-amber-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:decoration-slate-700 dark:hover:text-white"
+                    >
+                      {item.text}
+                    </a>
+                  ) : (
+                    item.text
+                  )}
+                </li>
+              ))
+            : block.items?.map((item) => (
+                <li key={item} className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  {item}
+                </li>
+              ))}
         </ul>
       </div>
     );
