@@ -198,11 +198,11 @@ function buildEmailContent(fields: ValidatedFields) {
 }
 
 export async function POST(request: NextRequest) {
-  const ip = getClientIp(request);
-  log("request received");
+  log("route_invoked");
 
+  const ip = getClientIp(request);
   if (!checkRateLimit(ip)) {
-    log("result", { outcome: "failure", reason: "rate_limited" });
+    log("response_error", { reason: "rate_limited" });
     return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
   }
 
@@ -210,7 +210,7 @@ export async function POST(request: NextRequest) {
   try {
     body = await request.json();
   } catch {
-    log("result", { outcome: "failure", reason: "invalid_body" });
+    log("response_error", { reason: "invalid_body" });
     return NextResponse.json({ ok: false, error: "invalid_body" }, { status: 400 });
   }
 
@@ -219,7 +219,7 @@ export async function POST(request: NextRequest) {
   const honeypotTriggered = typeof body.hp_field === "string" && body.hp_field.trim() !== "";
   log("honeypot_triggered", { value: honeypotTriggered });
   if (honeypotTriggered) {
-    log("result", { outcome: "success", reason: "honeypot_short_circuit_no_email_sent" });
+    log("response_success", { reason: "honeypot_short_circuit_no_email_sent" });
     return NextResponse.json({ ok: true });
   }
 
@@ -227,7 +227,7 @@ export async function POST(request: NextRequest) {
   const validationPassed = !("errors" in result);
   log("validation_passed", { value: validationPassed, failedFields: "errors" in result ? Object.keys(result.errors) : [] });
   if ("errors" in result) {
-    log("result", { outcome: "failure", reason: "validation" });
+    log("response_error", { reason: "validation" });
     return NextResponse.json({ ok: false, error: "validation", fields: result.errors }, { status: 400 });
   }
 
@@ -242,7 +242,7 @@ export async function POST(request: NextRequest) {
 
   if (!apiKey || !toEmail) {
     console.error("[contact] Missing required environment variable(s): BREVO_API_KEY and/or CONTACT_TO_EMAIL.");
-    log("result", { outcome: "failure", reason: "server_not_configured" });
+    log("response_error", { reason: "server_not_configured" });
     return NextResponse.json({ ok: false, error: "server_not_configured" }, { status: 500 });
   }
 
@@ -273,15 +273,15 @@ export async function POST(request: NextRequest) {
 
     if (!brevoResponse.ok) {
       console.error(`[contact] Brevo API rejected the request (status ${brevoResponse.status}): ${responseBody}`);
-      log("result", { outcome: "failure", reason: "send_failed", brevoStatus: brevoResponse.status });
+      log("response_error", { reason: "send_failed", brevoStatus: brevoResponse.status });
       return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });
     }
 
-    log("result", { outcome: "success", reason: "brevo_accepted" });
+    log("response_success", { reason: "brevo_accepted" });
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("[contact] Unexpected error calling Brevo:", error);
-    log("result", { outcome: "failure", reason: "brevo_fetch_threw" });
+    log("response_error", { reason: "brevo_fetch_threw" });
     return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });
   }
 }

@@ -100,15 +100,11 @@ export default function ContactForm() {
     event.preventDefault();
     if (status === "submitting") return;
 
-    // Honeypot: a filled hidden field means a bot filled every input, name included.
-    // Skip the network round-trip entirely — the server re-checks this too, since a bot
-    // could bypass this client-side code and POST directly to the API route. Note this
-    // branch never reaches the server at all, so a false positive here (e.g. browser
-    // autofill) is invisible to server-side logs — see the field's own comment above.
-    if (honeypot) {
-      setStatus("success");
-      return;
-    }
+    // Honeypot is intentionally NOT checked here. Every submission — including a filled
+    // honeypot — must reach POST /api/contact so it shows up in server logs and the server
+    // (the only place that can actually know whether Brevo was called) decides the outcome.
+    // A client-side short-circuit would let the browser report "success" without the
+    // request ever leaving it — which is exactly the bug this replaces.
 
     const validationErrors = validate(values);
     setErrors(validationErrors);
@@ -117,6 +113,10 @@ export default function ContactForm() {
     setStatus("submitting");
 
     try {
+      // Temporary debug aid — confirms the browser actually attempted the request. Safe to
+      // remove once production delivery is confirmed working. No form contents logged.
+      console.info("[contact-form] submitting to /api/contact");
+
       const response = await fetch(CONTACT_API_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
