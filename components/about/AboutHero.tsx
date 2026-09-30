@@ -104,7 +104,7 @@ export default function AboutHero() {
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-slate-500">
                   <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-                  EHS-First Practice
+                  EHS First Practice
                 </span>
               </div>
 

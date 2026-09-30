@@ -188,7 +188,7 @@ export default function ContactForm() {
         <div className="flex flex-col gap-1.5">
           <p className="text-base font-semibold text-slate-900 dark:text-slate-50">Your message has been sent</p>
           <p className="max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            Thanks for reaching out — I aim to respond to professional enquiries within 24 hours.
+            Thanks for reaching out. I aim to respond to professional enquiries within 24 hours.
           </p>
         </div>
         <div className="flex flex-wrap gap-3">

@@ -1,6 +1,7 @@
 import type { Insight } from "@/types";
 
-export const INSIGHTS: Insight[] = [
+export const INSIGHTS: Insight[] =
+[
   {
     id: "how-digital-tools-can-improve-workplace-safety-management",
     title: "How Digital Tools Can Improve Workplace Safety Management",
@@ -445,7 +446,7 @@ export const INSIGHTS: Insight[] = [
       {
         type: "linkParagraph",
         text: "If your business needs a website that supports this kind of safety communication, that falls under",
-        linkLabel: "Web Design & Development through HarunLucas Dev",
+        linkLabel: "Web Design & Development through Kipeo.com",
         linkHref: "https://kipeo.harunlucas.com/",
       },
       {
@@ -533,6 +534,312 @@ export const INSIGHTS: Insight[] = [
           "OSHA: Education and Training.",
           "OSHA: Program Evaluation and Improvement.",
         ],
+      },
+    ],
+  },
+  {
+    id: "how-to-improve-safety-compliance-in-the-workplace",
+    title: "How to Improve Safety Compliance in the Workplace",
+    category: "Occupational Safety & Health",
+    excerpt:
+      "Practical ways organisations can strengthen workplace safety compliance through leadership, risk management, training, inspections, worker involvement and consistent follow-up.",
+    date: "2026-09-29",
+    readTime: "11 min read",
+    href: "/insights/how-to-improve-safety-compliance-in-the-workplace",
+    image: "/images/insights/improving-safety-compliance-featured.webp",
+    imageAlt:
+      "Safety professional conducting a workplace safety compliance inspection",
+    keywords: [
+      "safety compliance",
+      "workplace safety compliance",
+      "occupational safety and health",
+      "OSH compliance",
+      "EHS compliance",
+      "workplace safety",
+      "risk assessment",
+      "safety inspections",
+      "corrective actions",
+      "safety training",
+      "hazard reporting",
+      "safety management",
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "Safety compliance is not achieved simply by having policies, displaying safety signs or providing personal protective equipment. An organisation can have all of these in place and still struggle with unsafe conditions, repeated incidents and unresolved hazards. Effective compliance depends on whether safety requirements are understood, applied, monitored and improved as part of everyday work.",
+      },
+      {
+        type: "paragraph",
+        text: "Improving safety compliance therefore requires more than preparing for an inspection or audit. The goal should be to build a system where hazards are identified early, responsibilities are clear, corrective actions are followed through and workers understand what safe work looks like in practice.",
+      },
+
+      {
+        type: "heading",
+        text: " Understand the Safety Requirements That Apply to the Workplace",
+        id: "Understand-the-Safety-Requirements-That-Apply-to-the-Workplace",
+      },
+      {
+        type: "paragraph",
+        text: "The first step is knowing what the organisation is expected to comply with. Requirements may come from occupational safety and health legislation, regulations, licences, industry standards, internal procedures, client requirements and the specific risks associated with the organisation's activities.",
+      },
+      {
+        type: "paragraph",
+        text: "Instead of treating these requirements as separate documents stored in an office, organisations should translate them into practical responsibilities. For example, a requirement relating to fire safety should be reflected in inspections, emergency arrangements, equipment maintenance, worker awareness and documented follow-up.",
+      },
+
+      {
+        type: "heading",
+        text: " Start With a Proper Workplace Risk Assessment",
+        id: "Start-With-a-Proper-Workplace-Risk_Assessment",
+      },
+      {
+        type: "paragraph",
+        text: "Compliance becomes difficult when an organisation does not have a clear picture of its hazards. A workplace risk assessment helps identify what can cause harm, who may be affected, the controls already in place and what additional measures are required.",
+      },
+      {
+        type: "paragraph",
+        text: "The assessment should reflect actual work rather than becoming a document prepared once and forgotten. Changes in machinery, chemicals, work processes, staffing, contractors or workplace layout can introduce new hazards. Risk assessments therefore need to be reviewed when conditions change and when incidents or inspections reveal weaknesses in existing controls.",
+      },
+
+      {
+        type: "heading",
+        text: " Make Management Responsibility Visible",
+        id: "Make-Management-Responsibility-Visisble",
+      },
+      {
+        type: "paragraph",
+        text: "Workers are unlikely to take safety requirements seriously when management treats them as optional. Leadership influences whether production pressure is allowed to override safe procedures, whether reported hazards receive attention and whether corrective actions are given the resources needed for closure.",
+      },
+      {
+        type: "paragraph",
+        text: "Management commitment should therefore be visible in everyday decisions. This includes assigning responsibilities, providing adequate resources, reviewing safety performance, participating in inspections and ensuring that identified problems are actually corrected.",
+      },
+
+      {
+        type: "heading",
+        text: " Give Workers Practical Safety Training",
+        id: "Give-Workers-Practical-Safety-Training",
+      },
+      {
+        type: "paragraph",
+        text: "Training should help people perform their work safely, not simply prove that a training session took place. Workers need to understand the hazards associated with their tasks, the controls they are expected to use, emergency procedures and what to do when they identify something unsafe.",
+      },
+      {
+        type: "paragraph",
+        text: "Training is particularly important when a worker joins the organisation, changes roles, begins using new equipment or when a new process or hazard is introduced. Short refresher sessions and toolbox talks can then reinforce important requirements during normal operations.",
+      },
+
+      {
+        type: "heading",
+        text: " Make Hazard Reporting Simple",
+        id: "Make-Hazard-Reporting-Simple",
+      },
+      {
+        type: "paragraph",
+        text: "A hazard that is never reported is difficult to control. Organisations should make it easy for workers to report unsafe conditions, unsafe acts, equipment problems and near misses before they result in injuries or damage.",
+      },
+      {
+        type: "paragraph",
+        text: "The reporting process should also lead somewhere. If workers repeatedly report hazards and nothing happens, reporting quickly loses credibility. Each significant report should be reviewed, assigned where necessary and followed through until the risk has been adequately controlled.",
+      },
+
+      {
+        type: "heading",
+        text: " Conduct Regular Workplace Inspections",
+        id: "Conduct-Regular-Workplace-Inspections",
+      },
+      {
+        type: "paragraph",
+        text: "Routine inspections help an organisation identify compliance gaps before they develop into larger problems. The inspection should look beyond obvious housekeeping issues and consider equipment condition, electrical safety, emergency arrangements, access routes, PPE, machine guarding, chemical storage, ergonomics, work practices and other hazards relevant to the workplace.",
+      },
+      {
+        type: "paragraph",
+        text: "An inspection becomes valuable when findings lead to action. Recording the same issue month after month without correcting it may create documentation, but it does not improve safety performance.",
+      },
+
+      {
+        type: "heading",
+        text: " Track Corrective Actions Until They Are Closed",
+        id: "Track-Corrective-Actions-Until-They-Are-Closed",
+      },
+      {
+        type: "paragraph",
+        text: "One of the most common weaknesses in safety management is not identifying problems but failing to close them. Audits, inspections, incidents and risk assessments may produce long lists of actions that gradually disappear into spreadsheets, emails or meeting minutes.",
+      },
+      {
+        type: "paragraph",
+        text: "Each corrective action should have a responsible person, an appropriate deadline and a clear description of what needs to be done. Overdue actions should be visible and followed up. Closure should also mean verifying that the action actually addressed the problem rather than simply marking it as complete.",
+      },
+
+      {
+        type: "heading",
+        text: " Investigate Incidents and Near Misses Properly",
+        id: "Investigate-Incidents-and-Near-Misses-Properly",
+      },
+      {
+        type: "paragraph",
+        text: "Incidents provide information about where controls have failed. Near misses can provide the same information before someone is injured. Both should therefore be treated as opportunities to identify weaknesses and prevent recurrence.",
+      },
+      {
+        type: "paragraph",
+        text: "The purpose of an investigation should not be to find someone to blame. It should establish what happened, why it happened and what needs to change. Looking only at the immediate unsafe act can miss underlying issues such as poor supervision, inadequate training, defective equipment, unclear procedures or weak planning.",
+      },
+
+      {
+        type: "heading",
+        text: " Keep Safety Documentation Useful and Up to Date",
+        id: " Keep-Safety-Documentation-Useful-and-Up-to-Date",
+      },
+      {
+        type: "paragraph",
+        text: "Good documentation provides evidence of what the organisation is doing and helps maintain consistency. Depending on the workplace, this may include risk assessments, inspection records, training records, incident reports, equipment inspection records, corrective actions, permits, emergency records and other safety documentation.",
+      },
+      {
+        type: "paragraph",
+        text: "However, documentation should support the safety system rather than become the safety system. A perfectly completed checklist means little if the unsafe condition recorded on it remains unresolved.",
+      },
+
+      {
+        type: "heading",
+        text: " Involve Workers in Safety Decisions",
+        id: " Involve-Workers-in-Safety-Decisions",
+      },
+      {
+        type: "paragraph",
+        text: "Workers often understand day-to-day operational hazards better than anyone reviewing the workplace from a distance. Their involvement can improve risk assessments, inspections, incident investigations and the development of practical controls.",
+      },
+      {
+        type: "paragraph",
+        text: "Consultation also helps identify the difference between a procedure that looks good on paper and one that can realistically be followed during actual work. When workers are encouraged to raise concerns and contribute solutions, compliance becomes more connected to real working conditions.",
+      },
+
+      {
+        type: "heading",
+        text: " Manage Contractors and Visitors",
+        id: " Manage-Contractors-and-Visitors",
+      },
+      {
+        type: "paragraph",
+        text: "Safety responsibilities do not disappear when work is carried out by a contractor. Contractors may introduce unfamiliar equipment, activities and hazards into the workplace, while visitors may not understand site rules or emergency arrangements.",
+      },
+      {
+        type: "paragraph",
+        text: "Organisations should therefore have appropriate controls for contractor selection, induction, permits where necessary, supervision and communication of site-specific hazards. Visitors should also receive the level of safety information appropriate to where they will be and what they will be doing.",
+      },
+
+      {
+        type: "heading",
+        text: " Use Safety Data to Identify Weak Areas",
+        id: " Use-Safety-Data-to-Identify-Weak-Areas",
+      },
+      {
+        type: "paragraph",
+        text: "Safety performance should not be judged only by whether an accident occurred. Organisations can monitor leading indicators such as open hazards, overdue corrective actions, inspection completion, training status and reported near misses alongside incident statistics.",
+      },
+      {
+        type: "paragraph",
+        text: "These indicators can reveal weaknesses before a serious event occurs. For example, a growing number of overdue corrective actions may show that problems are being identified but the organisation does not have an effective process for resolving them.",
+      },
+
+      {
+        type: "heading",
+        text: " Use Digital Tools Where They Solve a Real Problem",
+        id: " Use-Digital-Tools-Where-They-Solve-a-Real-Problem",
+      },
+      {
+        type: "paragraph",
+        text: "Digital safety systems can make compliance easier by bringing hazard reports, inspections, risk assessments, incidents and corrective actions into one place. They can also improve accountability by showing who owns an action, when it is due and whether it has been verified.",
+      },
+      {
+        type: "paragraph",
+        text: "Technology should not be introduced simply because it is available. A digital system is useful when it reduces lost information, improves visibility, supports timely follow-up and gives the organisation a clearer picture of its safety performance.",
+      },
+
+      {
+        type: "heading",
+        text: " Review and Improve the System Continuously",
+        id: " Review-and-Improve-the-System-Continuously",
+      },
+      {
+        type: "paragraph",
+        text: "Safety compliance is not a one-time project. Workplaces change, people change, equipment ages and new risks emerge. Organisations therefore need to periodically review whether their controls are still effective and whether recurring findings are pointing to deeper weaknesses.",
+      },
+      {
+        type: "paragraph",
+        text: "Audits, inspections, worker feedback, incident investigations and performance data should feed back into this review process. The objective is not simply to remain compliant on paper but to continuously strengthen how risks are managed.",
+      },
+
+      {
+        type: "heading",
+        text: "Common Signs That Safety Compliance Is Weak",
+        id: "Common-Signs-That-Safety-Compliance-Is-Weak",
+      },
+      {
+        type: "list",
+        items: [
+          "The same hazards appear repeatedly during inspections",
+          "Corrective actions remain overdue without escalation",
+          "Risk assessments exist but do not reflect actual workplace activities",
+          "Workers are unable to explain important procedures or emergency arrangements",
+          "Safety training is treated mainly as a record-keeping exercise",
+          "Near misses are rarely reported or investigated",
+          "Safety responsibility is left entirely to the safety officer",
+          "Documents are updated mainly when an audit or inspection is approaching",
+          "Workers report problems but receive little feedback on what was done",
+        ],
+      },
+
+      {
+        type: "heading",
+        text: "A Practical Safety Compliance Cycle",
+        id: "A-Practical-Safety-Compliance-Cycle",
+      },
+      {
+        type: "paragraph",
+        text: "A useful way to think about compliance is as a continuous cycle rather than a checklist. Identify the requirement and the hazard, assess the risk, put controls in place, communicate responsibilities, inspect and monitor the workplace, correct weaknesses, verify that actions worked and then review the system again.",
+      },
+      {
+        type: "list",
+        items: [
+          "Identify hazards and applicable safety requirements",
+          "Assess the risks",
+          "Implement appropriate controls",
+          "Train and communicate with workers",
+          "Inspect and monitor performance",
+          "Report incidents, hazards and near misses",
+          "Assign and track corrective actions",
+          "Verify that corrective actions are effective",
+          "Review performance and improve the system",
+        ],
+      },
+
+      {
+        type: "heading",
+        text: "Key Takeaways",
+        id:   "Key-Takeaways",
+      },
+      {
+        type: "list",
+        items: [
+          "Safety compliance should be part of everyday operations, not something prepared only for audits",
+          "Risk assessments need to reflect the actual workplace and be reviewed when conditions change",
+          "Management commitment is demonstrated through decisions, resources and follow-up",
+          "Workers need practical training and simple ways to report hazards and near misses",
+          "Inspections only improve safety when findings lead to verified corrective actions",
+          "Good records support compliance, but documentation cannot replace effective controls",
+          "Safety performance should be reviewed continuously using both incident data and proactive indicators",
+          "Digital tools are most valuable when they improve visibility, accountability and follow-up",
+        ],
+      },
+
+      {
+        type: "heading",
+        text: "Final Thoughts",
+        id: "Final-Thoughts",
+      },
+      {
+        type: "paragraph",
+        text: "Improving safety compliance does not necessarily begin with more paperwork. It begins with understanding the risks, assigning responsibility and making sure identified problems are actually resolved. When reporting, risk assessment, inspections, training and corrective actions work together, compliance becomes part of how the organisation operates rather than something it demonstrates only when an auditor arrives.",
       },
     ],
   },
