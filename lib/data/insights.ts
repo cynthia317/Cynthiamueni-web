@@ -3,6 +3,592 @@ import type { Insight } from "@/types";
 export const INSIGHTS: Insight[] =
 [
   {
+    id: "digital-safety-management-systems",
+    title: "Digital Safety Management Systems: Transforming How Organisations Manage Workplace Safety",
+    category: "EHS Systems & Digital Solutions",
+    excerpt:
+      "Explore how digital safety management systems can improve hazard reporting, inspections, corrective actions and safety visibility, while connecting everyday EHS activities into structured and accountable workflows.",
+    date: "2026-09-30",
+    readTime: "13 min read",
+    href: "/insights/digital-safety-management-systems",
+    image: "/images/insights/digital-safety-management-systems.webp",
+    imageAlt:
+      "Digital safety management dashboard connecting workplace hazards, inspections and corrective actions",
+    keywords: [
+      "digital safety management system",
+      "EHS management system",
+      "safety management software",
+      "digital EHS system",
+      "workplace safety software",
+      "hazard reporting system",
+      "safety inspection software",
+      "corrective action tracking",
+      "EHS digital transformation",
+      "SafetyOS",
+      "occupational safety and health",
+      "workplace safety management",
+    ],
+
+    content: [
+      {
+        type: "toc",
+        tocItems: [
+          {
+            label: "What Is a Digital Safety Management System?",
+            id: "what-is-a-digital-safety-management-system"
+          },
+          {
+            label: "Why Traditional Safety Management Becomes Difficult",
+            id: "why-traditional-safety-management-becomes-difficult"
+          },
+          {
+            label: "From Digital Forms to Connected Workflows",
+            id: "from-digital-forms-to-connected-workflows"
+          },
+          {
+            label: "Digital Hazard Reporting",
+            id: "digital-hazard-reporting"
+          },
+          {
+            label: "Digital Workplace Inspections",
+            id: "digital-workplace-inspections"
+          },
+          {
+            label: "Corrective Action Management",
+            id: "corrective-action-management"
+          },
+          {
+            label: "Roles, Permissions and Accountability",
+            id: "roles-permissions-and-accountability"
+          },
+          {
+            label: "Dashboards and Safety Visibility",
+            id: "dashboards-and-safety-visibility"
+          },
+          {
+            label: "Notifications and Follow-Up",
+            id: "notifications-and-follow-up"
+          },
+          {
+            label: "Building SafetyOS",
+            id: "building-safetyos"
+          },
+          {
+            label: "What Developing SafetyOS Has Taught Me",
+            id: "what-developing-safetyos-has-taught-me"
+          },
+          {
+            label: "When Custom EHS Systems Make Sense",
+            id: "when-custom-ehs-systems-make-sense"
+          },
+          {
+            label: "Technology Should Support Safety Professionals",
+            id: "technology-should-support-safety-professionals"
+          },
+          {
+            label: "What Makes a Good Digital Safety System?",
+            id: "what-makes-a-good-digital-safety-system"
+          },
+          {
+            label: "The Future of Digital Safety Management",
+            id: "future-of-digital-safety-management"
+          },
+          {
+            label: "Key Takeaways",
+            id: "key-takeaways"
+          },
+          {
+            label: "Final Thoughts",
+            id: "final-thoughts"
+          },
+        ],
+      },
+
+      {
+        type: "paragraph",
+        text:
+          "Workplace safety generates a large amount of information. Hazards are reported, inspections are conducted, corrective actions are assigned, incidents are investigated and safety records are maintained. The challenge for many organisations is not simply collecting this information, but managing what happens after it has been collected.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A hazard may be reported but remain unresolved. An inspection may identify several findings, yet there may be no simple way to see which actions are still open. Corrective actions may be communicated through email, spreadsheets or messaging applications and eventually become difficult to track.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "As workplaces and safety responsibilities grow, disconnected processes can make EHS management unnecessarily difficult. This is where digital safety management systems can provide real value.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Digital safety management is not simply about replacing a paper form with an online form. The greater opportunity is to connect safety activities into structured workflows where hazards, inspections, actions, responsibilities, deadlines and management information can work together.",
+      },
+
+      {
+        type: "heading",
+        id: "what-is-a-digital-safety-management-system",
+        text: "What Is a Digital Safety Management System?",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A digital safety management system is a software-based environment used to support the management of workplace safety activities. Depending on the organisation, this can include hazard reporting, workplace inspections, incident management, corrective actions, risk assessments, safety documentation, notifications and reporting.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "At a basic level, a system may provide digital forms for recording safety information. A more useful system connects those records to the actions and responsibilities that follow.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "For example, identifying a hazard should not be the end of the process. The hazard may need to be assessed, assigned to someone, corrected, verified and eventually closed. A digital system can provide the structure needed to manage that complete workflow.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "The objective is therefore not digitisation for its own sake. It is to make safety information easier to capture, follow up, retrieve and use when decisions need to be made.",
+      },
+
+      {
+        type: "heading",
+        id: "why-traditional-safety-management-becomes-difficult",
+        text: "Why Traditional Safety Management Becomes Difficult",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Paper records and spreadsheets can work well when the amount of safety information is small. Difficulties often appear as the organisation grows, operates multiple workplaces or begins managing a larger number of hazards, inspections and corrective actions.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Different workplaces may maintain separate inspection files. Hazard reports may be recorded in one place while corrective actions are tracked somewhere else. Management may then have to combine several sources of information before understanding what requires attention.",
+      },
+      {
+        type: "list",
+        items: [
+          "Safety records can become scattered across different files and locations.",
+          "Corrective actions may be difficult to follow from assignment to closure.",
+          "Overdue actions may not be immediately visible.",
+          "Management may have limited visibility across different workplaces.",
+          "Retrieving historical information can take unnecessary time.",
+          "Repeated hazards and findings may be difficult to identify.",
+          "Responsibility can become unclear when follow-up depends on informal communication.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text:
+          "An organisation can therefore have a large amount of safety documentation while still struggling to understand its current safety position.",
+      },
+
+      {
+        type: "heading",
+        id: "from-digital-forms-to-connected-workflows",
+        text: "From Digital Forms to Connected Safety Workflows",
+      },
+      {
+        type: "paragraph",
+        text:
+          "One of the biggest mistakes in safety digitalisation is assuming that converting a paper form into an electronic form automatically creates a digital safety management system.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Digital forms are useful, but the greater value comes from connecting the information they capture to the next step in the safety process.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A hazard workflow, for example, can move from identification to risk assessment, assignment, corrective action, verification and closure. An inspection finding can similarly lead to an assigned action with a responsible person and due date.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "This creates traceability. Instead of simply knowing that something was reported, the organisation can see what happened afterwards.",
+      },
+
+      {
+        type: "heading",
+        id: "digital-hazard-reporting",
+        text: "Digital Hazard Reporting",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Hazard reporting is one area where digital systems can significantly improve the flow of safety information. Workers and supervisors need a practical way to record unsafe conditions and other workplace concerns without making the reporting process unnecessarily complicated.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A useful hazard record may capture the workplace, location, description, risk level, responsible person, required action, due date and current status.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "More importantly, the system should make it possible to follow the hazard through its lifecycle. Management should be able to distinguish between newly reported hazards, hazards under action, overdue items and hazards that have been properly closed.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "The important question changes from 'Was the hazard reported?' to 'What happened after the hazard was reported?'",
+      },
+
+      {
+        type: "heading",
+        id: "digital-workplace-inspections",
+        text: "Digital Workplace Inspections",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Workplace inspections generate valuable information, but traditional inspection forms can easily become static documents once an inspection has been completed.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A digital inspection system can allow inspections to be organised by workplace, conducted using structured checklists and connected directly to findings requiring follow-up.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "This is particularly useful when the same inspection process is repeated over time. Historical inspection information can help reveal recurring issues rather than treating every inspection as an isolated activity.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "If the same housekeeping, electrical, PPE or access problem continues appearing, the organisation can begin asking why the problem keeps returning instead of repeatedly correcting the immediate condition.",
+      },
+
+      {
+        type: "heading",
+        id: "corrective-action-management",
+        text: "Corrective Action Management",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Finding a safety problem is only useful when the organisation acts on it. Corrective action management is therefore one of the most important functions of a practical digital safety system.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Each action should clearly identify what needs to be done, who is responsible, when it should be completed and its current status.",
+      },
+      {
+        type: "list",
+        items: [
+          "Open actions should be easy to identify.",
+          "Responsibilities should be clearly assigned.",
+          "Due dates should be visible.",
+          "Overdue actions should be highlighted.",
+          "Completion should be recorded.",
+          "Where appropriate, closure should be verified.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text:
+          "This creates accountability without relying entirely on someone remembering to check a spreadsheet, email thread or notebook.",
+      },
+
+      {
+        type: "heading",
+        id: "roles-permissions-and-accountability",
+        text: "Roles, Permissions and Accountability",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A safety management system also needs to recognise that different people have different responsibilities. A worker, supervisor, EHS professional, manager and system administrator should not necessarily have identical access or authority.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A worker may need to report hazards and interact with information relevant to their workplace. A supervisor may require broader workplace visibility. An EHS professional may need to monitor safety activities across several workplaces, while management may require organisation-wide reporting.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Role-based access becomes even more important when a system supports multiple organisations. Safety information belonging to one organisation should remain properly separated from information belonging to another.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "This is why developing EHS software involves more than designing forms and dashboards. Data ownership, permissions, workplace structure and security have to be considered from the beginning.",
+      },
+
+      {
+        type: "heading",
+        id: "dashboards-and-safety-visibility",
+        text: "Dashboards and Safety Visibility",
+      },
+      {
+        type: "paragraph",
+        text:
+          "When safety information is structured properly, individual records can contribute to a wider picture of workplace performance.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A dashboard might show open hazards, outstanding findings, overdue corrective actions, inspection activity and information from different workplaces. This allows users to identify areas requiring attention without manually reviewing every individual record.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "However, dashboards should not exist simply because they look impressive. The information displayed should answer practical safety management questions.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Knowing that 100 hazards have been reported, for example, provides limited information on its own. Knowing how many remain open, how many are overdue and where they are concentrated is much more useful.",
+      },
+
+      {
+        type: "heading",
+        id: "notifications-and-follow-up",
+        text: "Notifications and Follow-Up",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Safety actions often fail because follow-up becomes inconsistent. Digital systems can support this process through reminders and notifications.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A responsible person can be reminded when an action approaches its due date. Overdue actions can be brought to the attention of relevant users, while managers and EHS personnel can maintain visibility of unresolved items.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "The purpose is not to generate endless notifications. A good system should provide useful prompts at the points where action is required.",
+      },
+
+      {
+        type: "heading",
+        id: "building-safetyos",
+        text: "Building SafetyOS: My Approach to Digital Safety Management",
+      },
+      {
+        type: "paragraph",
+        text:
+          "These practical challenges are part of what led me to begin developing SafetyOS, a digital safety management system that is currently under development.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "SafetyOS brings together two areas of my work that I am particularly interested in: occupational safety and health and digital systems development. Instead of approaching the project only as a software application, I am designing it around the way safety information actually moves through an organisation.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "The system currently explores practical workflows around hazards, workplace inspections, findings, corrective actions, dashboards, user responsibilities and workplace structures.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "As development progresses, I am also working on the underlying organisational structure and access controls needed to ensure that users see and manage the information appropriate to their organisation, workplace and responsibilities.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "SafetyOS is still under active development. I see that as an important part of the project because each development stage provides an opportunity to test how software can support real EHS processes without making them unnecessarily complicated.",
+      },
+
+      {
+        type: "heading",
+        id: "what-developing-safetyos-has-taught-me",
+        text: "What Developing SafetyOS Has Taught Me About EHS Systems",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Developing SafetyOS has reinforced an important lesson: building useful safety software starts with understanding the safety process before writing the software.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Consider something as simple as a hazard management module. Before developing the interface, several operational questions need to be answered.",
+      },
+      {
+        type: "list",
+        items: [
+          "Who should be allowed to report a hazard?",
+          "Which workplace and organisation does the record belong to?",
+          "Who should be allowed to view it?",
+          "Who can assign responsibility?",
+          "Who can change its status?",
+          "How should corrective actions be connected to the hazard?",
+          "Who verifies that the issue has been addressed?",
+          "What should happen when an action becomes overdue?",
+          "What information should management see?",
+        ],
+      },
+      {
+        type: "paragraph",
+        text:
+          "These are software design questions, but they are also safety management questions. That intersection is where my interest in developing specialised EHS digital solutions continues to grow.",
+      },
+
+      {
+        type: "heading",
+        id: "when-custom-ehs-systems-make-sense",
+        text: "When Custom EHS Systems Make Sense",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Not every organisation needs a custom-built safety platform. Existing commercial EHS software can be suitable where the organisation's requirements closely match the workflows already provided.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "However, organisations sometimes have specific reporting structures, inspection processes, approval workflows, dashboards or operational requirements that do not fit comfortably into a generic system.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "In these situations, a tailored solution can be designed around the organisation's actual workflow rather than forcing the organisation to restructure every process around the software.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "This is an area I am actively developing within my own work: understanding an EHS process, identifying where digitalisation can improve it and translating that process into a practical digital workflow.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Depending on the need, this can include digital hazard reporting, inspection systems, corrective-action tracking, EHS dashboards, automated reminders, document workflows and organisation-specific safety applications.",
+      },
+
+      {
+        type: "heading",
+        id: "technology-should-support-safety-professionals",
+        text: "Technology Should Support Safety Professionals, Not Replace Them",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Digital systems should not be treated as a replacement for competent safety professionals, worker participation or effective safety leadership.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Software cannot independently understand every unsafe behaviour, workplace condition, organisational weakness or emerging risk. Professional judgement remains essential.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "What technology can do is make information easier to capture, organise, retrieve, communicate and follow up. It can provide structure and visibility while safety professionals provide the judgement needed to interpret and act on that information.",
+      },
+
+      {
+        type: "heading",
+        id: "what-makes-a-good-digital-safety-system",
+        text: "What Makes a Good Digital Safety Management System?",
+      },
+      {
+        type: "paragraph",
+        text:
+          "The most useful digital safety system is not necessarily the one with the greatest number of features. It is the one that makes important safety processes easier to manage while remaining practical for the people expected to use it.",
+      },
+      {
+        type: "list",
+        items: [
+          "Simple and practical reporting processes",
+          "Clear responsibility and accountability",
+          "Role-based access to information",
+          "Traceable corrective actions",
+          "Useful rather than decorative dashboards",
+          "Reliable historical records",
+          "Secure handling of organisational information",
+          "Support for different workplaces and responsibilities",
+          "Notifications that encourage action without creating unnecessary noise",
+          "Workflows that reflect actual EHS practice",
+        ],
+      },
+      {
+        type: "paragraph",
+        text:
+          "Technology should reduce unnecessary administrative friction. If a system makes a simple safety activity more difficult than the process it replaced, digitalisation has missed its purpose.",
+      },
+
+      {
+        type: "heading",
+        id: "future-of-digital-safety-management",
+        text: "The Future of Digital Safety Management",
+      },
+      {
+        type: "paragraph",
+        text:
+          "As workplace systems become increasingly connected, digital safety management can move beyond electronic record keeping toward better visibility, faster communication and more informed decision-making.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Structured safety data can support stronger reporting, trend identification and eventually more advanced analytics. Mobile access can make reporting easier from the workplace, while automated workflows can reduce delays between identifying a problem and taking action.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "The important point is that new technology should be introduced because it solves a real safety management problem, not simply because the technology is available.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "This is also the direction I intend to maintain as SafetyOS develops: start with practical EHS problems, build reliable workflows around them and introduce additional capabilities where they provide genuine value.",
+      },
+
+      {
+        type: "heading",
+        id: "key-takeaways",
+        text: "Key Takeaways",
+      },
+      {
+        type: "list",
+        items: [
+          "Digital safety management is more than replacing paper forms with electronic forms.",
+          "The greatest value comes from connecting hazards, inspections, findings and corrective actions into traceable workflows.",
+          "Role-based access and organisational separation are important parts of safe and reliable EHS software.",
+          "Dashboards should provide information that helps people make decisions rather than simply displaying large amounts of data.",
+          "Digital systems can improve follow-up by making responsibilities, deadlines and overdue actions more visible.",
+          "Custom EHS solutions can be valuable where an organisation has workflows that are not adequately supported by generic software.",
+          "SafetyOS is my ongoing practical exploration of how occupational safety knowledge and software development can work together.",
+          "Technology should support professional safety judgement rather than attempt to replace it.",
+        ],
+      },
+
+      {
+        type: "heading",
+        id: "final-thoughts",
+        text: "Final Thoughts",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Digital transformation in workplace safety should not simply mean moving existing paperwork onto a computer. The greater opportunity is to improve how safety information moves from identification to action.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "A reported hazard can become a tracked corrective action. An inspection finding can become a visible responsibility. Individual safety records can contribute to a wider understanding of what is happening across the workplace.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "Developing SafetyOS is allowing me to explore this intersection between EHS practice and software development directly. It also reflects the type of digital work I want to continue building: practical systems designed around real safety processes and organisational needs.",
+      },
+      {
+        type: "paragraph",
+        text:
+          "For organisations considering digital safety tools, the starting point should not be the software itself. It should be understanding the safety process, the people involved and the information needed to make better decisions. The technology can then be designed around those needs.",
+      },
+    ],
+  },
+  {
     id: "how-digital-tools-can-improve-workplace-safety-management",
     title: "How Digital Tools Can Improve Workplace Safety Management",
     category: "EHS Systems",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
@@ -61,6 +62,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Footer />
           <WhatsAppFloatingButton />
         </ThemeProvider>
+         
+            
+       <Script
+          id="tawk-to"
+          src="https://embed.tawk.to/6a982041ff007d344587c72a/default"
+          strategy="afterInteractive"
+      />
       </body>
     </html>
   );
