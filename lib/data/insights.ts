@@ -572,11 +572,34 @@ export const INSIGHTS: Insight[] =
         type: "paragraph",
         text: "Improving safety compliance therefore requires more than preparing for an inspection or audit. The goal should be to build a system where hazards are identified early, responsibilities are clear, corrective actions are followed through and workers understand what safe work looks like in practice.",
       },
+       {
+  type: "toc",
+  tocItems: [
+    { label: "Understand Safety Requirements", id: "understand-safety-requirements" },
+    { label: "Workplace Risk Assessment", id: "workplace-risk-assessment" },
+    { label: "Management Responsibility", id: "management-responsibility" },
+    { label: "Safety Training", id: "safety-training" },
+    { label: "Hazard Reporting", id: "hazard-reporting" },
+    { label: "Workplace Inspections", id: "workplace-inspections" },
+    { label: "Corrective Action Management", id: "corrective-actions-management" },
+    { label: "Incident & Near-Miss Investigation", id: "incident-investigation" },
+    { label: "Keep Safety Documentation Useful and Up to Date", id: "keep-safety-documentation-useful-and-up-to-date"},
+    { label: "Involve Workers in Safety Decisions", id: "involve-workers-in-safety-decisions"},
+    { label: "Manage Contractors and Visitors", id: "manage-contractors-and-visitors"},
+    { label: "Use Safety Data to Identify Weak Areas", id: "use-safety-data-to-identify-weak-areas"},
+    { label: "Using Digital Safety Tools", id: "digital-tools" },
+    { label: "Continuous Improvement", id: "continuous-improvement" },
+    { label: "Common Signs That Safety Compliance Is Weak", id: "common-signs-that-safety-compliance-is-weak"},
+    { label: "A Practical Safety Compliance Cycle", id: "practical-safety-compliance-cycle"},
+    { label: "Key Takeaways", id: "key-takeaways"},
+    {label: "Final Thoughts", id: "final-thoughts"},
+  ],
+},
 
       {
         type: "heading",
-        text: " Understand the Safety Requirements That Apply to the Workplace",
-        id: "Understand-the-Safety-Requirements-That-Apply-to-the-Workplace",
+        text: "1. Understand the Safety Requirements That Apply to the Workplace",
+        id: "understand-safety-requirements",
       },
       {
         type: "paragraph",
@@ -589,8 +612,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Start With a Proper Workplace Risk Assessment",
-        id: "Start-With-a-Proper-Workplace-Risk_Assessment",
+        text: "2. Start With a Proper Workplace Risk Assessment",
+        id: "workplace-risk-assessment",
       },
       {
         type: "paragraph",
@@ -603,8 +626,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Make Management Responsibility Visible",
-        id: "Make-Management-Responsibility-Visisble",
+        text: "3. Make Management Responsibility Visible",
+        id: "management-responsibility",
       },
       {
         type: "paragraph",
@@ -617,8 +640,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Give Workers Practical Safety Training",
-        id: "Give-Workers-Practical-Safety-Training",
+        text: "4. Give Workers Practical Safety Training",
+        id: "safety-training",
       },
       {
         type: "paragraph",
@@ -631,8 +654,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Make Hazard Reporting Simple",
-        id: "Make-Hazard-Reporting-Simple",
+        text: "5. Make Hazard Reporting Simple",
+        id: "hazard-reporting",
       },
       {
         type: "paragraph",
@@ -645,8 +668,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Conduct Regular Workplace Inspections",
-        id: "Conduct-Regular-Workplace-Inspections",
+        text: "6. Conduct Regular Workplace Inspections",
+        id: "workplace-inspections",
       },
       {
         type: "paragraph",
@@ -659,8 +682,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Track Corrective Actions Until They Are Closed",
-        id: "Track-Corrective-Actions-Until-They-Are-Closed",
+        text: "7. Track Corrective Actions Until They Are Closed",
+        id:"corrective-actions-management",
       },
       {
         type: "paragraph",
@@ -673,8 +696,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Investigate Incidents and Near Misses Properly",
-        id: "Investigate-Incidents-and-Near-Misses-Properly",
+        text: "8. Investigate Incidents and Near Misses Properly",
+        id:"incident-investigation",
       },
       {
         type: "paragraph",
@@ -687,8 +710,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Keep Safety Documentation Useful and Up to Date",
-        id: " Keep-Safety-Documentation-Useful-and-Up-to-Date",
+        text: "9. Keep Safety Documentation Useful and Up to Date",
+        id:"keep-safety-documentation-useful-and-up-to-date",
       },
       {
         type: "paragraph",
@@ -701,8 +724,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Involve Workers in Safety Decisions",
-        id: " Involve-Workers-in-Safety-Decisions",
+        text: "10. Involve Workers in Safety Decisions",
+        id: "involve-workers-in-safety-decisions",
       },
       {
         type: "paragraph",
@@ -715,8 +738,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Manage Contractors and Visitors",
-        id: " Manage-Contractors-and-Visitors",
+        text: "11. Manage Contractors and Visitors",
+        id: "manage-contractors-and-visitors",
       },
       {
         type: "paragraph",
@@ -729,8 +752,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Use Safety Data to Identify Weak Areas",
-        id: " Use-Safety-Data-to-Identify-Weak-Areas",
+        text: "12. Use Safety Data to Identify Weak Areas",
+        id: "use-safety-data-to-identify-weak-areas",
       },
       {
         type: "paragraph",
@@ -743,8 +766,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Use Digital Tools Where They Solve a Real Problem",
-        id: " Use-Digital-Tools-Where-They-Solve-a-Real-Problem",
+        text: "13. Use Digital Tools Where They Solve a Real Problem",
+        id: "digital-tools",
       },
       {
         type: "paragraph",
@@ -757,8 +780,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: " Review and Improve the System Continuously",
-        id: " Review-and-Improve-the-System-Continuously",
+        text: "14. Review and Improve the System Continuously",
+        id: "continuous-improvement",
       },
       {
         type: "paragraph",
@@ -771,8 +794,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: "Common Signs That Safety Compliance Is Weak",
-        id: "Common-Signs-That-Safety-Compliance-Is-Weak",
+        text: "15. Common Signs That Safety Compliance Is Weak",
+        id: "common-signs-that-safety-compliance-is-weak",
       },
       {
         type: "list",
@@ -791,8 +814,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: "A Practical Safety Compliance Cycle",
-        id: "A-Practical-Safety-Compliance-Cycle",
+        text: "16. A Practical Safety Compliance Cycle",
+        id: "practical-safety-compliance-cycle",
       },
       {
         type: "paragraph",
@@ -815,8 +838,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: "Key Takeaways",
-        id:   "Key-Takeaways",
+        text: "17. Key Takeaways",
+        id:   "key-takeaways",
       },
       {
         type: "list",
@@ -834,8 +857,8 @@ export const INSIGHTS: Insight[] =
 
       {
         type: "heading",
-        text: "Final Thoughts",
-        id: "Final-Thoughts",
+        text: "18. Final Thoughts",
+        id: "final-thoughts",
       },
       {
         type: "paragraph",
