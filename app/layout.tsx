@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloatingButton from "@/components/ui/WhatsAppFloatingButton";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/constants";
@@ -70,6 +71,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           strategy="afterInteractive"
       />
       </body>
+
     </html>
   );
+  {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+      <GoogleAnalytics gaId="G-T5KTXNBKG5" />
+    </html>
+  )
+}  
 }
