@@ -4,40 +4,44 @@ import InsightsGrid from "@/components/insights/InsightsGrid";
 import InsightsTopics from "@/components/insights/InsightsTopics";
 import InsightsFaq from "@/components/insights/InsightsFaq";
 import FinalCta from "@/components/home/FinalCta";
-import { FAQS } from "@/lib/data/faqs";
-import { INSIGHTS } from "@/lib/data/insights";
+import { getFaqs } from "@/lib/content/faqs";
+import { getFeaturedInsight, getInsightSummaries } from "@/lib/content/insights";
 import { SITE_NAME, SITE_URL } from "@/lib/constants";
 
 const DESCRIPTION =
   "Practical articles and professional perspectives on occupational safety, EHS systems and digital communication.";
 
-const FEATURED_INSIGHT = INSIGHTS.find((insight) => insight.featured) ?? INSIGHTS[0];
+export async function generateMetadata(): Promise<Metadata> {
+  const featuredInsight = await getFeaturedInsight();
 
-export const metadata: Metadata = {
-  title: "Insights",
-  description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}/insights` },
-  openGraph: {
+  return {
     title: "Insights",
     description: DESCRIPTION,
-    url: `${SITE_URL}/insights`,
-    siteName: SITE_NAME,
-    type: "website",
-    images: FEATURED_INSIGHT ? [{ url: FEATURED_INSIGHT.image, alt: FEATURED_INSIGHT.imageAlt }] : undefined,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Insights",
-    description: DESCRIPTION,
-    images: FEATURED_INSIGHT ? [FEATURED_INSIGHT.image] : undefined,
-  },
-};
+    alternates: { canonical: `${SITE_URL}/insights` },
+    openGraph: {
+      title: "Insights",
+      description: DESCRIPTION,
+      url: `${SITE_URL}/insights`,
+      siteName: SITE_NAME,
+      type: "website",
+      images: featuredInsight ? [{ url: featuredInsight.image, alt: featuredInsight.imageAlt }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Insights",
+      description: DESCRIPTION,
+      images: featuredInsight ? [featuredInsight.image] : undefined,
+    },
+  };
+}
 
-export default function InsightsPage() {
+export default async function InsightsPage() {
+  const [insights, faqs] = await Promise.all([getInsightSummaries(), getFaqs()]);
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: FAQS.map((faq) => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: {
@@ -60,9 +64,9 @@ export default function InsightsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <InsightsHero />
-      <InsightsGrid />
+      <InsightsGrid insights={insights} />
       <InsightsTopics />
-      <InsightsFaq />
+      <InsightsFaq faqs={faqs} />
       <FinalCta
         heading="Interested in EHS Systems, Workplace Safety or Digital Communication?"
         secondaryHref="/projects"

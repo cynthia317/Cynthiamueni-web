@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import Container from "@/components/layout/Container";
 import InsightCard from "@/components/ui/InsightCard";
 import InsightToc from "@/components/insights/InsightToc";
-import { INSIGHTS } from "@/lib/data/insights";
+import type { InsightSummary } from "@/lib/content/types";
 import type { Insight, InsightContentBlock } from "@/types";
 
 function formatDate(dateString: string) {
@@ -14,13 +14,6 @@ function formatDate(dateString: string) {
     month: "long",
     day: "numeric",
   });
-}
-
-function getRelatedInsights(current: Insight, max = 3) {
-  const published = INSIGHTS.filter((item) => item.id !== current.id && item.href !== "#");
-  const sameCategory = published.filter((item) => item.category === current.category);
-  const rest = published.filter((item) => item.category !== current.category);
-  return [...sameCategory, ...rest].slice(0, max);
 }
 
 function renderContentBlock(block: InsightContentBlock, index: number): ReactNode {
@@ -148,8 +141,13 @@ function renderContentBlock(block: InsightContentBlock, index: number): ReactNod
   );
 }
 
-export default function InsightArticle({ insight }: { insight: Insight }) {
-  const relatedInsights = getRelatedInsights(insight);
+export default function InsightArticle({
+  insight,
+  relatedInsights,
+}: {
+  insight: Insight;
+  relatedInsights: InsightSummary[];
+}) {
   const tocBlock = insight.content?.find((block) => block.type === "toc");
   const tocItems = tocBlock?.tocItems ?? [];
   const bodyBlocks = insight.content?.filter((block) => block.type !== "toc") ?? [];

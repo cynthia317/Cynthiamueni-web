@@ -3,11 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
 import Reveal from "@/components/layout/Reveal";
-import { INSIGHTS } from "@/lib/data/insights";
+import { getFeaturedInsight, getInsightSummaries } from "@/lib/content/insights";
 import type { Insight } from "@/types";
-
-const FEATURED_INSIGHT = INSIGHTS.find((insight) => insight.featured) ?? INSIGHTS[0];
-const SUPPORTING_INSIGHTS = INSIGHTS.filter((insight) => insight.id !== FEATURED_INSIGHT.id).slice(0, 2);
 
 function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString("en-US", {
@@ -152,7 +149,11 @@ function SupportingInsightRow({ insight }: { insight: Insight }) {
   );
 }
 
-export default function InsightsSection() {
+export default async function InsightsSection() {
+  const [featuredInsight, insights] = await Promise.all([getFeaturedInsight(), getInsightSummaries()]);
+  if (!featuredInsight) return null;
+  const supportingInsights = insights.filter((insight) => insight.id !== featuredInsight.id).slice(0, 2);
+
   return (
     <section
       id="insights"
@@ -210,11 +211,11 @@ export default function InsightsSection() {
 
         <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal delay={100} duration={700} distance={24} startOpacity={0.2} className="lg:col-span-7">
-            <FeaturedInsightCard insight={FEATURED_INSIGHT} />
+            <FeaturedInsightCard insight={featuredInsight} />
           </Reveal>
 
           <div className="flex flex-col divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white shadow-sm lg:col-span-5 dark:divide-slate-700 dark:border-slate-700 dark:bg-slate-800">
-            {SUPPORTING_INSIGHTS.map((insight, index) => (
+            {supportingInsights.map((insight, index) => (
               <Reveal
                 key={insight.id}
                 delay={180 + index * 80}

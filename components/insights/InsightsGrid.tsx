@@ -6,13 +6,15 @@ import Reveal from "@/components/layout/Reveal";
 import InsightCard from "@/components/ui/InsightCard";
 import InsightsFeatured from "@/components/insights/InsightsFeatured";
 import InsightsPagination from "@/components/insights/InsightsPagination";
-import { INSIGHTS } from "@/lib/data/insights";
+import type { InsightSummary } from "@/lib/content/types";
 
 const ITEMS_PER_PAGE = 6;
 
-export default function InsightsGrid() {
-  const featured = useMemo(() => INSIGHTS.find((insight) => insight.featured) ?? INSIGHTS[0], []);
-  const rest = useMemo(() => INSIGHTS.filter((insight) => insight.id !== featured.id), [featured]);
+// Receives insight summaries (no article bodies) from the server page, so the full
+// article content isn't shipped to the browser with this client component.
+export default function InsightsGrid({ insights }: { insights: InsightSummary[] }) {
+  const featured = useMemo(() => insights.find((insight) => insight.featured) ?? insights[0], [insights]);
+  const rest = useMemo(() => insights.filter((insight) => insight.id !== featured.id), [insights, featured]);
 
   // Derived from the articles that can actually be filtered to (the pinned
   // featured article stays visible regardless of filter), so no filter pill

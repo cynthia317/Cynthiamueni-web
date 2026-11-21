@@ -5,10 +5,10 @@ import Link from "next/link";
 import { ArrowUpRight, Minus, Plus } from "lucide-react";
 import Container from "@/components/layout/Container";
 import Reveal from "@/components/layout/Reveal";
-import { FAQS } from "@/lib/data/faqs";
+import type { Faq } from "@/types";
 
-export default function InsightsFaq() {
-  const [openId, setOpenId] = useState<string | null>(FAQS[0]?.id ?? null);
+export default function InsightsFaq({ faqs }: { faqs: Faq[] }) {
+  const [openId, setOpenId] = useState<string | null>(faqs[0]?.id ?? null);
 
   return (
     <section aria-labelledby="faq-heading" className="border-t border-slate-200 py-16 dark:border-slate-800 sm:py-20">
@@ -37,7 +37,7 @@ export default function InsightsFaq() {
 
           <div className="lg:col-span-8">
             <div className="flex flex-col divide-y divide-slate-200 rounded-2xl border border-slate-200 dark:divide-slate-800 dark:border-slate-800">
-              {FAQS.map((faq, index) => {
+              {faqs.map((faq, index) => {
                 const isOpen = faq.id === openId;
                 const triggerId = `faq-trigger-${faq.id}`;
                 const panelId = `faq-panel-${faq.id}`;
