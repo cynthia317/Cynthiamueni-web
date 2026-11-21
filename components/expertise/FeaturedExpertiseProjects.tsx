@@ -3,19 +3,10 @@ import SectionHeading from "@/components/layout/SectionHeading";
 import Reveal from "@/components/layout/Reveal";
 import ArrowLink from "@/components/ui/ArrowLink";
 import ProjectCard from "@/components/ui/ProjectCard";
-import { PROJECTS } from "@/lib/data/projects";
+import { getFeaturedProjects } from "@/lib/content/featured";
 
-const FEATURED_IDS = [
-  "safety-management-system",
-  "workplace-risk-assessment",
-  "safetec-digital-presence",
-  "safety-audit-toolkit",
-];
-
-export default function FeaturedExpertiseProjects() {
-  const projects = FEATURED_IDS.map((id) => PROJECTS.find((project) => project.id === id)).filter(
-    (project): project is (typeof PROJECTS)[number] => Boolean(project)
-  );
+export default async function FeaturedExpertiseProjects() {
+  const projects = await getFeaturedProjects("expertiseFeatured");
   const featuredProject = projects.find((project) => project.tier === "flagship");
   const otherProjects = projects.filter((project) => project.tier !== "flagship");
 

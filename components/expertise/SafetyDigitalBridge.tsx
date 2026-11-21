@@ -3,12 +3,12 @@ import { ArrowRight } from "lucide-react";
 import Container from "@/components/layout/Container";
 import Reveal from "@/components/layout/Reveal";
 import ArrowLink from "@/components/ui/ArrowLink";
-import { PROJECTS } from "@/lib/data/projects";
+import { getFeaturedProjects } from "@/lib/content/featured";
 
 const STAGES = ["Workplace Problem", "Safety Assessment", "Structured Data", "Digital System", "Monitoring & Improvement"];
 
-export default function SafetyDigitalBridge() {
-  const smsProject = PROJECTS.find((project) => project.id === "safety-management-system");
+export default async function SafetyDigitalBridge() {
+  const [smsProject] = await getFeaturedProjects("expertiseBridge");
 
   return (
     <section aria-label="Where safety and digital systems connect" className="py-14 sm:py-16">

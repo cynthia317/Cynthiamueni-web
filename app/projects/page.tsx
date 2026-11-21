@@ -4,7 +4,7 @@ import FeaturedProjectShowcase from "@/components/projects/FeaturedProjectShowca
 import ProjectStorySection from "@/components/projects/ProjectStorySection";
 import ProjectsGrid from "@/components/projects/ProjectsGrid";
 import ProjectsFinalCta from "@/components/projects/ProjectsFinalCta";
-import { PROJECTS } from "@/lib/data/projects";
+import { getProjectsByTier } from "@/lib/content/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -12,10 +12,13 @@ export const metadata: Metadata = {
     "Practical EHS problems and the digital systems being developed to address them, including hazard reporting, inspections, risk assessment, corrective actions and EHS digital communication.",
 };
 
-export default function ProjectsPage() {
-  const flagshipProject = PROJECTS.find((project) => project.tier === "flagship");
-  const coreProjects = PROJECTS.filter((project) => project.tier === "core");
-  const supportingProjects = PROJECTS.filter((project) => project.tier === "supporting");
+export default async function ProjectsPage() {
+  const [flagshipProjects, coreProjects, supportingProjects] = await Promise.all([
+    getProjectsByTier("flagship"),
+    getProjectsByTier("core"),
+    getProjectsByTier("supporting"),
+  ]);
+  const flagshipProject = flagshipProjects[0];
 
   return (
     <>

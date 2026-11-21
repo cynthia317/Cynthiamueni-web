@@ -7,9 +7,8 @@ import ProjectWorkflow from "@/components/projects/ProjectWorkflow";
 import ProjectCapabilities from "@/components/projects/ProjectCapabilities";
 import SafetyDashboardMockup from "@/components/ui/SafetyDashboardMockup";
 import SocialPresenceMockup from "@/components/ui/SocialPresenceMockup";
-import { FAQS } from "@/lib/data/faqs";
 import { HARUNLUCAS_DEV_URL } from "@/lib/constants";
-import type { Project, ProjectCategory } from "@/types";
+import type { Faq, Project, ProjectCategory } from "@/types";
 
 const CATEGORY_ICON: Record<ProjectCategory, typeof HardHat> = {
   "EHS Systems": HardHat,
@@ -19,12 +18,9 @@ const CATEGORY_ICON: Record<ProjectCategory, typeof HardHat> = {
   "Research / Professional Work": BookOpen,
 };
 
-export default function ProjectDetail({ project }: { project: Project }) {
+export default function ProjectDetail({ project, relatedFaqs }: { project: Project; relatedFaqs: Faq[] }) {
   const Icon = CATEGORY_ICON[project.category];
   const showSoftwareReferral = project.tier === "referred";
-  const relatedFaqs = project.relatedFaqIds
-    ?.map((id) => FAQS.find((faq) => faq.id === id))
-    .filter((faq): faq is (typeof FAQS)[number] => Boolean(faq));
 
   return (
     <article className="py-12 sm:py-16">

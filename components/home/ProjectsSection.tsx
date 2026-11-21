@@ -4,14 +4,12 @@ import type { ReactNode } from "react";
 import { AlertTriangle, ArrowRight, CheckCircle2, ClipboardCheck } from "lucide-react";
 import Container from "@/components/layout/Container";
 import Reveal from "@/components/layout/Reveal";
-import { PROJECTS } from "@/lib/data/projects";
+import { FEATURED_PROJECT_SLOTS, getFeaturedProjects } from "@/lib/content/featured";
 
-// Pull the verified facts (id, href) for the three featured projects from the
-// shared project data so links never drift out of sync with the real Projects
-// page. Homepage-only imagery below is chosen independently of that data.
-const SAFETY_SYSTEM = PROJECTS.find((project) => project.id === "safety-management-system")!;
-const RISK_ASSESSMENT = PROJECTS.find((project) => project.id === "workplace-risk-assessment")!;
-const SAFETEC = PROJECTS.find((project) => project.id === "safetec-digital-presence")!;
+// The three featured projects (lead, then two supporting cards) come from the
+// "homeProjects" slot, so their verified facts (status, href) never drift out of
+// sync with the real Projects page. The copy and imagery below are written for
+// these positions and are chosen independently of that data.
 
 function SafetyPlatformPreview() {
   const stats = [
@@ -149,7 +147,16 @@ function SupportingCard({
   );
 }
 
-export default function ProjectsSection() {
+export default async function ProjectsSection() {
+  const featured = await getFeaturedProjects("homeProjects");
+  if (featured.length !== FEATURED_PROJECT_SLOTS.homeProjects.length) {
+    // Same fail-fast behaviour as before (the build fails), with an actionable message.
+    throw new Error(
+      `Home ProjectsSection needs all ${FEATURED_PROJECT_SLOTS.homeProjects.length} "homeProjects" slot projects; found ${featured.length}.`
+    );
+  }
+  const [safetySystem, riskAssessment, safetec] = featured;
+
   return (
     <section
       id="work"
@@ -224,7 +231,7 @@ export default function ProjectsSection() {
                     EHS Systems
                   </span>
                   <span className="rounded-full bg-amber-500/15 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-amber-400">
-                    {SAFETY_SYSTEM.status}
+                    {safetySystem.status}
                   </span>
                 </div>
 
@@ -248,7 +255,7 @@ export default function ProjectsSection() {
                 </ul>
 
                 <Link
-                  href={SAFETY_SYSTEM.href}
+                  href={safetySystem.href}
                   className="relative mt-3 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-amber-400 after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                 >
                   View Project
@@ -270,9 +277,9 @@ export default function ProjectsSection() {
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <Reveal delay={180} duration={700} distance={16} startOpacity={0.2}>
             <SupportingCard
-              href={RISK_ASSESSMENT.href}
+              href={riskAssessment.href}
               category="Occupational Safety & Health"
-              status={RISK_ASSESSMENT.status}
+              status={riskAssessment.status}
               title="Workplace Risk Assessment Framework"
               description="A structured approach for identifying hazards, assessing workplace risk and organising practical control actions and follow-up."
               focusAreas={["Hazard Identification", "Risk Evaluation", "Control Actions"]}
@@ -298,9 +305,9 @@ export default function ProjectsSection() {
 
           <Reveal delay={260} duration={700} distance={16} startOpacity={0.2}>
             <SupportingCard
-              href={SAFETEC.href}
+              href={safetec.href}
               category="EHS × Digital Communication"
-              status={SAFETEC.status}
+              status={safetec.status}
               title="Safetec Solutions: Digital Presence & Social Media Management"
               description="Ongoing management of safety-focused content and digital presence across LinkedIn, website content and Google Business Profile."
               focusAreas={["LinkedIn Management", "Website & GBP Content", "Performance Monitoring"]}

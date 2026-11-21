@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ProjectDetail from "@/components/projects/ProjectDetail";
 import FinalCta from "@/components/home/FinalCta";
-import { PROJECTS } from "@/lib/data/projects";
+import { getProjectBySlug, getProjectSlugs } from "@/lib/content/projects";
+import { getFaqsByIds } from "@/lib/content/faqs";
 
-export function generateStaticParams() {
-  return PROJECTS.map((project) => ({ slug: project.id }));
+export async function generateStaticParams() {
+  const slugs = await getProjectSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const project = PROJECTS.find((item) => item.id === slug);
+  const project = await getProjectBySlug(slug);
   if (!project) return {};
 
   return {
@@ -23,15 +25,17 @@ export async function generateMetadata({
 
 export default async function ProjectDetailPage({ params }: PageProps<"/projects/[slug]">) {
   const { slug } = await params;
-  const project = PROJECTS.find((item) => item.id === slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();
   }
 
+  const relatedFaqs = await getFaqsByIds(project.relatedFaqIds ?? []);
+
   return (
     <>
-      <ProjectDetail project={project} />
+      <ProjectDetail project={project} relatedFaqs={relatedFaqs} />
       <FinalCta secondaryHref="/projects" secondaryLabel="View All Projects" />
     </>
   );

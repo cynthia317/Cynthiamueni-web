@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { PROJECTS } from "@/lib/data/projects";
+import { getProjects } from "@/lib/content/projects";
 import { INSIGHTS } from "@/lib/data/insights";
 import { SITE_URL } from "@/lib/constants";
 
@@ -9,7 +9,7 @@ const STATIC_ROUTE_PRIORITY: Record<string, number> = {
   "/projects": 0.9,
 };
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     "",
     "/about",
@@ -25,7 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: STATIC_ROUTE_PRIORITY[path] ?? 0.8,
   }));
 
-  const projectRoutes: MetadataRoute.Sitemap = PROJECTS.map((project) => ({
+  const projects = await getProjects();
+  const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${SITE_URL}${project.href}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
