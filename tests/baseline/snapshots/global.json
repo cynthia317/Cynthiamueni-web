@@ -1,0 +1,171 @@
+{
+  "securityHeaders": {
+    "content-security-policy": [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://snap.licdn.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.facebook.com https://px.ads.linkedin.com",
+      "font-src 'self' data:",
+      "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://connect.facebook.net https://www.facebook.com https://px.ads.linkedin.com https://snap.licdn.com",
+      "form-action 'self'",
+      "frame-ancestors 'none'",
+      "base-uri 'self'",
+      "object-src 'none'"
+    ],
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY"
+  },
+  "sharedChrome": {
+    "headerLinks": [
+      {
+        "href": "/",
+        "text": "CMCynthia Mueni"
+      },
+      {
+        "href": "/about",
+        "text": "About"
+      },
+      {
+        "href": "/expertise",
+        "text": "Expertise"
+      },
+      {
+        "href": "/services",
+        "text": "Services"
+      },
+      {
+        "href": "/projects",
+        "text": "Projects"
+      },
+      {
+        "href": "/insights",
+        "text": "Insights"
+      },
+      {
+        "href": "/contact",
+        "text": "Contact"
+      },
+      {
+        "href": "/contact",
+        "text": "Let's Connect"
+      },
+      {
+        "href": "/about",
+        "text": "About"
+      },
+      {
+        "href": "/expertise",
+        "text": "Expertise"
+      },
+      {
+        "href": "/services",
+        "text": "Services"
+      },
+      {
+        "href": "/projects",
+        "text": "Projects"
+      },
+      {
+        "href": "/insights",
+        "text": "Insights"
+      },
+      {
+        "href": "/contact",
+        "text": "Contact"
+      },
+      {
+        "href": "/contact",
+        "text": "Let's Connect"
+      }
+    ],
+    "headerButtons": [
+      "Theme: System. Change theme",
+      "Open menu",
+      "Light",
+      "Dark",
+      "System"
+    ],
+    "footerLinks": [
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "hello@cynthiamueni.com"
+      },
+      {
+        "href": "/about",
+        "text": "About"
+      },
+      {
+        "href": "/expertise",
+        "text": "Expertise"
+      },
+      {
+        "href": "/services",
+        "text": "Services"
+      },
+      {
+        "href": "/projects",
+        "text": "Projects"
+      },
+      {
+        "href": "/insights",
+        "text": "Insights"
+      },
+      {
+        "href": "/contact",
+        "text": "Contact"
+      },
+      {
+        "href": "https://www.linkedin.com/in/cynthia-mueni-6b621b359/",
+        "text": "LinkedIn",
+        "ariaLabel": "Cynthia Mueni on LinkedIn (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://wa.me/254748810670?text=Hi%20Cynthia%2C%20I%20found%20your%20website%20and%20would%20like%20to%20get%20in%20touch.",
+        "text": "WhatsApp",
+        "ariaLabel": "Chat with Cynthia Mueni on WhatsApp (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://www.facebook.com/Cynthia%20Mueni",
+        "text": "Facebook",
+        "ariaLabel": "Cynthia Mueni on Facebook (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://github.com/cynthia317/",
+        "text": "GitHub",
+        "ariaLabel": "Cynthia Mueni on GitHub (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://kipeo.harunlucas.com/",
+        "text": "HarunLucas Dev",
+        "ariaLabel": "HarunLucas Dev (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "#top",
+        "text": "Back to top"
+      }
+    ],
+    "footerText": "CMCynthia MueniOccupational Safety & Health · EHS Systems · Digital CommunicationPractical safety systems and clear digital communication for organisations that need both.hello@cynthiamueni.comNavigationAboutExpertiseServicesProjectsInsightsContactConnectLinkedInWhatsAppFacebookGitHubHarunLucas DevBack to top© <year> Cynthia Mueni. All rights reserved.",
+    "floatingLinks": [
+      {
+        "href": "https://wa.me/254748810670?text=Hi%20Cynthia%2C%20I%20found%20your%20website%20and%20would%20like%20to%20get%20in%20touch.",
+        "text": null,
+        "ariaLabel": "Chat with Cynthia Mueni on WhatsApp (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ]
+  }
+}

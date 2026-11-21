@@ -1,0 +1,375 @@
+{
+  "route": "/",
+  "source": "static",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication",
+    "titleElementCount": 1,
+    "description": "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Building Safer Workplaces Through Practical EHS Systems"
+      },
+      {
+        "level": 2,
+        "text": "Safety Practice That Starts With the Workplace",
+        "id": "about-heading"
+      },
+      {
+        "level": 2,
+        "text": "EHS Expertise Supported by Practical Digital Capability",
+        "id": "expertise-heading"
+      },
+      {
+        "level": 3,
+        "text": "Occupational Safety & Health"
+      },
+      {
+        "level": 3,
+        "text": "EHS Systems & Digital Tools"
+      },
+      {
+        "level": 3,
+        "text": "Digital Communication"
+      },
+      {
+        "level": 2,
+        "text": "From Workplace Risk to Practical Improvement",
+        "id": "connection-heading"
+      },
+      {
+        "level": 3,
+        "text": "Identify"
+      },
+      {
+        "level": 3,
+        "text": "Build"
+      },
+      {
+        "level": 3,
+        "text": "Improve"
+      },
+      {
+        "level": 3,
+        "text": "Structure"
+      },
+      {
+        "level": 3,
+        "text": "Communicate"
+      },
+      {
+        "level": 3,
+        "text": "Identify"
+      },
+      {
+        "level": 3,
+        "text": "Structure"
+      },
+      {
+        "level": 3,
+        "text": "Build"
+      },
+      {
+        "level": 3,
+        "text": "Communicate"
+      },
+      {
+        "level": 3,
+        "text": "Improve"
+      },
+      {
+        "level": 2,
+        "text": "Selected Work Across EHS, Systems and Communication",
+        "id": "work-heading"
+      },
+      {
+        "level": 3,
+        "text": "Safety Management System"
+      },
+      {
+        "level": 3,
+        "text": "Workplace Risk Assessment Framework"
+      },
+      {
+        "level": 3,
+        "text": "Safetec Solutions: Digital Presence & Social Media Management"
+      },
+      {
+        "level": 2,
+        "text": "Need a digital solution for your business?",
+        "id": "referral-heading"
+      },
+      {
+        "level": 2,
+        "text": "Notes on Safety, Systems & Digital Practice",
+        "id": "insights-heading"
+      },
+      {
+        "level": 3,
+        "text": "What Is a Safety Management System? How Digital EHS Systems Work"
+      },
+      {
+        "level": 3,
+        "text": "Digital Safety Management Systems: Transforming How Organisations Manage Workplace Safety"
+      },
+      {
+        "level": 3,
+        "text": "How Digital Tools Can Improve Workplace Safety Management"
+      },
+      {
+        "level": 2,
+        "text": "Let's Work on Something Meaningful",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "#work",
+        "text": "Explore My EHS Work"
+      },
+      {
+        "href": "/contact",
+        "text": "Let's Work Together"
+      },
+      {
+        "href": "/about",
+        "text": "More about my background"
+      },
+      {
+        "href": "/expertise",
+        "text": "Explore My Expertise"
+      },
+      {
+        "href": "/projects",
+        "text": "View All Projects"
+      },
+      {
+        "href": "/projects/safety-management-system",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/workplace-risk-assessment",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/safetec-digital-presence",
+        "text": "View Project"
+      },
+      {
+        "href": "https://kipeo.harunlucas.com/",
+        "text": "Visit HarunLucas Dev",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "/insights",
+        "text": "View All Insights"
+      },
+      {
+        "href": "/insights/what-is-a-safety-management-system",
+        "text": "Read Article"
+      },
+      {
+        "href": "/insights/digital-safety-management-systems",
+        "text": "Read Article"
+      },
+      {
+        "href": "/insights/how-digital-tools-can-improve-workplace-safety-management",
+        "text": "Read Article"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "hello@cynthiamueni.com"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "#work",
+        "text": "View My Work"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/home/ehs-digital-safety-inspection.webp (next/image w=3840 q=75)",
+        "alt": "Safety officer wearing a hi-vis vest and hard hat reviewing a digital inspection checklist on a tablet while walking a factory floor"
+      },
+      {
+        "src": "/images/home/digital-ehs-workplace-safety-systems.webp (next/image w=3840 q=75)",
+        "alt": "Digital safety monitoring dashboard displaying live equipment data beside a guarded industrial robotic workstation",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/home/expertise-osh-safety-inspection.webp (next/image w=3840 q=75)",
+        "alt": "Safety inspector in a hard hat and hi-vis coveralls reviewing a tablet while walking an industrial facility floor",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/home/expertise-ehs-systems-dashboard.png (next/image w=3840 q=75)",
+        "alt": "Rugged tablet mounted on industrial equipment displaying an EHS monitoring dashboard with safety checklist and status indicators",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/home/expertise-digital-communication-workspace.webp (next/image w=3840 q=75)",
+        "alt": "Laptop and tablet displaying safety content and performance analytics dashboards on a desk beside a hard hat and notebook",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/home/expertise-osh-safety-inspection.webp (next/image w=3840 q=75)",
+        "alt": "Safety professional conducting a workplace inspection and reviewing hazards using a digital checklist",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/home/expertise-digital-communication-workspace.webp (next/image w=3840 q=75)",
+        "alt": "Digital workspace used to plan safety content and monitor website and social-media performance",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/insights/ehs-dashboard-industrial-workplace.webp (next/image w=3840 q=75)",
+        "alt": "Digital EHS dashboard displayed on a laptop in an industrial workplace, with safety equipment and workers in high-visibility clothing in the background",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/insights/digital-safety-management-systems.webp (next/image w=3840 q=75)",
+        "alt": "Digital safety management dashboard connecting workplace hazards, inspections and corrective actions",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/insights/digital-tools-workplace-safety-management-featured.webp (next/image w=3840 q=75)",
+        "alt": "Digital workplace safety dashboard showing hazard reports, inspections, corrective actions, and safety records.",
+        "loading": "lazy"
+      }
+    ],
+    "buttons": [],
+    "forms": [],
+    "mainText": "Occupational Safety & HealthEHS Systems · Digital CommunicationBuilding Safer Workplaces Through Practical EHS SystemsI help organisations identify workplace risks, strengthen safety practices and communicate more effectively, combining occupational safety experience with practical digital tools and clear professional communication.Explore My EHS WorkLet's Work TogetherField PracticeWorkplace risk & safetyDigital SystemsMonitoring & visibilityFrom Risk to ActionIdentifySystemiseCommunicateImprove01About My WorkSafety Practice That Starts With the WorkplaceMy work begins with real workplace conditions: identifying hazards, understanding operational gaps, and helping organisations put practical safety measures in place. Where digital tools can make that process clearer or more reliable, I use them, but the starting point is always the workplace itself, not the software.More about my backgroundWorking PrincipleI start with the workplace, build around the people, and bring in technology only where it genuinely helps.This is how I approach every safety engagement.02Core ExpertiseEHS Expertise Supported by Practical Digital CapabilityMy work is grounded in occupational safety and health, supported by digital systems that improve reporting and follow-up, and communication that helps important information reach the right people.Primary Expertise01Occupational Safety & HealthIdentifying workplace hazards, assessing risk and helping organisations establish practical safety measures that respond to real working conditions.Risk AssessmentOSH & Fire Safety AuditsHazard IdentificationSafety DocumentationRisk awareness→Practical controls→Safer work02Supporting CapabilityEHS Systems & Digital ToolsUsing practical digital tools to improve safety reporting, inspections, records and corrective-action follow-up.Digital Safety ReportingInspection WorkflowsCorrective-Action TrackingStructured EHS Records03Supporting CapabilityDigital CommunicationTurning safety and professional information into clear content that organisations and audiences can understand and act on.Safety Content StrategySocial Media & GBPWebsite ContentPerformance ReportingExplore My Expertise03How I WorkFrom Workplace Risk to Practical ImprovementI begin with the conditions people actually work in, then turn what I observe into practical controls, organised systems and clear communication. Feedback and evidence help improve the result over time.01IdentifyObserve the workplace, recognise hazards and understand the operational gaps affecting safety and performance.03BuildCreate the process, document or digital tool needed to organise reporting, inspections and follow-up.05ImproveUse feedback, observations and performance information to strengthen the system over time.010203040502StructureTranslate the findings into clear priorities, controls, responsibilities and a practical course of action.04CommunicatePresent the information clearly so employees, managers and relevant audiences understand what action is needed.0101IdentifyObserve the workplace, recognise hazards and understand the operational gaps affecting safety and performance.0202StructureTranslate the findings into clear priorities, controls, responsibilities and a practical course of action.0303BuildCreate the process, document or digital tool needed to organise reporting, inspections and follow-up.0404CommunicatePresent the information clearly so employees, managers and relevant audiences understand what action is needed.0505ImproveUse feedback, observations and performance information to strengthen the system over time.The OutcomeSafer work·Better follow-up·Clearer communication04Featured WorkSelected Work Across EHS, Systems and CommunicationA focused selection of work showing how workplace safety practice, practical digital systems and professional communication can support better organisational action.View All ProjectsEHS SystemsIn DevelopmentSafety Management SystemA digital EHS platform designed to organise hazard reporting, workplace inspections, risk records and corrective-action follow-up in one structured system.Hazard ReportingInspectionsRisk RecordsCorrective ActionsView ProjectSafety Management SystemConcept UIHazard ReportsInspectionsCorrective ActionsRisk OverviewLoading dock guardrailOpenFire extinguisher checkResolvedPPE compliance walk-throughIn ReviewOccupational Safety & HealthPlannedWorkplace Risk Assessment FrameworkA structured approach for identifying hazards, assessing workplace risk and organising practical control actions and follow-up.Hazard IdentificationRisk EvaluationControl ActionsView ProjectEHS × Digital CommunicationActive Professional WorkSafetec Solutions: Digital Presence & Social Media ManagementOngoing management of safety-focused content and digital presence across LinkedIn, website content and Google Business Profile.LinkedIn ManagementWebsite & GBP ContentPerformance MonitoringView ProjectFor organisations & businessesNeed a digital solution for your business?This portfolio focuses on Occupational Safety & Health, EHS systems and digital communication. For general websites, web applications, business systems or software development, that work is handled separately through HarunLucas Dev.Visit HarunLucas Dev05InsightsNotes on Safety, Systems & Digital PracticePractical observations on workplace safety, EHS systems and digital communication, written to turn professional ideas into clearer, more useful action.View All InsightsEHS SystemsAugust 24, 2026 · 12 min readWhat Is a Safety Management System? How Digital EHS Systems WorkLearn how a safety management system connects hazard reporting, risk assessment, inspections, corrective actions and continual improvement, and where digital EHS tools fit.Read ArticleEHS Systems & Digital SolutionsSeptember 30, 2026Digital Safety Management Systems: Transforming How Organisations Manage Workplace SafetyExplore how digital safety management systems can improve hazard reporting, inspections, corrective actions and safety visibility, while connecting everyday EHS activities into structured and accountable workflows.Read ArticleEHS SystemsAugust 26, 2026How Digital Tools Can Improve Workplace Safety ManagementDigital tools can improve workplace safety management by supporting hazard reporting, inspections, corrective action tracking, training records, safety dashboards, and follow-up systems.Read ArticleLet's Work on Something MeaningfulOpen to Occupational Safety & Health opportunities, EHS systems projects, digital communication work, and professional collaboration. Reach out at hello@cynthiamueni.com.Contact MeView My Work",
+    "mainTextSha256": "fc5ecbf37ffebb38",
+    "mainTextWords": 753
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Building Safer Workplaces Through Practical EHS Systems",
+        "visible": true,
+        "fontSizePx": 48
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Building Safer Workplaces Through Practical EHS Systems",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "route": "/contact",
+  "source": "static",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Contact | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "Get in touch about Occupational Safety & Health collaboration, EHS systems or digital communication work. Based in Nairobi, Kenya.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Let's Talk About Safer Workplaces, Better EHS Systems or Stronger Communication."
+      },
+      {
+        "level": 2,
+        "text": "Before You Reach Out",
+        "id": "contact-faq-heading"
+      },
+      {
+        "level": 3,
+        "text": "What types of opportunities can I contact you about?"
+      },
+      {
+        "level": 3,
+        "text": "Do you work outside Nairobi?"
+      },
+      {
+        "level": 3,
+        "text": "How quickly can I expect a response?"
+      },
+      {
+        "level": 3,
+        "text": "Can I discuss an EHS system idea with you?"
+      },
+      {
+        "level": 3,
+        "text": "What if I need a website or general software solution?"
+      },
+      {
+        "level": 2,
+        "text": "Start a Conversation That Leads to Better Workplaces.",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Emailhello@cynthiamueni.com"
+      },
+      {
+        "href": "tel:+254748810670",
+        "text": "Phone+254 748 810 670"
+      },
+      {
+        "href": "https://www.linkedin.com/in/cynthia-mueni-6b621b359/",
+        "text": "LinkedIn",
+        "ariaLabel": "Cynthia Mueni on LinkedIn (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://wa.me/254748810670?text=Hi%20Cynthia%2C%20I%20found%20your%20website%20and%20would%20like%20to%20get%20in%20touch.",
+        "text": "WhatsApp",
+        "ariaLabel": "Cynthia Mueni on WhatsApp (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://www.facebook.com/Cynthia%20Mueni",
+        "text": "Facebook",
+        "ariaLabel": "Cynthia Mueni on Facebook (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://github.com/cynthia317/",
+        "text": "GitHub",
+        "ariaLabel": "Cynthia Mueni on GitHub (opens in a new tab)",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://kipeo.harunlucas.com/",
+        "text": "Visit HarunLucas Dev",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "#contact-form",
+        "text": "Send a Message"
+      },
+      {
+        "href": "/projects",
+        "text": "View My Work"
+      }
+    ],
+    "images": [],
+    "buttons": [
+      "Send Message",
+      "What types of opportunities can I contact you about?",
+      "Do you work outside Nairobi?",
+      "How quickly can I expect a response?",
+      "Can I discuss an EHS system idea with you?",
+      "What if I need a website or general software solution?"
+    ],
+    "forms": [
+      {
+        "id": "contact-form",
+        "noValidate": true,
+        "fields": [
+          {
+            "tag": "input",
+            "id": "contact-hp-field",
+            "name": "hp_field",
+            "type": "text",
+            "required": false,
+            "autocomplete": "off",
+            "tabIndex": "-1",
+            "label": "Leave this field empty"
+          },
+          {
+            "tag": "input",
+            "id": "contact-name",
+            "name": "name",
+            "type": "text",
+            "required": true,
+            "autocomplete": "name",
+            "label": "Name *",
+            "placeholder": "Your full name"
+          },
+          {
+            "tag": "input",
+            "id": "contact-email",
+            "name": "email",
+            "type": "email",
+            "required": true,
+            "autocomplete": "email",
+            "label": "Email *",
+            "placeholder": "you@example.com"
+          },
+          {
+            "tag": "input",
+            "id": "contact-organisation",
+            "name": "organisation",
+            "type": "text",
+            "required": false,
+            "autocomplete": "organization",
+            "label": "Organisation",
+            "placeholder": "Company or organisation (optional)"
+          },
+          {
+            "tag": "input",
+            "id": "contact-phone",
+            "name": "phone",
+            "type": "tel",
+            "required": false,
+            "autocomplete": "tel",
+            "label": "Phone",
+            "placeholder": "Optional"
+          },
+          {
+            "tag": "select",
+            "id": "contact-enquiry-type",
+            "name": "enquiryType",
+            "required": true,
+            "label": "Enquiry Type *",
+            "options": [
+              {
+                "value": "",
+                "label": "Select an enquiry type"
+              },
+              {
+                "value": "osh",
+                "label": "Occupational Safety & Health"
+              },
+              {
+                "value": "ehs-systems",
+                "label": "EHS Systems"
+              },
+              {
+                "value": "digital-communication",
+                "label": "Digital Communication"
+              },
+              {
+                "value": "professional-opportunity",
+                "label": "Professional Opportunity"
+              },
+              {
+                "value": "collaboration",
+                "label": "Collaboration"
+              },
+              {
+                "value": "other",
+                "label": "Other"
+              }
+            ]
+          },
+          {
+            "tag": "input",
+            "id": "contact-subject",
+            "name": "subject",
+            "type": "text",
+            "required": true,
+            "label": "Subject *",
+            "placeholder": "What's this about?"
+          },
+          {
+            "tag": "textarea",
+            "id": "contact-message",
+            "name": "message",
+            "required": true,
+            "label": "Message *",
+            "placeholder": "Tell me a little about what you'd like to discuss."
+          }
+        ],
+        "submitText": "Send Message"
+      }
+    ],
+    "mainText": "ContactLet's Talk About Safer Workplaces, Better EHS Systems or Stronger Communication.I'm open to Occupational Safety & Health opportunities, EHS system projects, workplace safety collaboration, digital communication work and professional networking.Emailhello@cynthiamueni.comPhone+254 748 810 670LocationNairobi, KenyaBusiness HoursMonday to Friday: 8:00 AM to 6:00 PMSaturday: 9:00 AM to 1:00 PMTypical response: I aim to respond to professional enquiries within 24 hours.Let's Connect AboutOccupational Safety & HealthEHS SystemsDigital CommunicationProfessional CollaborationLeave this field emptyName *Email *OrganisationPhoneEnquiry Type *Select an enquiry typeOccupational Safety & HealthEHS SystemsDigital CommunicationProfessional OpportunityCollaborationOtherSubject *Message *Send MessageConnect ProfessionallyFollow along or reach out directly on LinkedIn, WhatsApp, Facebook, or GitHub.LinkedInWhatsAppFacebookGitHubQuestionsBefore You Reach OutWhat types of opportunities can I contact you about?Occupational Safety & Health, EHS Systems, Digital Communication, professional opportunities and collaboration. Feel free to reach out about any of these.Do you work outside Nairobi?Yes. I can support opportunities in Nairobi, across Kenya, and remote work where appropriate.How quickly can I expect a response?I aim to respond to professional enquiries within approximately 24 hours.Can I discuss an EHS system idea with you?Yes, I'm glad to discuss ideas around workplace inspections, hazard reporting, corrective actions, risk management and related EHS processes. Some of these systems are still in development, so we'd be discussing direction and fit rather than a finished product.What if I need a website or general software solution?For general websites, web applications and non-EHS software solutions, visit HarunLucas Dev.Visit HarunLucas DevStart a Conversation That Leads to Better Workplaces.Whether it's workplace safety, an EHS system idea, digital communication work, or professional collaboration, I'd like to hear about it.Send a MessageView My Work",
+    "mainTextSha256": "820438d34b30a21e",
+    "mainTextWords": 259
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Let's Talk About Safer Workplaces, Better EHS Systems or Stronger Communication.",
+        "visible": true,
+        "fontSizePx": 48
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Let's Talk About Safer Workplaces, Better EHS Systems or Stronger Communication.",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

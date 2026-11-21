@@ -42,3 +42,6 @@ yarn-error.log*
 next-env.d.ts
 dev-restart.log
 
+
+# baseline capture: local-only screenshots, console logs and server log
+/tests/baseline/.artifacts/

@@ -1,0 +1,182 @@
+{
+  "route": "/projects/workplace-risk-assessment",
+  "source": "dynamic /projects/[slug] (generateStaticParams)",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Workplace Risk Assessment Framework | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "A risk assessment that only exists to satisfy an audit creates a false sense of security. The document says one thing and the workplace says another, and that gap is where incidents happen. This structured hazard identification and risk assessment framework was built and is practiced for a small operations team. The framework itself is real and in use, while a digital version, moving it from documents into a tracked system, is currently planned.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Workplace Risk Assessment Framework"
+      },
+      {
+        "level": 2,
+        "text": "Key Workflow"
+      },
+      {
+        "level": 2,
+        "text": "Capabilities"
+      },
+      {
+        "level": 2,
+        "text": "Let's Work on Something Meaningful",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/projects",
+        "text": "All Projects"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "hello@cynthiamueni.com"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/projects",
+        "text": "View All Projects"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/osh-ppe-welding.webp (next/image w=3840 q=75)",
+        "alt": "Welder in protective gear working with sparks flying, representing hands-on hazard exposure"
+      }
+    ],
+    "buttons": [],
+    "forms": [],
+    "mainText": "All ProjectsEHS SystemsPlannedWorkplace Risk Assessment FrameworkA risk assessment that only exists to satisfy an audit creates a false sense of security. The document says one thing and the workplace says another, and that gap is where incidents happen. This structured hazard identification and risk assessment framework was built and is practiced for a small operations team. The framework itself is real and in use, while a digital version, moving it from documents into a tracked system, is currently planned.Key WorkflowIdentify HazardEvaluate RiskAssign ControlsRecord Residual RiskReviewCapabilitiesHazard IdentificationLikelihood & Severity ScaleControl AssignmentDigital Record-Keeping · PlannedTrigger-Based Review Scheduling · PlannedLet's Work on Something MeaningfulOpen to Occupational Safety & Health opportunities, EHS systems projects, digital communication work, and professional collaboration. Reach out at hello@cynthiamueni.com.Contact MeView All Projects",
+    "mainTextSha256": "e74b3c0091f036ef",
+    "mainTextWords": 123
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Workplace Risk Assessment Framework",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Workplace Risk Assessment Framework",
+        "visible": true,
+        "fontSizePx": 30
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

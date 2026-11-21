@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "baseline:capture": "node tests/baseline/capture.mjs",
+    "baseline:check": "node tests/baseline/capture.mjs --check"
   },
   "dependencies": {
     "@next/third-parties": "^16.4.0",

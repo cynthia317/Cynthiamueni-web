@@ -1,0 +1,152 @@
+{
+  "description": "Public routes discovered from .next/app-path-routes-manifest.json and .next/prerender-manifest.json",
+  "declaredAppRoutes": [
+    "/",
+    "/_global-error",
+    "/_not-found",
+    "/about",
+    "/api/contact",
+    "/apple-icon",
+    "/contact",
+    "/expertise",
+    "/icon",
+    "/insights",
+    "/insights/[slug]",
+    "/projects",
+    "/projects/[slug]",
+    "/robots.txt",
+    "/services",
+    "/sitemap.xml"
+  ],
+  "dynamicRoutePatterns": [
+    "/insights/[slug]",
+    "/projects/[slug]"
+  ],
+  "capturedPages": [
+    {
+      "route": "/",
+      "source": "static"
+    },
+    {
+      "route": "/about",
+      "source": "static"
+    },
+    {
+      "route": "/contact",
+      "source": "static"
+    },
+    {
+      "route": "/expertise",
+      "source": "static"
+    },
+    {
+      "route": "/insights",
+      "source": "static"
+    },
+    {
+      "route": "/insights/communicating-safety-online",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/insights/digital-safety-management-systems",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/insights/digital-tools-for-safety-teams",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/insights/how-digital-tools-can-improve-workplace-safety-management",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/insights/how-to-improve-safety-compliance-in-the-workplace",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/insights/risk-assessment-basics",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/insights/safety-inspections-should-lead-to-action",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/insights/what-is-a-safety-management-system",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/insights/why-ppe-alone-does-not-make-workplace-safe",
+      "source": "dynamic /insights/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/projects",
+      "source": "static"
+    },
+    {
+      "route": "/projects/brand-content-strategy",
+      "source": "dynamic /projects/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/projects/internal-systems-dashboard",
+      "source": "dynamic /projects/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/projects/osh-research-brief",
+      "source": "dynamic /projects/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/projects/safetec-digital-presence",
+      "source": "dynamic /projects/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/projects/safety-audit-toolkit",
+      "source": "dynamic /projects/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/projects/safety-management-system",
+      "source": "dynamic /projects/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/projects/safety-reporting-tool",
+      "source": "dynamic /projects/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/projects/workplace-risk-assessment",
+      "source": "dynamic /projects/[slug] (generateStaticParams)"
+    },
+    {
+      "route": "/services",
+      "source": "static"
+    }
+  ],
+  "apiRoutes": [
+    "/api/contact"
+  ],
+  "metadataRoutes": [
+    "/apple-icon",
+    "/icon",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
+  "frameworkInternalRoutes": [
+    "/_global-error",
+    "/_not-found"
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "mobile": false
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  },
+  "emulation": {
+    "colorScheme": "light",
+    "reducedMotion": "reduce"
+  }
+}

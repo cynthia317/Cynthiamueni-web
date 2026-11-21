@@ -1,0 +1,288 @@
+{
+  "route": "/about",
+  "source": "static",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "About Cynthia Mueni | Occupational Safety & Health",
+    "titleElementCount": 1,
+    "description": "Learn about Cynthia Mueni's Occupational Safety & Health work, practical EHS systems approach and experience in professional digital communication.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Grounded in Safety. Focused on Practical Change."
+      },
+      {
+        "level": 2,
+        "text": "One Problem-Solving Mindset, Three Disciplines",
+        "id": "intro-heading"
+      },
+      {
+        "level": 2,
+        "text": "How My Disciplines Connect",
+        "id": "journey-heading"
+      },
+      {
+        "level": 3,
+        "text": "Occupational Safety & Health"
+      },
+      {
+        "level": 3,
+        "text": "Technology & Digital Systems"
+      },
+      {
+        "level": 3,
+        "text": "Digital Communication"
+      },
+      {
+        "level": 3,
+        "text": "Continuous Improvement"
+      },
+      {
+        "level": 2,
+        "text": "Currently Applied in Practice",
+        "id": "experience-heading"
+      },
+      {
+        "level": 3,
+        "text": "Safetec Solutions Ltd"
+      },
+      {
+        "level": 2,
+        "text": "Three Areas, One Way of Working",
+        "id": "work-areas-heading"
+      },
+      {
+        "level": 3,
+        "text": "Occupational Safety & Health"
+      },
+      {
+        "level": 3,
+        "text": "EHS Systems & Digital Solutions"
+      },
+      {
+        "level": 3,
+        "text": "Digital Communication"
+      },
+      {
+        "level": 2,
+        "text": "A Consistent Way of Solving Problems",
+        "id": "approach-heading"
+      },
+      {
+        "level": 3,
+        "text": "Identify"
+      },
+      {
+        "level": 3,
+        "text": "Design"
+      },
+      {
+        "level": 3,
+        "text": "Implement"
+      },
+      {
+        "level": 3,
+        "text": "Communicate"
+      },
+      {
+        "level": 3,
+        "text": "Improve"
+      },
+      {
+        "level": 2,
+        "text": "Values",
+        "id": "values-heading"
+      },
+      {
+        "level": 3,
+        "text": "Professionalism"
+      },
+      {
+        "level": 3,
+        "text": "Continuous Learning"
+      },
+      {
+        "level": 3,
+        "text": "Practical Problem Solving"
+      },
+      {
+        "level": 3,
+        "text": "Integrity"
+      },
+      {
+        "level": 3,
+        "text": "Systems Thinking"
+      },
+      {
+        "level": 3,
+        "text": "Collaboration"
+      },
+      {
+        "level": 2,
+        "text": "What I Build and Work With",
+        "id": "tools-heading"
+      },
+      {
+        "level": 3,
+        "text": "Development & Systems"
+      },
+      {
+        "level": 3,
+        "text": "Content, Marketing & Design"
+      },
+      {
+        "level": 2,
+        "text": "Let's Connect",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/projects",
+        "text": "Explore My Work"
+      },
+      {
+        "href": "/expertise",
+        "text": "View My Expertise"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/projects",
+        "text": "View My Projects"
+      }
+    ],
+    "images": [],
+    "buttons": [],
+    "forms": [],
+    "mainText": "About Cynthia MueniGrounded in Safety. Focused on Practical Change.I am an Occupational Safety & Health professional whose work begins with understanding how people, processes and workplace conditions interact. I use practical EHS systems and clear digital communication to help turn safety needs into organised action.Explore My WorkView My ExpertiseBased in Kenya · Working across EHS practice, systems and communicationProfessional ProfileEHS First Practice01Primary FieldOccupational Safety & Health02Systems FocusEHS Reporting & Practical Workflows03CommunicationSafety & Professional Content04Working StylePractical · People-centred · Evidence-informedOne Problem-Solving Mindset, Three DisciplinesMy core professional foundation is Occupational Safety & Health: understanding how people, processes and environments interact, and where that interaction breaks down into risk. EHS systems and digital communication grew out of that same foundation. They are practical extensions of the same problem-solving mindset, not separate careers running in parallel.Identifying a safety risk is only useful if something is done about it. Technology gives me a way to build the systems and tools that manage that risk properly. Digital communication makes sure the people affected actually understand it and act on it. Together, these disciplines let me take a problem from “this is a risk” to “this is a system, and here is how to use it.”My JourneyHow My Disciplines ConnectOccupational Safety & Health identifies risks, operational challenges and opportunities. Technology creates the systems and tools that solve them. Communication makes sure people understand and adopt those solutions, and the results feed back into how the work keeps improving.Occupational Safety & HealthGrounds everything in real workplace conditions, identifying hazards, operational challenges and opportunities for improvement.Technology & Digital SystemsTurns those findings into practical tools and systems that make safer, more efficient ways of working possible.Digital CommunicationMakes sure people understand, adopt and actually benefit from those solutions, not just that they exist.Continuous ImprovementFeeds outcomes and feedback back into the process, so safety practice and the systems supporting it keep getting better.Professional ExperienceCurrently Applied in PracticeThis connection between disciplines isn't only theoretical. It's active today, through ongoing digital communication work for an occupational safety and health organisation.Digital Communication & Social Media ManagementSafetec Solutions LtdOccupational Safety & Health OrganisationManaging social media, website content and digital platform presence for Safetec Solutions Ltd, putting the same OSH plus digital communication combination described on this page to work for a real organisation.Social media managementWebsite content managementGoogle Business Profile managementContent planningPerformance reportingWhat I Work OnThree Areas, One Way of WorkingOccupational Safety & Health remains my strongest professional pillar. The rest extend that same foundation into systems and communication.Occupational Safety & HealthWorkplace SafetyRisk AssessmentSafety AuditsFire SafetySafety DocumentationWorkplace ComplianceEHS Systems & Digital SolutionsEHS Reporting SystemsInspection & Audit ToolsHazard Tracking WorkflowsSafety DashboardsDigital CommunicationSocial Media ManagementContent StrategySEOWebsite ContentDigital MarketingAnalyticsMy ApproachA Consistent Way of Solving ProblemsWhatever the discipline, the underlying method stays the same: a working methodology I apply across safety practice, systems and communication.1IdentifyOccupational safety practice surfaces the real risks and operational gaps in a workplace.2DesignSystems thinking turns those findings into a clear plan for a tool, process, or safety system.3ImplementEHS systems and digital tools bring the plan to life as something people can actually use.4CommunicateDigital communication helps organisations educate teams and reach the right audience.5ImproveData and feedback are used to refine the system and keep it aligned with real conditions.What Guides My WorkValuesProfessionalismApproaching every project with discipline, accountability and attention to detail.Continuous LearningStaying current across safety practice, technology and digital communication.Practical Problem SolvingFavouring solutions that work in real conditions over purely theoretical ones.IntegrityBeing honest about risk, capability and what a solution can realistically achieve.Systems ThinkingLooking at how people, processes and technology interact, not just isolated parts.CollaborationWorking closely with the people who understand a problem best: those living with it.Technologies & ToolsWhat I Build and Work WithDevelopment & SystemsReactNext.jsTypeScriptTailwind CSSGitGitHubVS CodeWordPressContent, Marketing & DesignSEO ToolsAnalytics ToolsCanvaDigital Marketing PlatformsLet's ConnectOpen to collaboration, professional opportunities, workplace safety projects, technology projects, digital communication projects, and networking.Contact MeView My Projects",
+    "mainTextSha256": "ce42944902d7b702",
+    "mainTextWords": 636
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Grounded in Safety. Focused on Practical Change.",
+        "visible": true,
+        "fontSizePx": 48
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Grounded in Safety. Focused on Practical Change.",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

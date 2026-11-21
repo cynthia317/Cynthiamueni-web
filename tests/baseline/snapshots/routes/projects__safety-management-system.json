@@ -1,0 +1,197 @@
+{
+  "route": "/projects/safety-management-system",
+  "source": "dynamic /projects/[slug] (generateStaticParams)",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Safety Management System | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "Most workplace safety information (hazard reports, inspection results, corrective actions) still lives across paper forms, spreadsheets and someone's memory, with no way to trace a hazard through to its fix. This project is being developed to bring hazard reporting, inspections, risk records and corrective actions into one structured digital system, with visibility into safety status over time.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Safety Management System"
+      },
+      {
+        "level": 2,
+        "text": "Key Workflow"
+      },
+      {
+        "level": 2,
+        "text": "Capabilities"
+      },
+      {
+        "level": 2,
+        "text": "Questions This Project Addresses"
+      },
+      {
+        "level": 2,
+        "text": "Let's Work on Something Meaningful",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/projects",
+        "text": "All Projects"
+      },
+      {
+        "href": "/insights#faq-trigger-digital-safety-management-system",
+        "text": "What is a digital safety management system?"
+      },
+      {
+        "href": "/insights#faq-trigger-digital-safety-solutions-for-businesses",
+        "text": "What are digital safety solutions for businesses?"
+      },
+      {
+        "href": "/insights#faq-trigger-hse-digital-solutions",
+        "text": "What are Health, Safety & Environment (HSE) digital solutions?"
+      },
+      {
+        "href": "/insights#faq-trigger-digital-safety-systems-drilling-companies",
+        "text": "What digital safety management systems are suitable for drilling companies?"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "hello@cynthiamueni.com"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/projects",
+        "text": "View All Projects"
+      }
+    ],
+    "images": [],
+    "buttons": [],
+    "forms": [],
+    "mainText": "All ProjectsEHS SystemsIn DevelopmentSafety Management SystemMost workplace safety information (hazard reports, inspection results, corrective actions) still lives across paper forms, spreadsheets and someone's memory, with no way to trace a hazard through to its fix. This project is being developed to bring hazard reporting, inspections, risk records and corrective actions into one structured digital system, with visibility into safety status over time.Safety Management SystemConcept UIHazard ReportsInspectionsCorrective ActionsRisk OverviewLoading dock guardrailOpenFire extinguisher checkResolvedPPE compliance walk-throughIn ReviewKey WorkflowHazard ReportedAssessedAction AssignedCorrective ActionVerifiedClosedCapabilitiesHazard ReportingWorkplace Inspections · PlannedRisk Records · PlannedIncident / Near-Miss Records · PlannedCorrective Actions · PlannedStatus Tracking · PlannedEHS Dashboard · PlannedQuestions This Project AddressesWhat is a digital safety management system?What are digital safety solutions for businesses?What are Health, Safety & Environment (HSE) digital solutions?What digital safety management systems are suitable for drilling companies?Let's Work on Something MeaningfulOpen to Occupational Safety & Health opportunities, EHS systems projects, digital communication work, and professional collaboration. Reach out at hello@cynthiamueni.com.Contact MeView All Projects",
+    "mainTextSha256": "f4638624f0516206",
+    "mainTextWords": 158
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Safety Management System",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Safety Management System",
+        "visible": true,
+        "fontSizePx": 30
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

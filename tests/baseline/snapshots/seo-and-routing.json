@@ -1,0 +1,278 @@
+{
+  "robotsTxt": {
+    "status": 200,
+    "contentType": "text/plain",
+    "body": "User-Agent: *\nAllow: /\n\nSitemap: https://cynthiamueni.com/sitemap.xml\n"
+  },
+  "sitemap": {
+    "status": 200,
+    "contentType": "application/xml",
+    "entries": [
+      {
+        "loc": "https://cynthiamueni.com",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "1"
+      },
+      {
+        "loc": "https://cynthiamueni.com/about",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.8"
+      },
+      {
+        "loc": "https://cynthiamueni.com/expertise",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.8"
+      },
+      {
+        "loc": "https://cynthiamueni.com/services",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.8"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.9"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.9"
+      },
+      {
+        "loc": "https://cynthiamueni.com/contact",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.8"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects/safety-management-system",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.7"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects/safety-audit-toolkit",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.7"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects/safety-reporting-tool",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.7"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects/workplace-risk-assessment",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.7"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects/safetec-digital-presence",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.7"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects/brand-content-strategy",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.7"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects/osh-research-brief",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.7"
+      },
+      {
+        "loc": "https://cynthiamueni.com/projects/internal-systems-dashboard",
+        "lastmod": "<build-time>",
+        "changefreq": "monthly",
+        "priority": "0.7"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/digital-safety-management-systems",
+        "lastmod": "2026-09-30T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/how-digital-tools-can-improve-workplace-safety-management",
+        "lastmod": "2026-08-26T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/how-to-improve-safety-compliance-in-the-workplace",
+        "lastmod": "2026-09-29T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/why-ppe-alone-does-not-make-workplace-safe",
+        "lastmod": "2026-08-26T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/safety-inspections-should-lead-to-action",
+        "lastmod": "2026-08-26T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/what-is-a-safety-management-system",
+        "lastmod": "2026-08-24T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/risk-assessment-basics",
+        "lastmod": "2026-06-12T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/digital-tools-for-safety-teams",
+        "lastmod": "2026-05-28T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      },
+      {
+        "loc": "https://cynthiamueni.com/insights/communicating-safety-online",
+        "lastmod": "2026-05-09T00:00:00.000Z",
+        "changefreq": "yearly",
+        "priority": "0.6"
+      }
+    ],
+    "pagesMissingFromSitemap": [],
+    "sitemapEntriesWithoutPage": []
+  },
+  "redirects": {
+    "/about/": {
+      "status": 308,
+      "location": "/about"
+    },
+    "/projects/": {
+      "status": 308,
+      "location": "/projects"
+    },
+    "/insights/what-is-a-safety-management-system/": {
+      "status": 308,
+      "location": "/insights/what-is-a-safety-management-system"
+    },
+    "/ABOUT": {
+      "status": 404,
+      "location": null
+    },
+    "/index": {
+      "status": 404,
+      "location": null
+    }
+  },
+  "notFound": {
+    "/this-page-does-not-exist": {
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "title": "404: This page could not be found.",
+      "robots": "noindex",
+      "h1": "404"
+    },
+    "/projects/this-project-does-not-exist": {
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "title": "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication",
+      "robots": "noindex",
+      "h1": null
+    },
+    "/insights/this-insight-does-not-exist": {
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "title": "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication",
+      "robots": "noindex",
+      "h1": null
+    },
+    "/api/does-not-exist": {
+      "status": 404,
+      "contentType": "text/html; charset=utf-8",
+      "title": "404: This page could not be found.",
+      "robots": "noindex",
+      "h1": "404"
+    }
+  },
+  "assets": {
+    "/icon": {
+      "status": 200,
+      "contentType": "image/png"
+    },
+    "/apple-icon": {
+      "status": 200,
+      "contentType": "image/png"
+    },
+    "/favicon.ico": {
+      "status": 404,
+      "contentType": "text/html; charset=utf-8"
+    },
+    "/googlec5f391ecf2ca5cb5.html": {
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8"
+    }
+  },
+  "internalLinks": {
+    "checkedPaths": {
+      "/contact": 200,
+      "/about": 200,
+      "/expertise": 200,
+      "/projects": 200,
+      "/projects/safety-management-system": 200,
+      "/projects/workplace-risk-assessment": 200,
+      "/projects/safetec-digital-presence": 200,
+      "/insights": 200,
+      "/insights/what-is-a-safety-management-system": 200,
+      "/insights/digital-safety-management-systems": 200,
+      "/insights/how-digital-tools-can-improve-workplace-safety-management": 200,
+      "/": 200,
+      "/services": 200,
+      "/projects/safety-audit-toolkit": 200,
+      "/insights/how-to-improve-safety-compliance-in-the-workplace": 200,
+      "/insights/why-ppe-alone-does-not-make-workplace-safe": 200,
+      "/insights/safety-inspections-should-lead-to-action": 200,
+      "/insights/risk-assessment-basics": 200,
+      "/insights/digital-tools-for-safety-teams": 200,
+      "/projects/safety-reporting-tool": 200,
+      "/projects/brand-content-strategy": 200,
+      "/projects/osh-research-brief": 200
+    },
+    "issues": []
+  },
+  "images": {
+    "/images/home/digital-ehs-workplace-safety-systems.webp": 200,
+    "/images/home/ehs-digital-safety-inspection.webp": 200,
+    "/images/home/expertise-digital-communication-workspace.webp": 200,
+    "/images/home/expertise-ehs-systems-dashboard.png": 200,
+    "/images/home/expertise-osh-safety-inspection.webp": 200,
+    "/images/insights/digital-safety-management-systems.webp": 200,
+    "/images/insights/digital-safety-workflow.webp": 200,
+    "/images/insights/digital-tools-workplace-safety-management-featured.webp": 200,
+    "/images/insights/ehs-dashboard-industrial-workplace.webp": 200,
+    "/images/insights/ehs-monitoring-inspection-corrective-action.png": 200,
+    "/images/insights/hierarchy-of-controls-diagram.png": 200,
+    "/images/insights/improving-safety-compliance-featured.webp": 200,
+    "/images/insights/ppe-alone-workplace-safety-featured.png": 200,
+    "/images/insights/right-ppe-for-right-hazard.png": 200,
+    "/images/projects/marketing-strategy-flatlay.webp": 200,
+    "/images/projects/osh-ppe-welding.webp": 200,
+    "/images/projects/osh-warehouse-compliance.webp": 200,
+    "/images/projects/research-data-analysis.webp": 200,
+    "/images/projects/software-dashboard-review.webp": 200,
+    "/images/projects/software-team-workspace.webp": 200
+  }
+}

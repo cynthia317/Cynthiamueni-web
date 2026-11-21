@@ -1,0 +1,334 @@
+{
+  "route": "/insights/communicating-safety-online",
+  "source": "dynamic /insights/[slug] (generateStaticParams)",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Communicating Safety Culture Beyond the Noticeboard | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "How organisations can use simple digital channels to reinforce safety habits, not just announce policy.",
+    "keywords": "Digital Communication,Occupational Safety & Health,EHS,Cynthia Mueni",
+    "robots": null,
+    "googlebot": null,
+    "canonical": "https://cynthiamueni.com/insights/communicating-safety-online",
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Communicating Safety Culture Beyond the Noticeboard"
+      ],
+      [
+        "og:description",
+        "How organisations can use simple digital channels to reinforce safety habits, not just announce policy."
+      ],
+      [
+        "og:url",
+        "https://cynthiamueni.com/insights/communicating-safety-online"
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:image",
+        "https://cynthiamueni.com/images/home/expertise-digital-communication-workspace.webp"
+      ],
+      [
+        "og:image:alt",
+        "Professional workspace set up for planning safety content and digital communication"
+      ],
+      [
+        "og:type",
+        "article"
+      ],
+      [
+        "article:published_time",
+        "2026-05-09"
+      ],
+      [
+        "article:author",
+        "Cynthia Mueni"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary_large_image"
+      ],
+      [
+        "twitter:title",
+        "Communicating Safety Culture Beyond the Noticeboard"
+      ],
+      [
+        "twitter:description",
+        "How organisations can use simple digital channels to reinforce safety habits, not just announce policy."
+      ],
+      [
+        "twitter:image",
+        "https://cynthiamueni.com/images/home/expertise-digital-communication-workspace.webp"
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Communicating Safety Culture Beyond the Noticeboard",
+      "description": "How organisations can use simple digital channels to reinforce safety habits, not just announce policy.",
+      "image": "https://cynthiamueni.com/images/home/expertise-digital-communication-workspace.webp",
+      "datePublished": "2026-05-09",
+      "dateModified": "2026-05-09",
+      "author": {
+        "@type": "Person",
+        "name": "Cynthia Mueni",
+        "url": "https://cynthiamueni.com"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Cynthia Mueni"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://cynthiamueni.com/insights/communicating-safety-online"
+      },
+      "articleSection": "Digital Communication",
+      "keywords": "Digital Communication, Occupational Safety & Health, EHS, Cynthia Mueni"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cynthiamueni.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://cynthiamueni.com/insights"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Communicating Safety Culture Beyond the Noticeboard",
+          "item": "https://cynthiamueni.com/insights/communicating-safety-online"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Communicating Safety Culture Beyond the Noticeboard"
+      },
+      {
+        "level": 2,
+        "text": "The Problem With Announce-Only Communication"
+      },
+      {
+        "level": 2,
+        "text": "What Reinforcement Looks Like Digitally"
+      },
+      {
+        "level": 2,
+        "text": "Choosing the Right Channel for Your Team"
+      },
+      {
+        "level": 2,
+        "text": "Keeping the Message Practical, Not Just Compliant"
+      },
+      {
+        "level": 2,
+        "text": "Measuring Whether It's Actually Working"
+      },
+      {
+        "level": 2,
+        "text": "A Simple Weekly Rhythm That Works"
+      },
+      {
+        "level": 2,
+        "text": "Where This Fits Alongside Formal Communication"
+      },
+      {
+        "level": 2,
+        "text": "Key Takeaways"
+      },
+      {
+        "level": 2,
+        "text": "More Insights"
+      },
+      {
+        "level": 3,
+        "text": "Digital Safety Management Systems: Transforming How Organisations Manage Workplace Safety"
+      },
+      {
+        "level": 3,
+        "text": "How Digital Tools Can Improve Workplace Safety Management"
+      },
+      {
+        "level": 3,
+        "text": "How to Improve Safety Compliance in the Workplace"
+      },
+      {
+        "level": 2,
+        "text": "Let's Work on Something Meaningful",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/",
+        "text": "Home"
+      },
+      {
+        "href": "/insights",
+        "text": "Insights"
+      },
+      {
+        "href": "/insights",
+        "text": "All Insights"
+      },
+      {
+        "href": "/projects/safetec-digital-presence",
+        "text": "digital presence and social media management work I do for Safetec Solutions Ltd"
+      },
+      {
+        "href": "/insights/digital-safety-management-systems",
+        "text": "EHS Systems & Digital SolutionsDigital Safety Management Systems: Transforming How Organisations Manage Workplace SafetyExplore how digital safety management systems can improve hazard reporting, inspections, corrective actions and safety visibility, while connecting everyday EHS activities into structured and accountable workflows.September 30, 202613 min readRead Article"
+      },
+      {
+        "href": "/insights/how-digital-tools-can-improve-workplace-safety-management",
+        "text": "EHS SystemsHow Digital Tools Can Improve Workplace Safety ManagementDigital tools can improve workplace safety management by supporting hazard reporting, inspections, corrective action tracking, training records, safety dashboards, and follow-up systems.August 26, 202618 min readRead Article"
+      },
+      {
+        "href": "/insights/how-to-improve-safety-compliance-in-the-workplace",
+        "text": "Occupational Safety & HealthHow to Improve Safety Compliance in the WorkplacePractical ways organisations can strengthen workplace safety compliance through leadership, risk management, training, inspections, worker involvement and consistent follow-up.September 29, 202611 min readRead Article"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "hello@cynthiamueni.com"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/insights",
+        "text": "View All Insights"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/home/expertise-digital-communication-workspace.webp (next/image w=3840 q=75)",
+        "alt": "Professional workspace set up for planning safety content and digital communication"
+      },
+      {
+        "src": "/images/insights/digital-safety-management-systems.webp (next/image w=3840 q=75)",
+        "alt": "Digital safety management dashboard connecting workplace hazards, inspections and corrective actions",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/insights/digital-tools-workplace-safety-management-featured.webp (next/image w=3840 q=75)",
+        "alt": "Digital workplace safety dashboard showing hazard reports, inspections, corrective actions, and safety records.",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/insights/improving-safety-compliance-featured.webp (next/image w=3840 q=75)",
+        "alt": "Safety professional conducting a workplace safety compliance inspection",
+        "loading": "lazy"
+      }
+    ],
+    "buttons": [],
+    "forms": [],
+    "mainText": "Home/Insights/Communicating Safety Culture Beyond the NoticeboardAll InsightsDigital CommunicationMay 9, 2026 · 7 min readCommunicating Safety Culture Beyond the NoticeboardHow organisations can use simple digital channels to reinforce safety habits, not just announce policy.A noticeboard is a one-way, one-time message. Someone posts a notice, a handful of people read it in the first week, and after that it becomes part of the wallpaper. If the goal is genuine safety culture, meaning habits people carry into daily decisions, a static notice was never going to be enough on its own.The Problem With Announce-Only CommunicationMost workplace safety communication is built around announcing policy: a new procedure goes up, an incident summary gets circulated, a reminder gets pinned somewhere visible. That's necessary, but it's also passive. It assumes people will seek out and absorb information rather than needing it reinforced in the flow of their actual work.What Reinforcement Looks Like DigitallyDigital channels are well suited to reinforcement precisely because they can be short, repeated and timed around real moments rather than a single announcement date:Short, recurring reminders tied to a specific task or season, rather than one long policy documentReal photos of good practice from the actual site, which people recognise and relate to far more than generic stock imageryA simple way for people to ask questions or flag concerns, so communication becomes two-way rather than a broadcastA consistent, predictable rhythm, so safety content becomes a familiar part of the channel rather than an occasional interruptionChoosing the Right Channel for Your TeamNot every organisation needs a polished content calendar or a dedicated social media presence. The right channel depends entirely on where the team already pays attention. A closed messaging group works well for fast-moving field teams who check their phones constantly. An internal noticeboard paired with a simple digital screen suits a fixed site with shared spaces. A public-facing page or social profile makes more sense when the audience extends beyond the immediate team: clients, regulators, or the wider industry watching how an organisation talks about safety.Keeping the Message Practical, Not Just CompliantThe content that actually changes behaviour tends to be specific and relevant rather than generic. A reminder about a hazard that appeared on-site last week lands differently than a stock safety slogan. Writing for the people actually doing the work, in their language and about their conditions, does more for safety culture than restating the policy manual in shorter sentences.Measuring Whether It's Actually WorkingThe clearest signal that safety communication is landing is whether people start bringing things up on their own, not a vanity number. More questions being asked, more hazards being flagged before they're prompted, and fewer 'I didn't know that' moments after an incident all suggest the message is reaching people. A channel that only ever sees management posting, with no response from the team, usually means the communication is being broadcast rather than absorbed.A Simple Weekly Rhythm That WorksConsistency tends to matter more than volume. A short, predictable weekly post (a real photo from the site, a quick reminder tied to whatever work is happening that week, or a two-line recap of something the team handled well) builds a habit of attention that a large, infrequent campaign rarely achieves. The goal isn't to produce more content. It's to make safety a small, expected part of a channel people already check.Where This Fits Alongside Formal CommunicationNone of this replaces formal safety documentation or required notices. It sits alongside them. The noticeboard and the official procedure still need to exist. What digital communication adds is the reinforcement layer in between: the steady, low-effort presence that keeps safety top of mind on the days nothing has gone wrong yet.Key TakeawaysA noticeboard announces once; digital channels can reinforce continuouslyThe right channel is the one your team already checks, not the most sophisticated option availableEngagement, meaning questions, flagged hazards and replies, is a better signal than reachA short, consistent weekly rhythm beats an occasional large campaignThis approach reflects the ongoing digital presence and social media management work I do for Safetec Solutions Ltd.More InsightsEHS Systems & Digital SolutionsDigital Safety Management Systems: Transforming How Organisations Manage Workplace SafetyExplore how digital safety management systems can improve hazard reporting, inspections, corrective actions and safety visibility, while connecting everyday EHS activities into structured and accountable workflows.September 30, 202613 min readRead ArticleEHS SystemsHow Digital Tools Can Improve Workplace Safety ManagementDigital tools can improve workplace safety management by supporting hazard reporting, inspections, corrective action tracking, training records, safety dashboards, and follow-up systems.August 26, 202618 min readRead ArticleOccupational Safety & HealthHow to Improve Safety Compliance in the WorkplacePractical ways organisations can strengthen workplace safety compliance through leadership, risk management, training, inspections, worker involvement and consistent follow-up.September 29, 202611 min readRead ArticleLet's Work on Something MeaningfulOpen to Occupational Safety & Health opportunities, EHS systems projects, digital communication work, and professional collaboration. Reach out at hello@cynthiamueni.com.Contact MeView All Insights",
+    "mainTextSha256": "756070b6461821d9",
+    "mainTextWords": 807
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Communicating Safety Culture Beyond the Noticeboard",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Communicating Safety Culture Beyond the Noticeboard",
+        "visible": true,
+        "fontSizePx": 30
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

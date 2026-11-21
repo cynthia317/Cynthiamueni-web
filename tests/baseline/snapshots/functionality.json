@@ -1,0 +1,137 @@
+{
+  "note": "Contact checks run with Brevo variables removed, so no email is sent. Inputs are fake (example.com).",
+  "brevoCredentialsInEnvFiles": false,
+  "contactApi": {
+    "getMethod": {
+      "status": 405
+    },
+    "invalidJson": {
+      "status": 400,
+      "body": {
+        "ok": false,
+        "error": "invalid_body"
+      }
+    },
+    "emptyPayload": {
+      "status": 400,
+      "body": {
+        "ok": false,
+        "error": "validation",
+        "fields": {
+          "name": "Please enter your name.",
+          "email": "Please enter your email.",
+          "subject": "Please add a subject.",
+          "message": "Please add a message."
+        }
+      }
+    },
+    "invalidEmail": {
+      "status": 400,
+      "body": {
+        "ok": false,
+        "error": "validation",
+        "fields": {
+          "email": "Please enter a valid email address."
+        }
+      }
+    },
+    "overlongMessage": {
+      "status": 400,
+      "body": {
+        "ok": false,
+        "error": "validation",
+        "fields": {
+          "message": "Message is too long."
+        }
+      }
+    },
+    "honeypotFilled": {
+      "status": 200,
+      "body": {
+        "ok": true
+      }
+    },
+    "validWithoutBrevoConfig": {
+      "status": 500,
+      "body": {
+        "ok": false,
+        "error": "server_not_configured"
+      }
+    },
+    "rateLimitSixRequestsSameIp": [
+      400,
+      400,
+      400,
+      400,
+      400,
+      429
+    ],
+    "securityHeadersMatchGlobal": true
+  },
+  "contactFormUi": {
+    "emptySubmitErrors": [
+      {
+        "field": "contact-name",
+        "message": "Please enter your name."
+      },
+      {
+        "field": "contact-email",
+        "message": "Please enter your email."
+      },
+      {
+        "field": "contact-enquiry-type",
+        "message": "Please select an enquiry type."
+      },
+      {
+        "field": "contact-subject",
+        "message": "Please add a subject."
+      },
+      {
+        "field": "contact-message",
+        "message": "Please add a message."
+      }
+    ],
+    "otherEnquiryNote": "Looking for general software, websites or business digital solutions? Visit HarunLucas Dev",
+    "invalidEmailErrors": [
+      {
+        "field": "contact-email",
+        "message": "Please enter a valid email address."
+      }
+    ],
+    "validSubmission": {
+      "state": "error",
+      "heading": "Something went wrong sending your message",
+      "links": [
+        "mailto:hello@cynthiamueni.com"
+      ],
+      "buttons": [
+        "Try again"
+      ]
+    }
+  },
+  "mobileMenu": {
+    "initial": {
+      "expanded": "false",
+      "label": "Open menu",
+      "panelOpen": false
+    },
+    "afterClick": {
+      "expanded": "true",
+      "label": "Close menu",
+      "panelOpen": true,
+      "links": [
+        "About",
+        "Expertise",
+        "Services",
+        "Projects",
+        "Insights",
+        "Contact",
+        "Let's Connect"
+      ]
+    },
+    "afterEscape": {
+      "expanded": "false",
+      "panelOpen": false
+    }
+  }
+}

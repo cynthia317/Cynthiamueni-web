@@ -1,0 +1,346 @@
+{
+  "route": "/insights/risk-assessment-basics",
+  "source": "dynamic /insights/[slug] (generateStaticParams)",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Getting Risk Assessments Right in Small Teams | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "Why lightweight, consistently-applied risk assessments protect people better than a thick policy document nobody reads.",
+    "keywords": "Risk Assessment,Occupational Safety & Health,EHS,Cynthia Mueni",
+    "robots": null,
+    "googlebot": null,
+    "canonical": "https://cynthiamueni.com/insights/risk-assessment-basics",
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Getting Risk Assessments Right in Small Teams"
+      ],
+      [
+        "og:description",
+        "Why lightweight, consistently-applied risk assessments protect people better than a thick policy document nobody reads."
+      ],
+      [
+        "og:url",
+        "https://cynthiamueni.com/insights/risk-assessment-basics"
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:image",
+        "https://cynthiamueni.com/images/home/expertise-osh-safety-inspection.webp"
+      ],
+      [
+        "og:image:alt",
+        "Safety professional in a hard hat reviewing a tablet while walking an industrial facility floor"
+      ],
+      [
+        "og:type",
+        "article"
+      ],
+      [
+        "article:published_time",
+        "2026-06-12"
+      ],
+      [
+        "article:author",
+        "Cynthia Mueni"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary_large_image"
+      ],
+      [
+        "twitter:title",
+        "Getting Risk Assessments Right in Small Teams"
+      ],
+      [
+        "twitter:description",
+        "Why lightweight, consistently-applied risk assessments protect people better than a thick policy document nobody reads."
+      ],
+      [
+        "twitter:image",
+        "https://cynthiamueni.com/images/home/expertise-osh-safety-inspection.webp"
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Getting Risk Assessments Right in Small Teams",
+      "description": "Why lightweight, consistently-applied risk assessments protect people better than a thick policy document nobody reads.",
+      "image": "https://cynthiamueni.com/images/home/expertise-osh-safety-inspection.webp",
+      "datePublished": "2026-06-12",
+      "dateModified": "2026-06-12",
+      "author": {
+        "@type": "Person",
+        "name": "Cynthia Mueni",
+        "url": "https://cynthiamueni.com"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Cynthia Mueni"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://cynthiamueni.com/insights/risk-assessment-basics"
+      },
+      "articleSection": "Risk Assessment",
+      "keywords": "Risk Assessment, Occupational Safety & Health, EHS, Cynthia Mueni"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cynthiamueni.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://cynthiamueni.com/insights"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Getting Risk Assessments Right in Small Teams",
+          "item": "https://cynthiamueni.com/insights/risk-assessment-basics"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Getting Risk Assessments Right in Small Teams"
+      },
+      {
+        "level": 2,
+        "text": "The Real Cost of a Risk Assessment Nobody Uses"
+      },
+      {
+        "level": 2,
+        "text": "Why Comprehensive Isn't the Same as Effective"
+      },
+      {
+        "level": 2,
+        "text": "What a Lightweight Risk Assessment Actually Needs"
+      },
+      {
+        "level": 2,
+        "text": "A Simple Likelihood and Severity Scale That Works"
+      },
+      {
+        "level": 2,
+        "text": "Making It a Habit, Not a Document"
+      },
+      {
+        "level": 2,
+        "text": "Common Mistakes That Undermine Small-Team Risk Assessments"
+      },
+      {
+        "level": 2,
+        "text": "Where to Start If You're Rebuilding From Scratch"
+      },
+      {
+        "level": 2,
+        "text": "How Often Should a Risk Assessment Be Reviewed?"
+      },
+      {
+        "level": 2,
+        "text": "Getting the Team to Actually Use It"
+      },
+      {
+        "level": 2,
+        "text": "A Structure That Holds Up Under Real Conditions"
+      },
+      {
+        "level": 2,
+        "text": "Key Takeaways"
+      },
+      {
+        "level": 2,
+        "text": "More Insights"
+      },
+      {
+        "level": 3,
+        "text": "Digital Safety Management Systems: Transforming How Organisations Manage Workplace Safety"
+      },
+      {
+        "level": 3,
+        "text": "How Digital Tools Can Improve Workplace Safety Management"
+      },
+      {
+        "level": 3,
+        "text": "How to Improve Safety Compliance in the Workplace"
+      },
+      {
+        "level": 2,
+        "text": "Let's Work on Something Meaningful",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/",
+        "text": "Home"
+      },
+      {
+        "href": "/insights",
+        "text": "Insights"
+      },
+      {
+        "href": "/insights",
+        "text": "All Insights"
+      },
+      {
+        "href": "/projects/workplace-risk-assessment",
+        "text": "Workplace Risk Assessment Framework, built for a small operations team"
+      },
+      {
+        "href": "/insights/digital-safety-management-systems",
+        "text": "EHS Systems & Digital SolutionsDigital Safety Management Systems: Transforming How Organisations Manage Workplace SafetyExplore how digital safety management systems can improve hazard reporting, inspections, corrective actions and safety visibility, while connecting everyday EHS activities into structured and accountable workflows.September 30, 202613 min readRead Article"
+      },
+      {
+        "href": "/insights/how-digital-tools-can-improve-workplace-safety-management",
+        "text": "EHS SystemsHow Digital Tools Can Improve Workplace Safety ManagementDigital tools can improve workplace safety management by supporting hazard reporting, inspections, corrective action tracking, training records, safety dashboards, and follow-up systems.August 26, 202618 min readRead Article"
+      },
+      {
+        "href": "/insights/how-to-improve-safety-compliance-in-the-workplace",
+        "text": "Occupational Safety & HealthHow to Improve Safety Compliance in the WorkplacePractical ways organisations can strengthen workplace safety compliance through leadership, risk management, training, inspections, worker involvement and consistent follow-up.September 29, 202611 min readRead Article"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "hello@cynthiamueni.com"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/insights",
+        "text": "View All Insights"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/home/expertise-osh-safety-inspection.webp (next/image w=3840 q=75)",
+        "alt": "Safety professional in a hard hat reviewing a tablet while walking an industrial facility floor"
+      },
+      {
+        "src": "/images/insights/digital-safety-management-systems.webp (next/image w=3840 q=75)",
+        "alt": "Digital safety management dashboard connecting workplace hazards, inspections and corrective actions",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/insights/digital-tools-workplace-safety-management-featured.webp (next/image w=3840 q=75)",
+        "alt": "Digital workplace safety dashboard showing hazard reports, inspections, corrective actions, and safety records.",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/insights/improving-safety-compliance-featured.webp (next/image w=3840 q=75)",
+        "alt": "Safety professional conducting a workplace safety compliance inspection",
+        "loading": "lazy"
+      }
+    ],
+    "buttons": [],
+    "forms": [],
+    "mainText": "Home/Insights/Getting Risk Assessments Right in Small TeamsAll InsightsRisk AssessmentJune 12, 2026 · 8 min readGetting Risk Assessments Right in Small TeamsWhy lightweight, consistently-applied risk assessments protect people better than a thick policy document nobody reads.Most risk assessment templates are built for organisations with dedicated safety departments, multiple sign-off layers and time to run a full review cycle. Small teams rarely have any of that, and when a heavy template lands on a supervisor who is also running the shift, it usually gets filled in once, filed away, and never looked at again.The Real Cost of a Risk Assessment Nobody UsesWhen a risk assessment exists only to satisfy an audit, the real cost is the false sense of security it creates. A binder full of documented hazards can make an organisation feel covered while the actual conditions on site have moved on. The document says one thing, and the workplace says another. That gap is where incidents happen, and it's rarely visible until something goes wrong and someone asks why the paperwork didn't match reality.Why Comprehensive Isn't the Same as EffectiveA thorough risk assessment on paper means nothing if it doesn't change what happens on the floor. Well-written documents can accurately describe every hazard in a workspace and still sit in a folder nobody has opened since the audit that required them. The real gap is usually whether the assessment is actually usable by the people doing the work, not how much it knows.What a Lightweight Risk Assessment Actually NeedsStripped back to the essentials, a risk assessment only needs to answer four questions clearly enough that someone can act on them:What could go wrong, described in plain terms rather than technical hazard categoriesHow likely it is and how serious the outcome would be, using a simple scale the team already understandsWhat control reduces that risk, and who is responsible for putting it in placeWhen it gets checked again, tied to a real trigger and not just an annual dateA Simple Likelihood and Severity Scale That WorksMost small teams don't need a five-point risk matrix with weighted scoring. They need something fast enough to use in the moment. A basic three-level scale for likelihood (rare, possible, likely) crossed with a three-level scale for severity (minor, serious, severe) is usually enough to sort hazards into 'deal with now', 'plan a fix', and 'monitor'. What matters isn't precision so much as giving everyone on the team the same shorthand for talking about risk, so a conversation about a loose guardrail and a conversation about a chemical spill both land in the same, understood framework.Making It a Habit, Not a DocumentThe teams that get the most value from risk assessment treat it as an ongoing conversation rather than a compliance exercise. A five-minute review before a new task starts, or a quick update after a near-miss, does more for safety than a comprehensive annual review that happens once and is forgotten. Consistency matters more than completeness.Common Mistakes That Undermine Small-Team Risk AssessmentsA few patterns show up repeatedly in teams that struggle to make risk assessment stick:Borrowing a template built for a different industry or a much larger operation, then never adapting it to how the team actually worksWriting the assessment only after an incident, rather than before the task that caused itLeaving the 'responsible person' field blank, or filling it with a job title instead of a nameSetting a review date a year out instead of tying the review to a real trigger, such as new equipment, a layout change or a near-missTreating sign-off as the finish line, when sign-off should really be the start of the control being put into practiceWhere to Start If You're Rebuilding From ScratchFor teams starting from a blank page, the temptation is to build the full system first and populate it later. It usually works better in reverse: pick the two or three highest-risk tasks in the operation, write a simple assessment for those, put the controls in place, and use that as the working template for everything else. A working example beats an empty framework every time.How Often Should a Risk Assessment Be Reviewed?Calendar-based reviews, done once a year regardless of what's changed, are the most common reason risk assessments quietly go out of date. A better approach is trigger-based review: revisit the assessment when the task, the equipment, the people, or the environment changes, or after any near-miss connected to it. A small operation might genuinely go eight months without a meaningful change to a task, or it might change three times in a month during a busy season. The review schedule should follow the work, not the calendar.Getting the Team to Actually Use ItEven a well-designed assessment fails if it feels like it was handed down rather than built with the people who use it. Involving the team in identifying hazards, rather than presenting them with a finished document, tends to produce assessments that are both more accurate and more likely to be followed, because the people who flagged the hazard have a stake in the control actually working.A Structure That Holds Up Under Real ConditionsThe best test of a risk assessment is whether the person doing the work could explain it back to you in their own words, not whether it satisfies an auditor. If they can't, the document has failed regardless of how thorough it looks. Building assessments around that standard, rather than around template completeness, is what actually keeps small teams safer.Key TakeawaysA risk assessment only works if the person doing the task can explain it back in their own wordsFour questions are usually enough: what could go wrong, how likely and severe it is, what control is in place, and when it gets reviewedTrigger-based reviews catch real change; calendar-based reviews mostly just catch the dateStart with your two or three highest-risk tasks and build outward from a working exampleThis structure closely mirrors the approach behind my Workplace Risk Assessment Framework, built for a small operations team.More InsightsEHS Systems & Digital SolutionsDigital Safety Management Systems: Transforming How Organisations Manage Workplace SafetyExplore how digital safety management systems can improve hazard reporting, inspections, corrective actions and safety visibility, while connecting everyday EHS activities into structured and accountable workflows.September 30, 202613 min readRead ArticleEHS SystemsHow Digital Tools Can Improve Workplace Safety ManagementDigital tools can improve workplace safety management by supporting hazard reporting, inspections, corrective action tracking, training records, safety dashboards, and follow-up systems.August 26, 202618 min readRead ArticleOccupational Safety & HealthHow to Improve Safety Compliance in the WorkplacePractical ways organisations can strengthen workplace safety compliance through leadership, risk management, training, inspections, worker involvement and consistent follow-up.September 29, 202611 min readRead ArticleLet's Work on Something MeaningfulOpen to Occupational Safety & Health opportunities, EHS systems projects, digital communication work, and professional collaboration. Reach out at hello@cynthiamueni.com.Contact MeView All Insights",
+    "mainTextSha256": "671141820c774ebf",
+    "mainTextWords": 1131
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Getting Risk Assessments Right in Small Teams",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Getting Risk Assessments Right in Small Teams",
+        "visible": true,
+        "fontSizePx": 30
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

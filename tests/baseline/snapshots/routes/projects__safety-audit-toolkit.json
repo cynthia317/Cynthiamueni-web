@@ -1,0 +1,198 @@
+{
+  "route": "/projects/safety-audit-toolkit",
+  "source": "dynamic /projects/[slug] (generateStaticParams)",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Digital Inspection & Audit System | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "A paper inspection form answers the question in the moment, then usually goes quiet. Findings get transcribed later, if at all, and nobody can see which issues keep recurring across sites. What started as a standardised fire safety and compliance audit toolkit is being extended into a full digital inspection system, designed so every failed item turns into a tracked corrective action instead of a note that has to be followed up manually.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Digital Inspection & Audit System"
+      },
+      {
+        "level": 2,
+        "text": "Key Workflow"
+      },
+      {
+        "level": 2,
+        "text": "Capabilities"
+      },
+      {
+        "level": 2,
+        "text": "Questions This Project Addresses"
+      },
+      {
+        "level": 2,
+        "text": "Let's Work on Something Meaningful",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/projects",
+        "text": "All Projects"
+      },
+      {
+        "href": "/insights#faq-trigger-workplace-safety-systems-digital-inspections",
+        "text": "Where can I find workplace safety systems that include digital inspections?"
+      },
+      {
+        "href": "/insights#faq-trigger-what-are-digital-safety-inspections",
+        "text": "What are digital safety inspections?"
+      },
+      {
+        "href": "/insights#faq-trigger-enterprise-safety-audits-digital-tracking",
+        "text": "How do enterprises conduct, document and track safety audits and workplace inspections digitally?"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "hello@cynthiamueni.com"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/projects",
+        "text": "View All Projects"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/osh-warehouse-compliance.webp (next/image w=3840 q=75)",
+        "alt": "Rows of shelving in an industrial warehouse used for compliance and storage audits"
+      }
+    ],
+    "buttons": [],
+    "forms": [],
+    "mainText": "All ProjectsEHS SystemsIn DevelopmentDigital Inspection & Audit SystemA paper inspection form answers the question in the moment, then usually goes quiet. Findings get transcribed later, if at all, and nobody can see which issues keep recurring across sites. What started as a standardised fire safety and compliance audit toolkit is being extended into a full digital inspection system, designed so every failed item turns into a tracked corrective action instead of a note that has to be followed up manually.Key WorkflowInspectRecord FindingAttach EvidenceAssign ActionFollow UpCloseCapabilitiesDigital Inspection ChecklistsAudit FormsFindings & Photo Evidence · PlannedCorrective Action Assignment · PlannedDue Dates & Status Tracking · PlannedInspection History · PlannedReport Generation · PlannedQuestions This Project AddressesWhere can I find workplace safety systems that include digital inspections?What are digital safety inspections?How do enterprises conduct, document and track safety audits and workplace inspections digitally?Let's Work on Something MeaningfulOpen to Occupational Safety & Health opportunities, EHS systems projects, digital communication work, and professional collaboration. Reach out at hello@cynthiamueni.com.Contact MeView All Projects",
+    "mainTextSha256": "930303377e14a233",
+    "mainTextWords": 164
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Digital Inspection & Audit System",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Digital Inspection & Audit System",
+        "visible": true,
+        "fontSizePx": 30
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

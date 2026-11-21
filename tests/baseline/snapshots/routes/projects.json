@@ -1,0 +1,255 @@
+{
+  "route": "/projects",
+  "source": "static",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Projects | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "Practical EHS problems and the digital systems being developed to address them, including hazard reporting, inspections, risk assessment, corrective actions and EHS digital communication.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Building Systems Around Real Workplace Safety Problems"
+      },
+      {
+        "level": 2,
+        "text": "Safety Management System",
+        "id": "featured-project-heading"
+      },
+      {
+        "level": 2,
+        "text": "Digital Inspection & Audit System",
+        "id": "project-safety-audit-toolkit-heading"
+      },
+      {
+        "level": 2,
+        "text": "Hazard & Corrective Action Tracker",
+        "id": "project-safety-reporting-tool-heading"
+      },
+      {
+        "level": 2,
+        "text": "Workplace Risk Assessment Framework",
+        "id": "project-workplace-risk-assessment-heading"
+      },
+      {
+        "level": 2,
+        "text": "Safetec Solutions: EHS Digital Communication & Online Presence",
+        "id": "project-safetec-digital-presence-heading"
+      },
+      {
+        "level": 2,
+        "text": "Also Explored",
+        "id": "supporting-work-heading"
+      },
+      {
+        "level": 3,
+        "text": "Professional Brand Content Strategy"
+      },
+      {
+        "level": 3,
+        "text": "Workplace Safety Research Brief"
+      },
+      {
+        "level": 2,
+        "text": "Have a Problem Worth Building Around?",
+        "id": "projects-cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/projects/safety-management-system",
+        "text": "View Case Study"
+      },
+      {
+        "href": "/projects/safety-audit-toolkit",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/safety-reporting-tool",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/workplace-risk-assessment",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/safetec-digital-presence",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/brand-content-strategy",
+        "text": "Digital MarketingProfessional Brand Content StrategyA content and social media plan built to communicate professional safety and technical work clearly to a wider audience.View Project"
+      },
+      {
+        "href": "/projects/osh-research-brief",
+        "text": "Research / Professional WorkWorkplace Safety Research BriefA short-form research brief examining common gaps between documented safety policy and everyday workplace practice.View Project"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "https://kipeo.harunlucas.com/",
+        "text": "Explore HarunLucas Dev",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/osh-warehouse-compliance.webp (next/image w=3840 q=75)",
+        "alt": "Rows of shelving in an industrial warehouse used for compliance and storage audits",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/projects/software-team-workspace.webp (next/image w=3840 q=75)",
+        "alt": "Overhead view of a shared workspace with multiple laptops and devices in use",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/projects/osh-ppe-welding.webp (next/image w=3840 q=75)",
+        "alt": "Welder in protective gear working with sparks flying, representing hands-on hazard exposure",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/projects/marketing-strategy-flatlay.webp (next/image w=3840 q=75)",
+        "alt": "Smartphone displaying a folder of social media apps on its home screen",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/projects/research-data-analysis.webp (next/image w=3840 q=75)",
+        "alt": "Overhead view of financial documents and a calculator laid out for review",
+        "loading": "lazy"
+      }
+    ],
+    "buttons": [],
+    "forms": [],
+    "mainText": "EHS Systems & Practical WorkBuilding Systems Around Real Workplace Safety ProblemsEach project below tackles a real workplace safety problem, whether that's how hazards get reported, how inspections get tracked, or how risk gets assessed, and explores how that process can be organised into a working digital system.Safety Management SystemConcept UIHazard ReportsInspectionsCorrective ActionsRisk OverviewLoading dock guardrailOpenFire extinguisher checkResolvedPPE compliance walk-throughIn Review01EHS SystemsIn DevelopmentSafety Management SystemMost workplace safety information (hazard reports, inspection results, corrective actions) still lives across paper forms, spreadsheets and someone's memory, with no way to trace a hazard through to its fix. This project is being developed to bring hazard reporting, inspections, risk records and corrective actions into one structured digital system, with visibility into safety status over time.Key WorkflowHazard ReportedAssessedAction AssignedCorrective ActionVerifiedClosedCapabilitiesHazard ReportingWorkplace Inspections · PlannedRisk Records · PlannedIncident / Near-Miss Records · PlannedCorrective Actions · PlannedStatus Tracking · PlannedEHS Dashboard · PlannedView Case Study02EHS SystemsIn DevelopmentDigital Inspection & Audit SystemA paper inspection form answers the question in the moment, then usually goes quiet. Findings get transcribed later, if at all, and nobody can see which issues keep recurring across sites. What started as a standardised fire safety and compliance audit toolkit is being extended into a full digital inspection system, designed so every failed item turns into a tracked corrective action instead of a note that has to be followed up manually.InspectRecord FindingAttach EvidenceAssign ActionFollow UpCloseDigital Inspection ChecklistsAudit FormsFindings & Photo Evidence · PlannedCorrective Action Assignment · PlannedDue Dates & Status Tracking · PlannedInspection History · PlannedReport Generation · PlannedView Project03EHS SystemsIn DevelopmentHazard & Corrective Action TrackerMost incidents are preceded by observations or near-misses that were noticed but never formally tracked to a fix, often because nothing kept the item visibly open until someone closed it. This simple web tool lets field teams log hazards and safety observations digitally, replacing a paper-based reporting process, built as a working tool that prioritises each item by risk and is being extended to keep it visible until verified closed.Hazard / ObservationRisk PriorityAssign ActionDeadlineVerifyClosedHazard & Observation LoggingRisk Priority TaggingAction Assignment · PlannedDeadlines & Escalation · PlannedClosure Verification · PlannedView Project04EHS SystemsPlannedWorkplace Risk Assessment FrameworkA risk assessment that only exists to satisfy an audit creates a false sense of security. The document says one thing and the workplace says another, and that gap is where incidents happen. This structured hazard identification and risk assessment framework was built and is practiced for a small operations team. The framework itself is real and in use, while a digital version, moving it from documents into a tracked system, is currently planned.Identify HazardEvaluate RiskAssign ControlsRecord Residual RiskReviewHazard IdentificationLikelihood & Severity ScaleControl AssignmentDigital Record-Keeping · PlannedTrigger-Based Review Scheduling · PlannedView ProjectSafetec SolutionsActive Professional WorkSocial MediaWebsite ContentPerformance ReportingPlatforms ManagedLinkedInGoogle Business ProfileWebsiteSafety Content PlanningOngoingSocial & Website PublishingOngoingAnalytics & ReportingMonthly05EHS Systems × Digital CommunicationActive Professional WorkSafetec Solutions: EHS Digital Communication & Online PresenceSafety expertise doesn't speak for itself online. Without consistent digital communication, an organisation's real safety work stays invisible to the clients, partners and talent who would otherwise recognise it. This is ongoing digital communication and social media management for Safetec Solutions Ltd, an occupational safety and health organisation, connecting OSH expertise with a clear, consistent digital presence across social platforms, website content and Google Business Profile.Plan ContentPublishMonitorReportLinkedIn ManagementGoogle Business ProfileWebsite ContentContent PlanningPerformance MonitoringView ProjectAlso ExploredDigital MarketingProfessional Brand Content StrategyA content and social media plan built to communicate professional safety and technical work clearly to a wider audience.View ProjectResearch / Professional WorkWorkplace Safety Research BriefA short-form research brief examining common gaps between documented safety policy and everyday workplace practice.View ProjectHave a Problem Worth Building Around?Open to OSH collaboration, digital system projects, professional opportunities, and digital communication work.Contact MeLooking for a general website, web application or other software solution? Explore HarunLucas Dev",
+    "mainTextSha256": "cd525d8f71f95886",
+    "mainTextWords": 622
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Building Systems Around Real Workplace Safety Problems",
+        "visible": true,
+        "fontSizePx": 48
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Building Systems Around Real Workplace Safety Problems",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

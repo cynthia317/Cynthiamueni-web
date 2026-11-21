@@ -1,0 +1,369 @@
+{
+  "route": "/expertise",
+  "source": "static",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Expertise | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "In depth look at Cynthia Mueni's expertise across Occupational Safety & Health, EHS systems and digital communication, and how they connect.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Expertise Built Around Safety, Systems & Communication"
+      },
+      {
+        "level": 2,
+        "text": "Three Connected Areas, One Foundation",
+        "id": "overview-heading"
+      },
+      {
+        "level": 3,
+        "text": "Occupational Safety & Health"
+      },
+      {
+        "level": 3,
+        "text": "EHS Systems & Digital Solutions"
+      },
+      {
+        "level": 3,
+        "text": "Digital Communication & Social Media"
+      },
+      {
+        "level": 2,
+        "text": "Occupational Safety & Health",
+        "id": "osh-heading"
+      },
+      {
+        "level": 3,
+        "text": "Risk & Hazard Management"
+      },
+      {
+        "level": 3,
+        "text": "Audits & Compliance"
+      },
+      {
+        "level": 3,
+        "text": "Safety Systems & Documentation"
+      },
+      {
+        "level": 3,
+        "text": "Workplace Safety & Communication"
+      },
+      {
+        "level": 2,
+        "text": "EHS Systems & Digital Solutions",
+        "id": "software-heading"
+      },
+      {
+        "level": 3,
+        "text": "Capability Areas"
+      },
+      {
+        "level": 3,
+        "text": "Technologies"
+      },
+      {
+        "level": 2,
+        "text": "Digital Communication & Social Media",
+        "id": "communication-heading"
+      },
+      {
+        "level": 3,
+        "text": "Safetec Solutions Ltd"
+      },
+      {
+        "level": 2,
+        "text": "One Pathway Across All Three Disciplines",
+        "id": "process-heading"
+      },
+      {
+        "level": 3,
+        "text": "Identify"
+      },
+      {
+        "level": 3,
+        "text": "Assess"
+      },
+      {
+        "level": 3,
+        "text": "Design"
+      },
+      {
+        "level": 3,
+        "text": "Implement"
+      },
+      {
+        "level": 3,
+        "text": "Communicate"
+      },
+      {
+        "level": 3,
+        "text": "Improve"
+      },
+      {
+        "level": 2,
+        "text": "Grouped by Purpose, Not Just Listed",
+        "id": "tools-heading"
+      },
+      {
+        "level": 3,
+        "text": "Safety & Professional Practice"
+      },
+      {
+        "level": 3,
+        "text": "Development"
+      },
+      {
+        "level": 3,
+        "text": "Digital Communication"
+      },
+      {
+        "level": 3,
+        "text": "Safer Workplaces"
+      },
+      {
+        "level": 3,
+        "text": "Smarter Digital Processes"
+      },
+      {
+        "level": 3,
+        "text": "Better Communication"
+      },
+      {
+        "level": 3,
+        "text": "Continuous Improvement"
+      },
+      {
+        "level": 2,
+        "text": "Featured Expertise Projects",
+        "id": "featured-projects-heading"
+      },
+      {
+        "level": 3,
+        "text": "Safety Management System"
+      },
+      {
+        "level": 3,
+        "text": "Workplace Risk Assessment Framework"
+      },
+      {
+        "level": 3,
+        "text": "Safetec Solutions: EHS Digital Communication & Online Presence"
+      },
+      {
+        "level": 3,
+        "text": "Digital Inspection & Audit System"
+      },
+      {
+        "level": 2,
+        "text": "Have a Challenge That Could Benefit From Safety, Technology or Better Communication?",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "#osh",
+        "text": "Safety"
+      },
+      {
+        "href": "#software",
+        "text": "Systems"
+      },
+      {
+        "href": "#communication",
+        "text": "Communication"
+      },
+      {
+        "href": "#osh",
+        "text": "Occupational Safety & HealthPrimary DisciplineThe strongest professional foundation: identifying hazards, assessing risk and building the safety systems everything else connects back to."
+      },
+      {
+        "href": "#software",
+        "text": "EHS Systems & Digital SolutionsTurning EHS needs into practical, reliable digital tools.Learn more"
+      },
+      {
+        "href": "#communication",
+        "text": "Digital Communication & Social MediaMaking technical work understandable, visible and measurable.Learn more"
+      },
+      {
+        "href": "/projects/safety-management-system",
+        "text": "View Safety Management System"
+      },
+      {
+        "href": "https://kipeo.harunlucas.com/",
+        "text": "Explore HarunLucas Dev",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "/projects",
+        "text": "Explore All Projects"
+      },
+      {
+        "href": "/projects/safety-management-system",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/workplace-risk-assessment",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/safetec-digital-presence",
+        "text": "View Project"
+      },
+      {
+        "href": "/projects/safety-audit-toolkit",
+        "text": "View Project"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/projects",
+        "text": "View My Work"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/osh-ppe-welding.webp (next/image w=3840 q=75)",
+        "alt": "Welder in protective gear working with sparks flying, representing hands-on hazard exposure",
+        "loading": "lazy"
+      },
+      {
+        "src": "/images/projects/osh-warehouse-compliance.webp (next/image w=3840 q=75)",
+        "alt": "Rows of shelving in an industrial warehouse used for compliance and storage audits",
+        "loading": "lazy"
+      }
+    ],
+    "buttons": [],
+    "forms": [],
+    "mainText": "ExpertiseExpertise Built Around Safety, Systems & CommunicationMy expertise combines technical safety knowledge, digital systems capability and clear communication to solve practical organisational problems, from identifying a workplace risk, to building the tool that manages it, to the content that explains it.SafetySystemsCommunicationCoreExpertiseSafetySystemsCommunicationOverviewThree Connected Areas, One FoundationOccupational Safety & Health remains the strongest professional pillar. EHS systems and digital communication extend that same foundation into practical systems and clear visibility.Occupational Safety & HealthPrimary DisciplineThe strongest professional foundation: identifying hazards, assessing risk and building the safety systems everything else connects back to.EHS Systems & Digital SolutionsTurning EHS needs into practical, reliable digital tools.Learn moreDigital Communication & Social MediaMaking technical work understandable, visible and measurable.Learn morePrimary DisciplineOccupational Safety & HealthMy core professional foundation. I focus on identifying hazards, assessing risk and supporting the safety systems and documentation that keep organisations compliant and their people safer, grounded in real working conditions rather than paperwork for its own sake.Risk & Hazard ManagementHazard identificationRisk assessmentIncident / near-miss awarenessAudits & ComplianceOSH auditsWorkplace inspectionsWorkplace complianceSafety Systems & DocumentationSafety documentationSafety management systemsCorrective action follow-upWorkplace Safety & CommunicationWorkplace safetyFire safetySafety communicationWorkplace ProblemSafety AssessmentStructured DataDigital SystemMonitoring & ImprovementA workplace safety problem becomes valuable once it's structured and turned into data a digital system can hold, track and surface over time. The Safety Management System project is a practical example of this connection in progress.View Safety Management SystemComplementary CapabilityEHS Systems & Digital SolutionsThe ability to turn EHS needs, hazard reporting, inspections, audits and corrective actions, into practical digital systems that are reliable and easy to use.Capability AreasEHS reporting systemsInspection & audit toolsHazard tracking workflowsCorrective-action systemsSafety dashboardsDigital record-keepingTechnologiesJavaScriptTypeScriptReactNext.jsTailwind CSSGitGitHubVS CodeLooking for a general website, web application or non-EHS software solution? Explore HarunLucas DevComplementary CapabilityDigital Communication & Social MediaMore than posting on social media, this is about translating technical and professional information into content that reaches the right audience and can be measured over time.Content strategySocial media managementDigital marketingWebsite contentGoogle Business ProfileSEOAnalyticsPerformance reportingProfessional brand communicationTechnical knowledgeClear communicationAudience understandingMeasurable improvementDigital Communication in PracticeSafetec Solutions LtdOccupational Safety & Health OrganisationSafetec Solutions Ltd is a real, current example of this expertise in practice. It's not a company I own, but an occupational safety and health organisation whose digital communication I actively manage and support. It demonstrates that the connection between OSH expertise and digital communication capability described on this page is already applied, not theoretical.Social media managementLinkedInGoogle Business ProfileWebsite contentSafety-focused content planningPost schedulingDigital performance monitoringMonthly analytics / reportingHow My Expertise ConnectsOne Pathway Across All Three DisciplinesThis is the methodology underneath everything on this page: the reason Occupational Safety & Health, EHS systems and communication belong together rather than standing as separate, unrelated skills.1IdentifyUnderstand the problem, risk or need.2AssessAnalyse hazards, processes, information or requirements.3DesignDevelop the appropriate process, system, strategy or solution.4ImplementApply the solution through workplace systems, technology or communication.5CommunicateMake information understandable and actionable.6ImproveUse feedback, data and observation for continuous improvement.Tools & Working MethodsGrouped by Purpose, Not Just ListedSafety & Professional PracticeRisk AssessmentHazard IdentificationSafety AuditsWorkplace InspectionsDocumentation & ReportingDevelopmentJavaScriptTypeScriptReactNext.jsTailwind CSSGitGitHubVS CodeDigital CommunicationCanvaSEO ToolsAnalytics ToolsSocial Media PlatformsGoogle Business ProfileSafer WorkplacesIdentify hazards, improve safety systems and support compliance.Smarter Digital ProcessesTransform manual or fragmented processes into structured digital workflows.Better CommunicationTranslate technical information into understandable content.Continuous ImprovementUse observations, data and feedback to improve processes and performance.Expertise in PracticeFeatured Expertise ProjectsA selection of projects demonstrating these disciplines applied together, not in isolation.Explore All ProjectsSafety Management SystemConcept UIHazard ReportsInspectionsCorrective ActionsRisk OverviewLoading dock guardrailOpenFire extinguisher checkResolvedPPE compliance walk-throughIn ReviewEHS SystemsFeaturedSafety Management SystemMost workplace safety information (hazard reports, inspection results, corrective actions) still lives across paper forms, spreadsheets and someone's memory, with no way to trace a hazard through to its fix. This project is being developed to bring hazard reporting, inspections, risk records and corrective actions into one structured digital system, with visibility into safety status over time.Next.jsTypeScriptTailwind CSSView ProjectEHS SystemsWorkplace Risk Assessment FrameworkA risk assessment that only exists to satisfy an audit creates a false sense of security. The document says one thing and the workplace says another, and that gap is where incidents happen. This structured hazard identification and risk assessment framework was built and is practiced for a small operations team. The framework itself is real and in use, while a digital version, moving it from documents into a tracked system, is currently planned.Risk AssessmentOSH DocumentationView ProjectSafetec SolutionsActive Professional WorkSocial MediaWebsite ContentPerformance ReportingPlatforms ManagedLinkedInGoogle Business ProfileWebsiteSafety Content PlanningOngoingSocial & Website PublishingOngoingAnalytics & ReportingMonthlyEHS Systems × Digital CommunicationSafetec Solutions: EHS Digital Communication & Online PresenceSafety expertise doesn't speak for itself online. Without consistent digital communication, an organisation's real safety work stays invisible to the clients, partners and talent who would otherwise recognise it. This is ongoing digital communication and social media management for Safetec Solutions Ltd, an occupational safety and health organisation, connecting OSH expertise with a clear, consistent digital presence across social platforms, website content and Google Business Profile.LinkedIn ManagementGoogle Business ProfileWebsite ContentContent PlanningPerformance MonitoringView ProjectEHS SystemsDigital Inspection & Audit SystemA paper inspection form answers the question in the moment, then usually goes quiet. Findings get transcribed later, if at all, and nobody can see which issues keep recurring across sites. What started as a standardised fire safety and compliance audit toolkit is being extended into a full digital inspection system, designed so every failed item turns into a tracked corrective action instead of a note that has to be followed up manually.Fire SafetyCompliance AuditsView ProjectHave a Challenge That Could Benefit From Safety, Technology or Better Communication?Open to professional opportunities, OSH collaboration, technology projects, research, digital communication work, and networking.Contact MeView My Work",
+    "mainTextSha256": "752c1926fd068b2f",
+    "mainTextWords": 908
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Expertise Built Around Safety, Systems & Communication",
+        "visible": true,
+        "fontSizePx": 48
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Expertise Built Around Safety, Systems & Communication",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

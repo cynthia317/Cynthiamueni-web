@@ -1,0 +1,190 @@
+{
+  "route": "/projects/safety-reporting-tool",
+  "source": "dynamic /projects/[slug] (generateStaticParams)",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Hazard & Corrective Action Tracker | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "Most incidents are preceded by observations or near-misses that were noticed but never formally tracked to a fix, often because nothing kept the item visibly open until someone closed it. This simple web tool lets field teams log hazards and safety observations digitally, replacing a paper-based reporting process, built as a working tool that prioritises each item by risk and is being extended to keep it visible until verified closed.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Hazard & Corrective Action Tracker"
+      },
+      {
+        "level": 2,
+        "text": "Key Workflow"
+      },
+      {
+        "level": 2,
+        "text": "Capabilities"
+      },
+      {
+        "level": 2,
+        "text": "Questions This Project Addresses"
+      },
+      {
+        "level": 2,
+        "text": "Let's Work on Something Meaningful",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/projects",
+        "text": "All Projects"
+      },
+      {
+        "href": "/insights#faq-trigger-digital-tools-safety-observations-hazards",
+        "text": "What digital tools help safety managers track safety observations and close hazards before incidents occur?"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "hello@cynthiamueni.com"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/projects",
+        "text": "View All Projects"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/projects/software-team-workspace.webp (next/image w=3840 q=75)",
+        "alt": "Overhead view of a shared workspace with multiple laptops and devices in use"
+      }
+    ],
+    "buttons": [],
+    "forms": [],
+    "mainText": "All ProjectsEHS SystemsIn DevelopmentHazard & Corrective Action TrackerMost incidents are preceded by observations or near-misses that were noticed but never formally tracked to a fix, often because nothing kept the item visibly open until someone closed it. This simple web tool lets field teams log hazards and safety observations digitally, replacing a paper-based reporting process, built as a working tool that prioritises each item by risk and is being extended to keep it visible until verified closed.Key WorkflowHazard / ObservationRisk PriorityAssign ActionDeadlineVerifyClosedCapabilitiesHazard & Observation LoggingRisk Priority TaggingAction Assignment · PlannedDeadlines & Escalation · PlannedClosure Verification · PlannedQuestions This Project AddressesWhat digital tools help safety managers track safety observations and close hazards before incidents occur?Let's Work on Something MeaningfulOpen to Occupational Safety & Health opportunities, EHS systems projects, digital communication work, and professional collaboration. Reach out at hello@cynthiamueni.com.Contact MeView All Projects",
+    "mainTextSha256": "29a58deb8d2afa85",
+    "mainTextWords": 140
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Hazard & Corrective Action Tracker",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Hazard & Corrective Action Tracker",
+        "visible": true,
+        "fontSizePx": 30
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}

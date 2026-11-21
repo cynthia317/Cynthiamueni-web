@@ -1,0 +1,196 @@
+{
+  "route": "/services",
+  "source": "static",
+  "http": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "s-maxage=31536000",
+    "xRobotsTag": null,
+    "securityHeadersMatchGlobal": true
+  },
+  "head": {
+    "lang": "en",
+    "title": "Services | Cynthia Mueni",
+    "titleElementCount": 1,
+    "description": "Occupational Safety & Health consulting, EHS systems design and digital communication services from Cynthia Mueni, for organisations that need practical safety, systems or communication support.",
+    "keywords": "Occupational Safety and Health,OSH professional,EHS Systems,EHS Management Systems,Digital Communication,Social Media Management,Risk Assessment,Workplace Safety",
+    "robots": null,
+    "googlebot": null,
+    "canonical": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "openGraph": [
+      [
+        "og:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "og:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ],
+      [
+        "og:site_name",
+        "Cynthia Mueni"
+      ],
+      [
+        "og:type",
+        "website"
+      ]
+    ],
+    "twitter": [
+      [
+        "twitter:card",
+        "summary"
+      ],
+      [
+        "twitter:title",
+        "Cynthia Mueni: Occupational Safety, EHS Systems & Digital Communication"
+      ],
+      [
+        "twitter:description",
+        "Cynthia Mueni is an Occupational Safety & Health professional who also builds EHS systems and manages digital communication, helping organisations work more safely, efficiently and visibly."
+      ]
+    ],
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/icon",
+        "type": "image/png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+    ]
+  },
+  "jsonLd": [],
+  "content": {
+    "headings": [
+      {
+        "level": 1,
+        "text": "Practical Support Across Safety, Systems & Communication"
+      },
+      {
+        "level": 2,
+        "text": "Three Ways I Can Help",
+        "id": "services-heading"
+      },
+      {
+        "level": 3,
+        "text": "Occupational Safety & Health Consulting"
+      },
+      {
+        "level": 3,
+        "text": "EHS Systems & Digital Solutions"
+      },
+      {
+        "level": 3,
+        "text": "Digital Communication & Social Media Management"
+      },
+      {
+        "level": 2,
+        "text": "Have a Safety, Systems or Communication Need?",
+        "id": "cta-heading"
+      }
+    ],
+    "h1Count": 1,
+    "links": [
+      {
+        "href": "/contact",
+        "text": "Get in touch"
+      },
+      {
+        "href": "https://kipeo.harunlucas.com/",
+        "text": "For general websites, web apps or non-EHS software work, visit HarunLucas Dev",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "/contact",
+        "text": "Get in touch"
+      },
+      {
+        "href": "/contact",
+        "text": "Get in touch"
+      },
+      {
+        "href": "mailto:hello@cynthiamueni.com",
+        "text": "Contact Me"
+      },
+      {
+        "href": "/expertise",
+        "text": "View My Expertise"
+      }
+    ],
+    "images": [],
+    "buttons": [],
+    "forms": [],
+    "mainText": "ServicesPractical Support Across Safety, Systems & CommunicationWhat you can bring me in on: workplace safety consulting, digital systems that replace manual EHS processes, and communication that makes good work, safety or otherwise, visible.What I OfferThree Ways I Can HelpEach service below can stand on its own or connect with the others, the way a safety need often turns into a system and a system needs to be communicated.Occupational Safety & Health ConsultingPractical, evidence-based support to help organisations identify hazards, manage risk and build safety practices that hold up under real working conditions.Workplace hazard identification & risk assessmentsOSH compliance auditsHSE auditingSafety documentation & policy supportFire safety reviewsIdeal for: Organisations that need a practical look at workplace safety, not just a compliance checkbox.Get in touchEHS Systems & Digital SolutionsWeb applications and internal tools built specifically to replace manual, error-prone EHS processes, hazard reporting, inspections, audits and corrective-action tracking, with reliable digital systems.EHS reporting & workflow systemsInspection & audit toolsHazard & corrective-action trackingSafety dashboardsIdeal for: Teams replacing paper-based or spreadsheet EHS processes with something reliable and easy to use.For general websites, web apps or non-EHS software work, visit HarunLucas DevGet in touchDigital Communication & Social Media ManagementContent strategy and platform management that translate professional and technical work, safety included, into clear communication that reaches the right audience.Social media managementContent strategy & planningWebsite contentSEO & analytics reportingIdeal for: Organisations and professionals doing solid work, in safety or any other field, that isn't communicated clearly online.Get in touchHave a Safety, Systems or Communication Need?Open to professional opportunities, OSH consulting, systems projects and digital communication work.Contact MeView My Expertise",
+    "mainTextSha256": "502f0076e3e18824",
+    "mainTextWords": 263
+  },
+  "sharedChrome": "matches global.json",
+  "layout": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 1440,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 81,
+        "primaryNavVisible": true,
+        "primaryNavLinks": [
+          "About",
+          "Expertise",
+          "Services",
+          "Projects",
+          "Insights",
+          "Contact"
+        ],
+        "mobileMenuButtonVisible": false,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Practical Support Across Safety, Systems & Communication",
+        "visible": true,
+        "fontSizePx": 48
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "scrollWidth": 390,
+      "header": {
+        "visible": true,
+        "position": "sticky",
+        "heightPx": 66,
+        "primaryNavVisible": false,
+        "primaryNavLinks": [],
+        "mobileMenuButtonVisible": true,
+        "ctaVisible": true,
+        "themeToggleVisible": true
+      },
+      "h1": {
+        "text": "Practical Support Across Safety, Systems & Communication",
+        "visible": true,
+        "fontSizePx": 36
+      },
+      "footerPresent": true,
+      "whatsappButtonVisible": true,
+      "renderedTitleMatchesServerTitle": true
+    }
+  }
+}
