@@ -167,6 +167,12 @@ export async function openPage(cdp) {
   return {
     send,
     consoleErrors,
+    /** Subscribe to a CDP event for this tab only. Returns an unsubscribe function. */
+    onEvent(method, handler) {
+      return cdp.on((message) => {
+        if (message.sessionId === sessionId && message.method === method) handler(message.params);
+      });
+    },
     async evaluate(expression) {
       const result = await send("Runtime.evaluate", { expression, returnByValue: true, awaitPromise: true });
       if (result.exceptionDetails) {

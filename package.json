@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "baseline:capture": "node tests/baseline/capture.mjs",
-    "baseline:check": "node tests/baseline/capture.mjs --check"
+    "baseline:check": "node tests/baseline/capture.mjs --check",
+    "test:interactive": "node tests/interactive/interactions.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.4.0",

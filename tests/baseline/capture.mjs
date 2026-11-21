@@ -13,7 +13,7 @@
 // and the valid-submission tests are skipped if any .env file defines BREVO_API_KEY, so
 // this script can never send a real email. Test submissions use fake example.com data
 // and documentation-range IPs (203.0.113.0/24).
-import { spawn } from "node:child_process";
+import { startServer } from "./lib/server.mjs";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
@@ -116,42 +116,6 @@ function discoverRoutes() {
     });
 
   return { declared, dynamicPatterns, pages, apiRoutes, special: [...special].sort(), internal: [...internal].sort() };
-}
-
-// ─────────────────────────── server lifecycle ───────────────────────────
-
-async function startServer(logLines) {
-  try {
-    await fetch(BASE, { signal: AbortSignal.timeout(1000) });
-    throw new Error(`Port ${PORT} is already in use. Stop that server or set BASELINE_PORT.`);
-  } catch (error) {
-    if (error.message.startsWith("Port")) throw error;
-  }
-
-  const env = { ...process.env, NODE_ENV: "production", NEXT_TELEMETRY_DISABLED: "1" };
-  for (const name of ["BREVO_API_KEY", "CONTACT_TO_EMAIL", "CONTACT_FROM_EMAIL"]) delete env[name];
-
-  const nextBin = join(ROOT, "node_modules", "next", "dist", "bin", "next");
-  const server = spawn(process.execPath, [nextBin, "start", "-p", String(PORT), "-H", "127.0.0.1"], {
-    cwd: ROOT,
-    env,
-    stdio: ["ignore", "pipe", "pipe"],
-  });
-  server.stdout.on("data", (chunk) => logLines.push(chunk.toString()));
-  server.stderr.on("data", (chunk) => logLines.push(chunk.toString()));
-
-  for (let attempt = 0; attempt < 240; attempt++) {
-    try {
-      const res = await fetch(BASE, { signal: AbortSignal.timeout(2000) });
-      if (res.ok) return server;
-    } catch {
-      // not up yet
-    }
-    if (server.exitCode !== null) throw new Error(`next start exited (code ${server.exitCode}):\n${logLines.join("")}`);
-    await sleep(250);
-  }
-  server.kill();
-  throw new Error("next start did not become ready within 60s");
 }
 
 // ─────────────────────────── browser checks ───────────────────────────
@@ -361,7 +325,7 @@ async function main() {
   await mkdir(join(ARTIFACT_DIR, "screenshots"), { recursive: true });
 
   console.log(`Starting next start on ${BASE} ...`);
-  const server = await startServer(serverLog);
+  const { server } = await startServer({ root: ROOT, port: PORT, logLines: serverLog });
   const browser = await launchBrowser(findBrowser());
 
   try {
