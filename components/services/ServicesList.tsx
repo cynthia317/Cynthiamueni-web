@@ -3,9 +3,11 @@ import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/layout/SectionHeading";
 import Reveal from "@/components/layout/Reveal";
 import ArrowLink from "@/components/ui/ArrowLink";
-import { SERVICES } from "@/lib/data/services";
+import { getServices } from "@/lib/content/services";
 
-export default function ServicesList() {
+export default async function ServicesList() {
+  const services = await getServices();
+
   return (
     <section aria-labelledby="services-heading" className="py-20 sm:py-24">
       <Container className="flex flex-col gap-12">
@@ -19,7 +21,7 @@ export default function ServicesList() {
         </Reveal>
 
         <div className="flex flex-col gap-6">
-          {SERVICES.map((service, index) => {
+          {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <Reveal key={service.id} delay={index * 80}>

@@ -9,7 +9,8 @@
     "lint": "eslint",
     "baseline:capture": "node tests/baseline/capture.mjs",
     "baseline:check": "node tests/baseline/capture.mjs --check",
-    "test:interactive": "node tests/interactive/interactions.mjs"
+    "test:interactive": "node tests/interactive/interactions.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
     "@next/third-parties": "^16.4.0",
@@ -27,6 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.7"
   }
 }
