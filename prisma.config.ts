@@ -19,12 +19,16 @@ import { assertDatabaseEnvironment } from "./lib/db/environment";
 nextEnv.loadEnvConfig(process.cwd(), false, { info: () => {}, error: console.error });
 
 const directUrl = process.env.DATABASE_URL_UNPOOLED;
-if (directUrl) {
+// Check every database URL that is present (direct and pooled). On Vercel this runs during
+// `postinstall: prisma generate`, so a mis-scoped variable fails the build before deployment.
+for (const variableName of ["DATABASE_URL_UNPOOLED", "DATABASE_URL"] as const) {
+  const connectionString = process.env[variableName];
+  if (!connectionString) continue;
   assertDatabaseEnvironment({
-    connectionString: directUrl,
+    connectionString,
     declared: process.env.DATABASE_ENVIRONMENT,
     vercelEnv: process.env.VERCEL_ENV,
-    variableName: "DATABASE_URL_UNPOOLED",
+    variableName,
   });
 }
 

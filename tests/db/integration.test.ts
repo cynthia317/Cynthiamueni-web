@@ -1,6 +1,7 @@
 /**
- * Development-database integration checks (Stage 4).
- * Synthetic records only (example.com); every case runs in a transaction that is always rolled back.
+ * Database integration checks for the Neon DEVELOPMENT or PREVIEW branch (never production).
+ * Synthetic records only (example.com); every case runs in a transaction that is always rolled back,
+ * and the run fails if any table's row count differs afterwards.
  */
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
@@ -12,6 +13,14 @@ const ROLLBACK = Symbol("rollback");
 type Tx = Prisma.TransactionClient;
 
 let db: PrismaClient;
+let countsBefore: number[];
+
+const countAll = () =>
+  Promise.all([
+    db.adminUser.count(), db.project.count(), db.insight.count(), db.insightCategory.count(), db.service.count(),
+    db.enquiry.count(), db.enquiryNote.count(), db.emailOutbox.count(), db.redirect.count(), db.featuredPlacement.count(),
+    db.auditLog.count(), db.siteSettings.count(), db.rateLimitBucket.count(),
+  ]);
 
 /** Runs `fn` in a transaction and always rolls it back. Returns fn's result or rethrows its error. */
 async function inRollback<T>(fn: (tx: Tx) => Promise<T>): Promise<T> {
@@ -47,29 +56,30 @@ const project = (slug: string, extra: Partial<Prisma.ProjectCreateInput> = {}): 
 });
 
 beforeAll(async () => {
-  expect(process.env.DATABASE_ENVIRONMENT).toBe("development");
+  expect(["development", "preview"]).toContain(process.env.DATABASE_ENVIRONMENT);
   expect(isProductionEndpoint(process.env.DATABASE_URL as string)).toBe(false);
-  db = getDb();
+  db = getDb(); // runs the environment guard
   const [{ endpoint }] = await db.$queryRaw<{ endpoint: string }[]>`SELECT current_setting('neon.endpoint_id', true) AS endpoint`;
-  // The server's own endpoint ID must match the configured (non-production) development endpoint.
+  // The server's own endpoint ID must match the configured (non-production) endpoint.
   expect(endpoint).toBe(neonEndpointId(process.env.DATABASE_URL as string));
+  countsBefore = await countAll();
 });
 
 afterAll(async () => {
   await db?.$disconnect();
 });
 
-describe("development database", () => {
-  it("is migrated and starts empty", async () => {
+describe(`${process.env.DATABASE_ENVIRONMENT} database`, () => {
+  it("is migrated and holds no enquiries or admin users", async () => {
     const [{ name }] = await db.$queryRaw<{ name: string }[]>`SELECT migration_name AS name FROM _prisma_migrations WHERE finished_at IS NOT NULL`;
     expect(name).toBe("20261122150000_init");
     expect(await db.adminUser.count()).toBe(0);
-    expect(await db.project.count()).toBe(0);
     expect(await db.enquiry.count()).toBe(0);
   });
 
   it("creates, reads, updates and deletes content with relations", async () => {
     const out = await inRollback(async (tx) => {
+      const projectsBefore = await tx.project.count();
       const category = await tx.insightCategory.create({ data: { slug: "synthetic-topic", name: "Synthetic Topic", sortOrder: 0 } });
       const insight = await tx.insight.create({
         data: {
@@ -96,7 +106,7 @@ describe("development database", () => {
       const updated = await tx.project.update({ where: { id: created.id }, data: { publishStatus: "PUBLISHED" } });
       await tx.featuredPlacement.deleteMany({ where: { projectId: created.id } });
       await tx.project.delete({ where: { id: created.id } });
-      return { read, updated, remaining: await tx.project.count() };
+      return { read, updated, remaining: (await tx.project.count()) - projectsBefore };
     });
     expect(out.read.relatedInsights[0].category.name).toBe("Synthetic Topic");
     expect(out.read.placements[0].slot).toBe("HOME_PROJECTS");
@@ -133,6 +143,29 @@ describe("development database", () => {
     expect(out.enquiry.notes[0].body).toBe("Synthetic note");
     expect(out.stored).toBe("ehs-systems");
     expect(out.orphans).toBe(0);
+  });
+
+  it("keeps the enquiry, notes and outbox when an enquiry is resolved or archived", async () => {
+    const out = await inRollback(async (tx) => {
+      const enquiry = await tx.enquiry.create({
+        data: {
+          name: "Synthetic Visitor", email: "visitor.synthetic@example.com", enquiryType: "OSH", subject: "Synthetic",
+          message: "Synthetic message.", dedupeHash: "synthetic-archive", notes: { create: { body: "Synthetic note" } }, outbox: { create: {} },
+        },
+      });
+      const resolved = await tx.enquiry.update({ where: { id: enquiry.id }, data: { status: "RESOLVED", resolvedAt: new Date() } });
+      const archived = await tx.enquiry.update({ where: { id: enquiry.id }, data: { status: "ARCHIVED", archivedAt: new Date() } });
+      const after = await tx.enquiry.findUnique({ where: { id: enquiry.id }, include: { notes: true, outbox: true } });
+      return { resolved, archived, after };
+    });
+    expect(out.resolved.status).toBe("RESOLVED");
+    expect(out.archived.status).toBe("ARCHIVED");
+    expect(out.after).not.toBeNull();
+    expect(out.after?.message).toBe("Synthetic message.");
+    expect(out.after?.resolvedAt).not.toBeNull();
+    expect(out.after?.archivedAt).not.toBeNull();
+    expect(out.after?.notes).toHaveLength(1);
+    expect(out.after?.outbox).not.toBeNull();
   });
 
   it("represents roles with least privilege by default", async () => {
@@ -222,11 +255,9 @@ describe("development database", () => {
     });
   });
 
-  it("leaves no synthetic rows behind", async () => {
-    const counts = await Promise.all([
-      db.adminUser.count(), db.project.count(), db.insight.count(), db.insightCategory.count(),
-      db.enquiry.count(), db.enquiryNote.count(), db.emailOutbox.count(), db.redirect.count(), db.featuredPlacement.count(),
-    ]);
-    expect(counts.every((n) => n === 0)).toBe(true);
+  it("leaves no synthetic rows behind (every table's row count is unchanged)", async () => {
+    expect(await countAll()).toEqual(countsBefore);
+    expect(await db.enquiry.count({ where: { email: { endsWith: "@example.com" } } })).toBe(0);
+    expect(await db.adminUser.count({ where: { providerSubject: { startsWith: "synthetic|" } } })).toBe(0);
   });
 });

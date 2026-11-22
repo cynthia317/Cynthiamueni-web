@@ -1,4 +1,4 @@
-// Integration tests against the Neon DEVELOPMENT branch only (`npm run test:db`).
+// Integration tests against the Neon DEVELOPMENT branch (`npm run test:db`), or PREVIEW when injected deliberately.
 // Not part of `npm test`. Requires .env.local; the environment guard refuses any other target.
 import { fileURLToPath } from "node:url";
 

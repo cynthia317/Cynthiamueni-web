@@ -5,11 +5,13 @@
  * `assertDatabaseEnvironment` first. It fails closed when:
  *  - DATABASE_ENVIRONMENT is missing or invalid;
  *  - DATABASE_ENVIRONMENT doesn't match the deployment (VERCEL_ENV), e.g. "production" on a laptop;
- *  - a non-production environment points at the production Neon endpoint;
- *  - production points at anything other than the production endpoint.
+ *  - the URL points at a known endpoint that belongs to a different environment
+ *    (e.g. production or preview from a laptop, development from a Preview deployment);
+ *  - production or preview point at anything other than their own known endpoint.
+ * Development may also use an unlisted endpoint (for example a personal Neon branch).
  *
  * Endpoints are compared by SHA-256 of the Neon endpoint ID, so the repository doesn't publish
- * the production identifier. Error messages never include connection strings.
+ * the identifiers. Error messages never include connection strings.
  *
  * Kept dependency-free (except node:crypto) so prisma.config.ts can import it too.
  */
@@ -19,9 +21,14 @@ export type DatabaseEnvironment = "production" | "preview" | "development";
 
 const ENVIRONMENTS: readonly DatabaseEnvironment[] = ["production", "preview", "development"];
 
-/** SHA-256 of the production Neon endpoint ID (project red-forest-05302661, branch "production"). */
-export const PRODUCTION_ENDPOINT_SHA256: ReadonlySet<string> = new Set([
-  "3707bedcdd375d43ec08c51e1795def5954a5ca11a98505a4aaf1c2d5c07c1af",
+/**
+ * SHA-256 of each known Neon endpoint ID (project red-forest-05302661), mapped to the only
+ * environment allowed to use it. Update this map if an endpoint is ever re-created.
+ */
+export const KNOWN_ENDPOINTS: ReadonlyMap<string, DatabaseEnvironment> = new Map([
+  ["3707bedcdd375d43ec08c51e1795def5954a5ca11a98505a4aaf1c2d5c07c1af", "production"], // branch "production"
+  ["6985c08d7f81fa738ce6081e2e218717e0192fea3f4f932df3d63913a2948075", "preview"], // branch "preview"
+  ["6dbdcec78a4ebbdef4f3dd86748beb449b46acc5b75d142d3edd6d07a87cbdb7", "development"], // branch "development"
 ]);
 
 export class DatabaseEnvironmentError extends Error {
@@ -49,9 +56,20 @@ export function neonEndpointId(connectionString: string): string {
   return host.split(".")[0].replace(/-pooler$/, "");
 }
 
-export function isProductionEndpoint(connectionString: string, productionHashes = PRODUCTION_ENDPOINT_SHA256): boolean {
+/** The environment a connection string's endpoint belongs to, or null if it isn't a known endpoint. */
+export function endpointEnvironment(
+  connectionString: string,
+  knownEndpoints: ReadonlyMap<string, DatabaseEnvironment> = KNOWN_ENDPOINTS,
+): DatabaseEnvironment | null {
   const hash = createHash("sha256").update(neonEndpointId(connectionString)).digest("hex");
-  return productionHashes.has(hash);
+  return knownEndpoints.get(hash) ?? null;
+}
+
+export function isProductionEndpoint(
+  connectionString: string,
+  knownEndpoints: ReadonlyMap<string, DatabaseEnvironment> = KNOWN_ENDPOINTS,
+): boolean {
+  return endpointEnvironment(connectionString, knownEndpoints) === "production";
 }
 
 export interface DatabaseEnvironmentInput {
@@ -59,11 +77,11 @@ export interface DatabaseEnvironmentInput {
   declared: string | undefined; // DATABASE_ENVIRONMENT
   vercelEnv: string | undefined; // VERCEL_ENV
   variableName: string; // for error messages only
-  productionHashes?: ReadonlySet<string>;
+  knownEndpoints?: ReadonlyMap<string, DatabaseEnvironment>;
 }
 
 export function assertDatabaseEnvironment(input: DatabaseEnvironmentInput): DatabaseEnvironment {
-  const { connectionString, declared, vercelEnv, variableName, productionHashes = PRODUCTION_ENDPOINT_SHA256 } = input;
+  const { connectionString, declared, vercelEnv, variableName, knownEndpoints = KNOWN_ENDPOINTS } = input;
 
   if (!connectionString) throw new DatabaseEnvironmentError(`${variableName} is not set`);
   if (!declared || !ENVIRONMENTS.includes(declared as DatabaseEnvironment)) {
@@ -75,12 +93,12 @@ export function assertDatabaseEnvironment(input: DatabaseEnvironmentInput): Data
     throw new DatabaseEnvironmentError(`DATABASE_ENVIRONMENT is "${environment}" but this deployment expects "${expected}"`);
   }
 
-  const production = isProductionEndpoint(connectionString, productionHashes);
-  if (environment !== "production" && production) {
-    throw new DatabaseEnvironmentError(`${variableName} points at the production database, which is not allowed in ${environment}`);
+  const owner = endpointEnvironment(connectionString, knownEndpoints);
+  if (owner !== null && owner !== environment) {
+    throw new DatabaseEnvironmentError(`${variableName} points at the ${owner} database, which is not allowed in ${environment}`);
   }
-  if (environment === "production" && !production) {
-    throw new DatabaseEnvironmentError(`${variableName} does not point at the production database`);
+  if (owner === null && environment !== "development") {
+    throw new DatabaseEnvironmentError(`${variableName} does not point at the ${environment} database`);
   }
   return environment;
 }

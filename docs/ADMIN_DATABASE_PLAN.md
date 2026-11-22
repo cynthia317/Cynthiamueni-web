@@ -1,6 +1,6 @@
 # Admin Dashboard: Database Plan
 
-Status: **Implemented on the Neon development branch only** (2026-11-22, §10). Reviewed in Stage 4 (§7–§9). §3 below is the original draft: `prisma/schema.prisma` is the source of truth. Companion to [ADMIN_DASHBOARD_ARCHITECTURE.md](./ADMIN_DASHBOARD_ARCHITECTURE.md).
+Status: **Implemented on the Neon development and preview branches** (2026-11-22, §10–§11). Production has no tables. Reviewed in Stage 4 (§7–§9). §3 below is the original draft: `prisma/schema.prisma` is the source of truth. Companion to [ADMIN_DASHBOARD_ARCHITECTURE.md](./ADMIN_DASHBOARD_ARCHITECTURE.md).
 
 > **Superseded the same day (§10):** a dedicated Neon project was created and verified.
 >
@@ -646,7 +646,7 @@ Unchanged and confirmed:
 | Branch | Endpoint | Contents |
 | --- | --- | --- |
 | `production` (default) | (not recorded in the repository) | Empty. Untouched. |
-| `preview` | `ep-gentle-heart-bd2lwl8b` | Empty schema-only branch, with its own password |
+| `preview` | `ep-gentle-heart-bd2lwl8b` | Migration `20261122150000_init` applied (§11). No content rows. |
 | `development` | `ep-withered-lake-bdztu36v` | Migration `20261122150000_init` applied |
 
 - Schema-only branches have no data lineage to production, and each has its own `neondb_owner` password.
@@ -684,3 +684,43 @@ Don't use a bare `npm install prisma`: npm's `latest` tag is an 8.0 release cand
 **Not yet done:**
 - Vercel Preview and Production variables, and any `preview` or `production` migration. Each needs approval, per §8 and Architecture §2.12 item 5.
 - A seed script, and the content cutover (§4).
+
+## 11. Preview database and seed preparation (2026-11-22)
+
+**Preview migration:**
+- **Before applying,** I checked that:
+  - the target was the preview endpoint (`ep-gentle-heart-bd2lwl8b`), reported by the server itself;
+  - the database was empty, with 0 tables, 0 enums and no `_prisma_migrations`;
+  - the migration file was unchanged since the reviewed commit `ddfbb32`, with no destructive statements.
+- **Applied** with `prisma migrate deploy` (Prisma 7.10.1). Never `migrate dev`, `db push` or `migrate reset`.
+- **After:** the catalog is identical to development (15 tables, 152 columns, 11 enums, 49 indexes and 35 constraints), the migration checksum matches, there's no drift, and integration tests pass 13/13 with 0 rows left behind.
+
+**How preview commands are run from a laptop:**
+- The preview URLs are fetched in memory (`neon connection-string preview`), and `DATABASE_ENVIRONMENT=preview` and `VERCEL_ENV=preview` are set for that one process only. Nothing is written to disk.
+- `.env.local` stays development-only. The test setup and the seed don't load it when variables are injected.
+
+**Stricter environment guard:** `lib/db/environment.ts` now knows all three endpoints, by hash:
+- **Preview** must use the preview endpoint.
+- **Production** must use the production endpoint.
+- **Development** may use any endpoint except those two.
+- `prisma.config.ts` checks both `DATABASE_URL` and `DATABASE_URL_UNPOOLED`.
+
+On Vercel this runs during `postinstall: prisma generate`, so a Preview build fails if its variables point at the wrong branch. The same check confirms the variables configured in the Vercel dashboard.
+
+**Seed** (`npm run db:seed`, `prisma/seed/`):
+- **Mapping:** `prisma/seed/data.ts` is a pure, unit-tested mapping from `lib/data` and `lib/content/featured`:
+  - slugs and `sortOrder` (array order);
+  - image paths, dates and insight content unchanged;
+  - categories by exact name;
+  - featured slots by `(slot, position)`;
+  - `isProtected` for featured projects;
+  - service icons through the registry keys.
+- **Runner:** `prisma/seed/run.ts`:
+  - **dry run by default;**
+  - **create-only**: an existing record is never updated, so admin edits aren't overwritten; differences are reported as "differs (kept)";
+  - **idempotent**;
+  - creates everything in one transaction;
+  - **refuses production** by `DATABASE_ENVIRONMENT` or endpoint, even when mislabelled.
+- **Execution:** it runs with Node's built-in TypeScript support and the small alias hook in `scripts/ts-paths.mjs`, so there's no `tsx`/esbuild dependency.
+- **Dry run on development and on preview:** it would create **34 records**: 6 insight categories, 9 insights, 8 projects, 3 services and 8 featured placements. **Not applied yet.**
+- **Not seeded:** `SiteSettings`, whose values need owner approval. The phase-2 models don't exist yet.

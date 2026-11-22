@@ -4,20 +4,30 @@ import { describe, expect, it } from "vitest";
 
 import {
   assertDatabaseEnvironment,
+  type DatabaseEnvironment,
   DatabaseEnvironmentError,
+  endpointEnvironment,
   expectedDatabaseEnvironment,
+  KNOWN_ENDPOINTS,
   neonEndpointId,
   withVerifiedTls,
 } from "@/lib/db/environment";
 
-// Synthetic endpoints only; the real production hash isn't used here.
+// Synthetic endpoints only; the real endpoint hashes aren't used here.
 const PROD = "ep-fake-production-000000";
+const PREVIEW = "ep-fake-preview-222222";
 const DEV = "ep-fake-development-111111";
-const hashes = new Set([createHash("sha256").update(PROD).digest("hex")]);
+const PERSONAL = "ep-fake-personal-333333"; // not in the map
+const sha = (v: string) => createHash("sha256").update(v).digest("hex");
+const known = new Map<string, DatabaseEnvironment>([
+  [sha(PROD), "production"],
+  [sha(PREVIEW), "preview"],
+  [sha(DEV), "development"],
+]);
 const url = (endpoint: string, pooled = false) =>
   `postgresql://user:secret-value@${endpoint}${pooled ? "-pooler" : ""}.c-1.us-east-2.aws.neon.tech/neondb?sslmode=require`;
 const check = (connectionString: string | undefined, declared: string | undefined, vercelEnv?: string) =>
-  assertDatabaseEnvironment({ connectionString, declared, vercelEnv, variableName: "DATABASE_URL", productionHashes: hashes });
+  assertDatabaseEnvironment({ connectionString, declared, vercelEnv, variableName: "DATABASE_URL", knownEndpoints: known });
 
 describe("database environment guard", () => {
   it("maps VERCEL_ENV to the allowed database environment", () => {
@@ -30,29 +40,48 @@ describe("database environment guard", () => {
   it("extracts the Neon endpoint ID from direct and pooled hosts", () => {
     expect(neonEndpointId(url(DEV))).toBe(DEV);
     expect(neonEndpointId(url(DEV, true))).toBe(DEV);
+    expect(endpointEnvironment(url(PREVIEW, true), known)).toBe("preview");
+    expect(endpointEnvironment(url(PERSONAL), known)).toBeNull();
   });
 
-  it("accepts development on a local machine", () => {
+  it("knows exactly one endpoint per environment in the real map", () => {
+    expect([...KNOWN_ENDPOINTS.values()].sort()).toEqual(["development", "preview", "production"]);
+  });
+
+  it("accepts each environment on its own endpoint", () => {
     expect(check(url(DEV, true), "development")).toBe("development");
+    expect(check(url(PREVIEW, true), "preview", "preview")).toBe("preview");
+    expect(check(url(PROD, true), "production", "production")).toBe("production");
   });
 
-  it("rejects the production endpoint in development, direct or pooled", () => {
+  it("allows development on an unlisted personal endpoint", () => {
+    expect(check(url(PERSONAL), "development")).toBe("development");
+  });
+
+  it("rejects the production endpoint in development and preview, direct or pooled", () => {
     expect(() => check(url(PROD), "development")).toThrow(/points at the production database/);
     expect(() => check(url(PROD, true), "development")).toThrow(DatabaseEnvironmentError);
-  });
-
-  it("rejects the production endpoint in preview", () => {
     expect(() => check(url(PROD), "preview", "preview")).toThrow(/production database/);
   });
 
-  it("rejects DATABASE_ENVIRONMENT=production outside a production deployment", () => {
-    expect(() => check(url(PROD), "production")).toThrow(/expects "development"/);
-    expect(() => check(url(PROD), "production", "preview")).toThrow(/expects "preview"/);
+  it("rejects the preview endpoint from a local machine", () => {
+    expect(() => check(url(PREVIEW), "development")).toThrow(/points at the preview database/);
   });
 
-  it("rejects production deployments pointing at a non-production endpoint", () => {
-    expect(() => check(url(DEV), "production", "production")).toThrow(/does not point at the production database/);
-    expect(check(url(PROD, true), "production", "production")).toBe("production");
+  it("rejects the development endpoint, or an unlisted one, in a Preview deployment", () => {
+    expect(() => check(url(DEV), "preview", "preview")).toThrow(/points at the development database/);
+    expect(() => check(url(PERSONAL), "preview", "preview")).toThrow(/does not point at the preview database/);
+  });
+
+  it("rejects DATABASE_ENVIRONMENT that doesn't match the deployment", () => {
+    expect(() => check(url(PROD), "production")).toThrow(/expects "development"/);
+    expect(() => check(url(PROD), "production", "preview")).toThrow(/expects "preview"/);
+    expect(() => check(url(PREVIEW), "preview")).toThrow(/expects "development"/);
+  });
+
+  it("rejects production deployments pointing anywhere else", () => {
+    expect(() => check(url(DEV), "production", "production")).toThrow(/development database/);
+    expect(() => check(url(PERSONAL), "production", "production")).toThrow(/does not point at the production database/);
   });
 
   it("fails closed on missing or invalid configuration", () => {
@@ -62,7 +91,8 @@ describe("database environment guard", () => {
     expect(() => check("not a url", "development")).toThrow(/not a valid URL/);
   });
 
-  it("never includes the connection string in error messages", () => {
+  it("never includes the connection string or endpoint in error messages", () => {
+    expect.assertions(2);
     try {
       check(url(PROD), "development");
     } catch (error) {

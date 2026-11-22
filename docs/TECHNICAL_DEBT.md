@@ -148,7 +148,11 @@ These issues are **recorded, not fixed**. Stages 2–3 deliberately left them in
 ### 16. `effect` advisory via the Prisma CLI (Medium · P2) *(Stage 4)*
 
 - **Evidence:** `prisma@7.10.1` → `@prisma/config@7.10.1` pins `effect@3.20.0` exactly. GHSA-7589-6fvf-x4pw is a ReDoS in `Schema.TemplateLiteral`. `npm audit --omit=dev` lists it as 3 high-severity entries because `@prisma/client` declares `prisma` as a peer dependency.
-- **Impact:** the code only runs in the Prisma CLI and config loader, against the repository's own trusted config. The build contains no Prisma or `effect` code in `.next/static` or `.next/server`, and the runtime client doesn't depend on `@prisma/config`.
+- **Actual exposure** (reviewed 2026-11-22):
+  - **Where it runs:** `effect` runs only inside the Prisma CLI's config loader: `prisma generate` (local, and the Vercel build via `postinstall`) and `migrate` commands.
+  - **Untrusted input:** it only parses the repository's own `prisma.config.ts` and schema. No request data reaches it.
+  - **Runtime:** it isn't deployed. `.next/static` and `.next/server` contain no Prisma or `effect` code, and the runtime client (`@prisma/client`, `@prisma/adapter-pg`) doesn't depend on `@prisma/config`.
+  - **Exploitability:** a ReDoS needs an attacker-controlled pattern or input to `Schema.TemplateLiteral`, which isn't possible here.
 - **Correction:** upgrade to the first stable Prisma 7.x release that ships a fixed `effect`. Don't use `npm audit fix --force`: it downgrades Prisma to 6.12. Re-check whenever Prisma is upgraded.
 
 ### 17. Neon Free plan limits (Medium · P2, before production holds real data) *(Stage 4)*
