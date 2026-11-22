@@ -12,6 +12,8 @@ npm run baseline:check     # compare the current build with the committed snapsh
 npm run baseline:capture   # rewrite the snapshots, for intentional changes only; review the git diff
 ```
 
+Related suites (added in Stage 3): `npm run test:interactive` runs assertion-based browser checks for insights filtering and pagination, FAQ accordions, mobile navigation, theme switching and the contact form (submissions are mocked in the browser; the run fails if any request reaches `/api/contact`). `npm test` runs the Vitest unit tests for `lib/content`. Both reuse `lib/cdp.mjs` and `lib/server.mjs` from this folder.
+
 Optional flags and variables: `--no-screenshots`, `BASELINE_PORT` (default `3999`), and `BASELINE_BROWSER` (a path to Chrome or Edge; otherwise one is auto-detected).
 
 **Requirements:** Node 22+ (it uses the built-in `fetch` and `WebSocket`) and a Chromium-based browser (Edge or Chrome). It adds **no npm dependencies**: the browser is driven directly over the Chrome DevTools Protocol (`lib/cdp.mjs`).

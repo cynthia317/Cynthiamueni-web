@@ -164,6 +164,11 @@ app/
 
 This only moves files. The rendered HTML for public pages stays identical. It should be its own commit with a visual before/after check.
 
+**Implemented in Stage 3 (commit `5012834`).** The public chrome lives in `components/layout/SiteChrome.tsx` and is rendered by `app/(site)/layout.tsx`. Two details turned up during verification:
+
+- **404 pages.** Unmatched URLs render `app/not-found.tsx` inside the root layout only, so that file adds `SiteChrome` itself. `notFound()` calls from public pages render `app/(site)/not-found.tsx` inside the `(site)` layout, so that file renders only the 404 body (otherwise the chrome would appear twice). Both reuse Next's built-in 404 body, and both were verified identical to the pre-move build in server HTML and the rendered page.
+- **Title template.** Pages in a child segment get the root `title.template`. The home page now uses `title: { absolute: SITE_TITLE }`, the pattern `/about` already used, to keep its original `<title>`.
+
 ### 2.4 Admin route structure
 
 | Route | Purpose | MVP |
@@ -246,6 +251,27 @@ lib/
 The repositories **return the existing `Project`, `Insight`, `Service`, and `Faq` types**, with `href` derived from the slug and `icon` resolved from a key. As a result, **no presentational component has to change**. Only the call sites change: synchronous imports become `await getX()` in Server Components, and the results are passed as props into client components.
 
 Step 1 of the roadmap implements these functions **against the static arrays**, which proves the seam with no database involved. Step N swaps each function body to Prisma.
+
+#### As implemented in Stage 3 (static source)
+
+The functions below exist and are used by every public page. They're `async` now, so swapping a body to a database query later doesn't change any call site.
+
+| Module | Functions | Notes |
+| --- | --- | --- |
+| `lib/content/types.ts` | `InsightSummary` (+ re-exports of `Project`, `Insight`, `Service`, `Faq`, …) | `types/index.ts` stays the canonical contract |
+| `lib/content/projects.ts` | `getProjects()`, `getProjectsByTier(tier)`, `getProjectBySlug(slug)`, `getProjectSlugs()`, `getProjectsBySlugs(slugs)` | Slug = `id` = URL segment |
+| `lib/content/featured.ts` | `FEATURED_PROJECT_SLOTS`, `getFeaturedProjects(slot)` | Slots `homeProjects`, `expertiseFeatured`, `expertiseBridge` replace IDs that used to be hard-coded in components. They mirror the planned `FeaturedPlacement` model. |
+| `lib/content/insights.ts` | `getInsightSummaries()`, `getPublishedInsightSummaries()`, `getPublishedInsightSlugs()`, `getInsightBySlug(slug)`, `getFeaturedInsight()`, `getRelatedInsights(insight, max)`, `isPublishedInsight(insight)` | Listings and client components get summaries without article bodies. This cut client JavaScript from 848,370 to 696,731 bytes. |
+| `lib/content/services.ts` | `getServices()` | |
+| `lib/content/faqs.ts` | `getFaqs()`, `getFaqsByIds(ids)` | |
+
+**Data-flow rule:** pages and data-loading sections (`ServicesList`, `ProjectsSection`, `InsightsSection`, `FeaturedExpertiseProjects`, `SafetyDigitalBridge`) are async Server Components that call these functions. Presentational and client components (`InsightsGrid`, `InsightsFaq`, `InsightArticle`, `ProjectDetail`) receive data as props.
+
+**Not yet abstracted (planned):**
+- `settings.ts` / `getSiteSettings()`, which moves with the Settings step.
+- `mappers.ts` and `icons.ts`, which are needed only once there's a database.
+- The `server-only` guard (roadmap step 1.2).
+- `lib/data/about.ts`, `expertise.ts` and `connection.ts` intentionally stay static (§2.8).
 
 ### 2.7 Caching and revalidation
 

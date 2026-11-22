@@ -13,8 +13,8 @@ All work happens on the `feature/admin-dashboard` branch, never directly on `mai
 | Stage | Work | Detailed steps below | Status |
 | --- | --- | --- | --- |
 | 1 | Feature branch and clean Git checkpoint; planning docs updated with the confirmed decisions | — | **Done** (2026-11-21) |
-| 2 | Record a baseline of the public website (routes, content, SEO metadata, structured data, key UI elements) | 0.1 | Not started |
-| 3 | Content abstraction (`lib/content`), then the `(site)` folder restructuring, each verified against the baseline | 0.2–0.4 | Not started |
+| 2 | Record a baseline of the public website (routes, content, SEO metadata, structured data, key UI elements) | 0.1 | **Done** (2026-11-21): `tests/baseline/` |
+| 3 | Content abstraction (`lib/content`), then the `(site)` folder restructuring, each verified against the baseline | 0.2–0.4 | **Done** (2026-11-22): see notes below |
 | 4 | **Verify the existing Neon setup** (project, branches, variable names in Vercel, existing tables) before any database change | 1.1 | Not started |
 | 5 | Secure authentication and OWNER/ADMIN/EDITOR role-based access | 1.2–1.4 (enquiry/auth tables only), 2.x | Not started |
 | 6 | Admin layout | 3 | Not started |
@@ -22,6 +22,12 @@ All work happens on the `feature/admin-dashboard` branch, never directly on `mai
 | 8 | Integration testing and deployment preparation | 9 (enquiries scope) | Not started |
 
 Content modules (services, projects, insights, settings: steps 5–8 below) follow after stage 8.
+
+**Stage 3 notes (as implemented):**
+- `lib/content` covers projects, featured-project slots, insights, services and FAQs (Architecture §2.6). **Site settings** (`lib/constants.ts`, used by 21 files including client components) are deliberately **not** abstracted yet. That moves with the Settings step (step 8), so Footer, ContactForm and the WhatsApp button still import constants directly.
+- The `server-only` guard is deferred to step 1.2, because the static data is safe on the client and adding it now would add a dependency with no effect.
+- Regression tooling now consists of `npm run baseline:check` (29 snapshot files), `npm run test:interactive` (21 browser checks with mocked contact submissions) and `npm test` (Vitest unit tests for `lib/content`). All of them must pass at every later stage.
+- Known issues and their priorities live in [TECHNICAL_DEBT.md](./TECHNICAL_DEBT.md). The contact-form rate limit and server-side validation (items 8 and 7) must be fixed before production database integration. The `next` security upgrade (item 11) is P0 and independent of this roadmap.
 
 **Mandatory review stops.** Work pauses for the owner's review and explicit approval:
 - before generating or applying any **database migration** (migrations are created with `--create-only` against the development branch and reviewed as SQL first),
