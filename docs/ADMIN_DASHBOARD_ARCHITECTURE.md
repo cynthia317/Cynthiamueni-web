@@ -375,6 +375,69 @@ These are agreed decisions, not implemented features.
 **Tooling**
 - Vitest is approved as a development-only dependency. It gets installed when the first tests are written.
 
+### 2.12 Required safeguards (approved 2026-11-22, Stage 4 review)
+
+Schema adjustments S1–S14 ([Database Plan §9](./ADMIN_DATABASE_PLAN.md)) are approved in principle. The following safeguards are requirements: a stage that depends on one can't ship until it's met.
+
+**1. Authentication: an established external provider with MFA (Stage 5)**
+- **Provider:** use an established, maintained identity provider through its supported Next.js integration. Don't build password, recovery, session or MFA code in this application.
+- **MFA:** required for every admin account, enforced by provider policy. Where the provider exposes it, the Data Access Layer also checks an MFA claim (for example `amr`) and denies sessions without one.
+- **No sign-up:** public registration is disabled at the provider, and only allowlisted accounts can sign in.
+- **Role mapping:** OWNER, ADMIN and EDITOR are stored **in this application's database**, keyed by the provider's **immutable subject ID** (not the email address, which can change or be re-assigned).
+  - An authenticated identity with no matching active, non-disabled user record gets no admin access.
+  - Roles are never read from client-editable data, URL parameters, or provider profile fields the user can change.
+  - The first OWNER is provisioned deliberately (a seed or CLI step run by the owner), never by "first sign-in becomes OWNER".
+- **Server-side checks:** every admin page, Server Action and Route Handler re-checks the session and role on the server (§2.1, §2.9). Role and user changes are OWNER-only and audit-logged, and the last active OWNER can't be demoted or disabled.
+- **Choosing a provider:** decide in Stage 5, checking compatibility with Next.js 16.4.6, its MFA enforcement options, data residency and cost.
+
+**2. Notification retries: keep duplicates to a minimum, and handle uncertain outcomes**
+- **Outbox first:** the outbox is the only path to Brevo. Each attempt first claims the row atomically (`status = SENDING`, `lockedUntil` set) so two workers can't send the same notification.
+- **Outcome classes:**
+
+  | Provider result | Classification | Automatic behaviour |
+  | --- | --- | --- |
+  | 2xx with a message ID | `SENT` (store `providerMessageId`) | none |
+  | Failure known to happen **before** Brevo accepted the request (DNS or connect failure, TLS error, 429) | `FAILED`, retryable | Retry with exponential backoff and a cap on attempts |
+  | 4xx configuration or validation error (401, 400) | `FAILED`, permanent | No retry. Shown on the dashboard. |
+  | **Uncertain**: timeout or connection reset after the request was sent, a 5xx response, or a success with an unreadable body | **`UNCERTAIN`** | **Never retried automatically.** Shown to OWNER/ADMIN, who check Brevo's logs and then choose **Mark as sent** or **Send again** (audit-logged). |
+
+- **Correlation ID:** every message carries the enquiry ID, in the subject line ("Enquiry #…") and, if the Brevo API supports it (verify at implementation), as a custom header or tag. This makes duplicates obvious to the recipient and lets an uncertain attempt be matched in Brevo's logs.
+- **Idempotency:** if Brevo offers a send-idempotency key, pass the outbox ID. Don't assume it does.
+- **Database update failure:** if the send succeeds but updating the database fails, the row stays `SENDING` until `lockedUntil` expires and then becomes `UNCERTAIN`, not `PENDING`. That situation therefore never produces an automatic resend.
+- The visitor's response never depends on delivery (Database Plan §5).
+
+**3. Contact-form abuse protection: a gate before database-backed submissions**
+
+Public submissions are **not** written to the database (roadmap stage 7) until both of these are done, tested, and verified on a preview deployment:
+- **Debt #8 (trusted-IP rate limiting):**
+  - The client IP comes from the value the hosting platform guarantees (Vercel's documented helper or platform header), not from the first client-supplied `x-forwarded-for` entry.
+  - Before relying on it, check on a preview that a spoofed `X-Forwarded-For` header is ignored.
+  - Limits are shared across instances (the `RateLimitBucket` table or a managed store) and keyed by a salted hash of the IP.
+  - Responses stay unchanged (`429 rate_limited`).
+- **Debt #7 (server-side validation):**
+  - One shared zod schema validates every field, including the `EnquiryType` values (S6), and enforces length limits that match the database columns.
+  - The existing `400 validation` response shape is preserved.
+
+**4. Environment isolation: production client data stays in production**
+- **Credentials:** production database credentials exist only in Vercel's **Production** environment scope. Preview and Development scopes, and `.env.local`, point only at their own Neon branches.
+- **No copies:** `preview` and `development` are **schema-only** branches seeded with public site content and synthetic enquiries (`example.com`). Never create them with data from production, reset them from it, or restore production backups into them.
+- **Runtime guard:** a non-secret `DATABASE_ENVIRONMENT` variable is set per scope (`production`, `preview` or `development`). `lib/db.ts` refuses to connect when it doesn't match `VERCEL_ENV`, or when it says `production` outside a production deployment, so a mis-scoped variable fails closed.
+- **Exports:** no enquiry export, dump or log leaves production. Logs record outcome codes only (Database Plan §5). Debugging uses synthetic data in lower environments.
+- **Roles:** use separate Neon roles and passwords per branch where the plan allows, so a leaked development credential can't reach production.
+
+**5. Production migrations need explicit approval**
+- **The only path:** production schema changes go through `prisma migrate deploy`, run as a deliberate, separately approved step. Either:
+  - a manually triggered CI workflow with a protected environment that requires the owner's approval, or
+  - a one-time run by the owner.
+- **Never automatic:** migrations never run in `next build`, `postinstall` or the Vercel build. `migrate dev` and `migrate reset` never run against production.
+- **Every migration PR includes:**
+  - the generated SQL;
+  - a note on whether the change is additive or destructive;
+  - test evidence from `development` and `preview`;
+  - a rollback or restore plan.
+- **Before applying,** check Neon's point-in-time-restore window and take a named snapshot of the production branch.
+- **Destructive changes** (dropping or renaming columns, tables or enum values) need a separate explicit approval, and the expand → migrate → contract pattern.
+
 ---
 
 ## 3. What changes vs. what stays untouched

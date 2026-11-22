@@ -478,6 +478,13 @@ The honeypot behaviour is unchanged: no row is written and no email is sent. The
 
 If delivery succeeds but updating the database fails, the outbox may be retried and duplicate an email. Keep provider delivery errors distinct from persistence errors, make retries visible, and use provider idempotency if it is supported; do not silently mark an unrecorded delivery as successful.
 
+**Retry policy (approved 2026-11-22):** see [Architecture §2.12 item 2](./ADMIN_DASHBOARD_ARCHITECTURE.md).
+- **Atomic claim:** each attempt claims the outbox row first, so only one worker sends.
+- **Automatic retries:** only for failures known to happen before Brevo accepted the request.
+- **Uncertain outcomes** (timeouts after sending, 5xx responses, or an expired `SENDING` lock) become `UNCERTAIN`. They're never resent automatically; an OWNER or ADMIN resolves them after checking Brevo's logs.
+
+**Gate:** public submissions aren't persisted until debt #7 (server-side validation) and #8 (trusted-IP, shared rate limiting) are complete and verified on a preview ([Architecture §2.12 item 3](./ADMIN_DASHBOARD_ARCHITECTURE.md)).
+
 ---
 
 ## 6. Data retention
@@ -584,7 +591,9 @@ Migrations:
 | `preview` branch | `prisma migrate deploy`, then the seed | Manually or from CI, after the migration PR is reviewed |
 | `production` | `prisma migrate deploy` only | A separate, explicitly approved step: from CI with a protected environment, or run once by the owner. **Never part of `next build`, and never `migrate dev` or `migrate reset`.** |
 
-## 9. Stage 4 review: schema adjustments (proposed, pending approval)
+## 9. Stage 4 review: schema adjustments (approved in principle 2026-11-22)
+
+The owner approved S1–S14 in principle, together with the safeguards in [Architecture §2.12](./ADMIN_DASHBOARD_ARCHITECTURE.md). Final field-level details are confirmed in the reviewed migration PR, after the Neon environment is verified (§7.1).
 
 Checked against the Stage 3 `lib/content` API and the live data (8 projects, 9 insights, 3 services, 14 FAQs).
 
@@ -594,12 +603,12 @@ Checked against the Stage 3 `lib/content` API and the live data (8 projects, 9 i
 | S2 | Insight categories | Add `InsightCategory { id, slug @unique, name @unique, sortOrder }` and `Insight.categoryId` (FK, `onDelete: Restrict`). Seed the 6 current names exactly. | The topic filter and `getRelatedInsights` both compare categories exactly, so a free-text typo would split a topic. Restrict stops a category in use from being deleted. |
 | S3 | Featured insight | Keep the partial unique index. The mapper must reproduce the fallback `featured ?? first insight`. | `getFeaturedInsight` falls back to the first insight when none is flagged. |
 | S4 | Enquiry notes | Replace `Enquiry.adminNotes` with `EnquiryNote { id, enquiryId → Enquiry (Cascade), authorId → AdminUser (SetNull), body Text, createdAt }`, plus `@@index([enquiryId, createdAt])`. | Notes become attributable and timestamped. Still OWNER/ADMIN only. |
-| S5 | Notification state | Make `EmailOutbox` the single source of truth:<br>• add `status` (`PENDING`, `SENDING`, `SENT`, `FAILED`), `lockedUntil` and `providerMessageId`;<br>• add `@@index([status, nextAttemptAt])`;<br>• keep only a denormalised `Enquiry.notificationStatus`, updated in the same transaction, for list filtering;<br>• drop `notificationAttemptAt` and `notificationErrorCode` from `Enquiry`. | Avoids the two records drifting apart. `lockedUntil` stops concurrent retries from sending twice. `providerMessageId` lets a delivery be traced in Brevo. |
+| S5 | Notification state | Make `EmailOutbox` the single source of truth:<br>• add `status` (`PENDING`, `SENDING`, `SENT`, `FAILED`, `UNCERTAIN`), `lockedUntil` and `providerMessageId`;<br>• add `@@index([status, nextAttemptAt])`;<br>• keep only a denormalised `Enquiry.notificationStatus`, updated in the same transaction, for list filtering;<br>• drop `notificationAttemptAt` and `notificationErrorCode` from `Enquiry`. | Avoids the two records drifting apart. `lockedUntil` stops concurrent retries from sending twice. `UNCERTAIN` outcomes are never retried automatically (Architecture §2.12 item 2). `providerMessageId` lets a delivery be traced in Brevo. |
 | S6 | Enquiry type | Replace `requestedService String` with an `EnquiryType` enum, using `@map` for the existing form keys (`osh`, `ehs-systems`, `digital-communication`, `professional-opportunity`, `collaboration`, `other`). | Implements debt #7 at the database level. |
 | S7 | Enquiry archive | Add `archivedAt DateTime?` next to `resolvedAt`. | Retention rules (§6) need the archive date. |
 | S8 | Slugs and redirects | Create `Redirect` in the **same migration as the content tables**, not phase 2, and extend it with:<br>• `entityType` and `entityId`;<br>• `statusCode` (301 or 308);<br>• `@@index([toPath])`.<br>Then:<br>• the admin rejects a redirect whose `fromPath` is a live route;<br>• the admin collapses redirect chains;<br>• slugs stay **read-only in the MVP**, and editing ships only with the redirect write path. | The approved rule is that the redirect strategy exists before any slug change. |
 | S9 | Slug format | Raw-SQL `CHECK (slug ~ '^[a-z0-9]+(-[a-z0-9]+)*$')` on `Project`, `Insight`, `Service`, `Faq` and `InsightCategory`. | Every current slug matches the pattern. It blocks URL-breaking values. |
-| S10 | Users and roles | Keep one `role AdminRole` per user (OWNER, ADMIN, EDITOR, as approved), and add:<br>• `disabledAt DateTime?` for revocation without deleting history;<br>• store email lower-cased with `CHECK (email = lower(email))`;<br>• the application enforces "at least one active OWNER".<br>Merge `AdminUser` with the auth library's user model once Stage 5 picks the provider, rather than keeping two user tables. | Revoking a user and matching emails case-insensitively are basic access-control needs. A second user table would duplicate the provider's. |
+| S10 | Users and roles | Keep one `role AdminRole` per user (OWNER, ADMIN, EDITOR, as approved), keyed by the external provider's immutable subject ID (`providerSubject @unique`, Architecture §2.12 item 1), and add:<br>• `disabledAt DateTime?` for revocation without deleting history;<br>• store email lower-cased with `CHECK (email = lower(email))`;<br>• the application enforces "at least one active OWNER".<br>Merge `AdminUser` with the auth library's user model once Stage 5 picks the provider, rather than keeping two user tables. | Revoking a user and matching emails case-insensitively are basic access-control needs. A second user table would duplicate the provider's. |
 | S11 | Audit log | Add:<br>• `actorRole`, a snapshot of the user's role at the time;<br>• `@@index([userId, createdAt])`.<br>For enquiries, record the **names of changed fields only**, never values. | EDITOR-safe history that keeps client personal data out of the log. |
 | S12 | Timestamps | Use `@db.Timestamptz(3)` on every `DateTime`, keeping `@db.Date` for `publishedAt`. | Unambiguous times across the Vercel region and the owner's timezone. |
 | S13 | Related insights | Keep the `ProjectInsights` relation, noting that `relatedInsightIds` isn't currently rendered anywhere. Defer an ordered join table until it is. | Avoids designing for an unused field. |
