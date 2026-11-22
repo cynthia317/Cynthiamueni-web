@@ -1,6 +1,14 @@
 # Admin Dashboard: Database Plan
 
-Status: **Proposal, not yet implemented**. Companion to [ADMIN_DASHBOARD_ARCHITECTURE.md](./ADMIN_DASHBOARD_ARCHITECTURE.md).
+Status: **Proposal, not yet implemented**. Reviewed in Stage 4 (2026-11-22, §7–§9). Companion to [ADMIN_DASHBOARD_ARCHITECTURE.md](./ADMIN_DASHBOARD_ARCHITECTURE.md).
+
+> **Stage 4 verification result (2026-11-22): Neon is still unverified.**
+>
+> - **Repository:** no database code, dependencies or migrations, and none in the git history. No database variable names are configured anywhere: there's no `.env.local`, and `.env.example` lists only `BREVO_API_KEY`, `CONTACT_TO_EMAIL` and `CONTACT_FROM_EMAIL`.
+> - **Vercel:** the repository isn't linked to a project (no `.vercel/`), and neither the Vercel CLI nor the Neon CLI is installed.
+> - **Session tools:** no Neon or Vercel tool is connected, so the existing Neon project, its branches and data, and Vercel's database variables couldn't be inspected.
+>
+> The owner verifies these in the dashboards using the checklist in §7.1. Nothing has been created, connected or migrated.
 
 ---
 
@@ -83,7 +91,8 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  // URLs configured in prisma.config.ts (DATABASE_URL pooled, DIRECT_URL for migrations)
+  // Prisma 7: no URL here. prisma.config.ts sets datasource.url to the DIRECT (unpooled) URL for the CLI;
+  // the runtime client gets the POOLED URL through a driver adapter (see §8).
 }
 
 // ─────────────────────────── Application user / authorization ───────────────────────────
@@ -480,3 +489,137 @@ If delivery succeeds but updating the database fails, the outbox may be retried 
 | Rate-limit buckets | Delete when the window has expired | Same as sessions |
 | Audit log | Agree and document a retention period | Host-supported scheduled task |
 | IP addresses | Stored only as salted SHA-256 hashes | `IP_HASH_SALT` env var |
+
+---
+
+## 7. Stage 4 review (2026-11-22): environments
+
+### 7.1 Owner verification checklist (dashboards only; never paste secrets into chat or the repo)
+
+**Neon console**
+1. Is there an existing project for this site? Record:
+   - project name and ID;
+   - region;
+   - Postgres version;
+   - plan (Free, Launch or Scale), which determines protected branches, branch limits and point-in-time restore;
+   - owner account.
+2. **Branches:** which branches exist, and which one is the default (root)?
+3. **Tables and data:** in **Tables** (or the SQL editor, read-only), are there any tables in any branch?
+   - If yes, record the table names and approximate row counts.
+   - Note whether any table holds personal data.
+   - Don't drop, rename or modify anything.
+4. **Roles and databases:** which roles and databases exist (for example `neondb_owner` / `neondb`)?
+5. **Vercel integration:** is a Vercel integration installed? Look under **Integrations** in Neon, or under the Vercel project's **Storage** or **Integrations** tab. If it is, record:
+   - which Vercel project it's linked to;
+   - whether it creates a branch for each preview deployment;
+   - which branch that per-preview branching copies from.
+
+**Vercel dashboard** (project `cynthiamueni-web`)
+
+6. **Environment variables:** under Settings → Environment Variables, record the **names only** for Production, Preview and Development. Look for `DATABASE_URL`, `DATABASE_URL_UNPOOLED`, `POSTGRES_*` and `PG*`, and note which Neon branch each environment points to; the hostname shows the endpoint, so don't share the password.
+7. **Functions:** under Settings → Functions, record the **Function Region** and the **Node.js version**. Prisma 7.10.1 needs Node `^20.19`, `^22.12` or `>=24`.
+8. **Deployment Protection:** confirm previews stay protected (they currently redirect to Vercel login).
+
+Expected outcomes:
+
+| Outcome | What it means |
+| --- | --- |
+| **A. A project exists and holds no tables** | Reuse it. Use the default branch as `production`. |
+| **B. A project exists and holds tables** | Stop and review before any Prisma work. Existing tables must be baselined and never reset; see §9.1. |
+| **C. No project exists** | Creating one requires explicit approval, in the region nearest the Vercel function region. |
+
+### 7.2 Recommended Neon branch structure
+
+| Neon branch | Used by | Created from | Data | Protection |
+| --- | --- | --- | --- | --- |
+| `production` (default/root) | Vercel **Production** only | — | Live data | Protected branch (if the plan allows). Only `prisma migrate deploy`, after approval. |
+| `preview` | Vercel **Preview** (one shared branch) | **Schema-only** branch of `production` | Public site content from `prisma/seed.ts` and synthetic enquiries | Can be reset at any time |
+| `development` | Local `.env.local` | **Schema-only** branch of `production` | Same as `preview` | Can be reset at any time |
+| `dev-shadow` (optional) | `prisma migrate dev` shadow database | Empty | None | Only if Neon roles can't create a temporary shadow database |
+
+Rules:
+- **Never branch with data from `production`, and never "reset from parent", for preview or development once production holds enquiries.** A data branch copies client personal data. Use schema-only branches, or re-create the branch and run the seed.
+- **Per-preview branching:** if Neon's Vercel integration has "create a branch for every preview deployment" turned on and copies from `production`, turn it off or point it at `preview`. One shared `preview` branch is enough for this site.
+- **Connection strings:** each Vercel environment gets its own variables, pointing at its own branch. Production values exist only in Vercel's Production scope and never in `.env.local`.
+- **Roles:** use separate Neon roles per branch where practical, so a leaked development credential can't reach production. As a minimum, every branch has its own endpoint and password.
+
+### 7.3 Environment variables (names to confirm against §7.1 step 6)
+
+| Name | Purpose | Production | Preview | Development (`.env.local`) |
+| --- | --- | --- | --- | --- |
+| `DATABASE_URL` | Pooled URL for runtime queries | prod pooled | preview pooled | development pooled |
+| `DATABASE_URL_UNPOOLED` | Direct URL for the Prisma CLI (migrations) | prod direct (used only by the approved deploy step) | preview direct | development direct |
+| `IP_HASH_SALT` | Hashing enquiry IPs (later stage) | unique random value | different value | different value |
+
+Reuse the names Neon's Vercel integration already created, if any (it typically creates `DATABASE_URL` and `DATABASE_URL_UNPOOLED`) instead of adding parallel ones. Auth variables are defined in Stage 5.
+
+## 8. Stage 4 review: Prisma integration plan
+
+**Version:** pin **Prisma 7.10.1** exactly: `prisma`, `@prisma/client`, and the chosen adapter `@prisma/adapter-*`, all at the same version.
+- It's the current stable release (published 2026-10-15).
+- **Don't run a bare `npm install prisma`.** The npm `latest` tag for `prisma` currently points to **8.0.0-rc.34**, a release candidate, while `@prisma/client` `latest` is 7.10.1.
+- Prisma 7.10.1 requires Node `^20.19`, `^22.12` or `>=24`. Next.js 16.4.6 requires Node `>=20.9`.
+
+Verified from the 7.10.1 packages:
+- `prisma.config.ts` (`defineConfig`, with `env()` from `prisma/config`) holds `schema`, `migrations.path`, `migrations.seed` and `datasource.url`. **`datasource` accepts only `url` and `shadowDatabaseUrl`; there is no `directUrl`.**
+- So `datasource.url = env("DATABASE_URL_UNPOOLED")`, used by migrate, introspection and Studio.
+- The runtime client receives the **pooled** `DATABASE_URL` through a driver adapter. Driver adapters are how Prisma 7 connects.
+- **Adapter:**
+  - **`@prisma/adapter-pg`** (TCP to Neon's pooled endpoint) suits Vercel's Node.js runtime, which every database route will use.
+  - **`@prisma/adapter-neon`** (Neon's serverless driver, which accepts `@neondatabase/serverless` `>0.6.0 <2`) is the alternative if connection setup latency becomes an issue.
+  - Decide with a small spike on the `development` branch in Stage 5. Nothing touches the Edge runtime: `proxy.ts` must not import the database.
+
+Integration pattern (unchanged from §1, now concrete):
+- **Generator:** `generator client { provider = "prisma-client", output = "../lib/generated/prisma" }`. The output folder is git-ignored.
+- **Generate in the build:** `prisma generate` runs in `postinstall` or the build script, so Vercel builds always generate a fresh client.
+- **One client:** `lib/db.ts` (`import "server-only"`) creates one `PrismaClient({ adapter })`, cached on `globalThis` in development.
+- **Content cutover:** only `lib/content/*` imports `lib/db.ts`. Public pages stay statically generated, and admin writes call `revalidatePath`/`revalidateTag`.
+- **Builds must not need a database:** keep `generateStaticParams` and the public pages on the static source until the cutover step (§4 verification), so a database outage can't break a deployment.
+
+Migrations:
+
+| Where | Command | When |
+| --- | --- | --- |
+| Local, `development` branch | `prisma migrate dev` (`--create-only` when raw SQL from §3.1 must be added) | While developing. Migration files are committed. |
+| `preview` branch | `prisma migrate deploy`, then the seed | Manually or from CI, after the migration PR is reviewed |
+| `production` | `prisma migrate deploy` only | A separate, explicitly approved step: from CI with a protected environment, or run once by the owner. **Never part of `next build`, and never `migrate dev` or `migrate reset`.** |
+
+## 9. Stage 4 review: schema adjustments (proposed, pending approval)
+
+Checked against the Stage 3 `lib/content` API and the live data (8 projects, 9 insights, 3 services, 14 FAQs).
+
+| # | Area | Adjustment | Why |
+| --- | --- | --- | --- |
+| S1 | Insights order | Add `Insight.sortOrder Int`, seeded from the current array index. Public queries order by `sortOrder`, not `publishedAt`. | The page shows insights in array order, which isn't date order (2026-09-30, 08-26, 09-29, …). Ordering by date would visibly reorder the Insights page. |
+| S2 | Insight categories | Add `InsightCategory { id, slug @unique, name @unique, sortOrder }` and `Insight.categoryId` (FK, `onDelete: Restrict`). Seed the 6 current names exactly. | The topic filter and `getRelatedInsights` both compare categories exactly, so a free-text typo would split a topic. Restrict stops a category in use from being deleted. |
+| S3 | Featured insight | Keep the partial unique index. The mapper must reproduce the fallback `featured ?? first insight`. | `getFeaturedInsight` falls back to the first insight when none is flagged. |
+| S4 | Enquiry notes | Replace `Enquiry.adminNotes` with `EnquiryNote { id, enquiryId → Enquiry (Cascade), authorId → AdminUser (SetNull), body Text, createdAt }`, plus `@@index([enquiryId, createdAt])`. | Notes become attributable and timestamped. Still OWNER/ADMIN only. |
+| S5 | Notification state | Make `EmailOutbox` the single source of truth:<br>• add `status` (`PENDING`, `SENDING`, `SENT`, `FAILED`), `lockedUntil` and `providerMessageId`;<br>• add `@@index([status, nextAttemptAt])`;<br>• keep only a denormalised `Enquiry.notificationStatus`, updated in the same transaction, for list filtering;<br>• drop `notificationAttemptAt` and `notificationErrorCode` from `Enquiry`. | Avoids the two records drifting apart. `lockedUntil` stops concurrent retries from sending twice. `providerMessageId` lets a delivery be traced in Brevo. |
+| S6 | Enquiry type | Replace `requestedService String` with an `EnquiryType` enum, using `@map` for the existing form keys (`osh`, `ehs-systems`, `digital-communication`, `professional-opportunity`, `collaboration`, `other`). | Implements debt #7 at the database level. |
+| S7 | Enquiry archive | Add `archivedAt DateTime?` next to `resolvedAt`. | Retention rules (§6) need the archive date. |
+| S8 | Slugs and redirects | Create `Redirect` in the **same migration as the content tables**, not phase 2, and extend it with:<br>• `entityType` and `entityId`;<br>• `statusCode` (301 or 308);<br>• `@@index([toPath])`.<br>Then:<br>• the admin rejects a redirect whose `fromPath` is a live route;<br>• the admin collapses redirect chains;<br>• slugs stay **read-only in the MVP**, and editing ships only with the redirect write path. | The approved rule is that the redirect strategy exists before any slug change. |
+| S9 | Slug format | Raw-SQL `CHECK (slug ~ '^[a-z0-9]+(-[a-z0-9]+)*$')` on `Project`, `Insight`, `Service`, `Faq` and `InsightCategory`. | Every current slug matches the pattern. It blocks URL-breaking values. |
+| S10 | Users and roles | Keep one `role AdminRole` per user (OWNER, ADMIN, EDITOR, as approved), and add:<br>• `disabledAt DateTime?` for revocation without deleting history;<br>• store email lower-cased with `CHECK (email = lower(email))`;<br>• the application enforces "at least one active OWNER".<br>Merge `AdminUser` with the auth library's user model once Stage 5 picks the provider, rather than keeping two user tables. | Revoking a user and matching emails case-insensitively are basic access-control needs. A second user table would duplicate the provider's. |
+| S11 | Audit log | Add:<br>• `actorRole`, a snapshot of the user's role at the time;<br>• `@@index([userId, createdAt])`.<br>For enquiries, record the **names of changed fields only**, never values. | EDITOR-safe history that keeps client personal data out of the log. |
+| S12 | Timestamps | Use `@db.Timestamptz(3)` on every `DateTime`, keeping `@db.Date` for `publishedAt`. | Unambiguous times across the Vercel region and the owner's timezone. |
+| S13 | Related insights | Keep the `ProjectInsights` relation, noting that `relatedInsightIds` isn't currently rendered anywhere. Defer an ordered join table until it is. | Avoids designing for an unused field. |
+| S14 | Rate limiting | `RateLimitBucket`: add `@@index([windowStart])` for cleanup. Use it for debt #8, the shared rate limiter. | — |
+
+Unchanged and confirmed:
+- **Featured slots:** `FeaturedPlacement` uniques `(slot, position)` and `(slot, projectId)`, with Restrict on delete, matching the three `FEATURED_PROJECT_SLOTS`.
+- **Slug uniques:** unique slugs on content.
+- **Flagship:** the single-flagship index, since the data has exactly one flagship.
+- **Content:** `Service.iconKey` registry and the `SiteSettings` singleton.
+- **Secrets:** secrets stay out of the database.
+
+### 9.1 Migration risks and safeguards
+
+| Risk | Safeguard |
+| --- | --- |
+| `prisma migrate dev` detects drift and offers to **reset**, which drops all data, if pointed at a database with existing tables or at production | Production URLs never go in `.env.local`; development uses only the `development` branch. If §7.1 finds existing tables, baseline them with `prisma migrate diff` and `migrate resolve --applied` before the first migration. Never run `migrate reset` outside `development`. |
+| The shadow database for `migrate dev` needs permission to create databases | Use the branch owner role, or set `shadowDatabaseUrl` to a `dev-shadow` branch. |
+| Postgres enum changes (renaming or removing a value) are awkward | Add values only, and review every enum change in the PR. Label text lives in mappers, so wording changes need no migration. |
+| Raw-SQL constraints (§3.1, S9, S10) are invisible to Prisma | Create them with `migrate dev --create-only`, edit the SQL, and test on `development` and `preview` first. |
+| Copying client data into lower environments | Schema-only branches and the seed only (§7.2). |
+| The deploy build depends on the database | `generateStaticParams` and public pages stay on static data until the verified cutover (§4). |
+| Restoring production | Before the first production migration, check the Neon plan's point-in-time-restore window and take a named branch snapshot. |

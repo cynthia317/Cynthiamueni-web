@@ -15,7 +15,7 @@ All work happens on the `feature/admin-dashboard` branch, never directly on `mai
 | 1 | Feature branch and clean Git checkpoint; planning docs updated with the confirmed decisions | — | **Done** (2026-11-21) |
 | 2 | Record a baseline of the public website (routes, content, SEO metadata, structured data, key UI elements) | 0.1 | **Done** (2026-11-21): `tests/baseline/` |
 | 3 | Content abstraction (`lib/content`), then the `(site)` folder restructuring, each verified against the baseline | 0.2–0.4 | **Done** (2026-11-22): see notes below |
-| 4 | **Verify the existing Neon setup** (project, branches, variable names in Vercel, existing tables) before any database change | 1.1 | Not started |
+| 4 | **Verify the existing Neon setup** (project, branches, variable names in Vercel, existing tables) before any database change | 1.1 | **In progress.** The repository audit and planning review are done (Database Plan §7–§9). Neon and Vercel access isn't available from the development environment, so the owner must complete the dashboard checklist (§7.1). |
 | 5 | Secure authentication and OWNER/ADMIN/EDITOR role-based access | 1.2–1.4 (enquiry/auth tables only), 2.x | Not started |
 | 6 | Admin layout | 3 | Not started |
 | 7 | Enquiries module | 4 | Not started |
