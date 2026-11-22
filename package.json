@@ -10,10 +10,16 @@
     "baseline:capture": "node tests/baseline/capture.mjs",
     "baseline:check": "node tests/baseline/capture.mjs --check",
     "test:interactive": "node tests/interactive/interactions.mjs",
-    "test": "vitest run"
+    "test": "vitest run",
+    "postinstall": "prisma generate",
+    "db:generate": "prisma generate",
+    "db:status": "prisma migrate status",
+    "test:db": "vitest run --config vitest.db.config.mts"
   },
   "dependencies": {
     "@next/third-parties": "^16.4.0",
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
     "lucide-react": "^1.31.0",
     "next": "16.4.6",
     "next-themes": "^0.4.6",
@@ -27,6 +33,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
+    "prisma": "7.10.1",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite": "^7.3.8",

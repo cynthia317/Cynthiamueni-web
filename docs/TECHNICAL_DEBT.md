@@ -31,6 +31,8 @@ These issues are **recorded, not fixed**. Stages 2–3 deliberately left them in
 | 13 | 404 pages import Next's built-in 404 body from an internal path | Low | P3 | Framework coupling |
 | 14 | Windows Application Control blocks some native npm binaries on the dev machine | Low | P3 | Dev environment |
 | 15 | Small differences between Vercel and the local `next start` (404 title order, `/index`, charset casing) | Low | P3 | Hosting |
+| 16 | `prisma` CLI pulls in `effect` 3.20.0 (GHSA-7589-6fvf-x4pw, ReDoS) | Medium | P2 | Dependencies |
+| 17 | Neon on the Free plan: no protected branches, 6-hour restore window | Medium | P2 (before production data) | Database |
 
 ## Details and recommended corrections
 
@@ -142,6 +144,21 @@ These issues are **recorded, not fixed**. Stages 2–3 deliberately left them in
   - **Content type:** `robots.txt` and the Google verification file differ only in the `charset` casing or parameter in `Content-Type`.
 - **Impact:** negligible for SEO. The 404 responses are `noindex`, and `/index` isn't linked anywhere.
 - **Correction:** optional. A site-designed 404 page with its own `metadata` (see item 13) would give a single title. The baseline is a local regression check and isn't expected to reproduce platform routing.
+
+### 16. `effect` advisory via the Prisma CLI (Medium · P2) *(Stage 4)*
+
+- **Evidence:** `prisma@7.10.1` → `@prisma/config@7.10.1` pins `effect@3.20.0` exactly. GHSA-7589-6fvf-x4pw is a ReDoS in `Schema.TemplateLiteral`. `npm audit --omit=dev` lists it as 3 high-severity entries because `@prisma/client` declares `prisma` as a peer dependency.
+- **Impact:** the code only runs in the Prisma CLI and config loader, against the repository's own trusted config. The build contains no Prisma or `effect` code in `.next/static` or `.next/server`, and the runtime client doesn't depend on `@prisma/config`.
+- **Correction:** upgrade to the first stable Prisma 7.x release that ships a fixed `effect`. Don't use `npm audit fix --force`: it downgrades Prisma to 6.12. Re-check whenever Prisma is upgraded.
+
+### 17. Neon Free plan limits (Medium · P2, before production holds real data) *(Stage 4)*
+
+- **Evidence:** project `red-forest-05302661` is on the Free plan. Protected branches aren't available, and the restore window is 6 hours.
+- **Mitigation in place:** production is protected by:
+  - separate per-branch passwords (the development password is rejected by production);
+  - the `DATABASE_ENVIRONMENT` guard in the app and the CLI;
+  - the approval rule for migrations.
+- **Correction:** before enquiries are stored in production, decide whether to upgrade for protected branches and a longer restore window. Take a named snapshot before each production migration.
 
 ### 14. Application Control and native binaries (Low · P3) *(development machine only)*
 

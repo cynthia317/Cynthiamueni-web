@@ -1,8 +1,10 @@
 # Admin Dashboard: Database Plan
 
-Status: **Proposal, not yet implemented**. Reviewed in Stage 4 (2026-11-22, §7–§9). Companion to [ADMIN_DASHBOARD_ARCHITECTURE.md](./ADMIN_DASHBOARD_ARCHITECTURE.md).
+Status: **Implemented on the Neon development branch only** (2026-11-22, §10). Reviewed in Stage 4 (§7–§9). §3 below is the original draft: `prisma/schema.prisma` is the source of truth. Companion to [ADMIN_DASHBOARD_ARCHITECTURE.md](./ADMIN_DASHBOARD_ARCHITECTURE.md).
 
-> **Stage 4 verification result (2026-11-22): Neon is still unverified.**
+> **Superseded the same day (§10):** a dedicated Neon project was created and verified.
+>
+> **Stage 4 verification result (2026-11-22, first audit): Neon is still unverified.**
 >
 > - **Repository:** no database code, dependencies or migrations, and none in the git history. No database variable names are configured anywhere: there's no `.env.local`, and `.env.example` lists only `BREVO_API_KEY`, `CONTACT_TO_EMAIL` and `CONTACT_FROM_EMAIL`.
 > - **Vercel:** the repository isn't linked to a project (no `.vercel/`), and neither the Vercel CLI nor the Neon CLI is installed.
@@ -632,3 +634,53 @@ Unchanged and confirmed:
 | Copying client data into lower environments | Schema-only branches and the seed only (§7.2). |
 | The deploy build depends on the database | `generateStaticParams` and public pages stay on static data until the verified cutover (§4). |
 | Restoring production | Before the first production migration, check the Neon plan's point-in-time-restore window and take a named branch snapshot. |
+
+---
+
+## 10. Stage 4 implementation (2026-11-22): development only
+
+**Status:** Prisma is integrated, and the initial schema is migrated on the Neon **development** branch only. `preview` and `production` have no tables. No public page reads from the database.
+
+**Neon project** `red-forest-05302661` (aws-us-east-2, Postgres 18, Free plan):
+
+| Branch | Endpoint | Contents |
+| --- | --- | --- |
+| `production` (default) | (not recorded in the repository) | Empty. Untouched. |
+| `preview` | `ep-gentle-heart-bd2lwl8b` | Empty schema-only branch, with its own password |
+| `development` | `ep-withered-lake-bdztu36v` | Migration `20261122150000_init` applied |
+
+- Schema-only branches have no data lineage to production, and each has its own `neondb_owner` password.
+- The development password is rejected by production.
+
+**Packages** (exact pins):
+- `prisma` 7.10.1 (dev);
+- `@prisma/client` 7.10.1;
+- `@prisma/adapter-pg` 7.10.1, with `pg` 8.23.1 coming transitively.
+
+Don't use a bare `npm install prisma`: npm's `latest` tag is an 8.0 release candidate.
+
+**Files:**
+
+| File | Purpose |
+| --- | --- |
+| `prisma/schema.prisma` | 14 tables and 11 enums. Implements §3 with S1–S14. Phase-2 models (`Faq`, `Testimonial`, `Media`, `SeoOverride`) come later in additive migrations. |
+| `prisma/migrations/20261122150000_init/migration.sql` | Generated offline with `prisma migrate diff --from-empty`, plus the reviewed raw-SQL constraints: 2 partial unique indexes and 11 CHECKs. No destructive statements. |
+| `prisma.config.ts` | Loads `.env.local` through `@next/env`. The CLI uses `DATABASE_URL_UNPOOLED`. The environment guard runs before any CLI command. The URL is optional, so `prisma generate` works on Vercel without database variables. |
+| `lib/db/environment.ts` | Guard (Architecture §2.12 item 4):<br>• `DATABASE_ENVIRONMENT` must match `VERCEL_ENV`;<br>• the production endpoint (compared by SHA-256 of its ID) is rejected outside production;<br>• production must point at it.<br>Errors never contain URLs. |
+| `lib/db/client.ts` | `import "server-only"` and a lazy `getDb()` with `PrismaPg` on the pooled `DATABASE_URL`, `sslmode=verify-full` and a 10 s connect timeout. Not imported by any route yet. |
+| `lib/auth/permissions.ts` | The OWNER/ADMIN/EDITOR capability matrix from §2.11, enforced on the server from Stage 5. Disabled users get nothing. |
+| `lib/generated/prisma/` | Generated client. Git-ignored, and rebuilt by `postinstall: prisma generate`. |
+
+**Commands:**
+- `npm run db:status`: migration status for the configured database (development locally).
+- `npm run test:db`: integration tests against development. Synthetic data, with every case rolled back.
+- **Applying migrations:** `npx prisma migrate deploy`, reviewed SQL only. Never `migrate reset`.
+- **New migrations:** `prisma migrate diff --from-migrations prisma/migrations --to-schema prisma/schema.prisma --script`, then review the SQL. Or use `migrate dev --create-only` on development only.
+
+**TLS:**
+- **Runtime:** `node-postgres` gets `sslmode=verify-full`, so the certificate and hostname are verified.
+- **CLI:** the Prisma schema engine (CLI) uses the URL's `sslmode=require` as Neon provides it. Prisma's docs don't say whether the engine accepts `verify-full`, so it was left unchanged.
+
+**Not yet done:**
+- Vercel Preview and Production variables, and any `preview` or `production` migration. Each needs approval, per §8 and Architecture §2.12 item 5.
+- A seed script, and the content cutover (§4).

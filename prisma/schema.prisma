@@ -1,0 +1,343 @@
+// Admin dashboard database schema (Stage 4).
+// Design: docs/ADMIN_DATABASE_PLAN.md §3 and the approved adjustments S1–S14 (§9).
+// Phase-2 models (Faq, Testimonial, Media, SeoOverride) are added later in separate additive migrations.
+// Constraints Prisma can't express (partial unique indexes, CHECKs) live in the migration SQL.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  // Prisma 7: URLs live in prisma.config.ts (CLI: direct URL) and lib/db/client.ts (runtime: pooled URL).
+}
+
+// ─────────────────────────── Admin users and authorization ───────────────────────────
+
+/// Approved permissions (Architecture §2.11). Enforced on the server in the Data Access Layer.
+enum AdminRole {
+  OWNER  // everything, including settings, users and permanent enquiry deletion
+  ADMIN  // enquiries (view, status, notes, archive, retry) and content
+  EDITOR // content only: never enquiries or client personal data
+}
+
+/// Application-side user and role. Identity, MFA and sessions belong to the external provider (Stage 5).
+/// S10: keyed by the provider's immutable subject ID, not by email.
+model AdminUser {
+  id              String    @id @default(cuid())
+  providerSubject String    @unique
+  email           String    @unique // stored lower-case (CHECK in migration)
+  name            String?
+  role            AdminRole @default(EDITOR)
+  disabledAt      DateTime? @db.Timestamptz(3)
+  createdAt       DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime  @updatedAt @db.Timestamptz(3)
+
+  auditLogs        AuditLog[]
+  enquiryNotes     EnquiryNote[]
+  redirectsCreated Redirect[]
+}
+
+model RateLimitBucket {
+  key         String   @id // e.g. "contact:<salted ip hash>"
+  count       Int      @default(0)
+  windowStart DateTime @default(now()) @db.Timestamptz(3)
+
+  @@index([windowStart]) // S14: cleanup of expired windows
+}
+
+// ─────────────────────────── Content ───────────────────────────
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ProjectCategory {
+  EHS_SYSTEMS               // "EHS Systems"
+  EHS_DIGITAL_COMMUNICATION // "EHS Systems × Digital Communication"
+  SOFTWARE_SYSTEMS          // "Software / Systems"
+  DIGITAL_MARKETING         // "Digital Marketing"
+  RESEARCH_PROFESSIONAL     // "Research / Professional Work"
+}
+
+enum ProjectStatus {
+  LIVE                     // "Live"
+  IN_DEVELOPMENT           // "In Development"
+  PLANNED                  // "Planned"
+  ACTIVE_PROFESSIONAL_WORK // "Active Professional Work"
+}
+
+enum ProjectTier {
+  FLAGSHIP
+  CORE
+  SUPPORTING
+  REFERRED
+}
+
+enum ProjectVisual {
+  MOCKUP
+  SOCIAL
+}
+
+model Project {
+  id              String          @id @default(cuid())
+  slug            String          @unique // read-only in the MVP (S8)
+  title           String
+  category        ProjectCategory
+  status          ProjectStatus
+  tier            ProjectTier
+  description     String
+  workflow        String[]
+  capabilities    Json            @default("[]") // [{ label: string, planned?: boolean }]
+  tools           String[]
+  imagePath       String?
+  imageAlt        String?
+  visual          ProjectVisual?
+  relatedFaqSlugs String[]
+  relatedInsights Insight[]       @relation("ProjectInsights") // S13
+  seoTitle        String?
+  seoDescription  String?
+  sortOrder       Int             @default(0) // current array order
+  publishStatus   PublishStatus   @default(DRAFT)
+  isProtected     Boolean         @default(false)
+  publishedAt     DateTime?       @db.Timestamptz(3)
+  createdAt       DateTime        @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime        @updatedAt @db.Timestamptz(3)
+
+  placements FeaturedPlacement[]
+
+  @@index([publishStatus, tier, sortOrder])
+}
+
+/// Configurable featured projects (lib/content/featured.ts slots).
+enum FeaturedSlot {
+  HOME_PROJECTS      // homeProjects
+  EXPERTISE_FEATURED // expertiseFeatured
+  EXPERTISE_BRIDGE   // expertiseBridge
+}
+
+model FeaturedPlacement {
+  id        String       @id @default(cuid())
+  slot      FeaturedSlot
+  position  Int
+  projectId String
+  project   Project      @relation(fields: [projectId], references: [id], onDelete: Restrict)
+  updatedAt DateTime     @updatedAt @db.Timestamptz(3)
+
+  @@unique([slot, position])
+  @@unique([slot, projectId])
+  @@index([projectId])
+}
+
+/// S2: normalised insight categories (the topic filter compares names exactly).
+model InsightCategory {
+  id        String    @id @default(cuid())
+  slug      String    @unique
+  name      String    @unique
+  sortOrder Int       @default(0)
+  createdAt DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime  @updatedAt @db.Timestamptz(3)
+
+  insights Insight[]
+}
+
+model Insight {
+  id          String          @id @default(cuid())
+  slug        String          @unique // read-only in the MVP (S8)
+  title       String
+  seoTitle    String?
+  categoryId  String
+  category    InsightCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  excerpt     String
+  publishedAt DateTime?       @db.Date
+  readTime    String
+  imagePath   String
+  imageAlt    String
+  featured    Boolean         @default(false) // at most one (partial unique index); S3 fallback in the mapper
+  content     Json            @default("[]") // InsightContentBlock[]
+  keywords    String[]
+  sortOrder   Int             @default(0) // S1: public order is the current array order, not date order
+  status      PublishStatus   @default(DRAFT)
+  projects    Project[]       @relation("ProjectInsights")
+  createdAt   DateTime        @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime        @updatedAt @db.Timestamptz(3)
+
+  @@index([status, sortOrder])
+  @@index([categoryId])
+}
+
+model Service {
+  id               String        @id @default(cuid())
+  slug             String        @unique // "osh", "software", "digital"
+  title            String
+  iconKey          String // must exist in the icon registry
+  summary          String
+  deliverables     String[]
+  idealFor         String
+  footnoteText     String?
+  footnoteHref     String?
+  footnoteExternal Boolean       @default(false)
+  sortOrder        Int           @default(0)
+  publishStatus    PublishStatus @default(PUBLISHED)
+  createdAt        DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime      @updatedAt @db.Timestamptz(3)
+
+  @@index([publishStatus, sortOrder])
+}
+
+// ─────────────────────────── Enquiries ───────────────────────────
+
+enum EnquiryStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+  ARCHIVED
+}
+
+/// S6: the contact form's existing values (database values keep the form keys).
+enum EnquiryType {
+  OSH                      @map("osh")
+  EHS_SYSTEMS              @map("ehs-systems")
+  DIGITAL_COMMUNICATION    @map("digital-communication")
+  PROFESSIONAL_OPPORTUNITY @map("professional-opportunity")
+  COLLABORATION            @map("collaboration")
+  OTHER                    @map("other")
+}
+
+/// S5 and Architecture §2.12 item 2. UNCERTAIN is never retried automatically.
+enum NotificationStatus {
+  PENDING
+  SENDING
+  SENT
+  FAILED
+  UNCERTAIN
+}
+
+model Enquiry {
+  id                 String             @id @default(cuid())
+  name               String             @db.VarChar(120)
+  email              String             @db.VarChar(254)
+  phone              String?            @db.VarChar(40)
+  organisation       String?            @db.VarChar(160)
+  enquiryType        EnquiryType
+  subject            String             @db.VarChar(200)
+  message            String // ≤ 5000 characters (CHECK in migration, zod in the route)
+  status             EnquiryStatus      @default(NEW)
+  notificationStatus NotificationStatus @default(PENDING) // denormalised from EmailOutbox in the same transaction
+  dedupeHash         String
+  ipHash             String?
+  resolvedAt         DateTime?          @db.Timestamptz(3)
+  archivedAt         DateTime?          @db.Timestamptz(3) // S7
+  createdAt          DateTime           @default(now()) @db.Timestamptz(3)
+  updatedAt          DateTime           @updatedAt @db.Timestamptz(3)
+
+  notes  EnquiryNote[]
+  outbox EmailOutbox?
+
+  @@index([status, createdAt(sort: Desc)])
+  @@index([createdAt(sort: Desc)])
+  @@index([email])
+  @@index([dedupeHash, createdAt])
+  @@index([notificationStatus])
+}
+
+/// S4: attributable, timestamped private notes (OWNER/ADMIN only).
+model EnquiryNote {
+  id        String     @id @default(cuid())
+  enquiryId String
+  enquiry   Enquiry    @relation(fields: [enquiryId], references: [id], onDelete: Cascade)
+  authorId  String?
+  author    AdminUser? @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  body      String
+  createdAt DateTime   @default(now()) @db.Timestamptz(3)
+
+  @@index([enquiryId, createdAt])
+  @@index([authorId])
+}
+
+/// S5: single source of truth for notification delivery.
+model EmailOutbox {
+  id                String             @id @default(cuid())
+  enquiryId         String             @unique
+  enquiry           Enquiry            @relation(fields: [enquiryId], references: [id], onDelete: Cascade)
+  status            NotificationStatus @default(PENDING)
+  attempts          Int                @default(0)
+  nextAttemptAt     DateTime?          @db.Timestamptz(3)
+  lockedUntil       DateTime?          @db.Timestamptz(3) // claim lock: one sender at a time
+  lastAttemptAt     DateTime?          @db.Timestamptz(3)
+  lastErrorCode     String? // redacted code only, never a provider body
+  providerMessageId String? // Brevo message ID, for tracing uncertain attempts
+  sentAt            DateTime?          @db.Timestamptz(3)
+  createdAt         DateTime           @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime           @updatedAt @db.Timestamptz(3)
+
+  @@index([status, nextAttemptAt])
+}
+
+// ─────────────────────────── Redirects, settings, audit ───────────────────────────
+
+enum ContentEntityType {
+  PROJECT
+  INSIGHT
+  SERVICE
+  INSIGHT_CATEGORY
+}
+
+/// S8: created with the content tables so redirects exist before any slug change.
+model Redirect {
+  id          String             @id @default(cuid())
+  fromPath    String             @unique
+  toPath      String
+  statusCode  Int                @default(308) // 301 or 308 (CHECK in migration)
+  entityType  ContentEntityType?
+  entityId    String?
+  createdById String?
+  createdBy   AdminUser?         @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt   DateTime           @default(now()) @db.Timestamptz(3)
+
+  @@index([toPath])
+  @@index([entityType, entityId])
+  @@index([createdById])
+}
+
+/// Singleton (CHECK id = 1 in migration). Public, non-secret values only.
+model SiteSettings {
+  id               Int      @id @default(1)
+  siteName         String
+  siteTitle        String
+  siteDescription  String
+  defaultKeywords  String[]
+  publicEmail      String
+  phoneDisplay     String
+  phoneHref        String
+  location         String
+  businessHours    Json // [{ days, hours }]
+  linkedinUrl      String?
+  facebookUrl      String?
+  githubUrl        String?
+  whatsappNumber   String
+  whatsappMessage  String
+  harunlucasDevUrl String?
+  updatedAt        DateTime @updatedAt @db.Timestamptz(3)
+}
+
+/// S11: for enquiries, `changes` records changed field names only, never values.
+model AuditLog {
+  id         String     @id @default(cuid())
+  userId     String?
+  user       AdminUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  actorRole  AdminRole?
+  action     String // "project.update", "enquiry.status_change", "auth.login_failed", ...
+  entityType String?
+  entityId   String?
+  changes    Json?
+  ipHash     String?
+  createdAt  DateTime   @default(now()) @db.Timestamptz(3)
+
+  @@index([entityType, entityId])
+  @@index([createdAt(sort: Desc)])
+  @@index([userId, createdAt])
+}
