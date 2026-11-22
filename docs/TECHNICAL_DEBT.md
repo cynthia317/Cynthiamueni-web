@@ -1,6 +1,6 @@
 # Technical Debt Register
 
-Last updated: 2026-11-22 (end of Stage 3). Owner review required before any item is scheduled.
+Last updated: 2026-11-22 (Next.js 16.4.6 security update deployed to production). Owner review required before any item is scheduled.
 
 These issues are **recorded, not fixed**. Stages 2–3 deliberately left them in place so the public site's behaviour didn't change. Evidence for issues 1–10 is in [tests/baseline/FUNCTIONALITY.md](../tests/baseline/FUNCTIONALITY.md) and `tests/baseline/snapshots/`.
 
@@ -16,7 +16,7 @@ These issues are **recorded, not fixed**. Stages 2–3 deliberately left them in
 
 | # | Issue | Severity | Priority | Area |
 | --- | --- | --- | --- | --- |
-| 11 | `next@16.3.0` has published critical security advisories | **Critical** | **P0** | Dependencies |
+| 11 | `next@16.3.0` has published critical security advisories | **Critical** | **Resolved**: deployed 2026-11-22 (PR #1, `3b873c6`) | Dependencies |
 | 8 | Contact rate limit is per-instance, in memory, and trusts `x-forwarded-for` | High | **P1** | Contact form |
 | 7 | Server doesn't validate the enquiry type | Medium | **P1** | Contact form |
 | 1 | Tawk.to chat blocked by the CSP on every page | High | P2 | Integrations |
@@ -27,9 +27,10 @@ These issues are **recorded, not fixed**. Stages 2–3 deliberately left them in
 | 9 | Sitemap `lastmod` changes on every build for static and project pages | Low | P2 | SEO |
 | 6 | `/favicon.ico` returns 404 | Low | P3 | Assets |
 | 10 | Large and duplicate images in `public/images` | Medium | P2 | Performance |
-| 12 | Other pre-existing dependency advisories (sharp, ESLint tooling, zod, js-yaml, brace-expansion) | Medium | P2 | Dependencies |
+| 12 | Remaining dependency advisories, development lint tooling only (typescript-eslint, minimatch, brace-expansion, js-yaml, zod) | Medium | P2 | Dependencies |
 | 13 | 404 pages import Next's built-in 404 body from an internal path | Low | P3 | Framework coupling |
 | 14 | Windows Application Control blocks some native npm binaries on the dev machine | Low | P3 | Dev environment |
+| 15 | Small differences between Vercel and the local `next start` (404 title order, `/index`, charset casing) | Low | P3 | Hosting |
 
 ## Details and recommended corrections
 
@@ -38,6 +39,11 @@ These issues are **recorded, not fixed**. Stages 2–3 deliberately left them in
 - **Evidence:** `npm audit --omit=dev` reports 19 advisories for `next` 16.0.0–16.4.4. They include remote code execution in the image optimisation API, `next/og`, and `use cache`; SSRF in image optimisation; and cache poisoning. The production site runs 16.3.0, so this was **already present on `main`** before the admin work.
 - **Impact:** Several advisories apply to features this site uses (`next/image` optimisation on every page, `ImageResponse` for icons).
 - **Correction:** upgrade `next` and `eslint-config-next` to **16.4.6 or later** (a non-breaking minor upgrade per npm). Run the full regression suite (`npm run build`, `npm run baseline:check`, `npm run test:interactive`, `npm test`) and deploy through the normal preview → production flow. This should be its own small, separately approved change and shouldn't wait for the admin roadmap.
+- **Status (2026-11-22): resolved and deployed.** The security-only branch `security/next-16.4.6-production` (based on `main`) was merged in PR #1 (`3b873c6`). Vercel's production deployment of that commit is Ready, and the live client runtime reports `version:"16.4.6"`. That branch also updated `source-map-js` 1.2.1 → 1.2.4 (GHSA-68fv-2mgg-jv7q), a version this branch already had. `main` was then merged back into `feature/admin-dashboard`. The original change was made on branch `security/next-16.4.6`. `next` and `eslint-config-next` are now 16.4.6, and `sharp` 0.35.3 → 0.35.5 came with them. `react` and `react-dom` stay at 19.2.8 because they aren't affected.
+  - **Audit:** `npm audit --omit=dev` reports 0 vulnerabilities, and the GitHub advisory database lists no advisories for `next@16.4.6`.
+  - **React Server Components:** the RSC advisory GHSA-xqc2-xf4c-x3h3 (CVE-2026-126187) covers `react-server-dom-*`, which this project doesn't install. Next.js uses its own bundled copy, and it patched that copy for the same typed-array issue in 16.4.1 (GHSA-673q-mjm6-r5xr, commit `a4cea6a`).
+  - **Regression suite:** passes with no snapshot changes.
+  - **Live check after deployment:** all 24 pages match the baseline snapshots on cynthiamueni.com: SEO metadata, JSON-LD, content and desktop and mobile layout. The sitemap, images, icons, redirects, mobile menu and contact form rendering also match. No new console errors. For the small hosting differences, see item 15.
 
 ### 8. Contact-form rate limiting (High · P1)
 
@@ -114,12 +120,28 @@ These issues are **recorded, not fixed**. Stages 2–3 deliberately left them in
 
   All except `sharp` are development or lint tooling. Stage 3 added no new advisories; Vitest was installed at 4.1.12 specifically to avoid the advisories in 3.x.
 - **Correction:** Most resolve with the `next`/`eslint-config-next` upgrade in item 11 and `npm audit fix` (non-breaking). Re-audit afterwards.
+- **Status after the item 11 upgrade:** the `sharp` advisories are fixed (0.35.5). Ten advisories remain (3 high, 7 moderate), all development or lint tooling and none in the production dependency tree (`npm audit --omit=dev`: 0):
+  - `typescript-eslint` and `@typescript-eslint/*` 8.66.0: moderate.
+  - `minimatch`: moderate.
+  - `brace-expansion`, `js-yaml`, `zod` (via `eslint-config-next`): high.
+
+  They are ReDoS and resource-exhaustion issues reachable only when lint runs over trusted repository files. `npm audit fix` resolves them without `--force`, but they were left out of the security change to keep it limited to the required production fix. Schedule them as a separate tooling change.
 
 ### 13. Internal import for the 404 body (Low · P3) *(introduced in Stage 3, deliberately)*
 
 - **Evidence:** `app/not-found.tsx` and `app/(site)/not-found.tsx` import `next/dist/client/components/builtin/not-found`, so the 404 pages stay identical after the `(site)` route-group move.
 - **Risk:** A future Next.js upgrade could move this file. The build would then fail with a clear error; nothing would fail silently.
 - **Correction:** When convenient, replace it with a site-designed 404 page (a deliberate visual change that needs design approval), or re-check the path during each Next.js upgrade.
+- **Checked for 16.4.6:** `builtin/not-found.js` and `.d.ts`, plus the `error-fallback` component they render, are byte-identical to 16.3.0. The build and the baseline's 404 checks pass, so no replacement was needed.
+
+### 15. Vercel vs local `next start` differences (Low · P3) *(found during the production check, 2026-11-22)*
+
+- **Evidence** (live site compared with the baseline, which was captured with `next start`):
+  - **Unmatched URLs:** both servers return 404 with `noindex` and render the same 404 page. Next.js emits two `<title>` elements in that HTML, its 404 title and the root layout's default title. Locally the 404 title comes first. Vercel's `/404` output puts the default site title first, so a tool that reads the first title sees the site title. It isn't known whether Vercel ordered them the same way before the 16.4.6 upgrade, because the previous production deployment couldn't be inspected.
+  - **`/index`:** Vercel serves the home page with 200. Locally it returns 404.
+  - **Content type:** `robots.txt` and the Google verification file differ only in the `charset` casing or parameter in `Content-Type`.
+- **Impact:** negligible for SEO. The 404 responses are `noindex`, and `/index` isn't linked anywhere.
+- **Correction:** optional. A site-designed 404 page with its own `metadata` (see item 13) would give a single title. The baseline is a local regression check and isn't expected to reproduce platform routing.
 
 ### 14. Application Control and native binaries (Low · P3) *(development machine only)*
 
