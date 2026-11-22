@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import Header from "@/components/layout/Header";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Footer from "@/components/layout/Footer";
-import WhatsAppFloatingButton from "@/components/ui/WhatsAppFloatingButton";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/constants";
 
 const geistSans = Geist({
@@ -53,23 +49,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body suppressHydrationWarning className="flex min-h-full flex-col font-sans">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {/* Non-sticky anchor target for "Back to top" links — the sticky
-              Header can't be the target itself, since its bounding rect is
-              pinned at the viewport top once scrolled, which makes browsers
-              treat it as already in view and skip the scroll. */}
-          <div id="top" aria-hidden className="sr-only" />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppFloatingButton />
+          {/* Public-site chrome (header, footer, WhatsApp, Tawk.to) lives in
+              components/layout/SiteChrome.tsx, rendered by app/(site)/layout.tsx and
+              app/not-found.tsx, so future /admin routes don't inherit it. */}
+          {children}
         </ThemeProvider>
-         
-            
-       <Script
-          id="tawk-to"
-          src="https://embed.tawk.to/6a982041ff007d344587c72a/default"
-          strategy="afterInteractive"
-      />
       </body>
 
     </html>

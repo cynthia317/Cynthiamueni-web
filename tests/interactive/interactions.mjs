@@ -270,7 +270,12 @@ async function themeTests(page) {
   const choose = async (label) => {
     await clickUntil(page, toggle, `!!document.querySelector('[role="group"][aria-label="Theme options"]')`);
     await clickByText(page, '[role="group"][aria-label="Theme options"] button', label);
-    await sleep(200);
+    // Wait for next-themes to record the choice instead of a fixed pause (a cold server
+    // after a fresh build made a 200ms pause occasionally too short). Assertions unchanged.
+    await waitUntil(page, `localStorage.getItem("theme") === ${JSON.stringify(label.toLowerCase())}`, {
+      message: `theme '${label}' was not applied`,
+    });
+    await sleep(100);
   };
 
   await page.evaluate(`localStorage.removeItem("theme"); true`).catch(() => {});

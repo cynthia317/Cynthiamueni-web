@@ -10,7 +10,10 @@ import FinalCta from "@/components/home/FinalCta";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: SITE_TITLE,
+  // `absolute` keeps the root layout's "%s | Cynthia Mueni" template off the home page title.
+  // (Before the (site) route-group move, the home page shared the root layout's segment,
+  // where Next.js doesn't apply the template; inside (site) it would.)
+  title: { absolute: SITE_TITLE },
   description: SITE_DESCRIPTION,
 };
 
